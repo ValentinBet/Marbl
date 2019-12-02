@@ -24,7 +24,6 @@ public class SettingsManager : MonoBehaviour
 
     private bool resExist = false;
     private int resPlace;
-    private bool init = false;
 
     [Header("Audio")]
     public Slider generalVolumeSlider;
@@ -61,6 +60,8 @@ public class SettingsManager : MonoBehaviour
         {
             ChangeKey(buttonParameters);
         }
+
+        Debug.Log(Screen.fullScreenMode);
     }
 
     void OnGUI()
@@ -76,6 +77,7 @@ public class SettingsManager : MonoBehaviour
                 lastKeyPressed = KeyCode.Mouse2;
 
             Event e = Event.current;
+
             if (e.isKey)
             {
                 lastKeyPressed = e.keyCode;
@@ -119,6 +121,7 @@ public class SettingsManager : MonoBehaviour
     private void InitSettingsList()
     {
         settingsList.settings.Quality = QualitySettings.GetQualityLevel();
+       //ettingsList.settings.Windowmode
     }
 
     private void InitVideoVisuals()
@@ -179,7 +182,7 @@ public class SettingsManager : MonoBehaviour
         {
             resDropdown.options.Add(new Dropdown.OptionData() { text = ResolutionsList[x].x + " * " + ResolutionsList[x].y });
 
-            if (ResolutionsList[x].x == Screen.currentResolution.width && ResolutionsList[x].y == Screen.currentResolution.height)
+            if (ResolutionsList[x].x == Screen.width && ResolutionsList[x].y == Screen.height)
             {
                 resExist = true;
                 resPlace = x;
@@ -188,7 +191,8 @@ public class SettingsManager : MonoBehaviour
 
         if (!resExist)
         {
-            resDropdown.options.Add(new Dropdown.OptionData() { text = Screen.currentResolution.width + " * " + Screen.currentResolution.height });
+            resDropdown.options.Add(new Dropdown.OptionData() { text = Screen.width + " * " + Screen.height });
+            ResolutionsList.Add(new Vector2Int(Screen.width, Screen.height));
             resPlace = resDropdown.options.Count;
         }
 
