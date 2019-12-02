@@ -40,7 +40,6 @@ public class PlayerListEntry : MonoBehaviour
             PhotonNetwork.LocalPlayer.SetCustomProperties(initialProps);
             PhotonNetwork.LocalPlayer.SetScore(0);
 
-            print(PhotonNetwork.LocalPlayer.GetTeam());
             dropTeam.value = (int)PhotonNetwork.LocalPlayer.GetTeam();
 
             PlayerReadyButton.onClick.AddListener(() =>

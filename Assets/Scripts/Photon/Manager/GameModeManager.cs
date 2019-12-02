@@ -11,6 +11,7 @@ using UnityEngine.UI;
 public class GameModeManager : MonoBehaviourPunCallbacks
 {
     public List<Transform> listPos;
+    public Transform listPosRandom;
     public string lobbyScene;
 
     List<string> prefabTeam = new List<string>();
@@ -75,14 +76,45 @@ public class GameModeManager : MonoBehaviourPunCallbacks
             }
         }
 
+        int numbrBallByTeam = PhotonNetwork.CurrentRoom.GetNbrbBallProp();
 
-        foreach (int index in _indexList)
+        if (PhotonNetwork.CurrentRoom.GetSpawnMode() == 0)
         {
-            foreach (Transform element in listPos[index].transform)
+            //------------------------------ MODE TEAM SPAWN ----------------------------
+
+            foreach (int index in _indexList)
             {
-                GameObject _newBall = PhotonNetwork.Instantiate(prefabTeam[index], element.position, Quaternion.identity);
+                int currentIndex = 0;
+                foreach (Transform element in listPos[index].transform)
+                {
+                    currentIndex++;
+                    GameObject _newBall = PhotonNetwork.Instantiate(prefabTeam[index], element.position, Quaternion.identity);
+
+                    if (currentIndex == numbrBallByTeam)
+                    {
+                        break;
+                    }
+                }
             }
         }
+        else
+        {
+            //------------------------------ MODE RANDOM SPAWN ----------------------------
+            Transform[] childs = listPosRandom.GetComponentsInChildren<Transform>();
+            List<Transform> spawnPos = new List<Transform>();
+            spawnPos.AddRange(childs);
+            spawnPos = ShuffleList(spawnPos);
+
+            foreach (int index in _indexList)
+            {
+                for(int i=0; i < numbrBallByTeam; i++)
+                {
+                    GameObject _newBall = PhotonNetwork.Instantiate(prefabTeam[index], spawnPos[0].position, Quaternion.identity);
+                    spawnPos.Remove(spawnPos[0]);
+                }
+            }
+        }
+
 
         CreateTeamList();
 
@@ -106,6 +138,20 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         myPV.RPC("RpcSetRoundText", RpcTarget.AllViaServer, "Round " + currentRound + " / " + roundNumber);
     }
+
+    List<Transform> ShuffleList(List<Transform> _myList)
+    {
+        for (int i = 0; i < _myList.Count; i++)
+        {
+            Transform temp = _myList[i];
+            int randomIndex = Random.Range(i, _myList.Count);
+            _myList[i] = _myList[randomIndex];
+            _myList[randomIndex] = temp;
+        }
+
+        return _myList;
+    }
+
 
     void GivePoint()
     {
