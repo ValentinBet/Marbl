@@ -40,7 +40,8 @@ public class PlayerListEntry : MonoBehaviour
             PhotonNetwork.LocalPlayer.SetCustomProperties(initialProps);
             PhotonNetwork.LocalPlayer.SetScore(0);
 
-            dropTeam.value = (int)PhotonNetwork.LocalPlayer.GetPlayerNumber();
+            print(PhotonNetwork.LocalPlayer.GetTeam());
+            dropTeam.value = (int)PhotonNetwork.LocalPlayer.GetTeam();
 
             PlayerReadyButton.onClick.AddListener(() =>
             {
@@ -80,7 +81,7 @@ public class PlayerListEntry : MonoBehaviour
         {
             if (p.ActorNumber == ownerId)
             {
-                PlayerColorImage.color = MarblGame.GetColor(p.GetPlayerNumber());
+                PlayerColorImage.color = MarblGame.GetColor((int) p.GetTeam());
             }
         }
     }
@@ -89,6 +90,27 @@ public class PlayerListEntry : MonoBehaviour
     {
         PlayerReadyButton.GetComponentInChildren<Text>().text = playerReady ? "Ready!" : "Ready?";
         PlayerReadyImage.enabled = playerReady;
+    }
+
+    public void ReFreshTeam() {
+
+        int idTeam = (int) PhotonNetwork.LocalPlayer.GetTeam();
+
+        dropTeam.value = idTeam;
+
+        PunTeams.Team myTeam = PunTeams.Team.red;
+
+        switch (idTeam)
+        {
+            case 0: myTeam = PunTeams.Team.red; break;
+            case 1: myTeam = PunTeams.Team.green; break;
+            case 2: myTeam = PunTeams.Team.blue; break;
+            case 3: myTeam = PunTeams.Team.yellow; break;
+        }
+
+        PhotonNetwork.LocalPlayer.SetTeam(myTeam);
+        PlayerColorImage.color = MarblGame.GetColor(idTeam);
+        PhotonNetwork.LocalPlayer.SetPlayerNumber(idTeam);
     }
 
     public void ChangeTeam()

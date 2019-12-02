@@ -11,7 +11,7 @@ using UnityEngine.UI;
 public class GameModeManager : MonoBehaviourPunCallbacks
 {
     public List<Transform> listPos;
-    public string multiplayerScene;
+    public string lobbyScene;
 
     List<string> prefabTeam = new List<string>();
 
@@ -369,19 +369,10 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
     IEnumerator WaitToRestartGame()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(6);
 
-        //myPV.RPC("LoadMyScene", RpcTarget.Others); 
-        PhotonNetwork.LoadLevel(multiplayerScene);
+        PhotonNetwork.LoadLevel(lobbyScene);
 
-        PhotonNetwork.DestroyAll();
-
-    }
-
-    [PunRPC]
-    public void LoadMyScene(string sceneName)
-    {
-        Debug.Log("REcieved RPC " + sceneName);
-        PhotonNetwork.LoadLevel(multiplayerScene); 
+        //PhotonNetwork.DestroyAll();
     }
 }

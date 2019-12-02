@@ -1,5 +1,6 @@
 ﻿using ExitGames.Client.Photon;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 using Photon.Realtime;
 using System.Collections.Generic;
 using UnityEngine;
@@ -63,6 +64,13 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         PlayerNameInput.text = PlayerPrefs.GetString("Name");
 
         ReconnectButton.SetActive(false);
+    }
+
+    private void Start()
+    {
+        if(PhotonNetwork.PlayerList.Length > 0) {
+            OnJoinedRoom();
+        }
     }
 
     #endregion
@@ -132,6 +140,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
             entry.transform.SetParent(InsideRoomPanel.transform);
             entry.transform.localScale = Vector3.one;
             entry.GetComponent<PlayerListEntry>().Initialize(p.ActorNumber, p.NickName);
+            entry.GetComponent<PlayerListEntry>().ReFreshTeam();
 
             object isPlayerReady;
             if (p.CustomProperties.TryGetValue(MarblGame.PLAYER_READY, out isPlayerReady))
