@@ -77,7 +77,7 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        //PhotonNetwork.LoadLevel(quitScene);
+        // SceneManager.LoadScene(quitScene);
     }
 
     public void DisplaySettings()

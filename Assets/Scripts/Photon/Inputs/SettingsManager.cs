@@ -6,10 +6,11 @@ using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
 {
+    // public static readonly int[,] Resolutions = new int[,] { { 1920, 1080 }, { 1680, 1050 }, { 1600, 1200 }, { 1600, 900 },
+    //   { 1440, 900 }, { 1366, 768 }, { 1360, 768 }, { 1280, 1024 }, { 1280, 960 }, { 1280, 800 }, { 1280, 768 }, { 1280, 720 }, { 1152, 864 }, { 1024, 768 } };
+
     public static readonly FullScreenMode[] Windowmodes = new FullScreenMode[2] { FullScreenMode.ExclusiveFullScreen, FullScreenMode.Windowed };
-    public static readonly int[,] Resolutions = new int[,] { { 1920, 1080 }, { 1680, 1050 }, { 1600, 1200 }, { 1600, 900 }, { 1600, 900 },
-        { 1440, 900 }, { 1366, 768 }, { 1360, 768 }, { 1280, 1024 }, { 1280, 960 }, { 1280, 800 }, { 1280, 768 }, { 1280, 720 }, { 1152, 864 }, { 1024, 768 } };
-    public List<Vector2Int> ResolutionsList = new List<Vector2Int>();
+
     [Header("General")]
     public GameObject videoPanel;
     public GameObject audioPanel;
@@ -19,6 +20,10 @@ public class SettingsManager : MonoBehaviour
     public Dropdown windowedDropdown;
     public Dropdown resDropdown;
     public Dropdown qualityDropdown;
+    public List<Vector2Int> ResolutionsList = new List<Vector2Int>();
+
+    private bool resExist = false;
+    private int resPlace;
 
     [Header("Audio")]
     public Slider generalVolumeSlider;
@@ -37,8 +42,7 @@ public class SettingsManager : MonoBehaviour
     [Header("Settings data")]
     public SettingsList settingsList;
 
-    private bool resExist = false;
-    private int  resPlace;
+
 
     private void Start()
     {
@@ -56,6 +60,8 @@ public class SettingsManager : MonoBehaviour
         {
             ChangeKey(buttonParameters);
         }
+
+        Debug.Log(Screen.fullScreenMode);
     }
 
     void OnGUI()
@@ -71,6 +77,7 @@ public class SettingsManager : MonoBehaviour
                 lastKeyPressed = KeyCode.Mouse2;
 
             Event e = Event.current;
+
             if (e.isKey)
             {
                 lastKeyPressed = e.keyCode;
@@ -114,12 +121,13 @@ public class SettingsManager : MonoBehaviour
     private void InitSettingsList()
     {
         settingsList.settings.Quality = QualitySettings.GetQualityLevel();
+       //ettingsList.settings.Windowmode
     }
 
     private void InitVideoVisuals()
     {
         windowedDropdown.value = settingsList.settings.Windowmode;
-        resDropdown.captionText.text = (Screen.currentResolution.width + " * " + Screen.currentResolution.height);
+        resDropdown.value = resPlace;
         qualityDropdown.value = settingsList.settings.Quality;
     }
 
@@ -134,7 +142,10 @@ public class SettingsManager : MonoBehaviour
     {
         // Save settings >>
         settingsList.settings.Windowmode = windowedDropdown.value;
-        settingsList.settings.Resolution = resDropdown.value;
+
+        resPlace = resDropdown.value;
+        settingsList.settings.Resolution = resPlace;
+
         settingsList.settings.Quality = qualityDropdown.value;
 
         settingsList.settings.GeneralVolume = generalVolumeSlider.value;
@@ -152,7 +163,7 @@ public class SettingsManager : MonoBehaviour
 
     private void MakeChanges()
     {
-        Screen.SetResolution(Resolutions[resDropdown.value, 0], Resolutions[resDropdown.value, 1], Windowmodes[settingsList.settings.Windowmode]);
+        Screen.SetResolution(ResolutionsList[resDropdown.value].x, ResolutionsList[resDropdown.value].y, Windowmodes[settingsList.settings.Windowmode]);
         QualitySettings.SetQualityLevel(settingsList.settings.Quality);
     }
 
@@ -167,11 +178,11 @@ public class SettingsManager : MonoBehaviour
 
     private void InitResDropdown()
     {
-        for (int x = 0; x < Resolutions.GetLength(0); x++)
+        for (int x = 0; x < ResolutionsList.Count; x++)
         {
-            resDropdown.options.Add(new Dropdown.OptionData() { text = ResolutionsList[x] + " * " + Resolutions[x, 1] });
+            resDropdown.options.Add(new Dropdown.OptionData() { text = ResolutionsList[x].x + " * " + ResolutionsList[x].y });
 
-            if (Resolutions[x, 0] == Screen.currentResolution.width && Resolutions[x, 1] == Screen.currentResolution.height)
+            if (ResolutionsList[x].x == Screen.width && ResolutionsList[x].y == Screen.height)
             {
                 resExist = true;
                 resPlace = x;
@@ -180,7 +191,8 @@ public class SettingsManager : MonoBehaviour
 
         if (!resExist)
         {
-            resDropdown.options.Add(new Dropdown.OptionData() { text = Screen.currentResolution.width + " * " + Screen.currentResolution.height });
+            resDropdown.options.Add(new Dropdown.OptionData() { text = Screen.width + " * " + Screen.height });
+            ResolutionsList.Add(new Vector2Int(Screen.width, Screen.height));
             resPlace = resDropdown.options.Count;
         }
 
@@ -203,13 +215,13 @@ public class SettingsManager : MonoBehaviour
 
     public void InitAudioVisuals()
     {
-        generalVolumeInputField.text = (settingsList.settings.GeneralVolume * 100).ToString();
+        generalVolumeInputField.text = (settingsList.settings.GeneralVolume).ToString();
         generalVolumeSlider.value = settingsList.settings.GeneralVolume;
     }
 
     public void OnGeneralVolumeSliderUpdate()
     {
-        generalVolumeInputField.text = (generalVolumeSlider.value * 100).ToString();
+        generalVolumeInputField.text = (generalVolumeSlider.value).ToString();
     }
 
     public void OnGeneralVolumeInputFieldUpdated()
@@ -222,7 +234,7 @@ public class SettingsManager : MonoBehaviour
         {
             generalVolumeInputField.text = "0";
         }
-        generalVolumeSlider.value = float.Parse(generalVolumeInputField.text) / 100;
+        generalVolumeSlider.value = float.Parse(generalVolumeInputField.text);
     }
 
     // <<
@@ -231,7 +243,7 @@ public class SettingsManager : MonoBehaviour
 
     public void InitControlsVisuals()
     {
-        mouseSensitivityInputField.text = (settingsList.settings.MouseSensitivity * 10).ToString();
+        mouseSensitivityInputField.text = (settingsList.settings.MouseSensitivity).ToString();
         mouseSensitivitySlider.value = settingsList.settings.MouseSensitivity;
 
         InitKeyVisuals();
@@ -239,7 +251,7 @@ public class SettingsManager : MonoBehaviour
 
     public void OnSensitivitySliderUpdate()
     {
-        mouseSensitivityInputField.text = (mouseSensitivitySlider.value * 10).ToString();
+        mouseSensitivityInputField.text = (mouseSensitivitySlider.value).ToString();
         InputManager.Instance.Inputs.inputs.MouseSensitivity = mouseSensitivitySlider.value;
     }
 
@@ -253,7 +265,7 @@ public class SettingsManager : MonoBehaviour
         {
             mouseSensitivityInputField.text = "0";
         }
-        mouseSensitivitySlider.value = float.Parse(mouseSensitivityInputField.text) / 10;
+        mouseSensitivitySlider.value = float.Parse(mouseSensitivityInputField.text);
         InputManager.Instance.Inputs.inputs.MouseSensitivity = mouseSensitivitySlider.value;
     }
 

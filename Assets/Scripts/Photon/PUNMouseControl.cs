@@ -191,7 +191,7 @@ public class PUNMouseControl : MonoBehaviour
 
                 if (Input.GetKey(InputManager.Instance.Inputs.inputs.MainButton2) && isHoldingShoot) // HOLD
                 {
-                    dragForce += -Input.GetAxis("Mouse Y"); // generate dragForce --> la limite est dragForceMaxValue;
+                    dragForce += -Input.GetAxis("Mouse Y") * (InputManager.Instance.Inputs.inputs.MouseSensitivity / 4); // generate dragForce --> la limite est dragForceMaxValue;
                     dragForce = Mathf.Clamp(dragForce, 0, dragForceMaxValue);
                     direction = mainCamera.transform.forward;
                     DisplayLineRenderer();
