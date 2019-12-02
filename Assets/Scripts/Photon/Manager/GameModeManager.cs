@@ -69,8 +69,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             int index = (int) p.GetTeam();
-            print(p.NickName);
-            print(MarblGame.GetColor(index));
 
             if (!_indexList.Contains(index))
             {
