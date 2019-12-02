@@ -9,7 +9,7 @@ public class SettingsManager : MonoBehaviour
     public static readonly FullScreenMode[] Windowmodes = new FullScreenMode[2] { FullScreenMode.ExclusiveFullScreen, FullScreenMode.Windowed };
     public static readonly int[,] Resolutions = new int[,] { { 1920, 1080 }, { 1680, 1050 }, { 1600, 1200 }, { 1600, 900 }, { 1600, 900 },
         { 1440, 900 }, { 1366, 768 }, { 1360, 768 }, { 1280, 1024 }, { 1280, 960 }, { 1280, 800 }, { 1280, 768 }, { 1280, 720 }, { 1152, 864 }, { 1024, 768 } };
-
+    public List<Vector2Int> ResolutionsList = new List<Vector2Int>();
     [Header("General")]
     public GameObject videoPanel;
     public GameObject audioPanel;
@@ -37,6 +37,8 @@ public class SettingsManager : MonoBehaviour
     [Header("Settings data")]
     public SettingsList settingsList;
 
+    private bool resExist = false;
+    private int  resPlace;
 
     private void Start()
     {
@@ -117,7 +119,7 @@ public class SettingsManager : MonoBehaviour
     private void InitVideoVisuals()
     {
         windowedDropdown.value = settingsList.settings.Windowmode;
-        resDropdown.value = settingsList.settings.Resolution;
+        resDropdown.captionText.text = (Screen.currentResolution.width + " * " + Screen.currentResolution.height);
         qualityDropdown.value = settingsList.settings.Quality;
     }
 
@@ -167,7 +169,19 @@ public class SettingsManager : MonoBehaviour
     {
         for (int x = 0; x < Resolutions.GetLength(0); x++)
         {
-            resDropdown.options.Add(new Dropdown.OptionData() { text = Resolutions[x, 0] + " * " + Resolutions[x, 1] });
+            resDropdown.options.Add(new Dropdown.OptionData() { text = ResolutionsList[x] + " * " + Resolutions[x, 1] });
+
+            if (Resolutions[x, 0] == Screen.currentResolution.width && Resolutions[x, 1] == Screen.currentResolution.height)
+            {
+                resExist = true;
+                resPlace = x;
+            }
+        }
+
+        if (!resExist)
+        {
+            resDropdown.options.Add(new Dropdown.OptionData() { text = Screen.currentResolution.width + " * " + Screen.currentResolution.height });
+            resPlace = resDropdown.options.Count;
         }
 
         resDropdown.RefreshShownValue();

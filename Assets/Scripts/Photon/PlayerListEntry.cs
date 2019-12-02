@@ -75,7 +75,7 @@ public class PlayerListEntry : MonoBehaviour
         PlayerNameText.text = playerName;
     }
 
-    private void OnPlayerNumberingChanged()
+    public void OnPlayerNumberingChanged()
     {
         foreach (Player p in PhotonNetwork.PlayerList)
         {
