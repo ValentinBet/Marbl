@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8023656339432682595
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8023656339432682593}
+  - component: {fileID: 8023656339432682594}
+  - component: {fileID: 8023656339432682592}
+  - component: {fileID: 8023656337903187909}
+  m_Layer: 0
+  m_Name: GameManger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8023656339432682593
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8023656339432682595}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8023656339432682594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8023656339432682595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49c7cd1bff5fa8244b03c6d9a4721d22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EndGameAnim: {fileID: 0}
+--- !u!114 &8023656339432682592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8023656339432682595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa6e4f50d955eaa46b8773690e595608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8023656337903187909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8023656339432682595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d61c329e982e2014fadf43e2c32daa47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1Pos:
+  - {x: 5, y: 0.5, z: 0}
+  - {x: 7, y: 0.5, z: 2}
+  - {x: 7, y: 0.5, z: -2}
+  - {x: 6, y: 0.5, z: 4}
+  - {x: 6, y: 0.5, z: -4}
+  player2Pos:
+  - {x: -5, y: 0.5, z: 0}
+  - {x: -7, y: 0.5, z: -2}
+  - {x: -7, y: 0.5, z: 2}
+  - {x: -6, y: 0.5, z: -4}
+  - {x: -6, y: 0.5, z: 4}
+  player3Pos:
+  - {x: 0, y: 0.5, z: 5}
+  - {x: -2, y: 0.5, z: 7}
+  - {x: 2, y: 0.5, z: 7}
+  - {x: -4, y: 0.5, z: 6}
+  - {x: 4, y: 0.5, z: 6}
+  player4Pos:
+  - {x: 0, y: 0.5, z: -5}
+  - {x: 2, y: 0.5, z: -7}
+  - {x: -2, y: 0.5, z: -7}
+  - {x: 4, y: 0.5, z: -6}
+  - {x: -4, y: 0.5, z: -6}
+  playerMarbles:
+  - {fileID: 2606568592673179982, guid: f5ead52ded22726438a2c9b7dd3c2d54, type: 3}
+  - {fileID: 4203004890689549020, guid: 8517e719f16479b42a5ffaab89e0c0f3, type: 3}
+  - {fileID: 4554085141060463971, guid: 379e92d9bf3f08441abcecb2aef24799, type: 3}
+  - {fileID: 4203404090022750076, guid: bf9799ea160f12b4eac4256f439160f8, type: 3}
+  teamParents:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ca: {fileID: 0}
