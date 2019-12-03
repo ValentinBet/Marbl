@@ -2,7 +2,9 @@
 using Photon.Pun.UtilityScripts;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class HillManager : MonoBehaviour
 {
@@ -49,7 +51,7 @@ public class HillManager : MonoBehaviour
     void SpawnHill()
     {
         List<Transform> _spawnPos = new List<Transform>();
-        _spawnPos.AddRange(GameObject.Find("HillsPos").transform.GetComponentsInChildren<Transform>());
+        _spawnPos = MarblFactory.GetListOfAllChild(GameObject.Find("HillsPos").transform);
 
         MarblFactory.ShuffleList(_spawnPos);
 
@@ -93,11 +95,54 @@ public class HillManager : MonoBehaviour
 
     void Contest()
     {
+        foreach (HillObj _hill in allHills)
+        {
+            if (_hill.ballInside.Count == 0)
+            {
+                return;
+            }
 
+            Team teamAlone = _hill.ballInside[0].myteam;
+
+            foreach (BallSettings _element in _hill.ballInside)
+            {
+                if(_element.myteam != teamAlone)
+                {
+                    return;
+                }
+            }
+
+            PhotonNetwork.CurrentRoom.AddTeamScore(teamAlone, currentPoint);
+        }
     }
 
     void Domination()
     {
+        foreach (HillObj _hill in allHills)
+        {
+            Dictionary<Team, int> teamValue = new Dictionary<Team, int>() { { Team.red, 0 }, { Team.green, 0 }, { Team.blue, 0 }, { Team.yellow, 0 } };
 
+            if (_hill.ballInside.Count == 0)
+            {
+                return;
+            }
+
+            foreach (BallSettings _element in _hill.ballInside)
+            {
+                teamValue[_element.myteam] += 1;
+            }
+
+            Team keyOfMaxValue = teamValue.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
+
+            foreach (KeyValuePair<Team, int> _element in teamValue)
+            {
+                if (_element.Key != keyOfMaxValue && _element.Value == teamValue[keyOfMaxValue])
+                {
+                    return;
+                }
+            }
+
+            PhotonNetwork.CurrentRoom.AddTeamScore(keyOfMaxValue, currentPoint);
+        }
     }
 }

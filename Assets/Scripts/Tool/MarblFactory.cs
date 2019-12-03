@@ -29,4 +29,16 @@ public static class MarblFactory
 
         return _myList;
     }
+
+    public static List<Transform> GetListOfAllChild(Transform _parent)
+    {
+        List<Transform> allChild = new List<Transform>();
+
+        foreach(Transform child in _parent)
+        {
+            allChild.Add(child);
+        }
+
+        return allChild;
+    }
 }

@@ -118,9 +118,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         else
         {
             //------------------------------ MODE RANDOM SPAWN ----------------------------
-            Transform[] childs = listPosRandom.GetComponentsInChildren<Transform>();
-            List<Transform> spawnPos = new List<Transform>();
-            spawnPos.AddRange(childs);
+            List<Transform> spawnPos = MarblFactory.GetListOfAllChild(listPosRandom);
+
             spawnPos = MarblFactory.ShuffleList(spawnPos);
 
             foreach (int index in _indexList)
