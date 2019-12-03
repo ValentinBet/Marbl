@@ -1257,7 +1257,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 402050866}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0.02, y: 2.08, z: 0.03}
+  m_LocalPosition: {x: -4.32, y: 2.08, z: 0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 871256842}
@@ -7807,6 +7807,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 150238142}
     m_Modifications:
+    - target: {fileID: 100912607625054059, guid: 16e15a410a901ce439f2fdfd52503f35,
+        type: 3}
+      propertyPath: m_Name
+      value: Panel
+      objectReference: {fileID: 0}
     - target: {fileID: 100912607625054058, guid: 16e15a410a901ce439f2fdfd52503f35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7926,11 +7931,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.3999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 100912607625054059, guid: 16e15a410a901ce439f2fdfd52503f35,
-        type: 3}
-      propertyPath: m_Name
-      value: Panel
       objectReference: {fileID: 0}
     - target: {fileID: 100912606436965289, guid: 16e15a410a901ce439f2fdfd52503f35,
         type: 3}

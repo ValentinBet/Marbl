@@ -9,7 +9,7 @@ public class SettingsManager : MonoBehaviour
     // public static readonly int[,] Resolutions = new int[,] { { 1920, 1080 }, { 1680, 1050 }, { 1600, 1200 }, { 1600, 900 },
     //   { 1440, 900 }, { 1366, 768 }, { 1360, 768 }, { 1280, 1024 }, { 1280, 960 }, { 1280, 800 }, { 1280, 768 }, { 1280, 720 }, { 1152, 864 }, { 1024, 768 } };
 
-    public static readonly FullScreenMode[] Windowmodes = new FullScreenMode[2] { FullScreenMode.ExclusiveFullScreen, FullScreenMode.Windowed };
+    public static readonly FullScreenMode[] Windowmodes = new FullScreenMode[4] { FullScreenMode.ExclusiveFullScreen, FullScreenMode.FullScreenWindow, FullScreenMode.MaximizedWindow, FullScreenMode.Windowed };
 
     [Header("General")]
     public GameObject videoPanel;
@@ -61,7 +61,6 @@ public class SettingsManager : MonoBehaviour
             ChangeKey(buttonParameters);
         }
 
-        Debug.Log(Screen.fullScreenMode);
     }
 
     void OnGUI()
@@ -121,7 +120,7 @@ public class SettingsManager : MonoBehaviour
     private void InitSettingsList()
     {
         settingsList.settings.Quality = QualitySettings.GetQualityLevel();
-       //ettingsList.settings.Windowmode
+        settingsList.settings.Windowmode = (int)Screen.fullScreenMode;
     }
 
     private void InitVideoVisuals()

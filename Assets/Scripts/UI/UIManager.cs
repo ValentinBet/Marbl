@@ -48,12 +48,15 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        DisplayEscapeMenu();
-
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            DisplayEscapeMenu();
+        }
         if (isShooting)
         {
             SetCamButtonState(false);
-        } else
+        }
+        else
         {
             SetCamButtonState(true);
         }
@@ -61,13 +64,10 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public void DisplayEscapeMenu()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            isEscapeMenuDisplayed = (isEscapeMenuDisplayed == false) ? true : false;
+        isEscapeMenuDisplayed = (isEscapeMenuDisplayed == false) ? true : false;
+        escapeMenu.SetActive(isEscapeMenuDisplayed);
+        generalMenu.SetActive(!isEscapeMenuDisplayed);
 
-            escapeMenu.SetActive(isEscapeMenuDisplayed);
-            generalMenu.SetActive(!isEscapeMenuDisplayed);
-        }
     }
 
     public void QuitGame()
