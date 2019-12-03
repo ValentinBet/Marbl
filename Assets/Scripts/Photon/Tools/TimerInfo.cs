@@ -10,7 +10,12 @@ public class TimerInfo : MonoBehaviour
     public Image myImg;
     public Text mytext;
 
+    public Animator myAnimator;
+    public AudioClip bipTimer;
+
     int maxTime;
+
+    int oldValue = 6;
 
     void Start()
     {
@@ -22,5 +27,12 @@ public class TimerInfo : MonoBehaviour
     {
         mytext.text = value.ToString();
         myImg.fillAmount = (float)value / (float)maxTime;
+
+        if(value <= 5 && oldValue != value)
+        {
+            oldValue = value;
+            myAnimator.SetTrigger("Shake");
+            AudioManager.Instance.PlayThisSound(bipTimer);
+        }
     }
 }
