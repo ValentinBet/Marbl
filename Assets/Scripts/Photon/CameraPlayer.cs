@@ -174,7 +174,7 @@ public class CameraPlayer : MonoBehaviour
 
         followBall.transform.position = targetedTransform.position;
 
-        if (Input.GetKey(InputManager.Instance.Inputs.inputs.MainButton1))
+        if (Input.GetKey(InputManager.Instance.Inputs.inputs.MainButton1) || Input.GetKey(InputManager.Instance.Inputs.inputs.MainButton2))
         {
             //orbitalAngle += Input.GetAxis("Mouse X") * 2.5f;
             //followBall.transform.rotation = Quaternion.Euler(initialRotation.eulerAngles + new Vector3(0, orbitalAngle, 0));// + myMouseControl.possibleAngles[myMouseControl.angleIndex] * curveVariation, 0));
