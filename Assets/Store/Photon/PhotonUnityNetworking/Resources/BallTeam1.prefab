@@ -199,6 +199,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 2
   MaxSpeed: 0.2
+  torqueForce: 1
+  ImpactGivingCoef: 1.8
+  ImpactRecievingCoef: 1.2
+  MinimalImpactForce: 0.05
   controllable: 1
 --- !u!114 &7495604838127120502
 MonoBehaviour:
