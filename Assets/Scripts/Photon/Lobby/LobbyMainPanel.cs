@@ -78,6 +78,11 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
             {
                 element.Value.GetComponent<PlayerListEntry>().OnPlayerNumberingChanged();
             }
+
+            foreach(Player p in PhotonNetwork.PlayerList)
+            {
+                PhotonNetwork.CurrentRoom.SetTeamScore(p.GetTeam(), 0);
+            }
         }
     }
 

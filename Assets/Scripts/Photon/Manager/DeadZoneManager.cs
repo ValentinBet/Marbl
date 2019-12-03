@@ -110,7 +110,7 @@ public class DeadZoneManager : MonoBehaviour
                         if ((bool)p.CustomProperties["playerTurn"])
                         {
                             PunTeams.Team _currentTeam = (PunTeams.Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
-                            string _messageKill = "<color=" + _currentTeam + ">" + StringExtensions.FirstCharToUpper(_currentTeam.ToString()) + "</color> eject marbl of <color=" + _ballTeam + ">" + StringExtensions.FirstCharToUpper(_ballTeam.ToString()) + "</color> ";
+                            string _messageKill = "<color=" + _currentTeam + ">" + MarblFactory.FirstCharToUpper(_currentTeam.ToString()) + "</color> eject marbl of <color=" + _ballTeam + ">" + MarblFactory.FirstCharToUpper(_ballTeam.ToString()) + "</color> ";
                             GameModeManager.Instance.SendKillFeedMessage(_messageKill);
                             break;
                         }
@@ -130,7 +130,7 @@ public class DeadZoneManager : MonoBehaviour
                 {
                     listTeamsDeath.Add(_ballTeam);
 
-                    string _messageEliminated = "<color=" + _ballTeam + ">" + StringExtensions.FirstCharToUpper(_ballTeam.ToString()) + " Team</color> eliminated !";
+                    string _messageEliminated = "<color=" + _ballTeam + ">" + MarblFactory.FirstCharToUpper(_ballTeam.ToString()) + " Team</color> eliminated !";
                     GameModeManager.Instance.SendKillFeedMessage(_messageEliminated);
                 }
 

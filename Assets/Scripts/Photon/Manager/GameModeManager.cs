@@ -36,6 +36,15 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     int roundNumber = 0;
     int currentRound = 1;
 
+
+    //----------------    BOOL DE CHAQUE MODE   -----------------
+    bool modeDM = false;
+    bool modeHill = false;
+    bool modeHue = false;
+    bool modeCoins = false;
+    bool modePotato = false;
+    bool modeBillard = false;
+
     private static GameModeManager _instance;
     public static GameModeManager Instance { get { return _instance; } }
 
@@ -56,6 +65,15 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
 
         if (!PhotonNetwork.IsMasterClient) { return; }
+
+        //GET MODE ACTIF
+        modeDM = PhotonNetwork.CurrentRoom.GetDeathmatch();
+        modeHill = PhotonNetwork.CurrentRoom.GetHill();
+        modeHue = PhotonNetwork.CurrentRoom.GetHue();
+        modeCoins = PhotonNetwork.CurrentRoom.GetCoins();
+        modePotato = PhotonNetwork.CurrentRoom.GetPotato();
+        modeBillard = PhotonNetwork.CurrentRoom.GetBillard();
+
 
         myPV = GetComponent<PhotonView>();
 
@@ -103,7 +121,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
             Transform[] childs = listPosRandom.GetComponentsInChildren<Transform>();
             List<Transform> spawnPos = new List<Transform>();
             spawnPos.AddRange(childs);
-            spawnPos = ShuffleList(spawnPos);
+            spawnPos = MarblFactory.ShuffleList(spawnPos);
 
             foreach (int index in _indexList)
             {
@@ -137,19 +155,13 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         }
 
         myPV.RPC("RpcSetRoundText", RpcTarget.AllViaServer, "Round " + currentRound + " / " + roundNumber);
-    }
 
-    List<Transform> ShuffleList(List<Transform> _myList)
-    {
-        for (int i = 0; i < _myList.Count; i++)
-        {
-            Transform temp = _myList[i];
-            int randomIndex = Random.Range(i, _myList.Count);
-            _myList[i] = _myList[randomIndex];
-            _myList[randomIndex] = temp;
-        }
 
-        return _myList;
+        //-----------------------------ACTIVATION DES MODES ACTIF-------------------------------------
+
+        HillManager.Instance.ActiveThisMode(modeHill);
+
+
     }
 
 
@@ -219,7 +231,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
             ball.GetComponent<PhotonView>().TransferOwnership(_player);
         }
 
-        string message = "<color=" + _player .GetTeam() + ">" + StringExtensions.FirstCharToUpper(_player.GetTeam().ToString()) + "</color>'s turn";
+        string message = "<color=" + _player .GetTeam() + ">" + MarblFactory.FirstCharToUpper(_player.GetTeam().ToString()) + "</color>'s turn";
         myPV.RPC("RpcDisplayMessage", RpcTarget.AllViaServer, message);
     }
 
@@ -311,7 +323,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                     PunTeams.Team currentTeam = (PunTeams.Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
                     playerTurnText.color = MarblGame.GetColor((int)currentTeam);
 
-                    teamMarblText.text = StringExtensions.FirstCharToUpper(GetNumberBallOfTeam(currentTeam).ToString()) + " Marbls left";
+                    teamMarblText.text = MarblFactory.FirstCharToUpper(GetNumberBallOfTeam(currentTeam).ToString()) + " Marbls left";
                     teamMarblText.color = MarblGame.GetColor((int)currentTeam);
                     return;
                 }
@@ -332,7 +344,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                     PunTeams.Team currentTeam = (PunTeams.Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
                     playerTurnText.color = MarblGame.GetColor((int)currentTeam);
 
-                    teamMarblText.text = StringExtensions.FirstCharToUpper(GetNumberBallOfTeam(currentTeam).ToString())  + " Marbls left";
+                    teamMarblText.text = MarblFactory.FirstCharToUpper(GetNumberBallOfTeam(currentTeam).ToString())  + " Marbls left";
                     teamMarblText.color = MarblGame.GetColor((int)currentTeam);
                     break;
                 }
@@ -349,9 +361,18 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         if ((bool)_target.CustomProperties["playerTurn"] == false && _target == playerplayed && turnStart)
         {
+            CallEndTurnMode();
             NextTurn();
         }
 
+    }
+
+    void CallEndTurnMode()
+    {
+        if (modeHill)
+        {
+            HillManager.Instance.EndTurn();
+        }
     }
 
     int GetNumberBallOfTeam(PunTeams.Team _team)
