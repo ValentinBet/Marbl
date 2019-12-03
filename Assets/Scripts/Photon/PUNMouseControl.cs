@@ -159,15 +159,13 @@ public class PUNMouseControl : MonoBehaviour
         mouseScrollDelta += Input.GetAxis("Mouse ScrollWheel");
         if (mouseScrollDelta > sensibility)
         {
-            angleIndex = (angleIndex + 1) % possibleAngles.Length;
+            angleIndex = angleIndex = Mathf.Clamp(angleIndex+1, 0, possibleAngles.Length);
             mouseScrollDelta = 0;
             //orientation = Mathf.Clamp(orientation + Input.GetAxis("Mouse ScrollWheel") * 10 * sensibility, 0.0f, 45.0f);
         }
         if (mouseScrollDelta < -sensibility)
         {
-            angleIndex--;
-            if (angleIndex < 0)
-                angleIndex = possibleAngles.Length - 1;
+            angleIndex = Mathf.Clamp(angleIndex-1,0,possibleAngles.Length);
             mouseScrollDelta = 0;
         }
         orientation = possibleAngles[angleIndex];
