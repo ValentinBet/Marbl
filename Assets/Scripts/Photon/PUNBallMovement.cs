@@ -9,6 +9,12 @@ public class PUNBallMovement : MonoBehaviour
 {
     public float MovementSpeed = 2.0f;
     public float MaxSpeed = 0.2f;
+    public float torqueForce = 1.0f;
+
+    public float ImpactGivingCoef = 1.8f;
+    public float ImpactRecievingCoef = 1.2f;
+    public float MinimalImpactForce = 2.0f;
+
     public bool controllable = true;
 
     private PhotonView photonView;
@@ -47,6 +53,7 @@ public class PUNBallMovement : MonoBehaviour
         Vector3 _impulse = direction * (dragForce * MovementSpeed);
 
         this.GetComponent<Rigidbody>().AddForce(_impulse, ForceMode.Impulse);
+        this.GetComponent<Rigidbody>().AddTorque(Vector3.Cross(direction,Vector3.up) * -torqueForce, ForceMode.Force);
     }
 
 
@@ -70,15 +77,17 @@ public class PUNBallMovement : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PUNBallMovement>() != null)
         {
-            if (Mathf.Abs(Mathf.Abs(collision.gameObject.transform.position.y) - Mathf.Abs(transform.position.y)) < 0.3f && collision.gameObject.GetComponent<Rigidbody>().velocity.sqrMagnitude > Physics.bounceThreshold * Physics.bounceThreshold && rigidbody.velocity.sqrMagnitude > Physics.bounceThreshold * Physics.bounceThreshold)
+            //Mathf.Abs(Mathf.Abs(collision.gameObject.transform.position.y) - Mathf.Abs(transform.position.y)) < 0.3f
+            if (collision.gameObject.GetComponent<Rigidbody>().velocity.sqrMagnitude > MinimalImpactForce * MinimalImpactForce && rigidbody.velocity.sqrMagnitude > MinimalImpactForce * MinimalImpactForce)
             {
+                Debug.Log("Impact Collision");
                 if (amplify == 0)
                 {
-                    rigidbody.velocity *= 1.8f * impactPower;
+                    rigidbody.velocity = rigidbody.velocity*ImpactGivingCoef*impactPower - Vector3.up*rigidbody.velocity.y*(ImpactGivingCoef-1);
                 }
                 else
                 {
-                    rigidbody.velocity *= 1.2f * impactPower;
+                    rigidbody.velocity = rigidbody.velocity*ImpactRecievingCoef * impactPower - Vector3.up* rigidbody.velocity.y*(ImpactRecievingCoef-1);
                 }
             }
         }

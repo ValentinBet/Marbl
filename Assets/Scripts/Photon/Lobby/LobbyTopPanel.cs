@@ -1,5 +1,6 @@
 ﻿using Photon.Pun;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -25,4 +26,9 @@ public class LobbyTopPanel : MonoBehaviourPunCallbacks
     }
 
     #endregion
+
+    public void DisplaySettings()
+    {
+        SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
+    }
 }
