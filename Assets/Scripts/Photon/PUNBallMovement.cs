@@ -44,6 +44,19 @@ public class PUNBallMovement : MonoBehaviour
             return;
         }
 
+        Ray ray = new Ray(transform.position,transform.position-Vector3.down*0.5f);
+        if (Physics.Raycast(ray, 0.5f, 10))
+        {
+            Debug.Log("Ground Detected");
+            if (gameObject.layer == 12)
+            {
+                gameObject.layer = 13;
+            }
+        }
+        else
+        {
+            gameObject.layer = 12;
+        }
 
     }
 
