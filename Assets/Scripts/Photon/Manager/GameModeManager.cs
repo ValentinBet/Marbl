@@ -28,7 +28,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     int indexTeamPlaying = 0;
 
     bool turnStart = false;
-    bool gameFinish = false;
+    public bool gameFinish = false;
 
     public Text playerTurnText;
     public Text teamMarblText;
@@ -158,34 +158,10 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         //-----------------------------ACTIVATION DES MODES ACTIF-------------------------------------
 
+        DeathMatchManager.Instance.ActiveThisMode(modeDM);
         HillManager.Instance.ActiveThisMode(modeHill);
 
 
-    }
-
-
-    void GivePoint()
-    {
-        if (PhotonNetwork.CurrentRoom.GetDeathmatch())
-        {
-            List<PunTeams.Team> listTeamsDeath = DeadZoneManager.Instance.listTeamsDeath;
-            int winPoint = PhotonNetwork.CurrentRoom.GetWinPointDM();
-            int point = 0;
-
-            foreach (PunTeams.Team team in listTeamsDeath)
-            {
-                PhotonNetwork.CurrentRoom.AddTeamScore(team, point);
-                point += Mathf.FloorToInt(winPoint / PhotonNetwork.PlayerList.Length);
-            }
-
-            foreach(PunTeams.Team element in presentTeam)
-            {
-                if (!listTeamsDeath.Contains(element))
-                {
-                    PhotonNetwork.CurrentRoom.AddTeamScore(element, winPoint);
-                }
-            }
-        }
     }
 
     void CreateTeamList()
@@ -261,7 +237,10 @@ public class GameModeManager : MonoBehaviourPunCallbacks
             if (currentRound > roundNumber && roundNumber != 21)
             {
                 //fin de partie
-                GivePoint();
+                if (modeDM)
+                {
+                    DeathMatchManager.Instance.GivePoint(presentTeam);
+                }
                 EndMode();
                 return;
             }
@@ -440,5 +419,10 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel(lobbyScene);
 
         //PhotonNetwork.DestroyAll();
+    }
+
+    public void DisplayPoint(Vector3 position, int value)
+    {
+        PhotonNetwork.Instantiate("Points", position, Quaternion.identity);
     }
 }

@@ -45,7 +45,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
         RemovePlayerTurn();
 
-        DeadZoneManager.Instance.localPlayerTeam = PhotonNetwork.LocalPlayer.GetTeam();
+        DeathMatchManager.Instance.localPlayerTeam = PhotonNetwork.LocalPlayer.GetTeam();
 
         PhotonNetwork.AutomaticallySyncScene = true;
 
@@ -92,7 +92,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
             }
 
             canShoot = (bool)PhotonNetwork.LocalPlayer.CustomProperties["playerTurn"];
-            DeadZoneManager.Instance.localPlayerTurn = canShoot;
+            DeathMatchManager.Instance.localPlayerTurn = canShoot;
         }
         catch
         {
@@ -229,6 +229,6 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
         Hashtable _turnPlayer = new Hashtable();
         _turnPlayer["playerTurn"] = false;
         PhotonNetwork.LocalPlayer.SetCustomProperties(_turnPlayer);
-        DeadZoneManager.Instance.NewTrun();
+        DeathMatchManager.Instance.NewTrun();
     }
 }
