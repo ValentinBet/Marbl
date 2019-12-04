@@ -167,8 +167,8 @@ Rigidbody:
   m_GameObject: {fileID: 5667429776553265490}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0.45
-  m_AngularDrag: 0.45
+  m_Drag: 0.55
+  m_AngularDrag: 0.75
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -257,6 +257,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 2
   MaxSpeed: 0.2
+  torqueForce: 1
+  ImpactGivingCoef: 1.8
+  ImpactRecievingCoef: 1.2
+  MinimalImpactForce: 2
   controllable: 1
 --- !u!114 &7495604838127120502
 MonoBehaviour:

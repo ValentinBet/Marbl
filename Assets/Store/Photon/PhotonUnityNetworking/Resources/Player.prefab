@@ -103,18 +103,16 @@ MonoBehaviour:
   orientation: 0
   actualSelectedBall: {fileID: 0}
   haveShoot: 0
-  sensibility: 0.1
+  sensibility: 1
   possibleAngles:
   - 0
   - 10
   - 17
-  - 24
-  - 31
-  - 38
-  - 45
+  - 25
+  - 32
   actualBallLineRenderer: {fileID: 0}
   cancelForce: 0.08
-  dragForceMaxValue: 7
+  dragForceMaxValue: 33
   mouseSensitivity: 1
   angleIndex: 0
   isHoldingShoot: 0
