@@ -6,4 +6,10 @@ using UnityEngine;
 public class BallSettings : MonoBehaviour
 {
     public PunTeams.Team myteam;
+    public ParticleSystem myTrail;
+
+    private void Start()
+    {
+        myTrail.startColor = MarblGame.GetColor((int) myteam);
+    }
 }
