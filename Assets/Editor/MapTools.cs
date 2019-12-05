@@ -20,6 +20,8 @@ public class MapTools : EditorWindow
     List<GameObject> ObjectInScene = new List<GameObject>();
     Map map = new Map();
 
+    TextAsset jsonMap;
+
     [MenuItem("Tools/Windows/Map Editor")]
     public static void OpenThisWindow()
     {
@@ -62,64 +64,68 @@ public class MapTools : EditorWindow
                 AssetDatabase.Refresh();
             }
         }
+
     }
 
     public string SaveMap()
     {
         map.mapObjects.Clear();
 
+        map.mapObjectsPosition = mapObj.transform.position;
+        map.mapObjectsRotation = mapObj.transform.rotation;
+        map.mapObjectsScale = mapObj.transform.localScale;
+
+        map.randomSpawnPosition = randomSpawnPos.transform.position;
+        map.randomSpawnRotation = randomSpawnPos.transform.rotation;
+        map.randomSpawnScale = randomSpawnPos.transform.localScale;
+
+        map.fixedSpawnPosition = fixedSpawnPos.transform.position;
+        map.fixedSpawnRotation = fixedSpawnPos.transform.rotation;
+        map.fixedSpawnScale = fixedSpawnPos.transform.localScale;
+
         foreach (GameObject go in ObjectInScene)
         {
             MapObject _object = new MapObject();
 
-            if (go.transform.root == fixedSpawnPos && (go != fixedSpawnPos))
+            if ((go == fixedSpawnPos) || (go == mapObj) || (go == randomSpawnPos) || (go.name == "Team1") || (go.name == "Team2") || (go.name == "Team3") || (go.name == "Team4"))
             {
-                if (go.transform.parent.name != fixedSpawnPos.gameObject.name)
+                _object.isRootParent = true;
+            }
+
+            if ((go != fixedSpawnPos) && (go != mapObj) && (go != randomSpawnPos))
+            {
+                if (go.transform.root.name == fixedSpawnPos.name && (go != fixedSpawnPos))
                 {
-                    _object.teamNumber = go.transform.parent.name;
+                    if (go.transform.parent.name != fixedSpawnPos.gameObject.name)
+                    {
+                        _object.teamNumber = go.transform.parent.name;
+                    }
                 }
+
+                _object.rootParent = go.transform.root.name;
+                _object.objectName = go.name;
+
+                if (PrefabUtility.GetCorrespondingObjectFromOriginalSource(go) != null)
+                {
+                    _object.prefabName = PrefabUtility.GetCorrespondingObjectFromOriginalSource(go).name;
+                }
+
+                _object.position = go.transform.position;
+                _object.rotation = go.transform.rotation;
+                _object.scale = go.transform.localScale;
+
+
+                    map.mapObjects.Add(_object);
             }
-
-            _object.rootParent = go.transform.root.name;           
-            _object.objectName = go.name;
-
-            if (PrefabUtility.GetCorrespondingObjectFromOriginalSource(go) != null)
-            {
-                _object.prefabName = PrefabUtility.GetCorrespondingObjectFromOriginalSource(go).name;
-            }
-
-            _object.position = go.transform.position;
-            _object.rotation = go.transform.rotation;
-            _object.scale = go.transform.localScale;
-
-            map.mapObjects.Add(_object);
         }
 
         map.mapName = mapName;
 
         return JsonUtility.ToJson(map, true);
     }
+
 }
 
-[Serializable]
-public class Map
-{
-    public string mapName;
 
-    public List<MapObject> mapObjects = new List<MapObject>();
-}
-
-[Serializable]
-public class MapObject
-{
-    public string objectName;
-    public string prefabName;
-    public string rootParent;
-    public string teamNumber;
-
-    public Vector3 position;
-    public Quaternion rotation;
-    public Vector3 scale;
-}
 
 
