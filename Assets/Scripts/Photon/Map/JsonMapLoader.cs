@@ -10,6 +10,7 @@ public class JsonMapLoader : MonoBehaviour
     public GameObject mapObj;
     public GameObject fixedSpawnPos;
     public GameObject randomSpawnPos;
+    public GameObject hillPos;
 
     [Space(16)]
     public GameObject team1;
@@ -29,6 +30,16 @@ public class JsonMapLoader : MonoBehaviour
         LoadedMap = JsonUtility.FromJson<Map>(jsonMap.text);
 
         mapObj.transform.localScale = LoadedMap.mapObjectsScale;
+        mapObj.transform.position = LoadedMap.mapObjectsPosition;
+        mapObj.transform.rotation = LoadedMap.mapObjectsRotation;
+
+        fixedSpawnPos.transform.localScale = LoadedMap.fixedSpawnScale;
+        fixedSpawnPos.transform.position = LoadedMap.fixedSpawnPosition;
+        fixedSpawnPos.transform.rotation = LoadedMap.fixedSpawnRotation;
+
+        randomSpawnPos.transform.localScale = LoadedMap.randomSpawnScale;
+        randomSpawnPos.transform.position = LoadedMap.randomSpawnPosition;
+        randomSpawnPos.transform.rotation = LoadedMap.randomSpawnRotation;     
 
         foreach (MapObject mapObject in LoadedMap.mapObjects)
         {
@@ -77,6 +88,13 @@ public class JsonMapLoader : MonoBehaviour
                 {
                     objInstance = new GameObject();
                     objInstance.name = mapObject.objectName;
+                }
+                else if (mapObject.rootParent == "HillsPos")
+                {
+                    objInstance = new GameObject();
+                    objInstance.name = mapObject.objectName;
+
+                    objInstance.transform.parent = hillPos.transform;
                 }
 
             } else

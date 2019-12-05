@@ -326,6 +326,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1336372074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1336372075}
+  m_Layer: 0
+  m_Name: HillsPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1336372075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336372074}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.5355, y: 2.5355, z: 2.5355}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1875291185
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,10 +385,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9df56cfdabb0be46b36574b1fdd10d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonMap: {fileID: 4900000, guid: d0ab2e4a87b48a44b88fe83f87a5ff23, type: 3}
+  jsonMap: {fileID: 4900000, guid: 88c8f727d7d499341bae3b1a5cfe8f3a, type: 3}
   mapObj: {fileID: 1026715485}
   fixedSpawnPos: {fileID: 1213122183}
   randomSpawnPos: {fileID: 1142174804}
+  hillPos: {fileID: 1336372074}
   team1: {fileID: 459603786}
   team2: {fileID: 770033435}
   team3: {fileID: 147935832}
@@ -375,5 +406,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
