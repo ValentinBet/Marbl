@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.Networking;
+using Photon.Pun.UtilityScripts;
 
 public class JsonMapLoader : MonoBehaviour
 {
-    public TextAsset jsonMap;
+    private string jsonMap;
 
     [Space(16)]
     public GameObject mapObj;
@@ -18,16 +22,53 @@ public class JsonMapLoader : MonoBehaviour
     public GameObject team3;
     public GameObject team4;
 
-    private void Start()
+    private PhotonView myPV;
+
+    private static JsonMapLoader _instance;
+    public static JsonMapLoader Instance { get { return _instance; } }
+
+    private void Awake()
     {
-        LoadMap();
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+        myPV = GetComponent<PhotonView>();
     }
 
-    public void LoadMap()
+
+    private void Start()
+    {
+        if (PhotonNetwork.LocalPlayer.IsMasterClient)
+        {
+           // object[] maps = Resources.LoadAll("Map", typeof(TextAsset));
+
+            var info = new DirectoryInfo(Application.streamingAssetsPath + "/Map/");
+            var fileInfo = info.GetFiles();
+            WWW data = new WWW(Application.streamingAssetsPath + "/Map/" + fileInfo[0].Name);
+
+            jsonMap = data.text;
+
+            myPV.RPC("RpcSendMapToAllClient", RpcTarget.AllViaServer, jsonMap);
+        }
+    }
+
+    [PunRPC]
+    public void RpcSendMapToAllClient(string map)
+    {
+        JsonMapLoader.Instance.LoadMap(map);
+    }
+
+    
+    public void LoadMap(string value)
     {
         Map LoadedMap = new Map();
 
-        LoadedMap = JsonUtility.FromJson<Map>(jsonMap.text);
+        LoadedMap = JsonUtility.FromJson<Map>(value);
 
         mapObj.transform.localScale = LoadedMap.mapObjectsScale;
         mapObj.transform.position = LoadedMap.mapObjectsPosition;
@@ -84,7 +125,7 @@ public class JsonMapLoader : MonoBehaviour
 
                     objInstance.transform.parent = randomSpawnPos.transform;
                 }
-                else if (mapObject.rootParent == "PosDeadZone")
+                else if (mapObject.rootParent == "DeadZone")
                 {
                     objInstance = new GameObject();
                     objInstance.name = mapObject.objectName;
@@ -122,6 +163,7 @@ public class JsonMapLoader : MonoBehaviour
                         team4.transform.localScale = mapObject.scale;
                         break;
                     default:
+                        Debug.Log(mapObject.objectName);
                         Debug.Log("Error");
                         break;
                 }
@@ -135,5 +177,8 @@ public class JsonMapLoader : MonoBehaviour
                 objInstance.name = mapObject.objectName;
             }
         }
+        Debug.Log(PhotonNetwork.LocalPlayer.GetPlayerMapState());
+        PhotonNetwork.LocalPlayer.SetPlayerMapState(true);
+        Debug.Log(PhotonNetwork.LocalPlayer.GetPlayerMapState());
     }
 }

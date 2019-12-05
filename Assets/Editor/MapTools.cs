@@ -62,7 +62,7 @@ public class MapTools : EditorWindow
             {
                 string _ToJson = SaveMap();
 
-                File.WriteAllText(Application.dataPath + "/Map/" + mapName + ".json", _ToJson);
+                File.WriteAllText(Application.streamingAssetsPath + "/Map/" + mapName + ".json", _ToJson);
                 AssetDatabase.Refresh();
             }
         }
@@ -90,7 +90,7 @@ public class MapTools : EditorWindow
             MapObject _object = new MapObject();
 
             if ((go == fixedSpawnPos) || (go == mapObj) || (go == randomSpawnPos) || (go.name == "Team1") || (go.name == "Team2") || (go.name == "Team3") 
-                || (go.name == "Team4")|| (go.name == hillPos.name) )
+                || (go.name == "Team4") )
             {
                 _object.isRootParent = true;
             }
