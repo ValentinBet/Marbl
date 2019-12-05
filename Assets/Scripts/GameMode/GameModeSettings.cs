@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "GameMode1.asset", menuName = "Tools/Create gamemode settings", order = 99)]
-public class GameModeSettings : ScriptableObject
+[Serializable]
+public class GameModeSettings
 {
     public int map;
     public bool deathmatch;

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using Photon.Pun.UtilityScripts;
 using static UnityEngine.UI.Dropdown;
 using System.IO;
+using UnityEditor;
 
 public class RoomSettings : MonoBehaviour
 {
@@ -86,42 +87,35 @@ public class RoomSettings : MonoBehaviour
         }
     }
 
-
     private void Start()
     {
         SetDropDownSettings();
-
         Refresh();
     }
 
     void SetDropDownSettings()
     {
+        gameMode.myDropdown.ClearOptions();
+
         var info = new DirectoryInfo(Application.streamingAssetsPath + "/GameModes/");
         var fileInfo = info.GetFiles();
 
-        foreach (FileInfo file in fileInfo)
-        {
-            if (file.Name.Contains(".meta")){ return; }
-
-            WWW data = new WWW(Application.streamingAssetsPath + "/GameModes/" + file.Name);
-        }
-
-        return;
-
-    }
-        /*
         List<OptionData> listSettings = new List<OptionData>();
 
-        foreach (GameModeSettings element in scriptableSettings)
+        foreach (FileInfo file in fileInfo)
         {
-            listSettings.Add(new OptionData(element.name.Replace(".asset", "")));
+            if (file.Name.Contains(".meta"))
+            {
+                continue;
+            }
+
+            listSettings.Add(new OptionData(file.Name.Replace(".json", "")));
         }
 
         listSettings.Add(new OptionData("Custom"));
 
         gameMode.myDropdown.AddOptions(listSettings);
-        */
-    
+    }
 
     public void Refresh()
     {
@@ -183,7 +177,7 @@ public class RoomSettings : MonoBehaviour
 
     void ShowHide(List<GameObject> elements, bool value)
     {
-        foreach(GameObject element in elements)
+        foreach (GameObject element in elements)
         {
             element.SetActive(value);
         }
@@ -229,7 +223,7 @@ public class RoomSettings : MonoBehaviour
             PhotonNetwork.CurrentRoom.SetNbrHill(Mathf.RoundToInt(nbrHill.mySlider.value));
             PhotonNetwork.CurrentRoom.SetHillMode(Mathf.RoundToInt(hillMode.myDropdown.value));
             PhotonNetwork.CurrentRoom.SetHillPoint(Mathf.RoundToInt(hillPoint.mySlider.value));
-        }   
+        }
 
         PhotonNetwork.CurrentRoom.SetCoins(coins.statut);
         if (coins.statut)
@@ -259,9 +253,9 @@ public class RoomSettings : MonoBehaviour
 
     public void SetPreset()
     {
-        if(gameMode.myDropdown.value +1 == gameMode.myDropdown.options.Count)
+        if (gameMode.myDropdown.value + 1 == gameMode.myDropdown.options.Count)
         {
-            foreach(Transform element in parent)
+            foreach (Transform element in parent)
             {
                 element.gameObject.SetActive(true);
             }
@@ -278,45 +272,78 @@ public class RoomSettings : MonoBehaviour
         gameMode.gameObject.SetActive(true);
         roomSettingsLabel.gameObject.SetActive(true);
 
-        GameModeSettings mySettings = Resources.Load<GameModeSettings>("GameModes/" + gameMode.myDropdown.options[gameMode.myDropdown.value].text);
+        WWW data = new WWW(Application.streamingAssetsPath + "/GameModes/" + gameMode.myDropdown.options[gameMode.myDropdown.value].text + ".json");
+        GameModeSettings modeSettings = new GameModeSettings();
 
-        map.dropMap.value = mySettings.map;
-        deathmatch.SetValue(mySettings.deathmatch);
-        hill.SetValue(mySettings.hill);
-        coins.SetValue(mySettings.coins);
-        potato.SetValue(mySettings.potato);
-        hue.SetValue(mySettings.hue);
-        billard.SetValue(mySettings.billard);
-        turnLimit.mySlider.value = mySettings.turnLimit;
-        round.mySlider.value = mySettings.round;
+        modeSettings = JsonUtility.FromJson<GameModeSettings>(data.text);
 
-        nbrBall.mySlider.value = mySettings.nbrBall;
-        spawnMode.myDropdown.value = mySettings.spawnMode;
-        launchPower.mySlider.value = mySettings.launchPower;
-        impactPower.mySlider.value = mySettings.impactPower;
-
-        winPointDM.mySlider.value = mySettings.winPointDM;
-        elimPointDM.mySlider.value = mySettings.elimPointDM;
-        killstreakDM.SetValue(mySettings.killstreakDM);
-        suicidePointDM.mySlider.value = mySettings.suicidePointDM;
-
-        nbrHill.mySlider.value = mySettings.nbrHill;
-        hillMode.myDropdown.value = mySettings.hillMode;
-        hillPoint.mySlider.value = mySettings.hillPoint;
-
-        coinsAmount.myDropdown.value = mySettings.coinsAmount;
-
-        potatoTurnMin.mySlider.value = mySettings.potatoTurnMin;
-        potatoTurnMax.mySlider.value = mySettings.potatoTurnMax;
-
-        hueNutralBall.mySlider.value = mySettings.hueNutralBall;
-
-        billardBall.mySlider.value = mySettings.billardBall;
+        map.dropMap.value = modeSettings.map;
+        deathmatch.SetValue(modeSettings.deathmatch);
+        hill.SetValue(modeSettings.hill);
+        coins.SetValue(modeSettings.coins);
+        potato.SetValue(modeSettings.potato);
+        hue.SetValue(modeSettings.hue);
+        billard.SetValue(modeSettings.billard);
+        turnLimit.mySlider.value = modeSettings.turnLimit;
+        round.mySlider.value = modeSettings.round;
+        nbrBall.mySlider.value = modeSettings.nbrBall;
+        spawnMode.myDropdown.value = modeSettings.spawnMode;
+        launchPower.mySlider.value = modeSettings.launchPower;
+        impactPower.mySlider.value = modeSettings.impactPower;
+        winPointDM.mySlider.value = modeSettings.winPointDM;
+        elimPointDM.mySlider.value = modeSettings.elimPointDM;
+        killstreakDM.SetValue(modeSettings.killstreakDM);
+        suicidePointDM.mySlider.value = modeSettings.suicidePointDM;
+        nbrHill.mySlider.value = modeSettings.nbrHill;
+        hillMode.myDropdown.value = modeSettings.hillMode;
+        hillPoint.mySlider.value = modeSettings.hillPoint;
+        coinsAmount.myDropdown.value = modeSettings.coinsAmount;
+        potatoTurnMin.mySlider.value = modeSettings.potatoTurnMin;
+        potatoTurnMax.mySlider.value = modeSettings.potatoTurnMax;
+        hueNutralBall.mySlider.value = modeSettings.hueNutralBall;
+        billardBall.mySlider.value = modeSettings.billardBall;
     }
 
 
     public void SaveCustomSettings()
     {
-        
+        SaveFile();
+        SetDropDownSettings();
+    }
+
+    void SaveFile()
+    {
+        GameModeSettings modeSettings = new GameModeSettings();
+
+        modeSettings.map = map.dropMap.value;
+        modeSettings.deathmatch = deathmatch.statut;
+        modeSettings.hill = hill.statut;
+        modeSettings.coins = coins.statut;
+        modeSettings.potato = potato.statut;
+        modeSettings.hue = hue.statut;
+        modeSettings.billard = billard.statut;
+        modeSettings.turnLimit = Mathf.RoundToInt(turnLimit.mySlider.value);
+        modeSettings.round = Mathf.RoundToInt(round.mySlider.value);
+        modeSettings.nbrBall = Mathf.RoundToInt(nbrBall.mySlider.value);
+        modeSettings.spawnMode = spawnMode.myDropdown.value;
+        modeSettings.launchPower = launchPower.mySlider.value;
+        modeSettings.impactPower = impactPower.mySlider.value;
+        modeSettings.winPointDM = Mathf.RoundToInt(winPointDM.mySlider.value);
+        modeSettings.elimPointDM = Mathf.RoundToInt(elimPointDM.mySlider.value);
+        modeSettings.killstreakDM = killstreakDM.defaultValue;
+        modeSettings.suicidePointDM = Mathf.RoundToInt(suicidePointDM.mySlider.value);
+        modeSettings.nbrHill = Mathf.RoundToInt(nbrHill.mySlider.value);
+        modeSettings.hillMode = hillMode.myDropdown.value;
+        modeSettings.hillPoint = Mathf.RoundToInt(hillPoint.mySlider.value);
+        modeSettings.coinsAmount = coinsAmount.myDropdown.value;
+        modeSettings.potatoTurnMin = Mathf.RoundToInt(potatoTurnMin.mySlider.value);
+        modeSettings.potatoTurnMax = Mathf.RoundToInt(potatoTurnMax.mySlider.value);
+        modeSettings.hueNutralBall = Mathf.RoundToInt(hueNutralBall.mySlider.value);
+        modeSettings.billardBall = Mathf.RoundToInt(billardBall.mySlider.value);
+
+        string toj = JsonUtility.ToJson(modeSettings);
+
+        File.WriteAllText(Application.streamingAssetsPath + "/GameModes/" + saveSettingsText.text + ".json", toj);
+        AssetDatabase.Refresh();
     }
 }
