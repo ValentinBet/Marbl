@@ -36,6 +36,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     int roundNumber = 0;
     int currentRound = 1;
 
+    bool allHaveLoadMap = false;
+
 
     //----------------    BOOL DE CHAQUE MODE   -----------------
     bool modeDM = false;
@@ -195,9 +197,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
     void SetPlayerTurn(Player _player)
     {
-        Hashtable _turnPlayer = new Hashtable();
-        _turnPlayer["playerTurn"] = true;
-        _player.SetCustomProperties(_turnPlayer);
+        _player.SetPlayerTurnState(true);
 
         GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
 
@@ -212,9 +212,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
     void RemovePlayerTurn(Player _player)
     {
-        Hashtable _turnPlayer = new Hashtable();
-        _turnPlayer["playerTurn"] = false;
-        _player.SetCustomProperties(_turnPlayer);
+        _player.SetPlayerTurnState(false);
     }
 
     void RoomSetTurn()
@@ -295,7 +293,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         {
             try
             {
-                if ((bool)p.CustomProperties["playerTurn"])
+                if (p.GetPlayerTurnState())
                 {
                     playerTurnText.text = p.NickName + "'s turn !";
                     PunTeams.Team currentTeam = (PunTeams.Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
@@ -322,7 +320,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         {
             try
             {
-                if ((bool)p.CustomProperties["playerTurn"])
+                if (p.GetPlayerTurnState())
                 {
                     playerTurnText.text = p.NickName + "'s turn !";
                     PunTeams.Team currentTeam = (PunTeams.Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
@@ -343,17 +341,37 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         if (!PhotonNetwork.IsMasterClient) { return; }
 
-        if ((bool)_target.CustomProperties["playerTurn"] == true && _target == playerplayed && !turnStart)
+        if (_target.GetPlayerTurnState() == true && _target == playerplayed && !turnStart && allHaveLoadMap)
         {
             turnStart = true;
         }
 
-        if ((bool)_target.CustomProperties["playerTurn"] == false && _target == playerplayed && turnStart)
+        if (_target.GetPlayerTurnState() == false && _target == playerplayed && turnStart && allHaveLoadMap)
         {
             CallEndTurnMode();
             NextTurn();
         }
 
+        if (!allHaveLoadMap)
+        {
+            if (CheckAllHaveLoadMap())
+            {
+                allHaveLoadMap = true;
+                StartGame();
+            }
+        }
+    }
+
+    bool CheckAllHaveLoadMap()
+    {
+        foreach (Player p in PhotonNetwork.PlayerList)
+        {
+            if (!p.GetPlayerMapState())
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     void CallEndTurnMode()

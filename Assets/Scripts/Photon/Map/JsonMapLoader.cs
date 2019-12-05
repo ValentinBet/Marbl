@@ -177,8 +177,6 @@ public class JsonMapLoader : MonoBehaviour
                 objInstance.name = mapObject.objectName;
             }
         }
-        Debug.Log(PhotonNetwork.LocalPlayer.GetPlayerMapState());
         PhotonNetwork.LocalPlayer.SetPlayerMapState(true);
-        Debug.Log(PhotonNetwork.LocalPlayer.GetPlayerMapState());
     }
 }
