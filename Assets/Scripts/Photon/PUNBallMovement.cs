@@ -25,6 +25,8 @@ public class PUNBallMovement : MonoBehaviour
 
     private float impactPower;
 
+    public GameObject impactPrefab;
+
     private void Awake()
     {
         photonView = GetComponent<PhotonView>();
@@ -94,6 +96,7 @@ public class PUNBallMovement : MonoBehaviour
             if (collision.gameObject.GetComponent<Rigidbody>().velocity.sqrMagnitude > MinimalImpactForce * MinimalImpactForce && rigidbody.velocity.sqrMagnitude > MinimalImpactForce * MinimalImpactForce)
             {
                 Debug.Log("Impact Collision");
+
                 if (amplify == 0)
                 {
                     rigidbody.velocity = rigidbody.velocity*ImpactGivingCoef*impactPower - Vector3.up*rigidbody.velocity.y*(ImpactGivingCoef-1);
@@ -103,6 +106,15 @@ public class PUNBallMovement : MonoBehaviour
                     rigidbody.velocity = rigidbody.velocity*ImpactRecievingCoef * impactPower - Vector3.up* rigidbody.velocity.y*(ImpactRecievingCoef-1);
                 }
             }
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Ball")
+        {
+            GameObject impact = Instantiate(impactPrefab, collision.contacts[0].point, Quaternion.identity);
+            Destroy(impact, 2);
         }
     }
 
