@@ -204,10 +204,21 @@ MonoBehaviour:
   torqueForce: 1
   ImpactGivingCoef: 1.8
   ImpactRecievingCoef: 1.2
-  MinimalImpactForce: 2
+  MinimalImpactForce: 0.05
   controllable: 1
-  impactPrefab: {fileID: 8272351899123631453, guid: 3061737f269749f41bbc70ef3ed05953,
-    type: 3}
+  impactPrefab:
+  - {fileID: 1782691672786992, guid: 4fe6b9df8812dfe48a34a95b48fa7d71, type: 3}
+  - {fileID: 1782691672786992, guid: 9f410f93e47f7f84abdd8aa722a31585, type: 3}
+  - {fileID: 100000, guid: f06e78284f831ae469c74624ab5d513b, type: 3}
+  - {fileID: 1147451669121446, guid: 876800f177db13142b4654c9184703dc, type: 3}
+  - {fileID: 1531422675747472, guid: 96da1c4a5d6334942b7b8685257de4e5, type: 3}
+  - {fileID: 100000, guid: a6dd1b9366fffdb46b787f47735c17f0, type: 3}
+  - {fileID: 100000, guid: c716261df916f61419116c38893522f0, type: 3}
+  - {fileID: 100002, guid: e0dbcc10e51847047bf6517df987b8e0, type: 3}
+  - {fileID: 100002, guid: 2b72198793d0ddf418b28c556d8de663, type: 3}
+  - {fileID: 100002, guid: 5c1a1b8b0fc6a7a4083086fd4b43b8cf, type: 3}
+  - {fileID: 100002, guid: c6bb7802ff756c7468bc01ea0e605e0e, type: 3}
+  - {fileID: 100002, guid: c238cf19a1358114a8f6efc4ef866c05, type: 3}
 --- !u!114 &7495604838127120502
 MonoBehaviour:
   m_ObjectHideFlags: 0

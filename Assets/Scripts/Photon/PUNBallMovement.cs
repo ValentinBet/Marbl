@@ -25,7 +25,7 @@ public class PUNBallMovement : MonoBehaviour
 
     private float impactPower;
 
-    public GameObject impactPrefab;
+    public List<GameObject> impactPrefab;
 
     private void Awake()
     {
@@ -114,7 +114,7 @@ public class PUNBallMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ball" && collision.relativeVelocity.magnitude > 8)
         {
-            GameObject impact = Instantiate(impactPrefab, collision.contacts[0].point, Quaternion.identity);
+            GameObject impact = Instantiate(impactPrefab[Random.Range(0, impactPrefab.Count)], collision.contacts[0].point, Quaternion.identity);
             Destroy(impact, 2);
         }
     }
