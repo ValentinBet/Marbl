@@ -24,6 +24,8 @@ public class JsonMapLoader : MonoBehaviour
 
     private PhotonView myPV;
 
+    int mapIndex;
+
     private static JsonMapLoader _instance;
     public static JsonMapLoader Instance { get { return _instance; } }
 
@@ -45,11 +47,11 @@ public class JsonMapLoader : MonoBehaviour
     {
         if (PhotonNetwork.LocalPlayer.IsMasterClient)
         {
-           // object[] maps = Resources.LoadAll("Map", typeof(TextAsset));
+            mapIndex = PhotonNetwork.CurrentRoom.GetMap();
 
             var info = new DirectoryInfo(Application.streamingAssetsPath + "/Map/");
             var fileInfo = info.GetFiles();
-            WWW data = new WWW(Application.streamingAssetsPath + "/Map/" + fileInfo[0].Name);
+            WWW data = new WWW(Application.streamingAssetsPath + "/Map/" + fileInfo[mapIndex].Name);
 
             jsonMap = data.text;
 
