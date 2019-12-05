@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 7063088898512388730}
   - component: {fileID: 4809954099735983968}
   - component: {fileID: 7495604838127120502}
+  - component: {fileID: 114126270362074972}
   m_Layer: 10
   m_Name: BallTeam3
   m_TagString: Ball
@@ -232,6 +233,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isSelected: 0
+--- !u!114 &114126270362074972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5667429776553265490}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a3a816f18174e47a00f6633e04fd98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_targetIconOnScreen: {fileID: 21300000, guid: 86afea3b74d20d14fa1a7f5d6f485a78,
+    type: 3}
+  m_targetIconOffScreen: {fileID: 21300000, guid: 5ae7a90b8a931594cad4e3596357033c,
+    type: 3}
+  m_edgeBuffer: 0
+  m_targetIconScale: {x: 0.2, y: 0.2, z: 0.2}
+  ShowDebugLines: 0
 --- !u!1 &8353701435842393311
 GameObject:
   m_ObjectHideFlags: 0
