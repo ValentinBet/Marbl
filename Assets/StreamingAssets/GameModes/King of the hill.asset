@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b12ea7311be2e614aaa63779e6acfa3d, type: 3}
+  m_Name: King of the hill
+  m_EditorClassIdentifier: 
+  map: 0
+  deathmatch: 0
+  hill: 1
+  coins: 0
+  potato: 0
+  hue: 0
+  billard: 0
+  turnLimit: 30
+  round: 10
+  nbrBall: 4
+  spawnMode: 0
+  launchPower: 2
+  impactPower: 1.5
+  winPointDM: 0
+  elimPointDM: 0
+  killstreakDM: 0
+  suicidePointDM: 0
+  nbrHill: 1
+  hillMode: 0
+  hillPoint: 1
+  coinsAmount: 0
+  potatoTurnMin: 0
+  potatoTurnMax: 0
+  hueNutralBall: 0
+  billardBall: 0

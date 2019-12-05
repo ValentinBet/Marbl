@@ -4,17 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun.UtilityScripts;
+using static UnityEngine.UI.Dropdown;
+using System.IO;
 
 public class RoomSettings : MonoBehaviour
 {
     public Animator myAnimator;
     bool isOpen = false;
 
+    public Transform parent;
 
+    public GameObject roomSettingsLabel;
+    public GameObject saveSettingsObj;
+    public Text saveSettingsText;
 
     [Header("Room")]
 
     public MapSettings map;
+    public DropdownSettings gameMode;
     public CheckBoxSettings deathmatch;
     public CheckBoxSettings hill;
     public CheckBoxSettings coins;
@@ -82,11 +89,43 @@ public class RoomSettings : MonoBehaviour
 
     private void Start()
     {
+        SetDropDownSettings();
+
         Refresh();
     }
 
+    void SetDropDownSettings()
+    {
+        var info = new DirectoryInfo(Application.streamingAssetsPath + "/GameModes/");
+        var fileInfo = info.GetFiles();
+
+        foreach (FileInfo file in fileInfo)
+        {
+            if (file.Name.Contains(".meta")){ return; }
+
+            WWW data = new WWW(Application.streamingAssetsPath + "/GameModes/" + file.Name);
+        }
+
+        return;
+
+    }
+        /*
+        List<OptionData> listSettings = new List<OptionData>();
+
+        foreach (GameModeSettings element in scriptableSettings)
+        {
+            listSettings.Add(new OptionData(element.name.Replace(".asset", "")));
+        }
+
+        listSettings.Add(new OptionData("Custom"));
+
+        gameMode.myDropdown.AddOptions(listSettings);
+        */
+    
+
     public void Refresh()
     {
+
         if (deathmatch.statut)
         {
             ShowHide(deathMatchObj, true);
@@ -216,5 +255,68 @@ public class RoomSettings : MonoBehaviour
         {
             PhotonNetwork.CurrentRoom.SetBillardBall(Mathf.RoundToInt(billardBall.mySlider.value));
         }
+    }
+
+    public void SetPreset()
+    {
+        if(gameMode.myDropdown.value +1 == gameMode.myDropdown.options.Count)
+        {
+            foreach(Transform element in parent)
+            {
+                element.gameObject.SetActive(true);
+            }
+            Refresh();
+            return;
+        }
+
+        foreach (Transform element in parent)
+        {
+            element.gameObject.SetActive(false);
+        }
+
+        map.gameObject.SetActive(true);
+        gameMode.gameObject.SetActive(true);
+        roomSettingsLabel.gameObject.SetActive(true);
+
+        GameModeSettings mySettings = Resources.Load<GameModeSettings>("GameModes/" + gameMode.myDropdown.options[gameMode.myDropdown.value].text);
+
+        map.dropMap.value = mySettings.map;
+        deathmatch.SetValue(mySettings.deathmatch);
+        hill.SetValue(mySettings.hill);
+        coins.SetValue(mySettings.coins);
+        potato.SetValue(mySettings.potato);
+        hue.SetValue(mySettings.hue);
+        billard.SetValue(mySettings.billard);
+        turnLimit.mySlider.value = mySettings.turnLimit;
+        round.mySlider.value = mySettings.round;
+
+        nbrBall.mySlider.value = mySettings.nbrBall;
+        spawnMode.myDropdown.value = mySettings.spawnMode;
+        launchPower.mySlider.value = mySettings.launchPower;
+        impactPower.mySlider.value = mySettings.impactPower;
+
+        winPointDM.mySlider.value = mySettings.winPointDM;
+        elimPointDM.mySlider.value = mySettings.elimPointDM;
+        killstreakDM.SetValue(mySettings.killstreakDM);
+        suicidePointDM.mySlider.value = mySettings.suicidePointDM;
+
+        nbrHill.mySlider.value = mySettings.nbrHill;
+        hillMode.myDropdown.value = mySettings.hillMode;
+        hillPoint.mySlider.value = mySettings.hillPoint;
+
+        coinsAmount.myDropdown.value = mySettings.coinsAmount;
+
+        potatoTurnMin.mySlider.value = mySettings.potatoTurnMin;
+        potatoTurnMax.mySlider.value = mySettings.potatoTurnMax;
+
+        hueNutralBall.mySlider.value = mySettings.hueNutralBall;
+
+        billardBall.mySlider.value = mySettings.billardBall;
+    }
+
+
+    public void SaveCustomSettings()
+    {
+        GameModeSettings.CreateNewSettings(saveSettingsText.text);
     }
 }
