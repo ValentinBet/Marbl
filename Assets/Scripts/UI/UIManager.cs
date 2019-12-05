@@ -22,6 +22,8 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject TopCamButton;
     public GameObject TeamCamButton;
     public GameObject FreeCamButton;
+    public GameObject PingCamButton;
+    bool pingStatut = false;
 
     public TimerInfo timer;
     public Text round;
@@ -94,16 +96,68 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public void SetFreeCam()
     {
+        ResetButton();
         OnFreeCam(CameraMode.Free);
+        FreeCamButton.GetComponent<Image>().color = Color.white;
+        FreeCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
+
     }
 
     public void SetTeamCam()
     {
+        ResetButton();
         OnTeamCam(CameraMode.TeamCentered);
+        TeamCamButton.GetComponent<Image>().color = Color.white;
+        TeamCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
     }
 
     public void SetTopCam()
     {
+        ResetButton();
         OnTopCam(CameraMode.MapCentered);
+        TopCamButton.GetComponent<Image>().color = Color.white;
+        TopCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
+    }
+
+    private void ResetButton()
+    {
+        FreeCamButton.GetComponent<Image>().color = new Color(0.109f, 0.109f, 0.109f);
+        FreeCamButton.transform.GetChild(0).GetComponent<Text>().color = Color.white;
+
+        TeamCamButton.GetComponent<Image>().color = new Color(0.109f, 0.109f, 0.109f);
+        TeamCamButton.transform.GetChild(0).GetComponent<Text>().color = Color.white;
+
+        TopCamButton.GetComponent<Image>().color = new Color(0.109f, 0.109f, 0.109f);
+        TopCamButton.transform.GetChild(0).GetComponent<Text>().color = Color.white;
+    }
+
+    public void SetPingMap()
+    {
+        //OnTopCam(CameraMode.MapCentered);
+        PingCamButton.GetComponent<Image>().color = Color.white;
+        PingCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
+
+        if (pingStatut)
+        {
+            GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
+
+            foreach (GameObject ball in _Balls)
+            {
+                ball.GetComponent<MarbleIndicator>().enabled = false;
+            }
+        }
+        else
+        {
+            GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
+
+            foreach (GameObject ball in _Balls)
+            {
+                if(ball.GetComponent<BallSettings>().myteam == DeathMatchManager.Instance.localPlayerTeam)
+                {
+                    ball.GetComponent<MarbleIndicator>().enabled = true;
+                }
+            }
+        }
+        pingStatut = !pingStatut;
     }
 }
