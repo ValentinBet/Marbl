@@ -111,7 +111,7 @@ public class PUNBallMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Ball")
+        if(collision.gameObject.tag == "Ball" && collision.relativeVelocity.magnitude > 8)
         {
             GameObject impact = Instantiate(impactPrefab, collision.contacts[0].point, Quaternion.identity);
             Destroy(impact, 2);
