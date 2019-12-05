@@ -8,8 +8,6 @@ using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class DeathMatchManager : MonoBehaviour
 {
-    public GameObject deathZone;
-
     public List<Team> listTeamsDeath = new List<Team>();
 
     public bool localPlayerTurn = false;

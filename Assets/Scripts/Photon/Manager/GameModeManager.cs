@@ -303,6 +303,12 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
                     teamMarblText.text = MarblFactory.FirstCharToUpper(GetNumberBallOfTeam(currentTeam).ToString()) + " Marbls left";
                     teamMarblText.color = MarblGame.GetColor((int)currentTeam);
+
+                    if(p.UserId == PhotonNetwork.LocalPlayer.UserId)
+                    {
+                        playerTurnText.text = "Your turn !";
+                    }
+
                     return;
                 }
             }
@@ -324,6 +330,11 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
                     teamMarblText.text = MarblFactory.FirstCharToUpper(GetNumberBallOfTeam(currentTeam).ToString())  + " Marbls left";
                     teamMarblText.color = MarblGame.GetColor((int)currentTeam);
+
+                    if (p.UserId == PhotonNetwork.LocalPlayer.UserId)
+                    {
+                        playerTurnText.text = "Your turn !";
+                    }
                     break;
                 }
             }
