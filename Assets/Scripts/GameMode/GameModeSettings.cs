@@ -38,12 +38,4 @@ public class GameModeSettings : ScriptableObject
     public int hueNutralBall;
 
     public int billardBall;
-
-    public static void CreateNewSettings(string name)
-    {
-        GameModeSettings asset = GameModeSettings.CreateInstance<GameModeSettings>();
-
-        AssetDatabase.CreateAsset(asset, "Resources/GameModes/" + name + ".asset");
-        AssetDatabase.SaveAssets();
-    }
 }

@@ -317,6 +317,6 @@ public class RoomSettings : MonoBehaviour
 
     public void SaveCustomSettings()
     {
-        GameModeSettings.CreateNewSettings(saveSettingsText.text);
+        
     }
 }
