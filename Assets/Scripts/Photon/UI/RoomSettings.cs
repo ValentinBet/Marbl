@@ -87,16 +87,16 @@ public class RoomSettings : MonoBehaviour
         }
     }
 
-
     private void Start()
     {
         SetDropDownSettings();
-
         Refresh();
     }
 
     void SetDropDownSettings()
     {
+        gameMode.myDropdown.ClearOptions();
+
         var info = new DirectoryInfo(Application.streamingAssetsPath + "/GameModes/");
         var fileInfo = info.GetFiles();
 
@@ -115,14 +115,7 @@ public class RoomSettings : MonoBehaviour
         listSettings.Add(new OptionData("Custom"));
 
         gameMode.myDropdown.AddOptions(listSettings);
-
-        return;
-
     }
-
-
-
-
 
     public void Refresh()
     {
@@ -314,13 +307,19 @@ public class RoomSettings : MonoBehaviour
 
     public void SaveCustomSettings()
     {
+        SaveFile();
+        SetDropDownSettings();
+    }
+
+    void SaveFile()
+    {
         GameModeSettings modeSettings = new GameModeSettings();
 
         modeSettings.map = map.dropMap.value;
         modeSettings.deathmatch = deathmatch.statut;
         modeSettings.hill = hill.statut;
         modeSettings.coins = coins.statut;
-        modeSettings.potato= potato.statut;
+        modeSettings.potato = potato.statut;
         modeSettings.hue = hue.statut;
         modeSettings.billard = billard.statut;
         modeSettings.turnLimit = Mathf.RoundToInt(turnLimit.mySlider.value);
