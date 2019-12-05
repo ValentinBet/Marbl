@@ -89,6 +89,7 @@ public class RoomSettings : MonoBehaviour
 
     private void Start()
     {
+        SetDropDownMap();
         SetDropDownSettings();
         Refresh();
     }
@@ -111,10 +112,31 @@ public class RoomSettings : MonoBehaviour
 
             listSettings.Add(new OptionData(file.Name.Replace(".json", "")));
         }
-
         listSettings.Add(new OptionData("Custom"));
 
         gameMode.myDropdown.AddOptions(listSettings);
+    }
+
+    void SetDropDownMap()
+    {
+        map.dropMap.ClearOptions();
+
+        var info = new DirectoryInfo(Application.streamingAssetsPath + "/Map/");
+        var fileInfo = info.GetFiles();
+
+        List<OptionData> listSettings = new List<OptionData>();
+
+        foreach (FileInfo file in fileInfo)
+        {
+            if (file.Name.Contains(".meta"))
+            {
+                continue;
+            }
+
+            listSettings.Add(new OptionData(file.Name.Replace(".json", "")));
+        }
+
+        map.dropMap.AddOptions(listSettings);
     }
 
     public void Refresh()
@@ -199,6 +221,7 @@ public class RoomSettings : MonoBehaviour
 
     public void SaveSettings()
     {
+        PhotonNetwork.CurrentRoom.SetMap(Mathf.RoundToInt(map.dropMap.value));
         PhotonNetwork.CurrentRoom.SetTurnLimit(Mathf.RoundToInt(turnLimit.mySlider.value));
         PhotonNetwork.CurrentRoom.SetRoundProp(Mathf.RoundToInt(round.mySlider.value));
 

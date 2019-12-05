@@ -25,7 +25,7 @@ public class PUNBallMovement : MonoBehaviour
 
     private float impactPower;
 
-    public GameObject impactPrefab;
+    public List<GameObject> impactPrefab;
 
     private void Awake()
     {
@@ -64,6 +64,7 @@ public class PUNBallMovement : MonoBehaviour
 
     public void MoveBall(Vector3 direction, float angle, float dragForce)
     {
+        Debug.Log(angle);
         direction = new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * angle), ((45 - angle) / 45.0f + 1) * Mathf.Sin(Mathf.Deg2Rad * angle), direction.z * Mathf.Cos(Mathf.Deg2Rad * angle));
         Vector3 _impulse = direction * (dragForce * MovementSpeed);
 
@@ -113,7 +114,7 @@ public class PUNBallMovement : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ball" && collision.relativeVelocity.magnitude > 8)
         {
-            GameObject impact = Instantiate(impactPrefab, collision.contacts[0].point, Quaternion.identity);
+            GameObject impact = Instantiate(impactPrefab[Random.Range(0, impactPrefab.Count)], collision.contacts[0].point, Quaternion.identity);
             Destroy(impact, 2);
         }
     }

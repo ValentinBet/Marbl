@@ -59,6 +59,13 @@ public class TrajectoryRenderer : MonoBehaviour
     {
         lr.positionCount = resolution + 1;
         lr.SetPositions(CalculateArcArray());
+        GradientColorKey[] colorKeys = lr.colorGradient.colorKeys;
+        colorKeys[1].color = Color.red * angle / 32.0f;
+        for (int i = 0; i < colorKeys.Length; i++)
+        {
+            Debug.Log(colorKeys[i].color);
+        }
+        lr.colorGradient.colorKeys = colorKeys;
     }
 
     private void OnClickOnBall(GameObject ball)

@@ -17,7 +17,7 @@ public class PUNMouseControl : MonoBehaviour
     public UnityAction OnShooted;
     public GameObject actualSelectedBall = null;
     public bool haveShoot = false;
-    public float sensibility;
+    public float scrollSensivity = 0.1f;
     public float[] possibleAngles;
 
 
@@ -157,13 +157,13 @@ public class PUNMouseControl : MonoBehaviour
     private void GetOrientation()
     {
         mouseScrollDelta += Input.GetAxis("Mouse ScrollWheel");
-        if (mouseScrollDelta > sensibility)
+        if (mouseScrollDelta > scrollSensivity)
         {
             angleIndex = Mathf.Clamp(angleIndex+1, 0, possibleAngles.Length-1);
             mouseScrollDelta = 0;
-            //orientation = Mathf.Clamp(orientation + Input.GetAxis("Mouse ScrollWheel") * 10 * sensibility, 0.0f, 45.0f);
+            //orientation = Mathf.Clamp(orientation + Input.GetAxis("Mouse ScrollWheel") * 10 * scrollSensivity, 0.0f, 45.0f);
         }
-        if (mouseScrollDelta < -sensibility)
+        if (mouseScrollDelta < -scrollSensivity)
         {
             angleIndex = Mathf.Clamp(angleIndex-1,0,possibleAngles.Length-1);
             mouseScrollDelta = 0;
