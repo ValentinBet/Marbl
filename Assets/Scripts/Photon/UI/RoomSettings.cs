@@ -141,6 +141,8 @@ public class RoomSettings : MonoBehaviour
 
     public void Refresh()
     {
+        turnLimit.gameObject.SetActive(true);
+        round.gameObject.SetActive(true);
 
         if (deathmatch.statut)
         {

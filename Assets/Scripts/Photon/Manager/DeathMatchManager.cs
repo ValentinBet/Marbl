@@ -38,6 +38,15 @@ public class DeathMatchManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        DMactif = PhotonNetwork.CurrentRoom.GetDeathmatch();
+        winPoint = PhotonNetwork.CurrentRoom.GetWinPointDM();
+        killPoint = PhotonNetwork.CurrentRoom.GetElimPointDM();
+        sucidePoint = PhotonNetwork.CurrentRoom.GetSuicidePointDM();
+        killstreak = PhotonNetwork.CurrentRoom.GetKillstreakDMProp();
+    }
+
     public void ActiveThisMode(bool value)
     {
         if (value)
@@ -99,6 +108,7 @@ public class DeathMatchManager : MonoBehaviour
                         sucideThisRound = 1;
                     }
 
+                    print("passage");
                     PhotonNetwork.LocalPlayer.AddPlayerScore(-1);
                     PhotonNetwork.CurrentRoom.AddTeamScore(localPlayerTeam, sucidePoint * sucideThisRound);
                 }
@@ -200,8 +210,12 @@ public class DeathMatchManager : MonoBehaviour
                 PhotonNetwork.CurrentRoom.AddTeamScore(team, point);
                 point += Mathf.FloorToInt(winPoint / PhotonNetwork.PlayerList.Length);
             }
+            print("passage2");
 
             PhotonNetwork.CurrentRoom.AddTeamScore(allTeamAlive[0], winPoint);
+
+            print(allTeamAlive[0]);
+            print( PhotonNetwork.CurrentRoom.GetTeamScore(allTeamAlive[0]));
 
             GameModeManager.Instance.EndMode();
         }
