@@ -5,6 +5,7 @@ using System.IO;
 using UnityEngine;
 using UnityEngine.Networking;
 using Photon.Pun.UtilityScripts;
+using System.Linq;
 
 public class JsonMapLoader : MonoBehaviour
 {
@@ -50,9 +51,21 @@ public class JsonMapLoader : MonoBehaviour
             mapIndex = PhotonNetwork.CurrentRoom.GetMap();
 
             var info = new DirectoryInfo(Application.streamingAssetsPath + "/Map/");
-            var fileInfo = info.GetFiles();
+            var files = info.GetFiles();
+
+            List<FileInfo> fileInfo = files.ToList();
+
+            for (int i = 0; i < fileInfo.Count; i++)
+            {
+                if (fileInfo[i].Name.Contains(".meta"))
+                {
+                    fileInfo.RemoveAt(i);
+                }
+            }  
+            
             WWW data = new WWW(Application.streamingAssetsPath + "/Map/" + fileInfo[mapIndex].Name);
 
+            Debug.Log(fileInfo[mapIndex].Name);
             jsonMap = data.text;
 
             myPV.RPC("RpcSendMapToAllClient", RpcTarget.AllViaServer, jsonMap);
@@ -96,6 +109,11 @@ public class JsonMapLoader : MonoBehaviour
                     if (mapObject.prefabName != null && mapObject.prefabName != "")
                     {
                         obj = Resources.Load("MapLoad/" + mapObject.prefabName) as GameObject;
+
+                        if (obj == null)
+                        {
+                            Debug.Log(mapObject.prefabName);
+                        }
                         objInstance = Instantiate(obj, mapObj.transform);
                     }
                 }
