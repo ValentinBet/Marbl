@@ -367,6 +367,6 @@ public class RoomSettings : MonoBehaviour
         string toj = JsonUtility.ToJson(modeSettings);
 
         File.WriteAllText(Application.streamingAssetsPath + "/GameModes/" + saveSettingsText.text + ".json", toj);
-        AssetDatabase.Refresh();
+        Refresh();
     }
 }
