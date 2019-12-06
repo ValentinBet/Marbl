@@ -93,6 +93,25 @@ public class MapTools : EditorWindow
                 || (go.name == "Team4") )
             {
                 _object.isRootParent = true;
+
+                switch (go.name)
+                {
+                    case "Team1":
+                        map.team1Scale = go.transform.localScale;
+                        break;
+                    case "Team2":
+                        map.team2Scale = go.transform.localScale;
+                        break;
+                    case "Team3":
+                        map.team3Scale = go.transform.localScale;
+                        break;
+                    case "Team4":
+                        map.team4Scale = go.transform.localScale;
+                        break;
+
+                    default:
+                        break;
+                }
             }
 
             if ((go != fixedSpawnPos) && (go != mapObj) && (go != randomSpawnPos))

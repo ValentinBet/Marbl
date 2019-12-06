@@ -34,13 +34,10 @@ public class LoadingSceneScreen : MonoBehaviourPunCallbacks
     {
         foreach (PlayerListElement _p in allPlayerElement)
         {
-            if(_p.myPlayer == target)
+            if (target.GetPlayerTurnState())
             {
-                if (target.GetPlayerTurnState())
-                {
-                    _p.statutText.text = "Ready";
-                    _p.statutText.color = Color.green;
-                }
+                _p.statutText.text = "Ready";
+                _p.statutText.color = Color.green;
             }
         }
 

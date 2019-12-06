@@ -62,10 +62,13 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         }
     }
 
-    private void StartGame()
+    private void Start()
     {
         PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
+    }
 
+    private void StartGame()
+    {
         if (!PhotonNetwork.IsMasterClient) { return; }
 
         //GET MODE ACTIF
