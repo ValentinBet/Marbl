@@ -23,6 +23,7 @@ public class JsonMapLoader : MonoBehaviour
     public GameObject team3;
     public GameObject team4;
 
+    public List<MapObject> fixSpawn = new List<MapObject>();
     private PhotonView myPV;
 
     int mapIndex;
@@ -95,7 +96,12 @@ public class JsonMapLoader : MonoBehaviour
 
         randomSpawnPos.transform.localScale = LoadedMap.randomSpawnScale;
         randomSpawnPos.transform.position = LoadedMap.randomSpawnPosition;
-        randomSpawnPos.transform.rotation = LoadedMap.randomSpawnRotation;     
+        randomSpawnPos.transform.rotation = LoadedMap.randomSpawnRotation;
+
+        team1.transform.localScale = LoadedMap.team1Scale;
+        team2.transform.localScale = LoadedMap.team2Scale;
+        team3.transform.localScale = LoadedMap.team3Scale;
+        team4.transform.localScale = LoadedMap.team4Scale;
 
         foreach (MapObject mapObject in LoadedMap.mapObjects)
         {
@@ -119,25 +125,7 @@ public class JsonMapLoader : MonoBehaviour
                 }
                 else if (mapObject.rootParent == fixedSpawnPos.name)
                 {
-                    objInstance = new GameObject();
-                    switch (mapObject.teamNumber)
-                    {
-                        case "Team1":
-                            objInstance.transform.parent = team1.transform;
-                            break;
-                        case "Team2":
-                            objInstance.transform.parent = team2.transform;
-                            break;
-                        case "Team3":
-                            objInstance.transform.parent = team3.transform;
-                            break;
-                        case "Team4":
-                            objInstance.transform.parent = team4.transform;
-                            break;
-                        default:
-                            Debug.Log("Error");
-                            break;
-                    }
+                    fixSpawn.Add(mapObject);
                 }
                 else if (mapObject.rootParent == randomSpawnPos.name)
                 {
@@ -165,7 +153,6 @@ public class JsonMapLoader : MonoBehaviour
                     case "Team1":
                         team1.transform.position = mapObject.position;
                         team1.transform.rotation = mapObject.rotation;
-                        team1.transform.localScale = mapObject.scale;
                         break;
                     case "Team2":
                         team2.transform.position = mapObject.position;
@@ -175,12 +162,10 @@ public class JsonMapLoader : MonoBehaviour
                     case "Team3":
                         team3.transform.position = mapObject.position;
                         team3.transform.rotation = mapObject.rotation;
-                        team3.transform.localScale = mapObject.scale;
                         break;
                     case "Team4":
                         team4.transform.position = mapObject.position;
                         team4.transform.rotation = mapObject.rotation;
-                        team4.transform.localScale = mapObject.scale;
                         break;
                     default:
                         Debug.Log(mapObject.objectName);
@@ -196,7 +181,43 @@ public class JsonMapLoader : MonoBehaviour
                 objInstance.transform.rotation = mapObject.rotation;
                 objInstance.name = mapObject.objectName;
             }
+
         }
+
+        LoadSpawns();
+
         PhotonNetwork.LocalPlayer.SetPlayerMapState(true);
+    }
+
+    private void LoadSpawns()
+    {
+        foreach (MapObject spawn in fixSpawn)
+        {
+            GameObject spawnGO = new GameObject();
+
+            switch (spawn.teamNumber)
+            {
+                case "Team1":
+                    spawnGO.transform.parent = team1.transform;
+                    break;
+                case "Team2":
+                    spawnGO.transform.parent = team2.transform;
+                    break;
+                case "Team3":
+                    spawnGO.transform.parent = team3.transform;
+                    break;
+                case "Team4":
+                    spawnGO.transform.parent = team4.transform;
+                    break;
+                default:
+                    Debug.Log("Error");
+                    break;
+            }
+
+            spawnGO.transform.localScale = spawn.scale;
+            spawnGO.transform.position = spawn.position;
+            spawnGO.transform.rotation = spawn.rotation;
+            spawnGO.name = spawn.objectName;
+        }
     }
 }

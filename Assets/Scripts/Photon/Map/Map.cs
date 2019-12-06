@@ -22,20 +22,9 @@ public class Map
     public Quaternion randomSpawnRotation;
     public Vector3 randomSpawnScale;
 
-    //public Vector3 team1Position;
-    //public Quaternion team1Rotation;
-    //public Vector3 team1Scale;
-
-    //public Vector3 team2Position;
-    //public Quaternion team2Rotation;
-    //public Vector3 team2Scale;
-
-    //public Vector3 team3Position;
-    //public Quaternion team3Rotation;
-    //public Vector3 team3Scale;
-
-    //public Vector3 team4Position;
-    //public Quaternion team4Rotation;
-    //public Vector3 team4Scale;
+    public Vector3 team1Scale;
+    public Vector3 team2Scale;
+    public Vector3 team3Scale;
+    public Vector3 team4Scale;
 
 }
