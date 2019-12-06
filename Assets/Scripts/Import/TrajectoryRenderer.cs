@@ -13,6 +13,7 @@ public class TrajectoryRenderer : MonoBehaviour
     private float velocity = 8.86f;
     [SerializeField] private float angle = 40.06f;
     [SerializeField] private int resolution = 20;
+    [SerializeField] private Gradient heightValues;
     private float g;
     private float maxDist = 0.0f;
     private Vector3 direction;
@@ -59,11 +60,9 @@ public class TrajectoryRenderer : MonoBehaviour
     {
         lr.positionCount = resolution + 1;
         lr.SetPositions(CalculateArcArray());
-        Gradient grd = new Gradient();
-        GradientColorKey[] colorKeys = lr.colorGradient.colorKeys;
-        colorKeys[1].color = Color.red * angle / 32.0f;
-        grd.SetKeys(colorKeys, lr.colorGradient.alphaKeys);
-        lr.colorGradient = grd;
+        Vector3[]lrP = new Vector3[lr.positionCount];
+        lr.GetPositions(lrP);
+        lr.colorGradient = DefineGradient(lrP);
     }
 
     private void OnClickOnBall(GameObject ball)
@@ -85,6 +84,7 @@ public class TrajectoryRenderer : MonoBehaviour
 
             Vec3ArcArray[i] = CalculateArcPoint(percent, maxDist);
         }
+        
         return Vec3ArcArray;
     }
 
@@ -99,6 +99,21 @@ public class TrajectoryRenderer : MonoBehaviour
         }
 
         return new Vector3(direction.x * z, y, direction.z * z);
+    }
+
+    private Gradient DefineGradient(Vector3[] positions)
+    {
+        int delta = Mathf.FloorToInt(positions.Length / 8.0f);
+
+        //DefineGradient
+        Gradient grd = new Gradient();
+        GradientColorKey[] colorKeys = new GradientColorKey[8];
+        for (int i = 0; i < 8; i++)
+        {
+            colorKeys[i] = new GradientColorKey(heightValues.Evaluate(Mathf.Lerp(0.0f, 1.0f, lr.GetPosition(delta * i).y/6.0f)),i*0.125f);
+        }
+        grd.SetKeys(colorKeys, lr.colorGradient.alphaKeys);
+        return grd;
     }
 
     public void SetVelocity(float newVel)
