@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4404322483582542660}
   - component: {fileID: 4404322483582542683}
   - component: {fileID: 4404322483582542682}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: "TileCoup\xE9e"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
+  m_SelectedEditorRenderState: 2
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -334,7 +334,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4404322483582542681}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a04c35fa69cd6d642baa442bbacb27b3, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
