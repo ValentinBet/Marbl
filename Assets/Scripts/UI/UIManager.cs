@@ -119,7 +119,7 @@ public class UIManager : MonoBehaviourPunCallbacks
         TopCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
     }
 
-    private void ResetButton()
+    public void ResetButton()
     {
         FreeCamButton.GetComponent<Image>().color = new Color(0.109f, 0.109f, 0.109f);
         FreeCamButton.transform.GetChild(0).GetComponent<Text>().color = Color.white;
@@ -134,11 +134,11 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void SetPingMap()
     {
         //OnTopCam(CameraMode.MapCentered);
-        PingCamButton.GetComponent<Image>().color = Color.white;
-        PingCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
-
         if (pingStatut)
         {
+            PingCamButton.GetComponent<Image>().color = new Color(0.109f, 0.109f, 0.109f); ;
+            PingCamButton.transform.GetChild(0).GetComponent<Text>().color = Color.white;
+
             GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
 
             foreach (GameObject ball in _Balls)
@@ -148,6 +148,9 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
         else
         {
+            PingCamButton.GetComponent<Image>().color = Color.white;
+            PingCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
+
             GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
 
             foreach (GameObject ball in _Balls)

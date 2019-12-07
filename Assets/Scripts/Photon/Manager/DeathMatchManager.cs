@@ -108,7 +108,6 @@ public class DeathMatchManager : MonoBehaviour
                         sucideThisRound = 1;
                     }
 
-                    print("passage");
                     PhotonNetwork.LocalPlayer.AddPlayerScore(-1);
                     PhotonNetwork.CurrentRoom.AddTeamScore(localPlayerTeam, sucidePoint * sucideThisRound);
                 }
@@ -210,12 +209,8 @@ public class DeathMatchManager : MonoBehaviour
                 PhotonNetwork.CurrentRoom.AddTeamScore(team, point);
                 point += Mathf.FloorToInt(winPoint / PhotonNetwork.PlayerList.Length);
             }
-            print("passage2");
 
             PhotonNetwork.CurrentRoom.AddTeamScore(allTeamAlive[0], winPoint);
-
-            print(allTeamAlive[0]);
-            print( PhotonNetwork.CurrentRoom.GetTeamScore(allTeamAlive[0]));
 
             GameModeManager.Instance.EndMode();
         }

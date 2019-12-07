@@ -11,8 +11,8 @@ public class MarbleIndicator : MonoBehaviour
     private Vector3 m_cameraOffsetUp;
     private Vector3 m_cameraOffsetRight;
     private Vector3 m_cameraOffsetForward;
-    public Sprite m_targetIconOnScreen;
-    public Sprite m_targetIconOffScreen;
+    public GameObject m_targetIconOnScreen;
+    public Sprite img;
     [Space]
     [Range(0, 100)]
     public float m_edgeBuffer;
@@ -39,12 +39,11 @@ public class MarbleIndicator : MonoBehaviour
 
     private void InstainateTargetIcon()
     {
-        m_icon = new GameObject().AddComponent<RectTransform>();
-        m_icon.transform.SetParent(mainCanvas.transform);
+        m_icon = Instantiate(m_targetIconOnScreen, mainCanvas.transform).AddComponent<RectTransform>();
         m_icon.localScale = m_targetIconScale;
         m_icon.name = name + ": OTI icon";
         m_iconImage = m_icon.gameObject.AddComponent<Image>();
-        m_iconImage.sprite = m_targetIconOnScreen;
+        m_iconImage.sprite = img;
         m_iconImage.raycastTarget = false;
     }
 
