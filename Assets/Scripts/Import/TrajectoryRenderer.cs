@@ -99,7 +99,7 @@ public class TrajectoryRenderer : MonoBehaviour
     {
         float z = percent * maxDist;
 
-        float y = ((angle / force) / 360.0f) * (-g * z * z + multiplier * force * z);
+        float y = ((angle / force) / 360.0f) * (-g * z * z + (9.2f) * force * z); //9.2f == base multiplier
         if (y < 0)
         {
             y = 0;
