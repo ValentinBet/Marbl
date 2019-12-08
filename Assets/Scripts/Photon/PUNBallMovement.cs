@@ -65,7 +65,7 @@ public class PUNBallMovement : MonoBehaviour
     public void MoveBall(Vector3 direction, float angle, float dragForce)
     {
         Debug.Log(direction);
-        direction = new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * angle), ((45 - angle) / 45.0f + 1) * Mathf.Sin(Mathf.Deg2Rad * angle)/MovementSpeed, direction.z * Mathf.Cos(Mathf.Deg2Rad * angle));
+        direction = new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * angle), ((45 - angle) / 45.0f + MovementSpeed) * Mathf.Sin(Mathf.Deg2Rad * angle)/MovementSpeed, direction.z * Mathf.Cos(Mathf.Deg2Rad * angle));
         Debug.Log(direction);
         Vector3 _impulse = direction * (dragForce*rigidbody.mass * MovementSpeed);
 

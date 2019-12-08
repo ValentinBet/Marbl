@@ -99,7 +99,7 @@ public class TrajectoryRenderer : MonoBehaviour
     {
         float z = percent * maxDist;
 
-        float y = ((angle / force) / 360.0f) * (-g * z * z + (9.2f) * force * z); //9.2f == base multiplier
+        float y = (((angle / force) ) / 360.0f) * (-g * z * z + multiplier * force * z)/2.0f; //9.2f == base multiplier
         if (y < 0)
         {
             y = 0;
@@ -133,7 +133,7 @@ public class TrajectoryRenderer : MonoBehaviour
             Vector3 CheckPos = positions[i] + transform.position;
             //Debug.DrawRay(position, Vector3.down);
 
-            if (Physics.Raycast(CheckPos, Vector3.down, out raycastHit))
+            if (Physics.Raycast(CheckPos, Vector3.down*0.1f, out raycastHit))
             {
                 storedHit = raycastHit;
                 lastFound = true;
