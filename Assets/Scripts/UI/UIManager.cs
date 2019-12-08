@@ -179,15 +179,21 @@ public class UIManager : MonoBehaviourPunCallbacks
 
         foreach (GameObject ball in _Balls)
         {
+            GameObject newPing = Instantiate(pingPrefab);
+            newPing.transform.position = ball.transform.position;
+            newPing.transform.position += new Vector3(0, -0.4f, 0);
+            newPing.GetComponent<PingElement>().SetColor( MarblGame.GetColor((int) ball.GetComponent<BallSettings>().myteam));
+
             if (ball.GetComponent<BallSettings>().myteam == DeathMatchManager.Instance.localPlayerTeam)
             {
                 ball.GetComponent<MarbleIndicator>().enabled = true;
-
-                GameObject newPing = Instantiate(pingPrefab);
-                newPing.transform.position = ball.transform.position;
-                newPing.transform.position += new Vector3(0, -0.4f, 0);
-                listOfPing.Add(newPing);
             }
+            else
+            {
+                newPing.GetComponent<PingElement>().Hide();
+            }
+
+            listOfPing.Add(newPing);
         }
     }
 }
