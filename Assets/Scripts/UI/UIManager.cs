@@ -36,6 +36,9 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     private bool isEscapeMenuDisplayed = false;
 
+    List<GameObject> listOfPing = new List<GameObject>();
+    public GameObject pingPrefab;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -133,34 +136,58 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public void SetPingMap()
     {
-        //OnTopCam(CameraMode.MapCentered);
         if (pingStatut)
         {
-            PingCamButton.GetComponent<Image>().color = new Color(0.109f, 0.109f, 0.109f); ;
-            PingCamButton.transform.GetChild(0).GetComponent<Text>().color = Color.white;
-
-            GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
-
-            foreach (GameObject ball in _Balls)
-            {
-                ball.GetComponent<MarbleIndicator>().enabled = false;
-            }
+            DisablePing();
         }
         else
         {
-            PingCamButton.GetComponent<Image>().color = Color.white;
-            PingCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
-
-            GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
-
-            foreach (GameObject ball in _Balls)
-            {
-                if(ball.GetComponent<BallSettings>().myteam == DeathMatchManager.Instance.localPlayerTeam)
-                {
-                    ball.GetComponent<MarbleIndicator>().enabled = true;
-                }
-            }
+            EnablePing();
         }
         pingStatut = !pingStatut;
+    }
+
+    public void DisablePing()
+    {
+        PingCamButton.GetComponent<Image>().color = new Color(0.109f, 0.109f, 0.109f); ;
+        PingCamButton.transform.GetChild(0).GetComponent<Text>().color = Color.white;
+
+        GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
+
+        foreach (GameObject ball in _Balls)
+        {
+            ball.GetComponent<MarbleIndicator>().enabled = false;
+        }
+
+        foreach(GameObject element in listOfPing)
+        {
+            Destroy(element);
+        }
+    }
+
+    public void EnablePing()
+    {
+        foreach (GameObject element in listOfPing)
+        {
+            Destroy(element);
+        }
+
+        PingCamButton.GetComponent<Image>().color = Color.white;
+        PingCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
+
+        GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
+
+        foreach (GameObject ball in _Balls)
+        {
+            if (ball.GetComponent<BallSettings>().myteam == DeathMatchManager.Instance.localPlayerTeam)
+            {
+                ball.GetComponent<MarbleIndicator>().enabled = true;
+
+                GameObject newPing = Instantiate(pingPrefab);
+                newPing.transform.position = ball.transform.position;
+                newPing.transform.position += new Vector3(0, -0.4f, 0);
+                listOfPing.Add(newPing);
+            }
+        }
     }
 }
