@@ -12,7 +12,7 @@ public class PUNMouseControl : MonoBehaviour
 {
     public UnityAction<GameObject> OnBallClicked;
     public float dragForce;
-    public float orientation;
+    public float elevation;
 
     public UnityAction OnShooted;
     public GameObject actualSelectedBall = null;
@@ -68,7 +68,7 @@ public class PUNMouseControl : MonoBehaviour
 
         if (player.GetCanShoot() && !haveShoot)
         {
-            GetOrientation();
+            GetElevation();
             MouseDrag();
         }
     }
@@ -154,22 +154,22 @@ public class PUNMouseControl : MonoBehaviour
         }
     }
 
-    // Mouse Orientation
-    private void GetOrientation()
+    // Mouse Elevation
+    private void GetElevation()
     {
         mouseScrollDelta += Input.GetAxis("Mouse ScrollWheel");
         if (mouseScrollDelta > scrollSensivity)
         {
             angleIndex = Mathf.Clamp(angleIndex+1, 0, possibleAngles.Length-1);
             mouseScrollDelta = 0;
-            //orientation = Mathf.Clamp(orientation + Input.GetAxis("Mouse ScrollWheel") * 10 * scrollSensivity, 0.0f, 45.0f);
+            //elevation = Mathf.Clamp(elevation + Input.GetAxis("Mouse ScrollWheel") * 10 * scrollSensivity, 0.0f, 45.0f);
         }
         if (mouseScrollDelta < -scrollSensivity)
         {
             angleIndex = Mathf.Clamp(angleIndex-1,0,possibleAngles.Length-1);
             mouseScrollDelta = 0;
         }
-        orientation = possibleAngles[angleIndex];
+        elevation = possibleAngles[angleIndex];
     }
 
     // --->> MOUSE DRAG  --->> //
@@ -213,7 +213,7 @@ public class PUNMouseControl : MonoBehaviour
 
         if (dragForce > dragForceMaxValue * cancelForce)
         {
-            actualSelectedBall.GetComponent<PUNBallMovement>().MoveBall(direction, orientation, dragForce);
+            actualSelectedBall.GetComponent<PUNBallMovement>().MoveBall(direction, elevation, dragForce);
             OnShooted();
             haveShoot = true;
             StopShoot();
@@ -231,7 +231,7 @@ public class PUNMouseControl : MonoBehaviour
         if (actualBallLineRenderer != null)
             actualBallLineRenderer.enabled = false;
 
-        orientation = 0;
+        elevation = 0;
         dragForce = 0;
         DisplayDragForce();
 

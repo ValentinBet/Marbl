@@ -60,7 +60,7 @@ public class MouseControl : MonoBehaviour
     public float[] possibleAngles;
     private int angleIndex = 0;
     private float mouseScrollDelta;
-    public static float orientation;
+    public static float elevation;
     public float sensibility;
 
     public bool enableAngleShot = false;
@@ -81,7 +81,7 @@ public class MouseControl : MonoBehaviour
 
         DetectClick();
         MouseDrag();
-        GetOrientation();
+        GetElevation();
     }
 
     private void DetectClick()
@@ -162,15 +162,15 @@ public class MouseControl : MonoBehaviour
         turnLock = false;
     }
 
-    // Mouse Orientation
-    private void GetOrientation()
+    // Mouse elevation
+    private void GetElevation()
     {
         mouseScrollDelta += Input.GetAxis("Mouse ScrollWheel");
         if(mouseScrollDelta > sensibility)
         {
             angleIndex = (angleIndex+1)%possibleAngles.Length;
             mouseScrollDelta = 0;
-            //orientation = Mathf.Clamp(orientation + Input.GetAxis("Mouse ScrollWheel") * 10 * sensibility, 0.0f, 45.0f);
+            //elevation = Mathf.Clamp(elevation + Input.GetAxis("Mouse ScrollWheel") * 10 * sensibility, 0.0f, 45.0f);
         }
         if (mouseScrollDelta < - sensibility)
         {
@@ -179,7 +179,7 @@ public class MouseControl : MonoBehaviour
                 angleIndex = possibleAngles.Length - 1;
             mouseScrollDelta = 0;
         }
-        orientation = possibleAngles[angleIndex];
+        elevation = possibleAngles[angleIndex];
     }
 
 
@@ -216,11 +216,11 @@ public class MouseControl : MonoBehaviour
                     if (actualBallLineRenderer != null)
                         actualBallLineRenderer.enabled = false;
                     isMouseHold = false;
-                    player.actualSelectedBall.GetComponent<BallMovements>().MoveBall(direction, orientation, dragForce);
+                    player.actualSelectedBall.GetComponent<BallMovements>().MoveBall(direction, elevation, dragForce);
                     turnLock = true;
                     TurnManager.NextTurn();
                     dragForce = 0;
-                    orientation = 0;
+                    elevation = 0;
                 }
                 else
                 {

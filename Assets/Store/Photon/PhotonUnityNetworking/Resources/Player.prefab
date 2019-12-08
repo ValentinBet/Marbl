@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dragForce: 0
-  orientation: 0
+  elevation: 0
   actualSelectedBall: {fileID: 0}
   haveShoot: 0
   scrollSensivity: 0.1
@@ -175,6 +175,9 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
+  landingZone: {fileID: 4553042780535758932, guid: a7b3948f2ae31d148b8941ee663e52ee,
+    type: 3}
+  landingGrowthRate: 0.1
 --- !u!120 &3014687846672754514
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -223,7 +226,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.24936122
+        value: 0.6354391
         inSlope: -0.2952074
         outSlope: -0.2952074
         tangentMode: 0
@@ -232,7 +235,7 @@ LineRenderer:
         outWeight: 0.16722408
       - serializedVersion: 3
         time: 1
-        value: 0
+        value: 0.2088623
         inSlope: -0.36051553
         outSlope: -0.36051553
         tangentMode: 0

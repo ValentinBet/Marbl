@@ -14,11 +14,15 @@ public class TrajectoryRenderer : MonoBehaviour
     [SerializeField] private float angle = 40.06f;
     [SerializeField] private int resolution = 20;
     [SerializeField] private Gradient heightValues;
+    [SerializeField] private GameObject landingZone;
+    [SerializeField] private float landingGrowthRate = 0.1f;
     private float g;
     private float maxDist = 0.0f;
     private Vector3 direction;
     private float radianAngle;
     private PhotonView photonView;
+
+    private float storedOffset = 0.0f;
 
 
     void Awake()
@@ -28,6 +32,7 @@ public class TrajectoryRenderer : MonoBehaviour
 
         mouseControl = this.GetComponent<PUNMouseControl>();
         photonView = GetComponent<PhotonView>();
+        landingZone = Instantiate(landingZone);
     }
 
     private void OnEnable()
@@ -48,12 +53,12 @@ public class TrajectoryRenderer : MonoBehaviour
         }
 
         force = mouseControl.dragForce;
-        angle = mouseControl.orientation;
-
-            if (force != 0)
-            {
-                RenderArc();
-            }
+        angle = mouseControl.elevation;
+        if (force != 0)
+        {
+            RenderArc();
+            UpdateCurveMaterial();
+        }
     }
 
     private void RenderArc()
@@ -63,6 +68,8 @@ public class TrajectoryRenderer : MonoBehaviour
         Vector3[]lrP = new Vector3[lr.positionCount];
         lr.GetPositions(lrP);
         lr.colorGradient = DefineGradient(lrP);
+        if (!PlaceLandingZone(lrP, lrP.Length / 2))
+            ResetLandingZone();
     }
 
     private void OnClickOnBall(GameObject ball)
@@ -114,6 +121,51 @@ public class TrajectoryRenderer : MonoBehaviour
         }
         grd.SetKeys(colorKeys, lr.colorGradient.alphaKeys);
         return grd;
+    }
+
+    private bool PlaceLandingZone(Vector3[] positions,int middleindex)
+    {
+        RaycastHit raycastHit = new RaycastHit();
+        RaycastHit storedHit = raycastHit;
+        bool lastFound = false;
+        for (int i = middleindex; i < positions.Length; i++)
+        {
+            Vector3 CheckPos = positions[i] + transform.position;
+            //Debug.DrawRay(position, Vector3.down);
+
+            if (Physics.Raycast(CheckPos, Vector3.down, out raycastHit))
+            {
+                storedHit = raycastHit;
+                lastFound = true;
+                if (i == positions.Length-1)
+                {
+                    landingZone.transform.position = storedHit.point + Vector3.up * 0.1f;
+                    landingZone.transform.LookAt(storedHit.point + storedHit.normal);
+                    landingZone.transform.localScale = Vector3.one * maxDist * landingGrowthRate;
+                    return true;
+                }
+            }
+            else if (lastFound)
+            {
+                landingZone.transform.position = storedHit.point + Vector3.up * 0.1f;
+                landingZone.transform.LookAt(storedHit.point + storedHit.normal);
+                landingZone.transform.localScale = Vector3.one * maxDist * landingGrowthRate;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void ResetLandingZone()
+    {
+        landingZone.transform.position = Vector3.down * 100;
+    }
+
+    private void UpdateCurveMaterial()
+    {
+        storedOffset += Time.deltaTime;
+        Mathf.Repeat(storedOffset,1.0f);
+        lr.sharedMaterial.SetTextureOffset("_MainTex", Vector2.right * -storedOffset);
     }
 
     public void SetVelocity(float newVel)
