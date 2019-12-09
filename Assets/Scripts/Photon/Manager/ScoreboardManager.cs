@@ -61,6 +61,7 @@ public class ScoreboardManager : MonoBehaviourPunCallbacks
                 playerScoreUI.ColorSeparator.color = _color;
                 playerScoreUI.PointText.text = p.GetScore().ToString();
                 playerScoreDict.Add(p.ActorNumber, playerScoreUI);
+    
             }
         }
     }
@@ -140,11 +141,6 @@ public class ScoreboardManager : MonoBehaviourPunCallbacks
         var list = _temp.OrderByDescending(key => key.Value).ToList();
 
         return list.ToDictionary(x => x.Key, x => x.Value);
-    }
-
-    public void Adazda()
-    {
-        PhotonNetwork.LocalPlayer.AddPlayerScore(1);
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)

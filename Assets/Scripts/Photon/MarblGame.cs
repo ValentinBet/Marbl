@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class MarblGame
 {
@@ -20,6 +21,18 @@ public class MarblGame
             case 7: return Color.white;
         }
         return Color.black; 
+    }
+
+    public static Team GetTeam(int teamChoice)
+    {
+        switch (teamChoice)
+        {
+            case 0: return Team.red;
+            case 1: return Team.green;
+            case 2: return Team.blue;
+            case 3: return Team.yellow;
+        }
+        return Team.red;
     }
 
     public enum CameraMode

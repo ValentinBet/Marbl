@@ -12,6 +12,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 {
     public List<Transform> listPos;
     public Transform listPosRandom;
+    public Transform listNeutralPos;
     public string lobbyScene;
 
     List<string> prefabTeam = new List<string>();
@@ -111,8 +112,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                 foreach (Transform element in listPos[index].transform)
                 {
                     currentIndex++;
-                    GameObject _newBall = PhotonNetwork.Instantiate(prefabTeam[index], element.position, Quaternion.identity);
-
+                    GameObject _newBall = PhotonNetwork.Instantiate("Marbl", element.position, Quaternion.identity);
+                    _newBall.GetComponent<BallSettings>().myteam = MarblGame.GetTeam(index);
                     if (currentIndex == numbrBallByTeam)
                     {
                         break;
@@ -165,7 +166,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         DeathMatchManager.Instance.ActiveThisMode(modeDM);
         HillManager.Instance.ActiveThisMode(modeHill);
-
+        HueManager.Instance.ActiveThisMode(modeHue);
 
     }
 

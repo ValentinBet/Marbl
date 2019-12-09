@@ -8,4 +8,5 @@ public class TeamUIManager : MonoBehaviour
     public Image MetaScore;
     public Text ScoreText;
     public GameObject playersScore;
+    public GameObject activePlayerBorder;
 }

@@ -22,6 +22,10 @@ public class Map
     public Quaternion randomSpawnRotation;
     public Vector3 randomSpawnScale;
 
+    public Vector3 neutralSpawnPosition;
+    public Quaternion neutralSpawnRotation;
+    public Vector3 neutralSpawnScale;
+
     public Vector3 team1Scale;
     public Vector3 team2Scale;
     public Vector3 team3Scale;

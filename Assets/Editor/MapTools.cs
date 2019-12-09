@@ -15,6 +15,7 @@ public class MapTools : EditorWindow
     GameObject fixedSpawnPos;
     GameObject randomSpawnPos;
     GameObject hillPos;
+    GameObject hueNeutralBallPos;
 
     TextAsset mapToLoad;
 
@@ -47,6 +48,7 @@ public class MapTools : EditorWindow
         fixedSpawnPos = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Add Fixed Spawn"), fixedSpawnPos, typeof(GameObject), true);
         randomSpawnPos = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Add Random Spawn"), randomSpawnPos, typeof(GameObject), true);
         hillPos = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Add Hill Pos"), hillPos, typeof(GameObject), true);
+        hueNeutralBallPos = (GameObject)EditorGUILayout.ObjectField(new GUIContent("Add Neutral Ball Pos"), hueNeutralBallPos, typeof(GameObject), true);
 
         GUILayout.Space(16);
         GameObject[] allObjects = FindObjectsOfType<GameObject>();
@@ -85,12 +87,15 @@ public class MapTools : EditorWindow
         map.fixedSpawnRotation = fixedSpawnPos.transform.rotation;
         map.fixedSpawnScale = fixedSpawnPos.transform.localScale;
 
+        map.neutralSpawnPosition = hueNeutralBallPos.transform.position;
+        map.neutralSpawnRotation = hueNeutralBallPos.transform.rotation;
+        map.neutralSpawnScale = hueNeutralBallPos.transform.localScale;
+
         foreach (GameObject go in ObjectInScene)
         {
             MapObject _object = new MapObject();
 
-            if ((go == fixedSpawnPos) || (go == mapObj) || (go == randomSpawnPos) || (go.name == "Team1") || (go.name == "Team2") || (go.name == "Team3") 
-                || (go.name == "Team4") )
+            if (go.transform.root.gameObject == go || (go.name == "Team1") || (go.name == "Team2") || (go.name == "Team3") || (go.name == "Team4"))
             {
                 _object.isRootParent = true;
 

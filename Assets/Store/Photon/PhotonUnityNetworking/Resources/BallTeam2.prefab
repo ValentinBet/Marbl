@@ -188,6 +188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myteam: 1
   myTrail: {fileID: 4636678790027330823}
+  isVisible: 1
 --- !u!114 &4809954099735983968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,12 +246,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a3a816f18174e47a00f6633e04fd98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_targetIconOnScreen: {fileID: 7690336570154985742, guid: 9dc421f583f688744a106fff9f900c3b,
-    type: 3}
-  img: {fileID: 21300000, guid: f8fb0079c5058464daf50e2dddefab37, type: 3}
-  m_edgeBuffer: 33.7
-  m_targetIconScale: {x: 8, y: 8, z: 8}
-  ShowDebugLines: 0
 --- !u!1 &7119902920847916840
 GameObject:
   m_ObjectHideFlags: 0

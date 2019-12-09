@@ -16,6 +16,7 @@ public class JsonMapLoader : MonoBehaviour
     public GameObject fixedSpawnPos;
     public GameObject randomSpawnPos;
     public GameObject hillPos;
+    public GameObject hueNeutralBallPos;
 
     [Space(16)]
     public GameObject team1;
@@ -23,7 +24,7 @@ public class JsonMapLoader : MonoBehaviour
     public GameObject team3;
     public GameObject team4;
 
-    public List<MapObject> fixSpawn = new List<MapObject>();
+    private List<MapObject> fixSpawn = new List<MapObject>();
     private PhotonView myPV;
 
     int mapIndex;
@@ -98,6 +99,10 @@ public class JsonMapLoader : MonoBehaviour
         randomSpawnPos.transform.position = LoadedMap.randomSpawnPosition;
         randomSpawnPos.transform.rotation = LoadedMap.randomSpawnRotation;
 
+        hueNeutralBallPos.transform.localScale = LoadedMap.neutralSpawnScale;
+        hueNeutralBallPos.transform.position = LoadedMap.neutralSpawnPosition;
+        hueNeutralBallPos.transform.rotation = LoadedMap.neutralSpawnRotation;
+
         team1.transform.localScale = LoadedMap.team1Scale;
         team2.transform.localScale = LoadedMap.team2Scale;
         team3.transform.localScale = LoadedMap.team3Scale;
@@ -130,13 +135,17 @@ public class JsonMapLoader : MonoBehaviour
                 else if (mapObject.rootParent == randomSpawnPos.name)
                 {
                     objInstance = new GameObject();
-
                     objInstance.transform.parent = randomSpawnPos.transform;
                 }
                 else if (mapObject.rootParent == "DeadZone")
                 {
                     objInstance = new GameObject();
                     objInstance.name = mapObject.objectName;
+                }
+                else if (mapObject.rootParent == hueNeutralBallPos.name)
+                {
+                    objInstance = new GameObject();
+                    objInstance.transform.parent = hueNeutralBallPos.transform;
                 }
                 else if (mapObject.rootParent == "HillsPos")
                 {
@@ -168,8 +177,6 @@ public class JsonMapLoader : MonoBehaviour
                         team4.transform.rotation = mapObject.rotation;
                         break;
                     default:
-                        Debug.Log(mapObject.objectName);
-                        Debug.Log("Error");
                         break;
                 }
             }
