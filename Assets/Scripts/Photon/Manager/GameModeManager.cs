@@ -157,6 +157,9 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         myPV.RPC("RpcSetRoundText", RpcTarget.AllViaServer, "Round " + currentRound + " / " + roundNumber);
 
+        myPV.RPC("RpcStartGame", RpcTarget.All);
+
+
 
         //-----------------------------ACTIVATION DES MODES ACTIF-------------------------------------
 
@@ -357,9 +360,15 @@ public class GameModeManager : MonoBehaviourPunCallbacks
             if (CheckAllHaveLoadMap())
             {
                 allHaveLoadMap = true;
-                StartGame();
+                StartCoroutine(WaitToStart());
             }
         }
+    }
+
+    IEnumerator WaitToStart()
+    {
+        yield return new WaitForSeconds(2);
+        StartGame();
     }
 
     bool CheckAllHaveLoadMap()
@@ -432,6 +441,13 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     void RpcDisableRoundText()
     {
         UIManager.Instance.round.gameObject.SetActive(false);
+    }
+
+    [PunRPC]
+    void RpcStartGame()
+    {
+        UIManager.Instance.EnablePing();
+        UIManager.Instance.LoadingPanel.SetActive(false);
     }
 
     public void EndMode()

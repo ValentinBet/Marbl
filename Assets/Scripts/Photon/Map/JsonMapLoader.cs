@@ -70,7 +70,7 @@ public class JsonMapLoader : MonoBehaviour
             Debug.Log(fileInfo[mapIndex].Name);
             jsonMap = data.text;
 
-            myPV.RPC("RpcSendMapToAllClient", RpcTarget.AllViaServer, jsonMap);
+            myPV.RPC("RpcSendMapToAllClient", RpcTarget.All, jsonMap);
         }
     }
 
@@ -196,7 +196,9 @@ public class JsonMapLoader : MonoBehaviour
 
         LoadSpawns();
 
+
         PhotonNetwork.LocalPlayer.SetPlayerMapState(true);
+        print("ready");
     }
 
     private void LoadSpawns()

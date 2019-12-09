@@ -34,28 +34,12 @@ public class LoadingSceneScreen : MonoBehaviourPunCallbacks
     {
         foreach (PlayerListElement _p in allPlayerElement)
         {
-            if (target.GetPlayerTurnState())
+            if (target.GetPlayerMapState())
             {
                 _p.statutText.text = "Ready";
                 _p.statutText.color = Color.green;
             }
         }
 
-        if (CheckAllHaveLoadMap())
-        {
-            waitingScreen.SetActive(false);
-        }
-    }
-
-    bool CheckAllHaveLoadMap()
-    {
-        foreach (Player p in PhotonNetwork.PlayerList)
-        {
-            if (!p.GetPlayerMapState())
-            {
-                return false;
-            }
-        }
-        return true;
     }
 }

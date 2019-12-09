@@ -221,6 +221,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
     void PlayerShooted()
     {
+        UIManager.Instance.DisablePing();
         haveShoot = true;
     }
 
