@@ -1789,11 +1789,11 @@ MonoBehaviour:
   fixedSpawnPos: {fileID: 1271703390}
   randomSpawnPos: {fileID: 164057749}
   hillPos: {fileID: 1046086967}
+  hueNeutralBallPos: {fileID: 757315348}
   team1: {fileID: 1322547429}
   team2: {fileID: 757648345}
   team3: {fileID: 448058102}
   team4: {fileID: 1778979269}
-  fixSpawn: []
 --- !u!4 &633131906
 Transform:
   m_ObjectHideFlags: 0
@@ -2084,6 +2084,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755490009}
   m_CullTransparentMesh: 0
+--- !u!1 &757315348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 757315349}
+  m_Layer: 0
+  m_Name: neutralBallsSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &757315349
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757315348}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &757648345
 GameObject:
   m_ObjectHideFlags: 0
@@ -6082,6 +6112,7 @@ GameObject:
   - component: {fileID: 2107096213}
   - component: {fileID: 2107096212}
   - component: {fileID: 2107096211}
+  - component: {fileID: 2107096217}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -6172,7 +6203,14 @@ MonoBehaviour:
   - {fileID: 448058103}
   - {fileID: 1778979270}
   listPosRandom: {fileID: 164057750}
+  listNeutralPos: {fileID: 757315349}
   lobbyScene: Lobby
+  colors:
+  - {fileID: 2100000, guid: e6b120985ff306f458411d5bfb30f1b8, type: 2}
+  - {fileID: 2100000, guid: 7347cf7679d4806418aa1e66fabbc03c, type: 2}
+  - {fileID: 2100000, guid: ea243e8ee0070ac4591b5074c0bc54a8, type: 2}
+  - {fileID: 2100000, guid: 3be50f9c225f3d747ae2ca45be827673, type: 2}
+  - {fileID: 2100000, guid: 70fce0e58298bbb418f28793cbaec069, type: 2}
   gameFinish: 0
   playerTurnText: {fileID: 861610853}
   teamMarblText: {fileID: 264959926}
@@ -6190,6 +6228,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2107096217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2107096210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5614f6127e6c2b541b1df7d8b9316b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2111516474
 GameObject:
   m_ObjectHideFlags: 0

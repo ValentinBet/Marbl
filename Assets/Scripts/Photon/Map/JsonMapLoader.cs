@@ -99,9 +99,12 @@ public class JsonMapLoader : MonoBehaviour
         randomSpawnPos.transform.position = LoadedMap.randomSpawnPosition;
         randomSpawnPos.transform.rotation = LoadedMap.randomSpawnRotation;
 
-        hueNeutralBallPos.transform.localScale = LoadedMap.neutralSpawnScale;
-        hueNeutralBallPos.transform.position = LoadedMap.neutralSpawnPosition;
-        hueNeutralBallPos.transform.rotation = LoadedMap.neutralSpawnRotation;
+        if (hueNeutralBallPos != null)
+        {
+            hueNeutralBallPos.transform.localScale = LoadedMap.neutralSpawnScale;
+            hueNeutralBallPos.transform.position = LoadedMap.neutralSpawnPosition;
+            hueNeutralBallPos.transform.rotation = LoadedMap.neutralSpawnRotation;
+        }
 
         team1.transform.localScale = LoadedMap.team1Scale;
         team2.transform.localScale = LoadedMap.team2Scale;
