@@ -182,9 +182,11 @@ MonoBehaviour:
   TopCamButton: {fileID: 736115510}
   TeamCamButton: {fileID: 1888516978}
   FreeCamButton: {fileID: 869585191}
+  PingCamButton: {fileID: 0}
   timer: {fileID: 1765999221}
   round: {fileID: 1560080897}
   isShooting: 0
+  pingPrefab: {fileID: 0}
 --- !u!114 &57479929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,6 +891,7 @@ MonoBehaviour:
   - {fileID: 1797703453}
   listPosRandom: {fileID: 871256842}
   lobbyScene: Lobby
+  gameFinish: 0
   playerTurnText: {fileID: 270468081}
   teamMarblText: {fileID: 1899650216}
 --- !u!4 &288828780
@@ -7770,9 +7773,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37854316b86da76499c5fe3ee9ab1a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  listTeamsDeath: 
-  localPlayerTurn: 0
-  localPlayerTeam: 0
 --- !u!65 &1615632623
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7807,6 +7807,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 150238142}
     m_Modifications:
+    - target: {fileID: 100912607625054059, guid: 16e15a410a901ce439f2fdfd52503f35,
+        type: 3}
+      propertyPath: m_Name
+      value: Panel
+      objectReference: {fileID: 0}
     - target: {fileID: 100912607625054058, guid: 16e15a410a901ce439f2fdfd52503f35,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7926,11 +7931,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2.3999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 100912607625054059, guid: 16e15a410a901ce439f2fdfd52503f35,
-        type: 3}
-      propertyPath: m_Name
-      value: Panel
       objectReference: {fileID: 0}
     - target: {fileID: 100912606436965289, guid: 16e15a410a901ce439f2fdfd52503f35,
         type: 3}
@@ -8262,6 +8262,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myImg: {fileID: 1765999219}
   mytext: {fileID: 640076043}
+  myAnimator: {fileID: 0}
+  bipTimer: {fileID: 0}
 --- !u!1 &1778096464
 GameObject:
   m_ObjectHideFlags: 0
