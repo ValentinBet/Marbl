@@ -155,6 +155,9 @@ public class RoomSettings : MonoBehaviour
         turnLimit.gameObject.SetActive(true);
         round.gameObject.SetActive(true);
 
+        ShowHide(ballObj, true);
+
+
         if (deathmatch.statut)
         {
             ShowHide(deathMatchObj, true);
@@ -308,7 +311,11 @@ public class RoomSettings : MonoBehaviour
         gameMode.gameObject.SetActive(true);
         roomSettingsLabel.gameObject.SetActive(true);
 
-        WWW data = new WWW(Application.streamingAssetsPath + "/GameModes/" + gameMode.myDropdown.options[gameMode.myDropdown.value].text + ".json");
+        string nameModeFile = gameMode.myDropdown.options[gameMode.myDropdown.value].text;
+        nameModeFile = nameModeFile.Replace("<color=red>", "");
+        nameModeFile = nameModeFile.Replace("</color>", "");
+
+        WWW data = new WWW(Application.streamingAssetsPath + "/GameModes/" + nameModeFile + ".json");
         GameModeSettings modeSettings = new GameModeSettings();
 
         modeSettings = JsonUtility.FromJson<GameModeSettings>(data.text);

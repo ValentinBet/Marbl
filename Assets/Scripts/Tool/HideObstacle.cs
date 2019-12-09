@@ -54,7 +54,6 @@ public class HideObstacle : MonoBehaviour
             objHide = null;
         }
 
-
         List<Renderer> removeThis = new List<Renderer>();
         foreach(Renderer element in oldObs)
         {
