@@ -6,6 +6,7 @@ using UnityEngine;
 using Photon.Realtime;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using Photon.Pun.UtilityScripts;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class LocalPlayerManager : MonoBehaviourPunCallbacks
 {
