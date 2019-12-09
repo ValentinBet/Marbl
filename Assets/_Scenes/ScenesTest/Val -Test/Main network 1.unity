@@ -6187,7 +6187,14 @@ MonoBehaviour:
   - {fileID: 448058103}
   - {fileID: 1778979270}
   listPosRandom: {fileID: 164057750}
+  listNeutralPos: {fileID: 0}
   lobbyScene: Lobby
+  colors:
+  - {fileID: 2100000, guid: e6b120985ff306f458411d5bfb30f1b8, type: 2}
+  - {fileID: 2100000, guid: 7347cf7679d4806418aa1e66fabbc03c, type: 2}
+  - {fileID: 2100000, guid: ea243e8ee0070ac4591b5074c0bc54a8, type: 2}
+  - {fileID: 2100000, guid: 3be50f9c225f3d747ae2ca45be827673, type: 2}
+  - {fileID: 2100000, guid: 70fce0e58298bbb418f28793cbaec069, type: 2}
   gameFinish: 0
   playerTurnText: {fileID: 861610853}
   teamMarblText: {fileID: 264959926}
@@ -6217,7 +6224,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5614f6127e6c2b541b1df7d8b9316b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hueNeutralsBalls: {fileID: 1896955727}
 --- !u!1 &2111516474
 GameObject:
   m_ObjectHideFlags: 0

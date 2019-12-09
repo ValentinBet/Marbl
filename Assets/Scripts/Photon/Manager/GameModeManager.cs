@@ -15,8 +15,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public Transform listNeutralPos;
     public string lobbyScene;
 
-    List<string> prefabTeam = new List<string>();
-
+    public List<Material> colors = new List<Material>();
     PhotonView myPV;
 
     Dictionary<Player, PunTeams.Team> teamPlayer = new Dictionary<Player, PunTeams.Team>();
@@ -85,11 +84,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         List<int> _indexList = new List<int>();
 
-        prefabTeam.Add("BallTeam1");
-        prefabTeam.Add("BallTeam2");
-        prefabTeam.Add("BallTeam3");
-        prefabTeam.Add("BallTeam4");
-
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             int index = (int) p.GetTeam();
@@ -114,6 +108,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                     currentIndex++;
                     GameObject _newBall = PhotonNetwork.Instantiate("Marbl", element.position, Quaternion.identity);
                     _newBall.GetComponent<BallSettings>().myteam = MarblGame.GetTeam(index);
+
                     if (currentIndex == numbrBallByTeam)
                     {
                         break;
@@ -132,12 +127,13 @@ public class GameModeManager : MonoBehaviourPunCallbacks
             {
                 for(int i=0; i < numbrBallByTeam; i++)
                 {
-                    GameObject _newBall = PhotonNetwork.Instantiate(prefabTeam[index], spawnPos[0].position, Quaternion.identity);
+                    GameObject _newBall = PhotonNetwork.Instantiate("Marbl", spawnPos[0].position, Quaternion.identity);
+                    _newBall.GetComponent<BallSettings>().myteam = MarblGame.GetTeam(index);
                     spawnPos.Remove(spawnPos[0]);
                 }
             }
-        }
 
+        }
 
         CreateTeamList();
 

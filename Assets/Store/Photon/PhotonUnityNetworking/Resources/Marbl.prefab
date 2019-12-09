@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 7495604838127120502}
   - component: {fileID: 2260284929210741239}
   m_Layer: 10
-  m_Name: BallTeam1
+  m_Name: Marbl
   m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,6 +155,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 1596019527867540144}
+  - {fileID: 7063088898512388730}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
