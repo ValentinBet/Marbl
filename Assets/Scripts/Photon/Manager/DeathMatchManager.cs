@@ -50,8 +50,7 @@ public class DeathMatchManager : MonoBehaviour
     public void ActiveThisMode(bool value)
     {
         if (value)
-        {
-            
+        {         
         }
         else
         {

@@ -21,7 +21,6 @@ public class HueManager : MonoBehaviour
         }
     }
 
-
     private void Start()
     {
         hueNeutralsBalls = GameModeManager.Instance.listNeutralPos;
@@ -31,7 +30,7 @@ public class HueManager : MonoBehaviour
 
     private void InitNeutralBalls()
     {
-
+         List<Transform> spawnPos = MarblFactory.GetListOfAllChild(hueNeutralsBalls);
     }
 
     public void ActiveThisMode(bool value)

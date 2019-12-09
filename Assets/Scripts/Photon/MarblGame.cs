@@ -15,10 +15,10 @@ public class MarblGame
             case 1: return Color.green;
             case 2: return Color.blue;
             case 3: return Color.yellow;
-            case 4: return Color.cyan;
+            case 4: return Color.white;
             case 5: return Color.grey;
             case 6: return Color.magenta;
-            case 7: return Color.white;
+            case 7: return Color.cyan;
         }
         return Color.black; 
     }
@@ -31,6 +31,7 @@ public class MarblGame
             case 1: return Team.green;
             case 2: return Team.blue;
             case 3: return Team.yellow;
+            case 4: return Team.neutral;
         }
         return Team.red;
     }

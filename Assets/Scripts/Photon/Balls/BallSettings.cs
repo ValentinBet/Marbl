@@ -13,9 +13,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 
     private void Start()
     {
-        Material[] _mats = this.GetComponent<Renderer>().materials;
-        _mats[1] = GameModeManager.Instance.colors[(int)myteam];
-        this.GetComponent<Renderer>().materials = _mats;
+        SetColor();
         myTrail.startColor = MarblGame.GetColor((int)myteam);
     }
 
@@ -27,6 +25,13 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     private void OnBecameInvisible()
     {
         isVisible = false;
+    }
+
+    public void SetColor()
+    {
+        Material[] _mats = this.GetComponent<Renderer>().materials;
+        _mats[1] = GameModeManager.Instance.colors[(int)myteam];
+        this.GetComponent<Renderer>().materials = _mats;
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
