@@ -14,7 +14,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
     bool canShoot;
     PhotonView PV;
     PUNMouseControl mousControl;
-    PunTeams.Team myTeam;
+    Team myTeam;
     Color myColorTeam;
     bool haveShoot = false;
     bool haveWait = false;

@@ -67,7 +67,6 @@ public class JsonMapLoader : MonoBehaviour
             
             WWW data = new WWW(Application.streamingAssetsPath + "/Map/" + fileInfo[mapIndex].Name);
 
-            Debug.Log(fileInfo[mapIndex].Name);
             jsonMap = data.text;
 
             myPV.RPC("RpcSendMapToAllClient", RpcTarget.All, jsonMap);
@@ -198,7 +197,6 @@ public class JsonMapLoader : MonoBehaviour
 
 
         PhotonNetwork.LocalPlayer.SetPlayerMapState(true);
-        print("ready");
     }
 
     private void LoadSpawns()

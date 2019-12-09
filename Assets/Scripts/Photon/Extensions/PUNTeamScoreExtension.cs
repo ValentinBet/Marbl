@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Realtime;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 namespace Photon.Pun.UtilityScripts
 {
@@ -13,14 +14,14 @@ namespace Photon.Pun.UtilityScripts
 
     public static class TeamScoreExtension
     {
-        public static void SetTeamScore(this Room room, PunTeams.Team team, int newScore)
+        public static void SetTeamScore(this Room room, Team team, int newScore)
         {
                 Hashtable teamscore = new Hashtable();
                 teamscore[team.ToString()] = newScore;
                 room.SetCustomProperties(teamscore);
         }
 
-        public static void AddTeamScore(this Room room, PunTeams.Team team, int scoreToAddToCurrent)
+        public static void AddTeamScore(this Room room, Team team, int scoreToAddToCurrent)
         {
             int current = room.GetTeamScore(team);
 
@@ -31,7 +32,7 @@ namespace Photon.Pun.UtilityScripts
 
             room.SetCustomProperties(teamscore);
         }
-        public static int GetTeamScore(this Room room, PunTeams.Team team)
+        public static int GetTeamScore(this Room room, Team team)
         {
             object teamscore;
 

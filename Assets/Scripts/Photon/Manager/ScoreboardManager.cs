@@ -9,6 +9,7 @@ using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
 using System.Linq;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class ScoreboardManager : MonoBehaviourPunCallbacks
 {
@@ -22,7 +23,7 @@ public class ScoreboardManager : MonoBehaviourPunCallbacks
     public GameObject teamScores;
     public bool isScoreboardDisplayed = false;
 
-    public Dictionary<PunTeams.Team, TeamUIManager> listTeams = new Dictionary<PunTeams.Team, TeamUIManager>();
+    public Dictionary<Team, TeamUIManager> listTeams = new Dictionary<Team, TeamUIManager>();
 
     private void Awake()
     {
@@ -106,7 +107,7 @@ public class ScoreboardManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public Dictionary<Player, int> GetPlayerListSortedByPoints(PunTeams.Team? team = null)
+    public Dictionary<Player, int> GetPlayerListSortedByPoints(Team? team = null)
     {
         Dictionary<Player, int> _temp = new Dictionary<Player, int>();
 
@@ -130,11 +131,11 @@ public class ScoreboardManager : MonoBehaviourPunCallbacks
         return list.ToDictionary(x => x.Key, x => x.Value);
     }
 
-    public Dictionary<PunTeams.Team, int> GetTeamListSortedByPoints()
+    public Dictionary<Team, int> GetTeamListSortedByPoints()
     {
-        Dictionary<PunTeams.Team, int> _temp = new Dictionary<PunTeams.Team, int>();
+        Dictionary<Team, int> _temp = new Dictionary<Team, int>();
 
-        foreach (PunTeams.Team team in listTeams.Keys)
+        foreach (Team team in listTeams.Keys)
         {
             _temp.Add(team, PhotonNetwork.CurrentRoom.GetTeamScore(team));
         }
@@ -168,7 +169,7 @@ public class ScoreboardManager : MonoBehaviourPunCallbacks
 
     public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
     {
-        foreach (PunTeams.Team team in listTeams.Keys)
+        foreach (Team team in listTeams.Keys)
         {
             if (listTeams.TryGetValue(team, out TeamUIManager teamUI))
             {
@@ -186,7 +187,7 @@ public class ScoreboardManager : MonoBehaviourPunCallbacks
         }
 
         // SET POSITION IN SCOREBOARD >>
-        foreach (PunTeams.Team team in listTeams.Keys)
+        foreach (Team team in listTeams.Keys)
         {
             Dictionary<Player, int> _temp = GetPlayerListSortedByPoints();
 
