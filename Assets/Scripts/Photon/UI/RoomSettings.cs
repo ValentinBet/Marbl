@@ -110,9 +110,20 @@ public class RoomSettings : MonoBehaviour
                 continue;
             }
 
-            listSettings.Add(new OptionData(file.Name.Replace(".json", "")));
+            string modeName = file.Name.Replace(".json", "");
+
+            if(modeName == "DeathMatch" || modeName == "King of the hill")
+            {
+
+            }
+            else
+            {
+                modeName = "<color=red>" + modeName + "</color>";
+            }
+
+            listSettings.Add(new OptionData(modeName));
         }
-        listSettings.Add(new OptionData("Custom"));
+        listSettings.Add(new OptionData("<color=red>Custom</color>"));
 
         gameMode.myDropdown.AddOptions(listSettings);
     }
