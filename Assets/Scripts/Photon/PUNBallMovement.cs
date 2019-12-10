@@ -46,10 +46,10 @@ public class PUNBallMovement : MonoBehaviour
             return;
         }
 
-        Ray ray = new Ray(transform.position,transform.position-Vector3.down*0.5f);
+        Ray ray = new Ray(transform.position, transform.position - Vector3.down * 0.5f);
         if (Physics.Raycast(ray, 0.5f, 10))
         {
-            Debug.Log("Ground Detected");
+
             if (gameObject.layer == 12)
             {
                 gameObject.layer = 13;
@@ -65,12 +65,12 @@ public class PUNBallMovement : MonoBehaviour
     public void MoveBall(Vector3 direction, float angle, float dragForce)
     {
         Debug.Log(direction);
-        direction = new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * angle), ((45 - angle) / 45.0f + MovementSpeed) * Mathf.Sin(Mathf.Deg2Rad * angle)/MovementSpeed, direction.z * Mathf.Cos(Mathf.Deg2Rad * angle));
+        direction = new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * angle), ((45 - angle) / 45.0f + MovementSpeed) * Mathf.Sin(Mathf.Deg2Rad * angle) / MovementSpeed, direction.z * Mathf.Cos(Mathf.Deg2Rad * angle));
         Debug.Log(direction);
-        Vector3 _impulse = direction * (dragForce*rigidbody.mass * MovementSpeed);
+        Vector3 _impulse = direction * (dragForce * rigidbody.mass * MovementSpeed);
 
         this.GetComponent<Rigidbody>().AddForce(_impulse, ForceMode.Impulse);
-        this.GetComponent<Rigidbody>().AddTorque(Vector3.Cross(direction,Vector3.up) * -torqueForce, ForceMode.Force);
+        this.GetComponent<Rigidbody>().AddTorque(Vector3.Cross(direction, Vector3.up) * -torqueForce, ForceMode.Force);
     }
 
 
@@ -85,7 +85,19 @@ public class PUNBallMovement : MonoBehaviour
             {
                 colliderName = other.gameObject.name;
 
+                if (PhotonNetwork.CurrentRoom.GetHue())
+                {
+                    GetComponent<BallSettings>().ChangeTeam(other.gameObject.GetComponent<BallSettings>().myteam);
+                }
+
                 amplify = 1;
+            }
+            else
+            {
+                if (PhotonNetwork.CurrentRoom.GetHue())
+                {
+                    other.gameObject.GetComponent<BallSettings>().ChangeTeam(GetComponent<BallSettings>().myteam);
+                }
             }
         }
     }
@@ -97,15 +109,14 @@ public class PUNBallMovement : MonoBehaviour
             //Mathf.Abs(Mathf.Abs(collision.gameObject.transform.position.y) - Mathf.Abs(transform.position.y)) < 0.3f
             if (collision.gameObject.GetComponent<Rigidbody>().velocity.sqrMagnitude > MinimalImpactForce * MinimalImpactForce && rigidbody.velocity.sqrMagnitude > MinimalImpactForce * MinimalImpactForce)
             {
-                Debug.Log("Impact Collision");
 
                 if (amplify == 0)
                 {
-                    rigidbody.velocity = rigidbody.velocity*ImpactGivingCoef*impactPower - Vector3.up*rigidbody.velocity.y*(ImpactGivingCoef-1);
+                    rigidbody.velocity = rigidbody.velocity * ImpactGivingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1);
                 }
                 else
                 {
-                    rigidbody.velocity = rigidbody.velocity*ImpactRecievingCoef * impactPower - Vector3.up* rigidbody.velocity.y*(ImpactRecievingCoef-1);
+                    rigidbody.velocity = rigidbody.velocity * ImpactRecievingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1);
                 }
             }
         }
@@ -113,7 +124,7 @@ public class PUNBallMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Ball" && collision.relativeVelocity.magnitude > 8)
+        if (collision.gameObject.tag == "Ball" && collision.relativeVelocity.magnitude > 8)
         {
             GameObject impact = Instantiate(impactPrefab[Random.Range(0, impactPrefab.Count)], collision.contacts[0].point, Quaternion.identity);
             Destroy(impact, 2);
