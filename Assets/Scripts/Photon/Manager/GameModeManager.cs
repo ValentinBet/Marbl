@@ -453,6 +453,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
     public void EndMode()
     {
+        if (gameFinish) { return; }
+
         myPV.RPC("RpcDisplayScoreBoard", RpcTarget.AllViaServer);
         gameFinish = true;
         StartCoroutine(WaitToRestartGame());
@@ -470,5 +472,34 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public void DisplayPoint(Vector3 position, int value)
     {
         PhotonNetwork.Instantiate("Points", position, Quaternion.identity);
+    }
+
+    public void DetectEndGame()
+    {
+        GameObject[] Balls = GameObject.FindGameObjectsWithTag("Ball");
+        List<GameObject> allBalls = new List<GameObject>();
+        allBalls.AddRange(Balls);
+
+        List<Team> allTeamAlive = new List<Team>();
+
+        foreach (GameObject element in allBalls)
+        {
+            Team ballTeam = element.GetComponent<BallSettings>().myteam;
+            if(ballTeam == Team.neutral) { continue; }
+
+            if (!allTeamAlive.Contains(ballTeam))
+            {
+                allTeamAlive.Add(ballTeam);
+            }
+        }
+
+        if (allTeamAlive.Count == 1)
+        {
+            EndMode();
+        }
+        else
+        {
+            return;
+        }
     }
 }

@@ -193,6 +193,8 @@ public class DeathMatchManager : MonoBehaviour
         foreach (GameObject element in allBalls)
         {
             Team ballTeam = element.GetComponent<BallSettings>().myteam;
+            if (ballTeam == Team.neutral) { continue; }
+
             if (!allTeamAlive.Contains(ballTeam))
             {
                 allTeamAlive.Add(ballTeam);

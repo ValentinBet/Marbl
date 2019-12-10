@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     private bool isEscapeMenuDisplayed = false;
 
-    List<GameObject> listOfPing = new List<GameObject>();
+    Dictionary<GameObject, GameObject> listOfPing = new Dictionary<GameObject, GameObject>();
     public GameObject pingPrefab;
 
     private void Awake()
@@ -66,6 +66,11 @@ public class UIManager : MonoBehaviourPunCallbacks
         else
         {
             SetCamButtonState(true);
+        }
+
+        if (pingStatut)
+        {
+            FollowMarbl();
         }
     }
 
@@ -161,18 +166,17 @@ public class UIManager : MonoBehaviourPunCallbacks
             ball.GetComponent<MarbleIndicator>().enabled = false;
         }
 
-        foreach(GameObject element in listOfPing)
+        foreach(KeyValuePair<GameObject, GameObject> element in listOfPing)
         {
-            Destroy(element);
+            Destroy(element.Key);
         }
+
+        listOfPing.Clear();
     }
 
     public void EnablePing()
     {
-        foreach (GameObject element in listOfPing)
-        {
-            Destroy(element);
-        }
+        listOfPing.Clear();
 
         PingCamButton.GetComponent<Image>().color = Color.white;
         PingCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
@@ -195,7 +199,16 @@ public class UIManager : MonoBehaviourPunCallbacks
                 newPing.GetComponent<PingElement>().Hide();
             }
 
-            listOfPing.Add(newPing);
+            listOfPing.Add(newPing, ball);
+        }
+    }
+
+    void FollowMarbl()
+    {
+        foreach(KeyValuePair < GameObject, GameObject > element in listOfPing)
+        {
+            element.Key.transform.position = element.Value.transform.position;
+            element.Key.transform.position += new Vector3(0, -0.4f, 0);
         }
     }
 }

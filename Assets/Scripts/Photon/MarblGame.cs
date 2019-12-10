@@ -13,7 +13,7 @@ public class MarblGame
         {
             case 0: return Color.red;
             case 1: return Color.green;
-            case 2: return Color.blue;
+            case 2: return new Color(0f, 0.4384f, 1);
             case 3: return Color.yellow;
             case 4: return Color.white;
             case 5: return Color.grey;
