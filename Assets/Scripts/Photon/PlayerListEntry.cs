@@ -5,6 +5,7 @@ using ExitGames.Client.Photon;
 using Photon.Realtime;
 using Photon.Pun.UtilityScripts;
 using Photon.Pun;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class PlayerListEntry : MonoBehaviour
 {
@@ -97,14 +98,14 @@ public class PlayerListEntry : MonoBehaviour
 
         dropTeam.value = idTeam;
 
-        PunTeams.Team myTeam = PunTeams.Team.red;
+        Team myTeam = Team.red;
 
         switch (idTeam)
         {
-            case 0: myTeam = PunTeams.Team.red; break;
-            case 1: myTeam = PunTeams.Team.green; break;
-            case 2: myTeam = PunTeams.Team.blue; break;
-            case 3: myTeam = PunTeams.Team.yellow; break;
+            case 0: myTeam = Team.red; break;
+            case 1: myTeam = Team.green; break;
+            case 2: myTeam = Team.blue; break;
+            case 3: myTeam = Team.yellow; break;
         }
 
         PhotonNetwork.LocalPlayer.SetTeam(myTeam);
@@ -115,14 +116,14 @@ public class PlayerListEntry : MonoBehaviour
     public void ChangeTeam()
     {
         int idTeam = dropTeam.value;
-        PunTeams.Team myTeam = PunTeams.Team.red;
+        Team myTeam = Team.red;
 
         switch (idTeam)
         {
-            case 0: myTeam = PunTeams.Team.red; break;
-            case 1: myTeam = PunTeams.Team.green; break;
-            case 2: myTeam = PunTeams.Team.blue; break;
-            case 3: myTeam = PunTeams.Team.yellow; break;
+            case 0: myTeam = Team.red; break;
+            case 1: myTeam = Team.green; break;
+            case 2: myTeam = Team.blue; break;
+            case 3: myTeam = Team.yellow; break;
         }
 
         PhotonNetwork.LocalPlayer.SetTeam(myTeam);
