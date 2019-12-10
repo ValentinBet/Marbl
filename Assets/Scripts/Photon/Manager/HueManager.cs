@@ -1,13 +1,12 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun.UtilityScripts;
 public class HueManager : MonoBehaviour
 {
     private static HueManager _instance;
     public static HueManager Instance { get { return _instance; } }
-
-    private Transform hueNeutralsBalls;
 
     private void Awake()
     {
@@ -21,22 +20,24 @@ public class HueManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        hueNeutralsBalls = GameModeManager.Instance.listNeutralPos;
-
-        InitNeutralBalls();
-    }
-
     private void InitNeutralBalls()
     {
-         List<Transform> spawnPos = MarblFactory.GetListOfAllChild(hueNeutralsBalls);
+        List<Transform> spawnPos = MarblFactory.GetListOfAllChild(GameModeManager.Instance.listNeutralPos);
+        spawnPos = MarblFactory.ShuffleList(spawnPos);
+
+        for (int i = 0; i < PhotonNetwork.CurrentRoom.GetHueNutralBall(); i++)
+        {
+            GameObject _neutralBall = PhotonNetwork.Instantiate("Marbl", spawnPos[0].position, Quaternion.identity);
+            _neutralBall.GetComponent<BallSettings>().myteam = MarblGame.GetTeam(4);
+            spawnPos.Remove(spawnPos[0]);
+        }
     }
 
     public void ActiveThisMode(bool value)
     {
         if (value)
         {
+            InitNeutralBalls();
             return;
         }
         else

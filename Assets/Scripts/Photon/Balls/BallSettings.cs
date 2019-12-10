@@ -3,10 +3,11 @@ using Photon.Pun.UtilityScripts;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 {
-    public PunTeams.Team myteam;
+    public Team myteam;
     public ParticleSystem myTrail;
 
     public bool isVisible = true;
@@ -34,6 +35,12 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
         this.GetComponent<Renderer>().materials = _mats;
     }
 
+    public void ChangeTeam(Team team)
+    {
+        myteam = team;
+        SetColor();
+    }
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
@@ -41,7 +48,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
             stream.SendNext(myteam);
         } else
         {
-            myteam = (PunTeams.Team) stream.ReceiveNext();
+            myteam = (Team) stream.ReceiveNext();
         }
     }
 }

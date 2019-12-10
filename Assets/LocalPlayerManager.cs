@@ -90,6 +90,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
                 currentTimer = startTimer;
                 doTimer = true;
                 myTimerInfo.gameObject.SetActive(true);
+                GetMyBalls();
             }
 
             canShoot = (bool)PhotonNetwork.LocalPlayer.CustomProperties["playerTurn"];
@@ -183,12 +184,13 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
         teamBalls.Clear();
         allBalls.Clear();
         allBalls.AddRange(_Balls);
-
+        Debug.Log("refresh");
         foreach (GameObject ball in _Balls)
         {
             if (ball.GetComponent<BallSettings>().myteam == PhotonNetwork.LocalPlayer.GetTeam())
             {
                 teamBalls.Add(ball);
+                Debug.Log("found");
             }
         }
     }
