@@ -32,6 +32,8 @@ public class UIManager : MonoBehaviourPunCallbacks
     public Action<CameraMode> OnTeamCam;
     public Action<CameraMode> OnFreeCam;
 
+    public GameObject LoadingPanel;
+
     public bool isShooting = false;
 
     private bool isEscapeMenuDisplayed = false;

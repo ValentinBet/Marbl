@@ -7,6 +7,7 @@ using UnityEngine;
 using ExitGames.Client.Photon;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using UnityEngine.UI;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class GameModeManager : MonoBehaviourPunCallbacks
 {
@@ -18,10 +19,10 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public List<Material> colors = new List<Material>();
     PhotonView myPV;
 
-    Dictionary<Player, PunTeams.Team> teamPlayer = new Dictionary<Player, PunTeams.Team>();
-    List<PunTeams.Team> presentTeam = new List<PunTeams.Team>();
+    Dictionary<Player, Team> teamPlayer = new Dictionary<Player, Team>();
+    List<Team> presentTeam = new List<Team>();
 
-    PunTeams.Team teamPlayed;
+    Team teamPlayed;
     Player playerplayed;
 
     List<Player> playerAlreadyPlay = new List<Player>();
@@ -157,6 +158,9 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         myPV.RPC("RpcSetRoundText", RpcTarget.AllViaServer, "Round " + currentRound + " / " + roundNumber);
 
+        myPV.RPC("RpcStartGame", RpcTarget.All);
+
+
 
         //-----------------------------ACTIVATION DES MODES ACTIF-------------------------------------
 
@@ -170,7 +174,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     {
         foreach (Player p in PhotonNetwork.PlayerList)
         {
-            PunTeams.Team _pTeam = p.GetTeam();
+            Team _pTeam = p.GetTeam();
             teamPlayer.Add(p, _pTeam);
 
             if (!presentTeam.Contains(_pTeam))
@@ -180,11 +184,11 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         }
     }
 
-    List<Player> GetPlayerOfOneTeam(PunTeams.Team _team)
+    List<Player> GetPlayerOfOneTeam(Team _team)
     {
         List<Player> _sameTeamPlayer = new List<Player>();
 
-        foreach(KeyValuePair<Player, PunTeams.Team> element in teamPlayer)
+        foreach(KeyValuePair<Player, Team> element in teamPlayer)
         {
             if(element.Value == _team)
             {
@@ -296,7 +300,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                 if (p.GetPlayerTurnState())
                 {
                     playerTurnText.text = p.NickName + "'s turn !";
-                    PunTeams.Team currentTeam = (PunTeams.Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
+                    Team currentTeam = (Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
                     playerTurnText.color = MarblGame.GetColor((int)currentTeam);
 
                     teamMarblText.text = MarblFactory.FirstCharToUpper(GetNumberBallOfTeam(currentTeam).ToString()) + " Marbls left";
@@ -323,7 +327,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                 if (p.GetPlayerTurnState())
                 {
                     playerTurnText.text = p.NickName + "'s turn !";
-                    PunTeams.Team currentTeam = (PunTeams.Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
+                    Team currentTeam = (Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
                     playerTurnText.color = MarblGame.GetColor((int)currentTeam);
 
                     teamMarblText.text = MarblFactory.FirstCharToUpper(GetNumberBallOfTeam(currentTeam).ToString())  + " Marbls left";
@@ -357,9 +361,15 @@ public class GameModeManager : MonoBehaviourPunCallbacks
             if (CheckAllHaveLoadMap())
             {
                 allHaveLoadMap = true;
-                StartGame();
+                StartCoroutine(WaitToStart());
             }
         }
+    }
+
+    IEnumerator WaitToStart()
+    {
+        yield return new WaitForSeconds(2);
+        StartGame();
     }
 
     bool CheckAllHaveLoadMap()
@@ -382,7 +392,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         }
     }
 
-    int GetNumberBallOfTeam(PunTeams.Team _team)
+    int GetNumberBallOfTeam(Team _team)
     {
         int number = 0;
 
@@ -432,6 +442,13 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     void RpcDisableRoundText()
     {
         UIManager.Instance.round.gameObject.SetActive(false);
+    }
+
+    [PunRPC]
+    void RpcStartGame()
+    {
+        UIManager.Instance.EnablePing();
+        UIManager.Instance.LoadingPanel.SetActive(false);
     }
 
     public void EndMode()

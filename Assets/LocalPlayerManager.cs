@@ -6,6 +6,7 @@ using UnityEngine;
 using Photon.Realtime;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using Photon.Pun.UtilityScripts;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class LocalPlayerManager : MonoBehaviourPunCallbacks
 {
@@ -14,7 +15,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
     bool canShoot;
     PhotonView PV;
     PUNMouseControl mousControl;
-    PunTeams.Team myTeam;
+    Team myTeam;
     Color myColorTeam;
     bool haveShoot = false;
     bool haveWait = false;
@@ -221,6 +222,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
     void PlayerShooted()
     {
+        UIManager.Instance.DisablePing();
         haveShoot = true;
     }
 
