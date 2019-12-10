@@ -123,11 +123,10 @@ public class JsonMapLoader : MonoBehaviour
                     {
                         obj = Resources.Load("MapLoad/" + mapObject.prefabName) as GameObject;
 
-                        if (obj == null)
+                        if (obj != null)
                         {
-                            Debug.Log(mapObject.prefabName);
+                            objInstance = Instantiate(obj, mapObj.transform);
                         }
-                        objInstance = Instantiate(obj, mapObj.transform);
                     }
                 }
                 else if (mapObject.rootParent == fixedSpawnPos.name)

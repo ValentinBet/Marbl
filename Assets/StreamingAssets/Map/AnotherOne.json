@@ -2,6 +2,98 @@
     "mapName": "AnotherOne",
     "mapObjects": [
         {
+            "objectName": "SpeedBoostCollider",
+            "prefabName": "SpeedBoostCollider",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 9.924959182739258,
+                "y": 1.4600000381469727,
+                "z": 22.039024353027345
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 9.582575798034668,
+                "y": 7.142857551574707,
+                "z": 3.8112595081329347
+            }
+        },
+        {
+            "objectName": "SpeedBoost (1)",
+            "prefabName": "SpeedBoost",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 9.924959182739258,
+                "y": 1.4600000381469727,
+                "z": 22.039024353027345
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 0.20781168341636659,
+                "y": 0.2787928581237793,
+                "z": 0.1997445821762085
+            }
+        },
+        {
+            "objectName": "SpeedBoostCollider",
+            "prefabName": "SpeedBoostCollider",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 1.8742166757583619,
+                "y": 1.2599999904632569,
+                "z": 21.886985778808595
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 9.582575798034668,
+                "y": 7.142857551574707,
+                "z": 3.8112595081329347
+            }
+        },
+        {
+            "objectName": "SpeedBoost",
+            "prefabName": "SpeedBoost",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 1.8742166757583619,
+                "y": 1.2599999904632569,
+                "z": 21.886985778808595
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 0.20781168341636659,
+                "y": 0.2787928581237793,
+                "z": 0.1997445821762085
+            }
+        },
+        {
             "objectName": "Terrain_(-521,6, -0,5, -50,2)",
             "prefabName": "Terrain_(-521,6, -0,5, -50,2)",
             "rootParent": "MapObj",
@@ -623,6 +715,29 @@
             }
         },
         {
+            "objectName": "Pos 3",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 15.092462539672852,
+                "y": 10.130000114440918,
+                "z": 0.9513208866119385
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
             "objectName": "TileCube (34)",
             "prefabName": "TileCube",
             "rootParent": "MapObj",
@@ -784,6 +899,29 @@
             }
         },
         {
+            "objectName": "Pos 17",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -19.917156219482423,
+                "y": 1.909999966621399,
+                "z": 16.71247673034668
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
             "objectName": "TileCube (2)",
             "prefabName": "TileCube",
             "rootParent": "MapObj",
@@ -804,6 +942,29 @@
                 "x": 4.0,
                 "y": 4.0,
                 "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 1",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 27.664390563964845,
+                "y": 6.639999866485596,
+                "z": 21.30120849609375
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
             }
         },
         {
@@ -857,7 +1018,7 @@
             "prefabName": "",
             "rootParent": "Directional Light",
             "teamNumber": "",
-            "isRootParent": false,
+            "isRootParent": true,
             "position": {
                 "x": 93.62185668945313,
                 "y": -71.62167358398438,
@@ -942,6 +1103,29 @@
                 "x": 4.0,
                 "y": 4.0,
                 "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 6",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 3.915252685546875,
+                "y": 2.619999885559082,
+                "z": -21.54793357849121
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
             }
         },
         {
@@ -1428,6 +1612,29 @@
             }
         },
         {
+            "objectName": "Pos 11",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 28.487056732177736,
+                "y": 1.75,
+                "z": -34.34673309326172
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
             "objectName": "Pos 5",
             "prefabName": "",
             "rootParent": "AllPos",
@@ -1589,6 +1796,29 @@
             }
         },
         {
+            "objectName": "Pos 9",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 37.39277267456055,
+                "y": 1.4800000190734864,
+                "z": -20.932998657226564
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
             "objectName": "TileCube (26)",
             "prefabName": "TileCube",
             "rootParent": "MapObj",
@@ -1635,6 +1865,29 @@
             }
         },
         {
+            "objectName": "Pos 10",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 36.751712799072269,
+                "y": 1.659999966621399,
+                "z": -24.96401023864746
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
             "objectName": "Pos 2",
             "prefabName": "",
             "rootParent": "AllPos",
@@ -1678,6 +1931,29 @@
                 "x": 4.0,
                 "y": 4.0,
                 "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 15",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -13.078665733337403,
+                "y": 1.8700000047683716,
+                "z": -28.187915802001954
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
             }
         },
         {
@@ -1796,6 +2072,29 @@
             }
         },
         {
+            "objectName": "Pos 18",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -0.0766044557094574,
+                "y": 9.270000457763672,
+                "z": 0.06427875906229019
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
             "objectName": "Pos 1",
             "prefabName": "",
             "rootParent": "AllPos",
@@ -1811,6 +2110,29 @@
                 "y": 0.0,
                 "z": 0.0,
                 "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 4",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 14.606475830078125,
+                "y": 9.90999984741211,
+                "z": -1.5258387327194214
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
             },
             "scale": {
                 "x": 1.0,
@@ -1857,6 +2179,29 @@
                 "y": 0.0,
                 "z": 0.0,
                 "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -1.952972173690796,
+                "y": 9.029999732971192,
+                "z": -6.154542922973633
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
             },
             "scale": {
                 "x": 1.0,
@@ -2003,6 +2348,29 @@
             }
         },
         {
+            "objectName": "Pos 20",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 39.91375732421875,
+                "y": 6.539999961853027,
+                "z": -31.899017333984376
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
             "objectName": "TileCube (17)",
             "prefabName": "TileCube",
             "rootParent": "MapObj",
@@ -2095,21 +2463,21 @@
             }
         },
         {
-            "objectName": "Cube",
+            "objectName": "Pos 14",
             "prefabName": "",
-            "rootParent": "Cube",
+            "rootParent": "neutralBallsSpawn",
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -0.5,
-                "y": 6.5,
-                "z": -7.5
+                "x": 25.669097900390626,
+                "y": 1.7400000095367432,
+                "z": 18.145450592041017
             },
             "rotation": {
                 "x": 0.0,
-                "y": 0.0,
+                "y": 0.34202009439468386,
                 "z": 0.0,
-                "w": 1.0
+                "w": 0.9396926760673523
             },
             "scale": {
                 "x": 1.0,
@@ -2207,6 +2575,29 @@
                 "x": 0.3943995237350464,
                 "y": 0.3943995237350464,
                 "z": 0.3943995237350464
+            }
+        },
+        {
+            "objectName": "Pos 8",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -21.688861846923829,
+                "y": 0.5,
+                "z": 7.755855560302734
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
             }
         },
         {
@@ -2509,6 +2900,29 @@
             }
         },
         {
+            "objectName": "Pos 16",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 35.46786117553711,
+                "y": 2.869999885559082,
+                "z": -29.761064529418947
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
             "objectName": "Pos 4",
             "prefabName": "",
             "rootParent": "AllPos",
@@ -2624,6 +3038,29 @@
             }
         },
         {
+            "objectName": "Pos 19",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 12.331474304199219,
+                "y": 8.119999885559082,
+                "z": -9.75990104675293
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
             "objectName": "TileCube (5)",
             "prefabName": "TileCube",
             "rootParent": "MapObj",
@@ -2670,6 +3107,29 @@
             }
         },
         {
+            "objectName": "neutralBallsSpawn",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": true,
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
             "objectName": "TileCube (56)",
             "prefabName": "TileCube",
             "rootParent": "MapObj",
@@ -2690,6 +3150,29 @@
                 "x": 4.0,
                 "y": 4.0,
                 "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 13",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.650790214538574,
+                "y": 1.8700000047683716,
+                "z": -20.527469635009767
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
             }
         },
         {
@@ -3590,6 +4073,29 @@
             }
         },
         {
+            "objectName": "Pos 2",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 37.26934814453125,
+                "y": 1.9900000095367432,
+                "z": -2.971464157104492
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
             "objectName": "TileCube (61)",
             "prefabName": "TileCube",
             "rootParent": "MapObj",
@@ -3659,6 +4165,29 @@
             }
         },
         {
+            "objectName": "Pos 7",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -16.30694580078125,
+                "y": 1.7699999809265137,
+                "z": 24.12640953063965
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
             "objectName": "Pos 2",
             "prefabName": "",
             "rootParent": "AllPosRandom",
@@ -3686,7 +4215,7 @@
             "prefabName": "",
             "rootParent": "HillsPos",
             "teamNumber": "",
-            "isRootParent": false,
+            "isRootParent": true,
             "position": {
                 "x": 0.0,
                 "y": 0.0,
@@ -3702,6 +4231,29 @@
                 "x": 2.5355000495910646,
                 "y": 2.5355000495910646,
                 "z": 2.5355000495910646
+            }
+        },
+        {
+            "objectName": "Pos 12",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 18.99643325805664,
+                "y": 1.5800000429153443,
+                "z": 10.03770637512207
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
             }
         },
         {
@@ -4071,6 +4623,22 @@
         "w": 1.0
     },
     "randomSpawnScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+    },
+    "neutralSpawnPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "neutralSpawnRotation": {
+        "x": 0.0,
+        "y": 0.34202009439468386,
+        "z": 0.0,
+        "w": 0.9396926760673523
+    },
+    "neutralSpawnScale": {
         "x": 1.0,
         "y": 1.0,
         "z": 1.0
