@@ -27,9 +27,21 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
     TimerInfo myTimerInfo;
     bool doTimer = false;
 
+    private static LocalPlayerManager _instance;
+    public static LocalPlayerManager Instance { get { return _instance; } }
+
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
+
+        if (PV.IsOwnerActive)
+        {
+            _instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
 
         if (PhotonNetwork.LocalPlayer.ActorNumber == PV.ControllerActorNr)
         {
