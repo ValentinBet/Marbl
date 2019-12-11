@@ -21,6 +21,8 @@ public class CameraPlayer : MonoBehaviour
     PUNMouseControl myMouseControl;
     LocalPlayerManager myLocalPlayerManager;
 
+    bool isScreenShaking = false;
+
     #endregion
 
     private void OnEnable()
@@ -87,7 +89,8 @@ public class CameraPlayer : MonoBehaviour
         if (actualMode == CameraMode.Free)
         {
             CameraManager.Instance.CameraFree.GetComponent<FreeCam>().onFreeCam = true;
-        } else
+        }
+        else
         {
             CameraManager.Instance.CameraFree.GetComponent<FreeCam>().onFreeCam = false;
         }
@@ -120,7 +123,7 @@ public class CameraPlayer : MonoBehaviour
 
                 myLocalPlayerManager.GetMyBalls();
 
-                foreach(GameObject ball in myLocalPlayerManager.teamBalls)
+                foreach (GameObject ball in myLocalPlayerManager.teamBalls)
                 {
                     _averagePos += ball.transform.position;
                 }
@@ -166,7 +169,7 @@ public class CameraPlayer : MonoBehaviour
 
     private void ballModeCalculation()
     {
-        if(targetedTransform == null)
+        if (targetedTransform == null)
         {
             SetCameraMode(CameraMode.MapCentered);
             return;
@@ -179,6 +182,31 @@ public class CameraPlayer : MonoBehaviour
             //orbitalAngle += Input.GetAxis("Mouse X") * 2.5f;
             //followBall.transform.rotation = Quaternion.Euler(initialRotation.eulerAngles + new Vector3(0, orbitalAngle, 0));// + myMouseControl.possibleAngles[myMouseControl.angleIndex] * curveVariation, 0));
             followBall.transform.rotation = Quaternion.Euler(followBall.transform.rotation.eulerAngles + new Vector3(0, Input.GetAxis("Mouse X") * 2.5f, 0));
+        }
+    }
+
+
+    public void InitShakeScreen(float intensity, float duration)
+    {
+        if (!isScreenShaking)
+        {
+            StartCoroutine(ProcessShake(intensity, duration));
+        }
+    }
+    private IEnumerator ProcessShake(float intensity, float duration)
+    {
+        isScreenShaking = true;
+        CamerasShake(intensity);
+        yield return new WaitForSeconds(duration);
+        CamerasShake(0);
+        isScreenShaking = false;
+    }
+    private void CamerasShake(float intensity)
+    {
+        foreach (CinemachineVirtualCamera camera in cameras)
+        {
+            camera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = intensity;
+            camera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = intensity;
         }
     }
 

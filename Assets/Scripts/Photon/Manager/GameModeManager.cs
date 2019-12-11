@@ -39,6 +39,10 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
     bool allHaveLoadMap = false;
 
+    public GameObject localPlayerObj;
+    public Team localPlayerTeam;
+    public bool localPlayerTurn = false;
+
 
     //----------------    BOOL DE CHAQUE MODE   -----------------
     bool modeDM = false;
@@ -445,7 +449,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     [PunRPC]
     void RpcStartGame()
     {
-        //UIManager.Instance.EnablePing();
+        UIManager.Instance.EnablePing();
         UIManager.Instance.LoadingPanel.SetActive(false);
     }
 

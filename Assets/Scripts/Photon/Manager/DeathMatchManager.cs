@@ -10,9 +10,6 @@ public class DeathMatchManager : MonoBehaviour
 {
     public List<Team> listTeamsDeath = new List<Team>();
 
-    public bool localPlayerTurn = false;
-    public Team localPlayerTeam;
-
     List<GameObject> allBalls = new List<GameObject>();
 
     bool DMactif = false;
@@ -91,8 +88,10 @@ public class DeathMatchManager : MonoBehaviour
     {
         if (GameModeManager.Instance.gameFinish) { return; }
 
+        Team localPlayerTeam = GameModeManager.Instance.localPlayerTeam;
         Team _ballTeam = marbl.GetComponent<BallSettings>().myteam;
-        if (localPlayerTurn)
+
+        if (GameModeManager.Instance.localPlayerTurn)
         {
             if (DMactif)
             {

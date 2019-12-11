@@ -42,7 +42,7 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     private bool isEscapeMenuDisplayed = false;
 
-    Dictionary<GameObject, GameObject> listOfPing = new Dictionary<GameObject, GameObject>();
+    Dictionary<BallSettings, PingElement> listOfPing = new Dictionary<BallSettings, PingElement>();
     public GameObject pingPrefab;
 
     private void Awake()
@@ -170,9 +170,9 @@ public class UIManager : MonoBehaviourPunCallbacks
             ball.GetComponent<MarbleIndicator>().enabled = false;
         }
 
-        foreach (KeyValuePair<GameObject, GameObject> element in listOfPing)
+        foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
         {
-            Destroy(element.Key);
+            Destroy(element.Value.gameObject);
         }
 
         listOfPing.Clear();
@@ -192,33 +192,37 @@ public class UIManager : MonoBehaviourPunCallbacks
             GameObject newPing = Instantiate(pingPrefab);
             newPing.transform.position = ball.transform.position;
             newPing.transform.position += new Vector3(0, -0.4f, 0);
-            newPing.GetComponent<PingElement>().SetColor(MarblGame.GetColor((int)ball.GetComponent<BallSettings>().myteam));
+            PingElement myElement = newPing.GetComponent<PingElement>();
+            BallSettings myBallSettings = ball.GetComponent<BallSettings>();
 
-            if (ball.GetComponent<BallSettings>().myteam == DeathMatchManager.Instance.localPlayerTeam)
+            myElement.SetColor(MarblGame.GetColor((int)myBallSettings.myteam));
+
+            if (myBallSettings.myteam == GameModeManager.Instance.localPlayerTeam)
             {
-                ball.GetComponent<MarbleIndicator>().enabled = true;
+                myBallSettings.enabled = true;
             }
             else
             {
                 newPing.GetComponent<PingElement>().Hide();
             }
 
-            listOfPing.Add(newPing, ball);
+            listOfPing.Add(myBallSettings, myElement);
         }
     }
 
     void FollowMarbl()
     {
-        foreach (KeyValuePair<GameObject, GameObject> element in listOfPing)
+        foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
         {
-            if (element.Value == null)
+            if (element.Key == null)
             {
-                element.Key.SetActive(false);
+                element.Value.gameObject.SetActive(false);
                 continue;
             }
 
-            element.Key.transform.position = element.Value.transform.position;
-            element.Key.transform.position += new Vector3(0, -0.4f, 0);
+            element.Value.transform.position = element.Key.transform.position;
+            element.Value.transform.position += new Vector3(0, -0.4f, 0);
+            element.Value.SetColor(MarblGame.GetColor((int)element.Key.myteam));
         }
     }
 
