@@ -214,14 +214,14 @@ public class UIManager : MonoBehaviourPunCallbacks
     {
         foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
         {
-            if (element.Value == null)
+            if (element.Key == null)
             {
-                element.Key.gameObject.SetActive(false);
+                element.Value.gameObject.SetActive(false);
                 continue;
             }
 
-            element.Key.transform.position = element.Value.transform.position;
-            element.Key.transform.position += new Vector3(0, -0.4f, 0);
+            element.Value.transform.position = element.Key.transform.position;
+            element.Value.transform.position += new Vector3(0, -0.4f, 0);
             element.Value.SetColor(MarblGame.GetColor((int)element.Key.myteam));
         }
     }
