@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -26,7 +27,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     bool pingStatut = false;
 
     public TimerInfo timer;
-    public Text round;
+    public TextMeshProUGUI round;
 
     public Action<CameraMode> OnTopCam;
     public Action<CameraMode> OnTeamCam;
@@ -100,7 +101,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void SetCamButtonState(bool value)
     {
         TopCamButton.SetActive(value);
-        TeamCamButton.SetActive(value);
+        //TeamCamButton.SetActive(value);
         FreeCamButton.SetActive(value);
     }
 
@@ -207,6 +208,12 @@ public class UIManager : MonoBehaviourPunCallbacks
     {
         foreach(KeyValuePair < GameObject, GameObject > element in listOfPing)
         {
+            if(element.Value == null)
+            {
+                element.Key.SetActive(false);
+                continue;
+            }
+
             element.Key.transform.position = element.Value.transform.position;
             element.Key.transform.position += new Vector3(0, -0.4f, 0);
         }

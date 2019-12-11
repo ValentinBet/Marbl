@@ -156,7 +156,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
             myPV.RPC("RpcDisableRoundText", RpcTarget.AllViaServer);
         }
 
-        myPV.RPC("RpcSetRoundText", RpcTarget.AllViaServer, "Round " + currentRound + " / " + roundNumber);
+        myPV.RPC("RpcSetRoundText", RpcTarget.AllViaServer, "Round" + "\n" + "<size=180> " + currentRound + " / " + roundNumber + "</size>");
 
         myPV.RPC("RpcStartGame", RpcTarget.All);
 
@@ -247,7 +247,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                 return;
             }
 
-            myPV.RPC("RpcSetRoundText", RpcTarget.AllViaServer, "Round " + currentRound + " / " + roundNumber);
+            myPV.RPC("RpcSetRoundText", RpcTarget.AllViaServer, "Round" + "\n" + "<size=180> " + currentRound + " / " + roundNumber + "</size>");
         }
 
         teamPlayed = presentTeam[indexTeamPlaying];
