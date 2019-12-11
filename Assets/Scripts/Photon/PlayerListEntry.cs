@@ -18,15 +18,19 @@ public class PlayerListEntry : MonoBehaviour
 
     public Dropdown dropTeam;
 
-    public void Initialize(Player player,  Color playerColor, string playerName)
+    public void Initialize(Player player, Team team, string playerName)
     {
         if(player != PhotonNetwork.LocalPlayer)
         {
             PlayerReadyButton.gameObject.SetActive(false);
             dropTeam.gameObject.SetActive(false);
         }
+        else
+        {
+            dropTeam.value = (int) team;
+        }
 
-        PlayerColorImage.color = playerColor;
+        PlayerColorImage.color = MarblGame.GetColor((int) team);
         PlayerNameText.text = playerName;
     }
 

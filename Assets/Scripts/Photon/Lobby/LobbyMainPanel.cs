@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class LobbyMainPanel : MonoBehaviourPunCallbacks
 {
@@ -46,7 +47,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     private Dictionary<string, GameObject> roomListEntries;
     private Dictionary<Player, GameObject> playerListEntries;
 
-    #region UNITY
 
     public void Awake()
     {
@@ -81,14 +81,9 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         }
     }
 
-    #endregion
-
-    #region PUN CALLBACKS
-
     public override void OnDisconnected(DisconnectCause cause)
     {
         base.OnDisconnected(cause);
-        print("deco");
         ReconnectButton.SetActive(true);
     }
 
@@ -97,6 +92,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         this.SetActivePanel(SelectionPanel.name);
 
         PhotonNetwork.LocalPlayer.NickName = PlayerNameInput.text;
+        PhotonNetwork.LocalPlayer.SetTeam(MarblFactory.GetRandomTeam());
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -147,11 +143,10 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
             GameObject entry = Instantiate(PlayerListEntryPrefab);
             entry.transform.SetParent(InsideRoomPanel.transform);
             entry.transform.localScale = Vector3.one;
-            entry.GetComponent<PlayerListEntry>().Initialize(p, MarblGame.GetColor( (int) p.GetTeam()), p.NickName);
+            entry.GetComponent<PlayerListEntry>().Initialize(p, p.GetTeam(), p.NickName);
 
             entry.GetComponent<PlayerListEntry>().SetPlayerReady(p.GetPlayerReadyState());
 
-            print(p.UserId);
             playerListEntries.Add(p, entry);
         }
 
@@ -186,7 +181,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         GameObject entry = Instantiate(PlayerListEntryPrefab);
         entry.transform.SetParent(InsideRoomPanel.transform);
         entry.transform.localScale = Vector3.one;
-        entry.GetComponent<PlayerListEntry>().Initialize(newPlayer, MarblGame.GetColor((int) newPlayer.GetTeam()), newPlayer.NickName);
+        entry.GetComponent<PlayerListEntry>().Initialize(newPlayer, newPlayer.GetTeam(), newPlayer.NickName);
 
         playerListEntries.Add(newPlayer, entry);
 
@@ -216,6 +211,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         {
             PlayerListEntry pList = GetPlayerListEntry(p);
             pList.Refresh(MarblGame.GetColor((int) p.GetTeam()));
+            pList.SetPlayerReady(p.GetPlayerReadyState());
         }
 
         StartGameButton.gameObject.SetActive(CheckPlayersReady());
@@ -232,10 +228,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         }
         return null;
     }
-
-    #endregion
-
-    #region UI CALLBACKS
 
     public void Reconnect()
     {
@@ -314,8 +306,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel(multiplayerScene);
     }
 
-    #endregion
-
     private bool CheckPlayersReady()
     {
         if (!PhotonNetwork.IsMasterClient)
@@ -327,10 +317,12 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         {
             if (p.GetPlayerReadyState())
             {
+                GetPlayerListEntry(p).PlayerReadyImage.gameObject.SetActive(true);
                 continue;
             }
             else
             {
+                GetPlayerListEntry(p).PlayerReadyImage.gameObject.SetActive(false);
                 return false;
             }
         }
