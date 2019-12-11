@@ -44,7 +44,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     private Dictionary<string, RoomInfo> cachedRoomList;
     private Dictionary<string, GameObject> roomListEntries;
-    private Dictionary<int, GameObject> playerListEntries;
+    private Dictionary<Player, GameObject> playerListEntries;
 
     #region UNITY
 
@@ -73,11 +73,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
             OnJoinedRoom();
             PhotonNetwork.CurrentRoom.IsOpen = true;
             PhotonNetwork.CurrentRoom.IsVisible = true;
-
-            foreach(KeyValuePair<int, GameObject> element in playerListEntries)
-            {
-                element.Value.GetComponent<PlayerListEntry>().OnPlayerNumberingChanged();
-            }
 
             foreach(Player p in PhotonNetwork.PlayerList)
             {
@@ -142,34 +137,25 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     {
         SetActivePanel(InsideRoomPanel.name);
 
-        if (playerListEntries == null)
-        {
-            playerListEntries = new Dictionary<int, GameObject>();
-        }
+        PhotonNetwork.LocalPlayer.SetPlayerReadyState(false);
+        PhotonNetwork.LocalPlayer.SetScore(0);
+
+        playerListEntries = new Dictionary<Player, GameObject>();
 
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             GameObject entry = Instantiate(PlayerListEntryPrefab);
             entry.transform.SetParent(InsideRoomPanel.transform);
             entry.transform.localScale = Vector3.one;
-            entry.GetComponent<PlayerListEntry>().Initialize(p.ActorNumber, p.NickName);
+            entry.GetComponent<PlayerListEntry>().Initialize(p, MarblGame.GetColor( (int) p.GetTeam()), p.NickName);
 
-            object isPlayerReady;
-            if (p.CustomProperties.TryGetValue(MarblGame.PLAYER_READY, out isPlayerReady))
-            {
-                entry.GetComponent<PlayerListEntry>().SetPlayerReady((bool)isPlayerReady);
-            }
+            entry.GetComponent<PlayerListEntry>().SetPlayerReady(p.GetPlayerReadyState());
 
-            playerListEntries.Add(p.ActorNumber, entry);
+            print(p.UserId);
+            playerListEntries.Add(p, entry);
         }
 
         StartGameButton.gameObject.SetActive(CheckPlayersReady());
-
-        Hashtable props = new Hashtable
-            {
-                {MarblGame.PLAYER_LOADED_LEVEL, false}
-            };
-        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -200,17 +186,17 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         GameObject entry = Instantiate(PlayerListEntryPrefab);
         entry.transform.SetParent(InsideRoomPanel.transform);
         entry.transform.localScale = Vector3.one;
-        entry.GetComponent<PlayerListEntry>().Initialize(newPlayer.ActorNumber, newPlayer.NickName);
+        entry.GetComponent<PlayerListEntry>().Initialize(newPlayer, MarblGame.GetColor((int) newPlayer.GetTeam()), newPlayer.NickName);
 
-        playerListEntries.Add(newPlayer.ActorNumber, entry);
+        playerListEntries.Add(newPlayer, entry);
 
         StartGameButton.gameObject.SetActive(CheckPlayersReady());
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        Destroy(playerListEntries[otherPlayer.ActorNumber].gameObject);
-        playerListEntries.Remove(otherPlayer.ActorNumber);
+        Destroy(playerListEntries[otherPlayer].gameObject);
+        playerListEntries.Remove(otherPlayer);
 
         StartGameButton.gameObject.SetActive(CheckPlayersReady());
     }
@@ -225,22 +211,26 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
     {
-        if (playerListEntries == null)
+        
+        foreach (Player p in PhotonNetwork.PlayerList)
         {
-            playerListEntries = new Dictionary<int, GameObject>();
-        }
-
-        GameObject entry;
-        if (playerListEntries.TryGetValue(targetPlayer.ActorNumber, out entry))
-        {
-            object isPlayerReady;
-            if (changedProps.TryGetValue(MarblGame.PLAYER_READY, out isPlayerReady))
-            {
-                entry.GetComponent<PlayerListEntry>().SetPlayerReady((bool)isPlayerReady);
-            }
+            PlayerListEntry pList = GetPlayerListEntry(p);
+            pList.Refresh(MarblGame.GetColor((int) p.GetTeam()));
         }
 
         StartGameButton.gameObject.SetActive(CheckPlayersReady());
+    }
+
+    PlayerListEntry GetPlayerListEntry(Player p)
+    {
+        foreach(KeyValuePair<Player, GameObject> element in playerListEntries)
+        {
+            if(element.Key == p)
+            {
+                return element.Value.GetComponent<PlayerListEntry>();
+            }
+        }
+        return null;
     }
 
     #endregion
@@ -335,13 +325,9 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         foreach (Player p in PhotonNetwork.PlayerList)
         {
-            object isPlayerReady;
-            if (p.CustomProperties.TryGetValue(MarblGame.PLAYER_READY, out isPlayerReady))
+            if (p.GetPlayerReadyState())
             {
-                if (!(bool)isPlayerReady)
-                {
-                    return false;
-                }
+                continue;
             }
             else
             {

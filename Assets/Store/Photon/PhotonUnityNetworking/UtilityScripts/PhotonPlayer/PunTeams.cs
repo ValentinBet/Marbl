@@ -43,6 +43,8 @@ namespace Photon.Pun.UtilityScripts
         /// <summary>Defines the player custom property name to use for team affinity of "this" player.</summary>
         public const string TeamPlayerProp = "team";
 
+        public const string PlayerReady = "Ready";
+
 
         #region Events by Unity and Photon
 
@@ -145,6 +147,29 @@ namespace Photon.Pun.UtilityScripts
             {
                 player.SetCustomProperties(new Hashtable() { { PunTeams.TeamPlayerProp, (byte)team } });
             }
+        }
+    }
+
+    public static class ReadyExtensions
+    {
+        public static void SetPlayerReadyState(this Player player, bool mapLoaded)
+        {
+            Hashtable _mapLoaded = new Hashtable();
+            _mapLoaded[PunTeams.PlayerReady] = mapLoaded;
+
+            player.SetCustomProperties(_mapLoaded);
+        }
+
+
+        public static bool GetPlayerReadyState(this Player player)
+        {
+            object _mapLoaded;
+
+            if (player.CustomProperties.TryGetValue(PunTeams.PlayerReady, out _mapLoaded))
+            {
+                return (bool)_mapLoaded;
+            }
+            return false;
         }
     }
 }
