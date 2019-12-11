@@ -2,95 +2,95 @@
     "mapName": "AnotherOne",
     "mapObjects": [
         {
-            "objectName": "SpeedBoostCollider",
-            "prefabName": "SpeedBoostCollider",
+            "objectName": "bomb",
+            "prefabName": "bomb",
             "rootParent": "MapObj",
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 9.924959182739258,
-                "y": 1.4600000381469727,
-                "z": 22.039024353027345
+                "x": 7.990241527557373,
+                "y": 1.4793012142181397,
+                "z": 28.355663299560548
             },
             "rotation": {
-                "x": -0.7071068286895752,
+                "x": 0.70710688829422,
                 "y": 0.0,
                 "z": 0.0,
-                "w": 0.7071068286895752
+                "w": 0.7071067690849304
             },
             "scale": {
-                "x": 9.582575798034668,
-                "y": 7.142857551574707,
-                "z": 3.8112595081329347
+                "x": 0.005307244602590799,
+                "y": 0.005307244602590799,
+                "z": 0.005307244602590799
             }
         },
         {
-            "objectName": "SpeedBoost (1)",
-            "prefabName": "SpeedBoost",
+            "objectName": "Object001",
+            "prefabName": "Object001",
             "rootParent": "MapObj",
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 9.924959182739258,
-                "y": 1.4600000381469727,
-                "z": 22.039024353027345
+                "x": 8.010083198547364,
+                "y": 1.5248157978057862,
+                "z": 28.302377700805665
             },
             "rotation": {
-                "x": -0.7071068286895752,
+                "x": 8.146034247147327e-8,
                 "y": 0.0,
                 "z": 0.0,
-                "w": 0.7071068286895752
+                "w": 1.0
             },
             "scale": {
-                "x": 0.20781168341636659,
-                "y": 0.2787928581237793,
-                "z": 0.1997445821762085
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
             }
         },
         {
-            "objectName": "SpeedBoostCollider",
-            "prefabName": "SpeedBoostCollider",
+            "objectName": "pCylinder1",
+            "prefabName": "pCylinder1",
             "rootParent": "MapObj",
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 1.8742166757583619,
-                "y": 1.2599999904632569,
-                "z": 21.886985778808595
+                "x": 8.010083198547364,
+                "y": 2.021225690841675,
+                "z": 28.305278778076173
             },
             "rotation": {
-                "x": -0.7071068286895752,
+                "x": 6.657902673623539e-8,
                 "y": 0.0,
                 "z": 0.0,
-                "w": 0.7071068286895752
+                "w": 1.0
             },
             "scale": {
-                "x": 9.582575798034668,
-                "y": 7.142857551574707,
-                "z": 3.8112595081329347
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
             }
         },
         {
-            "objectName": "SpeedBoost",
-            "prefabName": "SpeedBoost",
+            "objectName": "ButtonExplosion",
+            "prefabName": "ButtonExplosion",
             "rootParent": "MapObj",
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 1.8742166757583619,
-                "y": 1.2599999904632569,
-                "z": 21.886985778808595
+                "x": 8.079331398010254,
+                "y": 2.043274402618408,
+                "z": 28.3555850982666
             },
             "rotation": {
-                "x": -0.7071068286895752,
+                "x": 0.0,
                 "y": 0.0,
                 "z": 0.0,
-                "w": 0.7071068286895752
+                "w": 1.0
             },
             "scale": {
-                "x": 0.20781168341636659,
-                "y": 0.2787928581237793,
-                "z": 0.1997445821762085
+                "x": 6.186852931976318,
+                "y": 4.124571800231934,
+                "z": 6.186858177185059
             }
         },
         {
@@ -554,6 +554,52 @@
             }
         },
         {
+            "objectName": "SpeedBoostCollider",
+            "prefabName": "SpeedBoostCollider",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 1.8742166757583619,
+                "y": 1.2599999904632569,
+                "z": 21.886985778808595
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 9.582575798034668,
+                "y": 7.142857551574707,
+                "z": 3.8112595081329347
+            }
+        },
+        {
+            "objectName": "SpeedBoost",
+            "prefabName": "SpeedBoost",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 1.8742166757583619,
+                "y": 1.2599999904632569,
+                "z": 21.886985778808595
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 0.20781168341636659,
+                "y": 0.2787928581237793,
+                "z": 0.1997445821762085
+            }
+        },
+        {
             "objectName": "TileCoupée (11)",
             "prefabName": "TileCoupée",
             "rootParent": "MapObj",
@@ -712,6 +758,52 @@
                 "x": 4.0,
                 "y": 4.0,
                 "z": 4.0
+            }
+        },
+        {
+            "objectName": "SpeedBoostCollider",
+            "prefabName": "SpeedBoostCollider",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 9.924959182739258,
+                "y": 1.4600000381469727,
+                "z": 22.039024353027345
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 9.582575798034668,
+                "y": 7.142857551574707,
+                "z": 3.8112595081329347
+            }
+        },
+        {
+            "objectName": "SpeedBoost (1)",
+            "prefabName": "SpeedBoost",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 9.924959182739258,
+                "y": 1.4600000381469727,
+                "z": 22.039024353027345
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 0.20781168341636659,
+                "y": 0.2787928581237793,
+                "z": 0.1997445821762085
             }
         },
         {
