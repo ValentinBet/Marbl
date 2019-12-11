@@ -27,21 +27,9 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
     TimerInfo myTimerInfo;
     bool doTimer = false;
 
-    private static LocalPlayerManager _instance;
-    public static LocalPlayerManager Instance { get { return _instance; } }
-
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
-
-        if (PV.IsOwnerActive)
-        {
-            _instance = this;
-        }
-        else
-        {
-            Destroy(this);
-        }
 
         if (PhotonNetwork.LocalPlayer.ActorNumber == PV.ControllerActorNr)
         {
@@ -58,7 +46,8 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
         RemovePlayerTurn();
 
-        DeathMatchManager.Instance.localPlayerTeam = PhotonNetwork.LocalPlayer.GetTeam();
+        GameModeManager.Instance.localPlayerTeam = PhotonNetwork.LocalPlayer.GetTeam();
+        GameModeManager.Instance.localPlayerObj = gameObject;
 
         PhotonNetwork.AutomaticallySyncScene = true;
 
@@ -106,7 +95,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
             }
 
             canShoot = (bool)PhotonNetwork.LocalPlayer.CustomProperties["playerTurn"];
-            DeathMatchManager.Instance.localPlayerTurn = canShoot;
+            GameModeManager.Instance.localPlayerTurn = canShoot;
         }
         catch
         {

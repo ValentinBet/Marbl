@@ -39,6 +39,10 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
     bool allHaveLoadMap = false;
 
+    public GameObject localPlayerObj;
+    public Team localPlayerTeam;
+    public bool localPlayerTurn = false;
+
 
     //----------------    BOOL DE CHAQUE MODE   -----------------
     bool modeDM = false;
