@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject FreeCamButton;
     public GameObject PingCamButton;
 
-    bool pingStatut = false;
+    public bool pingStatut = false;
 
     public TimerInfo timer;
     public TextMeshProUGUI round;
@@ -210,8 +210,39 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public void OnClickOnBall(GameObject ball)
+    {
+        if (!pingStatut) { return; }
+
+        foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
+        {
+            if(element.Key.gameObject == ball)
+            {
+                element.Value.Trail.enabled = false;
+            }
+        }
+    }
+
+    public void OnEndTurn()
+    {
+        if (!pingStatut) { return; }
+
+        foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
+        {
+            if (element.Key.myteam == GameModeManager.Instance.localPlayerTeam)
+            {
+                element.Value.Trail.enabled = true;
+            }
+        }
+    }
+
     void FollowMarbl()
     {
+        if(listOfPing.Count == 0)
+        {
+            EnablePing();
+        }
+
         foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
         {
             if (element.Key == null)

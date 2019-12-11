@@ -449,7 +449,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     [PunRPC]
     void RpcStartGame()
     {
-        UIManager.Instance.EnablePing();
+        UIManager.Instance.pingStatut = true;
         UIManager.Instance.LoadingPanel.SetActive(false);
     }
 
