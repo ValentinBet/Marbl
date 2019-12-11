@@ -53,7 +53,7 @@ public class BombBlock : MonoBehaviour
         {
             Destroy(Instantiate(explosionFx, this.transform.position, this.transform.rotation), 2);
         }
-        Destroy(gameObject);
+        Destroy(transform.parent.gameObject);
     }
 
     private void OnDrawGizmos()
