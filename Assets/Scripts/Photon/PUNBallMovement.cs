@@ -113,10 +113,12 @@ public class PUNBallMovement : MonoBehaviour
 
                 if (amplify == 0)
                 {
+                    Debug.Log("Giving Collider " + gameObject.name);
                     rigidbody.velocity = rigidbody.velocity * ImpactGivingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1);
                 }
                 else
                 {
+                    Debug.Log("Recieving Collider " + gameObject.name);
                     rigidbody.velocity = rigidbody.velocity * ImpactRecievingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1);
                 }
             }

@@ -16,74 +16,23 @@ public class PlayerListEntry : MonoBehaviour
     public Button PlayerReadyButton;
     public Image PlayerReadyImage;
 
-    private int ownerId;
-    private bool isPlayerReady;
-
     public Dropdown dropTeam;
 
-    #region UNITY
-
-    public void OnEnable()
+    public void Initialize(Player player,  Color playerColor, string playerName)
     {
-        PlayerNumbering.OnPlayerNumberingChanged += OnPlayerNumberingChanged;
-    }
-
-    public void Start()
-    {
-        if (PhotonNetwork.LocalPlayer.ActorNumber != ownerId)
+        if(player != PhotonNetwork.LocalPlayer)
         {
             PlayerReadyButton.gameObject.SetActive(false);
             dropTeam.gameObject.SetActive(false);
         }
-        else
-        {
-            Hashtable initialProps = new Hashtable() { { MarblGame.PLAYER_READY, isPlayerReady }};
-            PhotonNetwork.LocalPlayer.SetCustomProperties(initialProps);
-            PhotonNetwork.LocalPlayer.SetScore(0);
 
-            dropTeam.value = (int)PhotonNetwork.LocalPlayer.GetTeam();
-
-            PlayerReadyButton.onClick.AddListener(() =>
-            {
-                isPlayerReady = !isPlayerReady;
-                SetPlayerReady(isPlayerReady);
-
-                Hashtable props = new Hashtable() { { MarblGame.PLAYER_READY, isPlayerReady } };
-                PhotonNetwork.LocalPlayer.SetCustomProperties(props);
-
-                dropTeam.gameObject.SetActive(false);
-
-
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    FindObjectOfType<LobbyMainPanel>().LocalPlayerPropertiesUpdated();
-                }
-            });
-        }
-    }
-
-    public void OnDisable()
-    {
-        PlayerNumbering.OnPlayerNumberingChanged -= OnPlayerNumberingChanged;
-    }
-
-    #endregion
-
-    public void Initialize(int playerId, string playerName)
-    {
-        ownerId = playerId;
+        PlayerColorImage.color = playerColor;
         PlayerNameText.text = playerName;
     }
 
-    public void OnPlayerNumberingChanged()
+    public void Refresh(Color playerColor)
     {
-        foreach (Player p in PhotonNetwork.PlayerList)
-        {
-            if (p.ActorNumber == ownerId)
-            {
-                PlayerColorImage.color = MarblGame.GetColor((int) p.GetTeam());
-            }
-        }
+        PlayerColorImage.color = playerColor;
     }
 
     public void SetPlayerReady(bool playerReady)
@@ -92,42 +41,26 @@ public class PlayerListEntry : MonoBehaviour
         PlayerReadyImage.enabled = playerReady;
     }
 
-    public void ReFreshTeam() {
-
-        int idTeam = (int) PhotonNetwork.LocalPlayer.GetTeam();
-
-        dropTeam.value = idTeam;
-
-        Team myTeam = Team.red;
-
-        switch (idTeam)
+    public void SwitchReady()
+    {
+        if (PhotonNetwork.LocalPlayer.GetPlayerReadyState())
         {
-            case 0: myTeam = Team.red; break;
-            case 1: myTeam = Team.green; break;
-            case 2: myTeam = Team.blue; break;
-            case 3: myTeam = Team.yellow; break;
+            PhotonNetwork.LocalPlayer.SetPlayerReadyState(false);
+            SetPlayerReady(false);
         }
-
-        PhotonNetwork.LocalPlayer.SetTeam(myTeam);
-        PlayerColorImage.color = MarblGame.GetColor(idTeam);
-        PhotonNetwork.LocalPlayer.SetPlayerNumber(idTeam);
+        else
+        {
+            PhotonNetwork.LocalPlayer.SetPlayerReadyState(true);
+            SetPlayerReady(true);
+        }
     }
 
     public void ChangeTeam()
     {
         int idTeam = dropTeam.value;
-        Team myTeam = Team.red;
-
-        switch (idTeam)
-        {
-            case 0: myTeam = Team.red; break;
-            case 1: myTeam = Team.green; break;
-            case 2: myTeam = Team.blue; break;
-            case 3: myTeam = Team.yellow; break;
-        }
+        Team myTeam = MarblGame.GetTeam(idTeam);
 
         PhotonNetwork.LocalPlayer.SetTeam(myTeam);
         PlayerColorImage.color = MarblGame.GetColor(idTeam);
-        PhotonNetwork.LocalPlayer.SetPlayerNumber(idTeam);
     }
 }
