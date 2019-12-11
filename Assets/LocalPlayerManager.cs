@@ -46,7 +46,8 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
         RemovePlayerTurn();
 
-        DeathMatchManager.Instance.localPlayerTeam = PhotonNetwork.LocalPlayer.GetTeam();
+        GameModeManager.Instance.localPlayerTeam = PhotonNetwork.LocalPlayer.GetTeam();
+        GameModeManager.Instance.localPlayerObj = gameObject;
 
         PhotonNetwork.AutomaticallySyncScene = true;
 
@@ -94,7 +95,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
             }
 
             canShoot = (bool)PhotonNetwork.LocalPlayer.CustomProperties["playerTurn"];
-            DeathMatchManager.Instance.localPlayerTurn = canShoot;
+            GameModeManager.Instance.localPlayerTurn = canShoot;
         }
         catch
         {
