@@ -99,6 +99,7 @@ public class PUNBallMovement : MonoBehaviour
                     other.gameObject.GetComponent<BallSettings>().ChangeTeam(GetComponent<BallSettings>().myteam);
                 }
             }
+            QuickScoreboard.Instance.Refresh();
         }
     }
 

@@ -29,11 +29,12 @@ public class DeadZoneManager : MonoBehaviour
                 {
                     PhotonView ballPV = other.gameObject.GetPhotonView();
                     ballPV.TransferOwnership(PhotonNetwork.LocalPlayer);
-                    PhotonNetwork.Destroy(ballPV);
+                    PhotonNetwork.Destroy(ballPV); 
                 }
 
                 GameModeManager.Instance.DetectEndGame();
             }
+            QuickScoreboard.Instance.Refresh(); 
         }
     }
 }

@@ -14,28 +14,15 @@ public class TeamListElement : MonoBehaviour
     public Text marblNumber;
 
 
-    public void SetElements(Team team, string point, string marbl)
+    public void SetElements(Team team, int point, int marbl)
     {
         myTeam = team;
 
-        /*
-        switch (myTeam)
-        {
-            case 0:
-                teamText.text = "Team red";
-                break;
+        teamText.text = MarblGame.GetTeamString((int) myTeam);
+        teamText.color = MarblGame.GetColor((int) myTeam);
 
-            case 1:
-                break;
+        pointText.text = point.ToString() + " pts.";
 
-            case 2:
-                break;
-
-            case 3:
-                break;
-        }
-
-        //teamText.color = MarblGame.GetColor(myTeam);
-        */
+        marblNumber.text = marbl.ToString();
     }
 }

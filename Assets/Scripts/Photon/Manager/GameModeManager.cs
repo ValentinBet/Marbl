@@ -160,8 +160,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         myPV.RPC("RpcStartGame", RpcTarget.All);
 
-
-
         //-----------------------------ACTIVATION DES MODES ACTIF-------------------------------------
 
         DeathMatchManager.Instance.ActiveThisMode(modeDM);
@@ -447,7 +445,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     [PunRPC]
     void RpcStartGame()
     {
-        UIManager.Instance.EnablePing();
+        //UIManager.Instance.EnablePing();
         UIManager.Instance.LoadingPanel.SetActive(false);
     }
 
@@ -502,4 +500,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
             return;
         }
     }
+
+
 }

@@ -49,6 +49,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
         } else
         {
             myteam = (Team) stream.ReceiveNext();
+            QuickScoreboard.Instance.Refresh();
         }
     }
 }

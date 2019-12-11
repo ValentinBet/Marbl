@@ -36,6 +36,19 @@ public class MarblGame
         return Team.red;
     }
 
+    public static string GetTeamString(int teamChoice)
+    {
+        switch (teamChoice)
+        {
+            case 0: return "Team red";
+            case 1: return "Team green";
+            case 2: return "Team blue";
+            case 3: return "Team yellow";
+            case 4: return "Team neutral";
+        }
+        return "Team red";
+    }
+
     public enum CameraMode
     {
         Void,

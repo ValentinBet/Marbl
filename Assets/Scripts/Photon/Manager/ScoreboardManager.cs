@@ -183,7 +183,9 @@ public class ScoreboardManager : MonoBehaviourPunCallbacks
         if (playerScoreDict.TryGetValue(target.ActorNumber, out PlayerScoreUI entry))
         {
             entry.NameText.GetComponent<Text>().text = target.NickName;
-            entry.PointText.GetComponent<Text>().text = target.GetPlayerScore().ToString();          
+            entry.PointText.GetComponent<Text>().text = target.GetPlayerScore().ToString();
+
+            QuickScoreboard.Instance.Refresh();
         }
 
         // SET POSITION IN SCOREBOARD >>
