@@ -6,25 +6,23 @@ using UnityEngine.UI;
 public class PingElement : MonoBehaviour
 {
     public SpriteRenderer Socle;
-    public SpriteRenderer Trail1;
-    public SpriteRenderer Trail2;
+    public LineRenderer Trail;
 
     public void SetColor(Color newColor)
     {
         Socle.color = newColor;
-        Trail1.color = newColor;
-        Trail2.color = newColor;
+        GradientColorKey[] ck = Trail.colorGradient.colorKeys;
+        ck[1].color = newColor;
+        Trail.colorGradient.SetKeys(ck, Trail.colorGradient.alphaKeys);
     }
 
     public void Hide()
     {
-        Trail1.enabled = false;
-        Trail2.enabled = false;
+        Trail.enabled = false;
     }
 
     public void Show()
     {
-        Trail1.enabled = true;
-        Trail2.enabled = true;
+        Trail.enabled = true;
     }
 }
