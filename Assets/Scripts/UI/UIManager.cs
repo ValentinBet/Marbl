@@ -194,7 +194,7 @@ public class UIManager : MonoBehaviourPunCallbacks
             newPing.transform.position += new Vector3(0, -0.4f, 0);
             newPing.GetComponent<PingElement>().SetColor(MarblGame.GetColor((int)ball.GetComponent<BallSettings>().myteam));
 
-            if (ball.GetComponent<BallSettings>().myteam == DeathMatchManager.Instance.localPlayerTeam)
+            if (ball.GetComponent<BallSettings>().myteam == GameModeManager.Instance.localPlayerTeam)
             {
                 ball.GetComponent<MarbleIndicator>().enabled = true;
             }
