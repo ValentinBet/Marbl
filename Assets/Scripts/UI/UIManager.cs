@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject TeamCamButton;
     public GameObject FreeCamButton;
     public GameObject PingCamButton;
+
     bool pingStatut = false;
 
     public TimerInfo timer;
@@ -32,6 +33,8 @@ public class UIManager : MonoBehaviourPunCallbacks
     public Action<CameraMode> OnTopCam;
     public Action<CameraMode> OnTeamCam;
     public Action<CameraMode> OnFreeCam;
+
+    public GameObject FreeCamTooltip;
 
     public GameObject LoadingPanel;
 
@@ -167,7 +170,7 @@ public class UIManager : MonoBehaviourPunCallbacks
             ball.GetComponent<MarbleIndicator>().enabled = false;
         }
 
-        foreach(KeyValuePair<GameObject, GameObject> element in listOfPing)
+        foreach (KeyValuePair<GameObject, GameObject> element in listOfPing)
         {
             Destroy(element.Key);
         }
@@ -189,7 +192,7 @@ public class UIManager : MonoBehaviourPunCallbacks
             GameObject newPing = Instantiate(pingPrefab);
             newPing.transform.position = ball.transform.position;
             newPing.transform.position += new Vector3(0, -0.4f, 0);
-            newPing.GetComponent<PingElement>().SetColor( MarblGame.GetColor((int) ball.GetComponent<BallSettings>().myteam));
+            newPing.GetComponent<PingElement>().SetColor(MarblGame.GetColor((int)ball.GetComponent<BallSettings>().myteam));
 
             if (ball.GetComponent<BallSettings>().myteam == DeathMatchManager.Instance.localPlayerTeam)
             {
@@ -206,9 +209,9 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     void FollowMarbl()
     {
-        foreach(KeyValuePair < GameObject, GameObject > element in listOfPing)
+        foreach (KeyValuePair<GameObject, GameObject> element in listOfPing)
         {
-            if(element.Value == null)
+            if (element.Value == null)
             {
                 element.Key.SetActive(false);
                 continue;
@@ -216,6 +219,16 @@ public class UIManager : MonoBehaviourPunCallbacks
 
             element.Key.transform.position = element.Value.transform.position;
             element.Key.transform.position += new Vector3(0, -0.4f, 0);
+        }
+    }
+
+    public void DisplayFreeCamTooltip(bool value)
+    {
+
+        if (FreeCamTooltip != null)
+        {
+            FreeCamTooltip.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.CameraSpeed.ToString();
+            FreeCamTooltip.SetActive(value);
         }
     }
 }

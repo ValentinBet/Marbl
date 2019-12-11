@@ -74,6 +74,10 @@ public class SettingsManager : MonoBehaviour
                 lastKeyPressed = KeyCode.Mouse1;
             if (Input.GetKeyDown(KeyCode.Mouse2))
                 lastKeyPressed = KeyCode.Mouse2;
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+                lastKeyPressed = KeyCode.LeftShift;
+            if (Input.GetKeyDown(KeyCode.RightShift))
+                lastKeyPressed = KeyCode.RightShift;
 
             Event e = Event.current;
 
@@ -150,6 +154,8 @@ public class SettingsManager : MonoBehaviour
         settingsList.settings.GeneralVolume = generalVolumeSlider.value;
         settingsList.settings.MouseSensitivity = mouseSensitivitySlider.value;
         // <<
+
+        InputManager.Instance.Inputs.inputs.MouseSensitivity = mouseSensitivitySlider.value;
 
         foreach (KeyButtonParameters keyButtonParameters in keyButtonList)
         {
@@ -242,8 +248,8 @@ public class SettingsManager : MonoBehaviour
 
     public void InitControlsVisuals()
     {
-        mouseSensitivityInputField.text = (settingsList.settings.MouseSensitivity).ToString();
-        mouseSensitivitySlider.value = settingsList.settings.MouseSensitivity;
+        mouseSensitivityInputField.text = InputManager.Instance.Inputs.inputs.MouseSensitivity.ToString();
+        mouseSensitivitySlider.value = InputManager.Instance.Inputs.inputs.MouseSensitivity;
 
         InitKeyVisuals();
     }
@@ -251,7 +257,7 @@ public class SettingsManager : MonoBehaviour
     public void OnSensitivitySliderUpdate()
     {
         mouseSensitivityInputField.text = (mouseSensitivitySlider.value).ToString();
-        InputManager.Instance.Inputs.inputs.MouseSensitivity = mouseSensitivitySlider.value;
+
     }
 
     public void OnSensitivityInputFieldUpdated()
@@ -301,6 +307,10 @@ public class SettingsManager : MonoBehaviour
                 case "Right":
                     keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.CameraRight.ToString();
                     keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.CameraRight;
+                    break;
+                case "Speed":
+                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.CameraSpeed.ToString();
+                    keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.CameraSpeed;
                     break;
                 default:
                     Debug.Log("Erreur");
@@ -368,6 +378,10 @@ public class SettingsManager : MonoBehaviour
                     keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.CameraRight.ToString();
                     keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.CameraRight;
                     break;
+                case "Speed":
+                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.CameraSpeed.ToString();
+                    keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.CameraSpeed;
+                    break;
                 default:
                     Debug.Log("Erreur");
                     break;
@@ -398,6 +412,9 @@ public class SettingsManager : MonoBehaviour
                 break;
             case "Right":
                 InputManager.Instance.Inputs.inputs.CameraRight = keyButtonParameters.Key;
+                break;
+            case "Speed":
+                InputManager.Instance.Inputs.inputs.CameraSpeed = keyButtonParameters.Key;
                 break;
             default:
                 Debug.Log("Erreur");

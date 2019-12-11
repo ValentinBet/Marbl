@@ -19,8 +19,13 @@ public class FreeCam : MonoBehaviour
     {
         if (!onFreeCam)
         {
+
+            UIManager.Instance.DisplayFreeCamTooltip(false);
+
             return;
         }
+
+        UIManager.Instance.DisplayFreeCamTooltip(true);
 
         if (Input.GetMouseButtonDown(1))
         {
@@ -45,7 +50,7 @@ public class FreeCam : MonoBehaviour
 
         //Keyboard commands
         Vector3 p = GetBaseInput();
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(InputManager.Instance.Inputs.inputs.CameraSpeed))
         {
             totalRun += Time.deltaTime;
             p = p * totalRun * shiftAdd;

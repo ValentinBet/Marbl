@@ -19,6 +19,7 @@ public struct Inputs
     public KeyCode CameraBackward;
     public KeyCode CameraLeft;
     public KeyCode CameraRight;
+    public KeyCode CameraSpeed;
 
     public float MouseSensitivity;
 }
