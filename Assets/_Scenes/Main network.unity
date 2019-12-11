@@ -6250,7 +6250,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1715207168
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8154,8 +8154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listTeamsDeath: 
-  localPlayerTurn: 0
-  localPlayerTeam: 0
 --- !u!114 &2107096212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8235,6 +8233,9 @@ MonoBehaviour:
   gameFinish: 0
   playerTurnText: {fileID: 861610853}
   teamMarblText: {fileID: 264959926}
+  localPlayerObj: {fileID: 0}
+  localPlayerTeam: 0
+  localPlayerTurn: 0
 --- !u!4 &2107096216
 Transform:
   m_ObjectHideFlags: 0
@@ -8324,6 +8325,7 @@ MonoBehaviour:
   TeamCamButton: {fileID: 1838585055}
   FreeCamButton: {fileID: 72532660}
   PingCamButton: {fileID: 1213157023}
+  pingStatut: 0
   timer: {fileID: 415233316}
   round: {fileID: 949133974}
   FreeCamTooltip: {fileID: 0}

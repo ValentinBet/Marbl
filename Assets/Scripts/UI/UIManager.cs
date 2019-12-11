@@ -216,7 +216,9 @@ public class UIManager : MonoBehaviourPunCallbacks
 
         foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
         {
-            if(element.Key.gameObject == ball)
+            if (element.Key == null){ continue; }
+
+            if (element.Key.gameObject == ball)
             {
                 element.Value.Trail.enabled = false;
             }
@@ -229,6 +231,8 @@ public class UIManager : MonoBehaviourPunCallbacks
 
         foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
         {
+            if (element.Key == null) { continue; }
+
             if (element.Key.myteam == GameModeManager.Instance.localPlayerTeam)
             {
                 element.Value.Trail.enabled = true;
@@ -243,17 +247,25 @@ public class UIManager : MonoBehaviourPunCallbacks
             EnablePing();
         }
 
+        List<BallSettings> deleteBall = new List<BallSettings>();
+
         foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
         {
             if (element.Key == null)
             {
                 element.Value.gameObject.SetActive(false);
+                deleteBall.Add(element.Key);
                 continue;
             }
 
             element.Value.transform.position = element.Key.transform.position;
             element.Value.transform.position += new Vector3(0, -0.4f, 0);
             element.Value.SetColor(MarblGame.GetColor((int)element.Key.myteam));
+        }
+
+        foreach(BallSettings element in deleteBall)
+        {
+            listOfPing.Remove(element);
         }
     }
 
