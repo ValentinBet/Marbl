@@ -170,6 +170,7 @@ public class SettingsManager : MonoBehaviour
     {
         Screen.SetResolution(ResolutionsList[resDropdown.value].x, ResolutionsList[resDropdown.value].y, Windowmodes[settingsList.settings.Windowmode]);
         QualitySettings.SetQualityLevel(settingsList.settings.Quality);
+        AudioListener.volume = settingsList.settings.GeneralVolume / 100;
     }
 
     public void QuitSettingsScene()
@@ -220,8 +221,8 @@ public class SettingsManager : MonoBehaviour
 
     public void InitAudioVisuals()
     {
-        generalVolumeInputField.text = (settingsList.settings.GeneralVolume).ToString();
-        generalVolumeSlider.value = settingsList.settings.GeneralVolume;
+        generalVolumeInputField.text = (AudioListener.volume * 100).ToString();
+        generalVolumeSlider.value = AudioListener.volume * 100;
     }
 
     public void OnGeneralVolumeSliderUpdate()
