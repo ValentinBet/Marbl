@@ -21,7 +21,7 @@ public class PUNBallMovement : MonoBehaviour
     private new Rigidbody rigidbody;
     private new Collider collider;
     private new Renderer renderer;
-    private int amplify = 0;
+    private CollideStates amplify = CollideStates.Null;
 
     private float impactPower;
 
@@ -78,19 +78,18 @@ public class PUNBallMovement : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PUNBallMovement>() != null)
         {
-            string colliderName = gameObject.name;
+            //string colliderName = gameObject.name;
 
-            amplify = 0;
             if (other.gameObject.GetComponent<Rigidbody>().velocity.sqrMagnitude > rigidbody.velocity.sqrMagnitude)
             {
-                colliderName = other.gameObject.name;
+                //colliderName = other.gameObject.name;
 
                 if (PhotonNetwork.CurrentRoom.GetHue())
                 {
                     GetComponent<BallSettings>().ChangeTeam(other.gameObject.GetComponent<BallSettings>().myteam);
                 }
-
-                amplify = 1;
+                Debug.LogError(other.gameObject.name + " --> " + gameObject.name);
+                amplify = CollideStates.Reciever;
             }
             else
             {
@@ -98,6 +97,8 @@ public class PUNBallMovement : MonoBehaviour
                 {
                     other.gameObject.GetComponent<BallSettings>().ChangeTeam(GetComponent<BallSettings>().myteam);
                 }
+                Debug.LogError(gameObject.name + " --> " + other.gameObject.name);
+                amplify = CollideStates.Giver;
             }
             QuickScoreboard.Instance.Refresh();
         }
@@ -111,7 +112,7 @@ public class PUNBallMovement : MonoBehaviour
             if (collision.gameObject.GetComponent<Rigidbody>().velocity.sqrMagnitude > MinimalImpactForce * MinimalImpactForce && rigidbody.velocity.sqrMagnitude > MinimalImpactForce * MinimalImpactForce)
             {
 
-                if (amplify == 0)
+                if (amplify == CollideStates.Giver)
                 {
                     Debug.Log("Giving Collider " + gameObject.name);
                     rigidbody.velocity = rigidbody.velocity * ImpactGivingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1);
@@ -146,4 +147,11 @@ public class PUNBallMovement : MonoBehaviour
 
     //    this.GetComponent<Rigidbody>().AddForce(_impulse, ForceMode.Impulse);
     //}
+}
+
+public enum CollideStates
+{
+    Null,
+    Reciever,
+    Giver
 }
