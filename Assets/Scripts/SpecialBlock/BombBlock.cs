@@ -6,6 +6,10 @@ using UnityEngine;
 public class BombBlock : MonoBehaviour
 {
     public GameObject explosionFx;
+    public AudioSource audioSource;
+
+    public AudioClip explosion;
+    public AudioClip bip;
 
     public float detonationTime = 0.5f;
     public float radius = 7;
@@ -29,10 +33,20 @@ public class BombBlock : MonoBehaviour
     private IEnumerator Explode(Collider other)
     {
         isExploding = true;
+
+        if (bip != null)
+        {
+            audioSource.PlayOneShot(bip);
+        }
+
         animator.SetTrigger("Active");
 
         yield return new WaitForSeconds(detonationTime);
 
+        if (explosion != null)
+        {
+            audioSource.PlayOneShot(explosion);
+        }
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, radius);
 
         foreach (Collider co in colliders)
@@ -53,7 +67,8 @@ public class BombBlock : MonoBehaviour
         {
             Destroy(Instantiate(explosionFx, this.transform.position, this.transform.rotation), 2);
         }
-        Destroy(transform.parent.gameObject);
+        gameObject.SetActive(false);
+        Destroy(transform.parent.gameObject,2);
     }
 
     private void OnDrawGizmos()

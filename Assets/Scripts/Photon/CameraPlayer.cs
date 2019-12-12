@@ -193,6 +193,7 @@ public class CameraPlayer : MonoBehaviour
             StartCoroutine(ProcessShake(intensity, duration));
         }
     }
+
     private IEnumerator ProcessShake(float intensity, float duration)
     {
         isScreenShaking = true;
@@ -201,6 +202,7 @@ public class CameraPlayer : MonoBehaviour
         CamerasShake(0);
         isScreenShaking = false;
     }
+
     private void CamerasShake(float intensity)
     {
         foreach (CinemachineVirtualCamera camera in cameras)

@@ -30,4 +30,9 @@ public class AudioManager : MonoBehaviour
     {
         myAudioSource.PlayOneShot(_audio);
     }
+
+    public void PlaySoundAtPoint(AudioClip _audio, Vector3 position)
+    {
+        AudioSource.PlayClipAtPoint(_audio, position);
+    }
 }
