@@ -126,6 +126,7 @@ public class TrajectoryRenderer : MonoBehaviour
 
     private bool PlaceLandingZone(Vector3[] positions,int middleindex)
     {
+        landingZone.SetActive(true);
         RaycastHit raycastHit = new RaycastHit();
         RaycastHit storedHit = raycastHit;
         bool lastFound = false;
@@ -160,6 +161,7 @@ public class TrajectoryRenderer : MonoBehaviour
     public void ResetLandingZone()
     {
         landingZone.transform.position = Vector3.down * 100;
+        landingZone.SetActive(false);
     }
 
     private void UpdateCurveMaterial()
