@@ -6,6 +6,9 @@ using UnityEngine;
 public class SpeedBoostBlock : MonoBehaviour
 {
     public GameObject fx_ElectricGround;
+    public AudioSource audioSource;
+
+    public AudioClip electricSound;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -13,6 +16,9 @@ public class SpeedBoostBlock : MonoBehaviour
         {
             other.GetComponent<Rigidbody>().velocity *= 2;
             other.GetComponent<BallSettings>().SpawnOverchargedFx();
+            audioSource.PlayOneShot(electricSound);
+
+            fx_ElectricGround.SetActive(false);
         }
     }
 }

@@ -46,9 +46,13 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 
     public void SpawnOverchargedFx()
     {
-        ParticleSystem _temp = Instantiate(fx_Overcharged, this.transform.position, this.transform.rotation);
-        _temp.transform.parent = this.transform;
-        Destroy(_temp, 2);
+        if (fx_Overcharged != null)
+        {
+            ParticleSystem _temp = Instantiate(fx_Overcharged, this.transform.position, this.transform.rotation);
+            _temp.transform.parent = this.transform;
+            Destroy(_temp, 2);
+        }
+
     }
 
     public void ChangeTeam(Team team)
