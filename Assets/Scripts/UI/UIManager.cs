@@ -25,7 +25,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject FreeCamButton;
     public GameObject PingCamButton;
 
-    bool pingStatut = false;
+    public bool pingStatut = false;
 
     public TimerInfo timer;
     public TextMeshProUGUI round;
@@ -210,19 +210,62 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
     }
 
-    void FollowMarbl()
+    public void OnClickOnBall(GameObject ball)
     {
+        if (!pingStatut) { return; }
+
         foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
         {
-            if (element.Value == null)
+            if (element.Key == null){ continue; }
+
+            if (element.Key.gameObject == ball)
             {
-                element.Key.gameObject.SetActive(false);
+                element.Value.Trail.enabled = false;
+            }
+        }
+    }
+
+    public void OnEndTurn()
+    {
+        if (!pingStatut) { return; }
+
+        foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
+        {
+            if (element.Key == null) { continue; }
+
+            if (element.Key.myteam == GameModeManager.Instance.localPlayerTeam)
+            {
+                element.Value.Trail.enabled = true;
+            }
+        }
+    }
+
+    void FollowMarbl()
+    {
+        if(listOfPing.Count == 0)
+        {
+            EnablePing();
+        }
+
+        List<BallSettings> deleteBall = new List<BallSettings>();
+
+        foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
+        {
+            if (element.Key == null)
+            {
+                element.Value.gameObject.SetActive(false);
+                deleteBall.Add(element.Key);
                 continue;
             }
 
-            element.Key.transform.position = element.Value.transform.position;
-            element.Key.transform.position += new Vector3(0, -0.4f, 0);
+            element.Value.transform.position = element.Key.transform.position;
+            element.Value.transform.position += new Vector3(0, -0.4f, 0);
             element.Value.SetColor(MarblGame.GetColor((int)element.Key.myteam));
+        }
+
+        foreach(BallSettings element in deleteBall)
+        {
+            listOfPing.Remove(element);
         }
     }
 

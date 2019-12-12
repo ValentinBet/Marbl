@@ -69,7 +69,8 @@ public class JsonMapLoader : MonoBehaviour
 
             jsonMap = data.text;
 
-            myPV.RPC("RpcSendMapToAllClient", RpcTarget.All, jsonMap);
+            JsonMapLoader.Instance.LoadMap(jsonMap);
+            myPV.RPC("RpcSendMapToAllClient", RpcTarget.Others, jsonMap);
         }
     }
 

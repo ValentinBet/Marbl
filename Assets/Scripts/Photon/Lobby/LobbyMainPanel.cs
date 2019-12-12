@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class LobbyMainPanel : MonoBehaviourPunCallbacks
 {
@@ -44,9 +45,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     private Dictionary<string, RoomInfo> cachedRoomList;
     private Dictionary<string, GameObject> roomListEntries;
-    private Dictionary<int, GameObject> playerListEntries;
+    private Dictionary<Player, GameObject> playerListEntries;
 
-    #region UNITY
 
     public void Awake()
     {
@@ -74,11 +74,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
             PhotonNetwork.CurrentRoom.IsOpen = true;
             PhotonNetwork.CurrentRoom.IsVisible = true;
 
-            foreach(KeyValuePair<int, GameObject> element in playerListEntries)
-            {
-                element.Value.GetComponent<PlayerListEntry>().OnPlayerNumberingChanged();
-            }
-
             foreach(Player p in PhotonNetwork.PlayerList)
             {
                 PhotonNetwork.CurrentRoom.SetTeamScore(p.GetTeam(), 0);
@@ -86,14 +81,9 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         }
     }
 
-    #endregion
-
-    #region PUN CALLBACKS
-
     public override void OnDisconnected(DisconnectCause cause)
     {
         base.OnDisconnected(cause);
-        print("deco");
         ReconnectButton.SetActive(true);
     }
 
@@ -102,6 +92,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         this.SetActivePanel(SelectionPanel.name);
 
         PhotonNetwork.LocalPlayer.NickName = PlayerNameInput.text;
+        PhotonNetwork.LocalPlayer.SetTeam(MarblFactory.GetRandomTeam());
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -142,34 +133,24 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     {
         SetActivePanel(InsideRoomPanel.name);
 
-        if (playerListEntries == null)
-        {
-            playerListEntries = new Dictionary<int, GameObject>();
-        }
+        PhotonNetwork.LocalPlayer.SetPlayerReadyState(false);
+        PhotonNetwork.LocalPlayer.SetScore(0);
+
+        playerListEntries = new Dictionary<Player, GameObject>();
 
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             GameObject entry = Instantiate(PlayerListEntryPrefab);
             entry.transform.SetParent(InsideRoomPanel.transform);
             entry.transform.localScale = Vector3.one;
-            entry.GetComponent<PlayerListEntry>().Initialize(p.ActorNumber, p.NickName);
+            entry.GetComponent<PlayerListEntry>().Initialize(p, p.GetTeam(), p.NickName);
 
-            object isPlayerReady;
-            if (p.CustomProperties.TryGetValue(MarblGame.PLAYER_READY, out isPlayerReady))
-            {
-                entry.GetComponent<PlayerListEntry>().SetPlayerReady((bool)isPlayerReady);
-            }
+            entry.GetComponent<PlayerListEntry>().SetPlayerReady(p.GetPlayerReadyState());
 
-            playerListEntries.Add(p.ActorNumber, entry);
+            playerListEntries.Add(p, entry);
         }
 
         StartGameButton.gameObject.SetActive(CheckPlayersReady());
-
-        Hashtable props = new Hashtable
-            {
-                {MarblGame.PLAYER_LOADED_LEVEL, false}
-            };
-        PhotonNetwork.LocalPlayer.SetCustomProperties(props);
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -200,17 +181,17 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         GameObject entry = Instantiate(PlayerListEntryPrefab);
         entry.transform.SetParent(InsideRoomPanel.transform);
         entry.transform.localScale = Vector3.one;
-        entry.GetComponent<PlayerListEntry>().Initialize(newPlayer.ActorNumber, newPlayer.NickName);
+        entry.GetComponent<PlayerListEntry>().Initialize(newPlayer, newPlayer.GetTeam(), newPlayer.NickName);
 
-        playerListEntries.Add(newPlayer.ActorNumber, entry);
+        playerListEntries.Add(newPlayer, entry);
 
         StartGameButton.gameObject.SetActive(CheckPlayersReady());
     }
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        Destroy(playerListEntries[otherPlayer.ActorNumber].gameObject);
-        playerListEntries.Remove(otherPlayer.ActorNumber);
+        Destroy(playerListEntries[otherPlayer].gameObject);
+        playerListEntries.Remove(otherPlayer);
 
         StartGameButton.gameObject.SetActive(CheckPlayersReady());
     }
@@ -225,27 +206,28 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
     {
-        if (playerListEntries == null)
+        
+        foreach (Player p in PhotonNetwork.PlayerList)
         {
-            playerListEntries = new Dictionary<int, GameObject>();
-        }
-
-        GameObject entry;
-        if (playerListEntries.TryGetValue(targetPlayer.ActorNumber, out entry))
-        {
-            object isPlayerReady;
-            if (changedProps.TryGetValue(MarblGame.PLAYER_READY, out isPlayerReady))
-            {
-                entry.GetComponent<PlayerListEntry>().SetPlayerReady((bool)isPlayerReady);
-            }
+            PlayerListEntry pList = GetPlayerListEntry(p);
+            pList.Refresh(MarblGame.GetColor((int) p.GetTeam()));
+            pList.SetPlayerReady(p.GetPlayerReadyState());
         }
 
         StartGameButton.gameObject.SetActive(CheckPlayersReady());
     }
 
-    #endregion
-
-    #region UI CALLBACKS
+    PlayerListEntry GetPlayerListEntry(Player p)
+    {
+        foreach(KeyValuePair<Player, GameObject> element in playerListEntries)
+        {
+            if(element.Key == p)
+            {
+                return element.Value.GetComponent<PlayerListEntry>();
+            }
+        }
+        return null;
+    }
 
     public void Reconnect()
     {
@@ -324,8 +306,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         PhotonNetwork.LoadLevel(multiplayerScene);
     }
 
-    #endregion
-
     private bool CheckPlayersReady()
     {
         if (!PhotonNetwork.IsMasterClient)
@@ -335,16 +315,14 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         foreach (Player p in PhotonNetwork.PlayerList)
         {
-            object isPlayerReady;
-            if (p.CustomProperties.TryGetValue(MarblGame.PLAYER_READY, out isPlayerReady))
+            if (p.GetPlayerReadyState())
             {
-                if (!(bool)isPlayerReady)
-                {
-                    return false;
-                }
+                GetPlayerListEntry(p).PlayerReadyImage.gameObject.SetActive(true);
+                continue;
             }
             else
             {
+                GetPlayerListEntry(p).PlayerReadyImage.gameObject.SetActive(false);
                 return false;
             }
         }

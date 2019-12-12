@@ -117,6 +117,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
                 RemovePlayerTurn();
                 haveShoot = true;
                 doTimer = false;
+                UIManager.Instance.OnEndTurn();
             }
         }
         else
@@ -223,7 +224,6 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
     void PlayerShooted()
     {
-        UIManager.Instance.DisablePing();
         haveShoot = true;
     }
 

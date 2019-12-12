@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public static class MarblFactory
 {
@@ -40,5 +41,13 @@ public static class MarblFactory
         }
 
         return allChild;
+    }
+
+
+    public static Team GetRandomTeam()
+    {
+        Array A = System.Enum.GetValues(typeof(Team));
+        Team team = (Team)A.GetValue(UnityEngine.Random.Range(0, A.Length));
+        return team;
     }
 }

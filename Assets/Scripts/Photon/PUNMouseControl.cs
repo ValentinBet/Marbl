@@ -116,6 +116,9 @@ public class PUNMouseControl : MonoBehaviour
     {
         OnBallClicked?.Invoke(ball);
 
+        UIManager.Instance.OnEndTurn();
+        UIManager.Instance.OnClickOnBall(ball);
+
         actualSelectedBall = ball;
         ControlOutline(ball);
 
