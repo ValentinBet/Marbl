@@ -8,6 +8,9 @@ public class BombBlock : MonoBehaviour
     public GameObject explosionFx;
     public AudioSource audioSource;
 
+    public Transform posMark;
+    public GameObject prefabMark;
+
     public AudioClip explosion;
     public AudioClip bip;
 
@@ -67,6 +70,11 @@ public class BombBlock : MonoBehaviour
         {
             Destroy(Instantiate(explosionFx, this.transform.position, this.transform.rotation), 2);
         }
+
+        GameObject mark = Instantiate(prefabMark);
+        mark.transform.position = posMark.position;
+        mark.transform.eulerAngles = new Vector3(90, Random.Range(0, 360), 0);
+
         gameObject.SetActive(false);
         Destroy(transform.parent.gameObject,2);
     }

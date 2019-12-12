@@ -150,6 +150,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
                 RemoveAutority();
                 RemovePlayerTurn();
                 mousControl.haveShoot = false;
+                GetComponent<TrajectoryRenderer>().ResetLandingZone();
             }
         }
     }
