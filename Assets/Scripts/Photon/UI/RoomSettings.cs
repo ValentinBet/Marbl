@@ -112,7 +112,7 @@ public class RoomSettings : MonoBehaviour
 
             string modeName = file.Name.Replace(".json", "");
 
-            if(modeName == "DeathMatch" || modeName == "King of the hill")
+            if(modeName == "DeathMatch" || modeName == "King of the hill" || modeName == "Hue")
             {
 
             }
