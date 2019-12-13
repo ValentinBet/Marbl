@@ -112,7 +112,7 @@ public class RoomSettings : MonoBehaviour
 
             string modeName = file.Name.Replace(".json", "");
 
-            if(modeName == "DeathMatch" || modeName == "King of the hill")
+            if(modeName == "DeathMatch" || modeName == "King of the hill" || modeName == "Hue")
             {
 
             }
@@ -176,6 +176,21 @@ public class RoomSettings : MonoBehaviour
             ShowHide(hillObj, false);
         }
 
+        if (hue.statut)
+        {
+            ShowHide(hueObj, true);
+        }
+        else
+        {
+            ShowHide(hueObj, false);
+        }
+
+
+        ShowHide(coinsObj, false);
+        ShowHide(hotCustomObj, false);
+        ShowHide(billardObj, false);
+
+        /*
         if (coins.statut)
         {
             ShowHide(coinsObj, true);
@@ -194,15 +209,6 @@ public class RoomSettings : MonoBehaviour
             ShowHide(hotCustomObj, false);
         }
 
-        if (hue.statut)
-        {
-            ShowHide(hueObj, true);
-        }
-        else
-        {
-            ShowHide(hueObj, false);
-        }
-
         if (billard.statut)
         {
             ShowHide(billardObj, true);
@@ -211,6 +217,7 @@ public class RoomSettings : MonoBehaviour
         {
             ShowHide(billardObj, false);
         }
+        */
     }
 
     void ShowHide(List<GameObject> elements, bool value)
@@ -299,6 +306,11 @@ public class RoomSettings : MonoBehaviour
                 element.gameObject.SetActive(true);
             }
             Refresh();
+
+            //add pour les profs
+            coins.gameObject.SetActive(false);
+            billard.gameObject.SetActive(false);
+            potato.gameObject.SetActive(false);
             return;
         }
 

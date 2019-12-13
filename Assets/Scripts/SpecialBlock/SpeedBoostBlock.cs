@@ -12,7 +12,7 @@ public class SpeedBoostBlock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ball") && other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsOwnerActive)
+        if (other.CompareTag("Ball") && other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsMine)
         {
             other.GetComponent<Rigidbody>().velocity *= 2;
             other.GetComponent<BallSettings>().SpawnOverchargedFx();

@@ -160,8 +160,6 @@ public class MouseControl : MonoBehaviour
         //player.ResetBallSelect();
         actualBallLineRenderer = null;
         turnLock = false;
-
-        UIManager.Instance.DisplayInfoTurn();
     }
 
     // Mouse elevation

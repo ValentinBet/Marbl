@@ -32,7 +32,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public bool gameFinish = false;
 
     public Text playerTurnText;
-    public Text teamMarblText;
 
     int roundNumber = 0;
     int currentRound = 1;
@@ -98,7 +97,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                 _indexList.Add(index);
             }
         }
-
         int numbrBallByTeam = PhotonNetwork.CurrentRoom.GetNbrbBallProp();
 
         if (PhotonNetwork.CurrentRoom.GetSpawnMode() == 0)
@@ -159,6 +157,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         if(roundNumber == 21) {
             myPV.RPC("RpcDisableRoundText", RpcTarget.AllViaServer);
         }
+        myPV.RPC("RpcInfoTurn", RpcTarget.AllViaServer, playerplayed.NickName, (int)teamPlayed);
 
         myPV.RPC("RpcSetRoundText", RpcTarget.AllViaServer, "Round" + "\n" + "<size=180> " + currentRound + " / " + roundNumber + "</size>");
 
@@ -270,6 +269,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         SetPlayerTurn(playerplayed);
 
         playerAlreadyPlay.Add(playerplayed);
+
+        myPV.RPC("RpcInfoTurn", RpcTarget.AllViaServer, playerplayed.NickName, (int)teamPlayed);
     }
 
     //Return un joueur qui n'a pas jouer ou redémare le tour des joueurs
@@ -305,9 +306,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                     Team currentTeam = (Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
                     playerTurnText.color = MarblGame.GetColor((int)currentTeam);
 
-                    teamMarblText.text = MarblFactory.FirstCharToUpper(GetNumberBallOfTeam(currentTeam).ToString()) + " Marbls left";
-                    teamMarblText.color = MarblGame.GetColor((int)currentTeam);
-
                     if(p.UserId == PhotonNetwork.LocalPlayer.UserId)
                     {
                         playerTurnText.text = "Your turn !";
@@ -331,9 +329,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                     playerTurnText.text = p.NickName + "'s turn !";
                     Team currentTeam = (Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
                     playerTurnText.color = MarblGame.GetColor((int)currentTeam);
-
-                    teamMarblText.text = MarblFactory.FirstCharToUpper(GetNumberBallOfTeam(currentTeam).ToString())  + " Marbls left";
-                    teamMarblText.color = MarblGame.GetColor((int)currentTeam);
 
                     if (p.UserId == PhotonNetwork.LocalPlayer.UserId)
                     {
@@ -387,7 +382,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     }
 
     void CallEndTurnMode()
-    {
+    {   
         if (modeHill)
         {
             HillManager.Instance.EndTurn();
@@ -444,6 +439,12 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     void RpcDisableRoundText()
     {
         UIManager.Instance.round.gameObject.SetActive(false);
+    }
+
+    [PunRPC]
+    void RpcInfoTurn(string playerName, int playerTeam)
+    {
+        UIManager.Instance.DisplayInfoTurn(playerName, playerTeam);
     }
 
     [PunRPC]

@@ -19,7 +19,7 @@ public class PUNMouseControl : MonoBehaviour
     public bool haveShoot = false;
     public float scrollSensivity = 0.1f;
     public float[] possibleAngles;
-
+    public LayerMask layerClickBall;
 
     [SerializeField]
     private LineRenderer actualBallLineRenderer;
@@ -79,24 +79,17 @@ public class PUNMouseControl : MonoBehaviour
 
         if (Input.GetKeyDown(InputManager.Instance.Inputs.inputs.MainButton1))
         {
-            if (!EventSystem.current.IsPointerOverGameObject())
+            if (Physics.Raycast(ray, out hit, 100.0f, layerClickBall))
             {
-                if (Physics.Raycast(ray, out hit, 100.0f))
-                {
-                    if (hit.collider.CompareTag("Ball"))
-                    {
-                        StopShoot();
-                        ClickOnBall(hit.collider.gameObject);
-                        UIManager.Instance.ResetButton();
-                    }
-                }
+                StopShoot();
+                ClickOnBall(hit.collider.transform.parent.gameObject);
+                UIManager.Instance.ResetButton();
             }
         }
     }
 
     public void ClickOnBall(GameObject target)
     {
-
         if (player.teamBalls.Contains(target))
         {
             if (target != null)
@@ -132,13 +125,13 @@ public class PUNMouseControl : MonoBehaviour
         mouseScrollDelta += Input.GetAxis("Mouse ScrollWheel");
         if (mouseScrollDelta > scrollSensivity)
         {
-            angleIndex = Mathf.Clamp(angleIndex+1, 0, possibleAngles.Length-1);
+            angleIndex = Mathf.Clamp(angleIndex + 1, 0, possibleAngles.Length - 1);
             mouseScrollDelta = 0;
             //elevation = Mathf.Clamp(elevation + Input.GetAxis("Mouse ScrollWheel") * 10 * scrollSensivity, 0.0f, 45.0f);
         }
         if (mouseScrollDelta < -scrollSensivity)
         {
-            angleIndex = Mathf.Clamp(angleIndex-1,0,possibleAngles.Length-1);
+            angleIndex = Mathf.Clamp(angleIndex - 1, 0, possibleAngles.Length - 1);
             mouseScrollDelta = 0;
         }
         elevation = possibleAngles[angleIndex];
@@ -149,7 +142,7 @@ public class PUNMouseControl : MonoBehaviour
     {
         if (actualSelectedBall != null)
         {
-            if (!EventSystem.current.IsPointerOverGameObject()  )
+            if (!EventSystem.current.IsPointerOverGameObject())
             {
                 if (Input.GetKeyDown(InputManager.Instance.Inputs.inputs.MainButton2) && !isHoldingShoot) // Si PREMIER CLICK
                 {
@@ -215,7 +208,8 @@ public class PUNMouseControl : MonoBehaviour
         if (dragForce > dragForceMaxValue * cancelForce)
         {
             actualBallLineRenderer.enabled = true;
-        } else
+        }
+        else
         {
             actualBallLineRenderer.enabled = false;
         }
