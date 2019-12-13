@@ -121,8 +121,12 @@ public class PUNBallMovement : MonoBehaviour
         {
             if (collision.gameObject.GetComponent<Rigidbody>().angularVelocity.sqrMagnitude < rigidbody.angularVelocity.sqrMagnitude)
             {
+
+
                 BallSettings ballSettingGiver = GetComponent<BallSettings>();
                 BallSettings ballSettingReciever = collision.gameObject.GetComponent<BallSettings>();
+
+                print(ballSettingGiver.myteam + " --> " + ballSettingReciever.myteam);
 
                 if (PhotonNetwork.CurrentRoom.GetHue() && ballSettingReciever.myteam != ballSettingGiver.myteam)
                 {
