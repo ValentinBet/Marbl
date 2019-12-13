@@ -1,6 +1,489 @@
 {
-    "mapName": "BasicMap",
+    "mapName": "TestMapNoBorder",
     "mapObjects": [
+        {
+            "objectName": "TileCube (96)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 15.739999771118164,
+                "y": 0.6000000238418579,
+                "z": -12.5
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (95)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -0.23999999463558198,
+                "y": 0.6000000238418579,
+                "z": -12.5
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (94)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 0.8399999737739563,
+                "y": 0.6000000238418579,
+                "z": 14.119999885559082
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (93)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 15.979999542236329,
+                "y": 0.6000000238418579,
+                "z": 14.119999885559082
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (92)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 0.6000000238418579,
+                "z": 14.119999885559082
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (91)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 0.6000000238418579,
+                "z": 6.940000057220459
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (90)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 0.6000000238418579,
+                "z": -0.4399999976158142
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (89)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 0.6000000238418579,
+                "z": -5.099999904632568
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (88)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 0.6000000238418579,
+                "z": -12.5
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "BigObstacle (15)",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 52.0,
+                "y": 2.8499999046325685,
+                "z": -17.979999542236329
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.7071068286895752,
+                "z": 0.0,
+                "w": -0.7071068286895752
+            },
+            "scale": {
+                "x": 3.0,
+                "y": 4.0,
+                "z": 3.0
+            }
+        },
+        {
+            "objectName": "BigObstacle (14)",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 49.099998474121097,
+                "y": 2.8499999046325685,
+                "z": -32.63999938964844
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": -0.3695703446865082,
+                "z": 0.0,
+                "w": 0.9292027950286865
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "BigObstacle (13)",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 29.979999542236329,
+                "y": 2.8499999046325685,
+                "z": -38.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "BigObstacle (12)",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -30.540000915527345,
+                "y": 2.8499999046325685,
+                "z": -33.599998474121097
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.39969879388809206,
+                "z": 0.0,
+                "w": 0.9166464805603027
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "BigObstacle (11)",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -10.180000305175782,
+                "y": 2.8499999046325685,
+                "z": -38.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "BigObstacle (10)",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -36.0,
+                "y": 2.8499999046325685,
+                "z": -16.920000076293947
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.7071068286895752,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 3.0,
+                "y": 4.0,
+                "z": 3.0
+            }
+        },
+        {
+            "objectName": "BigObstacle (9)",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -30.200000762939454,
+                "y": 2.8499999046325685,
+                "z": 32.20000076293945
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.90016770362854,
+                "z": 0.0,
+                "w": 0.4355435073375702
+            },
+            "scale": {
+                "x": 3.0,
+                "y": 4.0,
+                "z": 3.0
+            }
+        },
+        {
+            "objectName": "BigObstacle (8)",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -36.0,
+                "y": 2.8499999046325685,
+                "z": 19.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.7071068286895752,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 3.0,
+                "y": 4.0,
+                "z": 3.0
+            }
+        },
+        {
+            "objectName": "BigObstacle (7)",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -15.800000190734864,
+                "y": 2.8499999046325685,
+                "z": 43.619998931884769
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.999502420425415,
+                "z": 0.0,
+                "w": -0.03154265135526657
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "BigObstacle (6)",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 35.540000915527347,
+                "y": 2.8499999046325685,
+                "z": 43.619998931884769
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.999502420425415,
+                "z": 0.0,
+                "w": -0.03154265135526657
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "BigObstacle (5)",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 57.099998474121097,
+                "y": 2.8499999046325685,
+                "z": 17.959999084472658
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.7077405452728272,
+                "z": 0.0,
+                "w": -0.7064724564552307
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "BigObstacle (4)",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 48.380001068115237,
+                "y": 2.8499999046325685,
+                "z": 34.279998779296878
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.913170576095581,
+                "z": 0.0,
+                "w": -0.4075777232646942
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
         {
             "objectName": "bomb",
             "prefabName": "bomb",
@@ -146,7 +629,7 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 8.0,
+                "x": 7.440000057220459,
                 "y": 2.8499999046325685,
                 "z": -38.0
             },

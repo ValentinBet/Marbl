@@ -88,6 +88,7 @@ public class PUNBallMovement : MonoBehaviour
                 {
                     GetComponent<BallSettings>().ChangeTeam(other.gameObject.GetComponent<BallSettings>().myteam);
                 }
+
                 Debug.LogError(other.gameObject.name + " --> " + gameObject.name);
                 amplify = CollideStates.Reciever;
             }
@@ -97,6 +98,7 @@ public class PUNBallMovement : MonoBehaviour
                 {
                     other.gameObject.GetComponent<BallSettings>().ChangeTeam(GetComponent<BallSettings>().myteam);
                 }
+
                 Debug.LogError(gameObject.name + " --> " + other.gameObject.name);
                 amplify = CollideStates.Giver;
             }

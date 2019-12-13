@@ -41,6 +41,8 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
             Material[] _mats = this.GetComponent<Renderer>().materials;
             _mats[1] = GameModeManager.Instance.colors[(int)myteam];
             this.GetComponent<Renderer>().materials = _mats;
+
+            myTrail.startColor = MarblGame.GetColor((int)myteam);
         }
     }
 
@@ -52,13 +54,14 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
             _temp.transform.parent = this.transform;
             Destroy(_temp, 2);
         }
-
     }
 
     public void ChangeTeam(Team team)
     {
         myteam = team;
         SetColor();
+
+        GameModeManager.Instance.localPlayerObj.GetComponent<PUNMouseControl>().ResetBallSelect();
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
