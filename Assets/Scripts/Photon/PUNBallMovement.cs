@@ -101,7 +101,7 @@ public class PUNBallMovement : MonoBehaviour
             if (ballSettingReciever.currentSpeed < ballSettingGiver.currentSpeed)
             {
 
-                print(ballSettingGiver.myteam + " - " + ballSettingGiver.currentSpeed + " --> " + ballSettingReciever.myteam + " - " + ballSettingReciever.currentSpeed);
+                //print(ballSettingGiver.myteam + " - " + ballSettingGiver.currentSpeed + " --> " + ballSettingReciever.myteam + " - " + ballSettingReciever.currentSpeed);
 
                 if (PhotonNetwork.CurrentRoom.GetHue() && ballSettingReciever.myteam != ballSettingGiver.myteam)
                 {
@@ -128,12 +128,12 @@ public class PUNBallMovement : MonoBehaviour
                 if (amplify == CollideStates.Giver)
                 {
                     //Debug.Log("Giving Collider " + gameObject.name);
-                    //rigidbody.velocity = rigidbody.velocity * ImpactGivingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1);
+                    rigidbody.velocity = rigidbody.velocity * ImpactGivingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1);
                 }
                 else
                 {
                     //Debug.Log("Recieving Collider " + gameObject.name);
-                    //rigidbody.velocity = rigidbody.velocity * ImpactRecievingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1);
+                    rigidbody.velocity = rigidbody.velocity * ImpactRecievingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1);
                 }
             }
         }

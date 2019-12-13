@@ -25,7 +25,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     private void Update()
     {
         SetColor();
-        currentSpeed = myRigid.velocity.magnitude;
+        currentSpeed = myRigid.velocity.sqrMagnitude;
     }
     private void OnBecameVisible()
     {
