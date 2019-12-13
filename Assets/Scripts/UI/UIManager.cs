@@ -48,6 +48,8 @@ public class UIManager : MonoBehaviourPunCallbacks
     Dictionary<BallSettings, PingElement> listOfPing = new Dictionary<BallSettings, PingElement>();
     public GameObject pingPrefab;
 
+    public GameObject currentClickedBall;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -217,6 +219,8 @@ public class UIManager : MonoBehaviourPunCallbacks
     {
         if (!pingStatut) { return; }
 
+        currentClickedBall = ball;
+
         foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
         {
             if (element.Key == null){ continue; }
@@ -287,5 +291,17 @@ public class UIManager : MonoBehaviourPunCallbacks
         infoTurnSettings.text.text = playerName + "'s Turn";
         infoTurnSettings.MainBackground.GetComponent<Image>().color = MarblGame.GetColor(playerTeam);
         infoTurnSettings.BackgroundGo.GetComponent<Animator>().SetTrigger("Display");
+    }
+
+    public void DisableBecon()
+    {
+        foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
+        {
+            if (element.Key != null)
+            {
+                element.Value.Trail.enabled = false;
+                continue;
+            }
+        }
     }
 }
