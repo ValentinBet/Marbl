@@ -12,6 +12,9 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     public ParticleSystem fx_Overcharged;
 
     public bool isVisible = true;
+    public Rigidbody myRigid;
+
+    public float currentSpeed = 0;
 
     private void Start()
     {
@@ -22,6 +25,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     private void Update()
     {
         SetColor();
+        currentSpeed = myRigid.velocity.magnitude;
     }
     private void OnBecameVisible()
     {

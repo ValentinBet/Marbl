@@ -81,30 +81,6 @@ public class PUNBallMovement : MonoBehaviour
         this.GetComponent<Rigidbody>().AddTorque(Vector3.Cross(direction, Vector3.up) * -torqueForce, ForceMode.Force);
     }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        
-        if (collision.gameObject.GetComponent<PUNBallMovement>() != null)
-        {
-            //Mathf.Abs(Mathf.Abs(collision.gameObject.transform.position.y) - Mathf.Abs(transform.position.y)) < 0.3f
-            if (collision.gameObject.GetComponent<Rigidbody>().velocity.sqrMagnitude > MinimalImpactForce * MinimalImpactForce && rigidbody.velocity.sqrMagnitude > MinimalImpactForce * MinimalImpactForce)
-            {
-
-                if (amplify == CollideStates.Giver)
-                {
-                    //Debug.Log("Giving Collider " + gameObject.name);
-                    rigidbody.velocity = rigidbody.velocity * ImpactGivingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1);
-                }
-                else
-                {
-                    //Debug.Log("Recieving Collider " + gameObject.name);
-                    rigidbody.velocity = rigidbody.velocity * ImpactRecievingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1);
-                }
-            }
-        }
-        
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ball" && collision.relativeVelocity.magnitude > 8)
@@ -119,14 +95,13 @@ public class PUNBallMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Ball" && photonView.IsMine)
         {
-            if (collision.gameObject.GetComponent<Rigidbody>().angularVelocity.sqrMagnitude < rigidbody.angularVelocity.sqrMagnitude)
+            BallSettings ballSettingGiver = GetComponent<BallSettings>();
+            BallSettings ballSettingReciever = collision.gameObject.GetComponent<BallSettings>();
+
+            if (ballSettingReciever.currentSpeed < ballSettingGiver.currentSpeed)
             {
 
-
-                BallSettings ballSettingGiver = GetComponent<BallSettings>();
-                BallSettings ballSettingReciever = collision.gameObject.GetComponent<BallSettings>();
-
-                print(ballSettingGiver.myteam + " --> " + ballSettingReciever.myteam);
+                print(ballSettingGiver.myteam + " - " + ballSettingGiver.currentSpeed + " --> " + ballSettingReciever.myteam + " - " + ballSettingReciever.currentSpeed);
 
                 if (PhotonNetwork.CurrentRoom.GetHue() && ballSettingReciever.myteam != ballSettingGiver.myteam)
                 {
@@ -141,6 +116,26 @@ public class PUNBallMovement : MonoBehaviour
             }
 
             QuickScoreboard.Instance.Refresh();
+        }
+
+
+        if (collision.gameObject.GetComponent<PUNBallMovement>() != null && photonView.IsMine)
+        {
+            //Mathf.Abs(Mathf.Abs(collision.gameObject.transform.position.y) - Mathf.Abs(transform.position.y)) < 0.3f
+            if (collision.gameObject.GetComponent<Rigidbody>().velocity.sqrMagnitude > MinimalImpactForce * MinimalImpactForce && rigidbody.velocity.sqrMagnitude > MinimalImpactForce * MinimalImpactForce)
+            {
+
+                if (amplify == CollideStates.Giver)
+                {
+                    //Debug.Log("Giving Collider " + gameObject.name);
+                    //rigidbody.velocity = rigidbody.velocity * ImpactGivingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1);
+                }
+                else
+                {
+                    //Debug.Log("Recieving Collider " + gameObject.name);
+                    //rigidbody.velocity = rigidbody.velocity * ImpactRecievingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1);
+                }
+            }
         }
     }
 
