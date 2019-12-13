@@ -43,6 +43,7 @@ public class TrajectoryRenderer : MonoBehaviour
     private void OnDisable()
     {
         mouseControl.OnBallClicked -= OnClickOnBall;
+
     }
 
     private void Update()
@@ -168,6 +169,11 @@ public class TrajectoryRenderer : MonoBehaviour
         storedOffset += Time.deltaTime;
         Mathf.Repeat(storedOffset,1.0f);
         lr.sharedMaterial.SetTextureOffset("_MainTex", Vector2.right * -storedOffset);
+    }
+
+    private void ResetCurveMaterial()
+    {
+        lr.sharedMaterial.SetTextureOffset("_MainTex", Vector2.zero);
     }
 
     public void SetVelocity(float newVel)

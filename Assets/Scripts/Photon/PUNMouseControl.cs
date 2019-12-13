@@ -234,7 +234,6 @@ public class PUNMouseControl : MonoBehaviour
         Cursor.visible = true;
         if (actualBallLineRenderer != null)
             actualBallLineRenderer.enabled = false;
-
         elevation = 0;
         dragForce = 0;
         DisplayDragForce();

@@ -11,9 +11,12 @@ public class PingElement : MonoBehaviour
     public void SetColor(Color newColor)
     {
         Socle.color = newColor;
-        GradientColorKey[] ck = Trail.colorGradient.colorKeys;
+        Gradient grd = Trail.colorGradient;
+        GradientColorKey[] ck = grd.colorKeys;
+        ck[0].color = newColor;
         ck[1].color = newColor;
-        Trail.colorGradient.SetKeys(ck, Trail.colorGradient.alphaKeys);
+        grd.SetKeys(ck, grd.alphaKeys);
+        Trail.colorGradient= grd;
     }
 
     public void Hide()
