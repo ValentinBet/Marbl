@@ -106,6 +106,7 @@ public class PUNBallMovement : MonoBehaviour
                 if (PhotonNetwork.CurrentRoom.GetHue() && ballSettingReciever.myteam != ballSettingGiver.myteam)
                 {
                     ballSettingReciever.ChangeTeam(ballSettingGiver.myteam);
+                    PhotonNetwork.LocalPlayer.AddPlayerScore(1);
                 }
 
                 amplify = CollideStates.Giver;
