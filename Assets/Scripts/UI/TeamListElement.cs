@@ -40,6 +40,6 @@ public class TeamListElement : MonoBehaviour
     private void Update()
     {
         oldPoint = Mathf.Lerp(oldPoint, newPoint, 3 * Time.deltaTime);
-        pointText.text = Mathf.RoundToInt(oldPoint).ToString() + " pts.";
+        pointText.text = Mathf.RoundToInt(oldPoint).ToString();
     }
 }

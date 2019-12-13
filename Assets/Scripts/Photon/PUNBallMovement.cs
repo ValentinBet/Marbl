@@ -27,6 +27,12 @@ public class PUNBallMovement : MonoBehaviour
 
     public List<GameObject> impactPrefab;
 
+    public AudioSource myAudioSource;
+
+    public AudioClip hitMarbl;
+    public AudioClip hitWood;
+    public AudioClip hitGround;
+
     private void Awake()
     {
         photonView = GetComponent<PhotonView>();
@@ -37,6 +43,8 @@ public class PUNBallMovement : MonoBehaviour
 
         impactPower = PhotonNetwork.CurrentRoom.GetImpactPower();
         MovementSpeed = PhotonNetwork.CurrentRoom.GetLaunchPower();
+
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -64,9 +72,9 @@ public class PUNBallMovement : MonoBehaviour
 
     public void MoveBall(Vector3 direction, float angle, float dragForce)
     {
-        Debug.Log(direction);
+        //Debug.Log(direction);
         direction = new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * angle), ((45 - angle) / 45.0f + MovementSpeed) * Mathf.Sin(Mathf.Deg2Rad * angle) / MovementSpeed, direction.z * Mathf.Cos(Mathf.Deg2Rad * angle));
-        Debug.Log(direction);
+        //Debug.Log(direction);
         Vector3 _impulse = direction * (dragForce * rigidbody.mass * MovementSpeed);
 
         this.GetComponent<Rigidbody>().AddForce(_impulse, ForceMode.Impulse);
@@ -78,34 +86,13 @@ public class PUNBallMovement : MonoBehaviour
     {
         if (other.gameObject.GetComponent<PUNBallMovement>() != null)
         {
-            //string colliderName = gameObject.name;
 
-            if (other.gameObject.GetComponent<Rigidbody>().velocity.sqrMagnitude > rigidbody.velocity.sqrMagnitude)
-            {
-                //colliderName = other.gameObject.name;
-
-                if (PhotonNetwork.CurrentRoom.GetHue())
-                {
-                    GetComponent<BallSettings>().ChangeTeam(other.gameObject.GetComponent<BallSettings>().myteam);
-                }
-                Debug.LogError(other.gameObject.name + " --> " + gameObject.name);
-                amplify = CollideStates.Reciever;
-            }
-            else
-            {
-                if (PhotonNetwork.CurrentRoom.GetHue())
-                {
-                    other.gameObject.GetComponent<BallSettings>().ChangeTeam(GetComponent<BallSettings>().myteam);
-                }
-                Debug.LogError(gameObject.name + " --> " + other.gameObject.name);
-                amplify = CollideStates.Giver;
-            }
-            QuickScoreboard.Instance.Refresh();
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
+        
         if (collision.gameObject.GetComponent<PUNBallMovement>() != null)
         {
             //Mathf.Abs(Mathf.Abs(collision.gameObject.transform.position.y) - Mathf.Abs(transform.position.y)) < 0.3f
@@ -114,26 +101,51 @@ public class PUNBallMovement : MonoBehaviour
 
                 if (amplify == CollideStates.Giver)
                 {
-                    Debug.Log("Giving Collider " + gameObject.name);
+                    //Debug.Log("Giving Collider " + gameObject.name);
                     rigidbody.velocity = rigidbody.velocity * ImpactGivingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1);
                 }
                 else
                 {
-                    Debug.Log("Recieving Collider " + gameObject.name);
+                    //Debug.Log("Recieving Collider " + gameObject.name);
                     rigidbody.velocity = rigidbody.velocity * ImpactRecievingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1);
                 }
             }
         }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Ball" && collision.relativeVelocity.magnitude > 8)
         {
+
             GameObject impact = Instantiate(impactPrefab[Random.Range(0, impactPrefab.Count)], collision.contacts[0].point, Quaternion.identity);
             float size = collision.relativeVelocity.magnitude / 20;
             impact.transform.localScale = new Vector3(size, size, size);
             Destroy(impact, 2);
+        }
+
+
+        if (collision.gameObject.tag == "Ball")
+        {
+            if (collision.gameObject.GetComponent<Rigidbody>().angularVelocity.sqrMagnitude < rigidbody.angularVelocity.sqrMagnitude)
+            {
+                BallSettings ballSettingGiver = GetComponent<BallSettings>();
+                BallSettings ballSettingReciever = collision.gameObject.GetComponent<BallSettings>();
+
+                if (PhotonNetwork.CurrentRoom.GetHue() && ballSettingReciever.myteam != ballSettingGiver.myteam)
+                {
+                    ballSettingReciever.ChangeTeam(ballSettingGiver.myteam);
+                }
+
+                amplify = CollideStates.Giver;
+            }
+            else
+            {
+                amplify = CollideStates.Reciever;
+            }
+
+            QuickScoreboard.Instance.Refresh();
         }
     }
 

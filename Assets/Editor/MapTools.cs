@@ -73,7 +73,10 @@ public class MapTools : EditorWindow
 
     public string SaveMap()
     {
-        map.mapObjects.Clear();
+        if(map.mapObjects != null)
+        {
+            map.mapObjects.Clear();
+        }
 
         map.mapObjectsPosition = mapObj.transform.position;
         map.mapObjectsRotation = mapObj.transform.rotation;
