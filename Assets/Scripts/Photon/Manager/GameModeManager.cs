@@ -32,7 +32,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public bool gameFinish = false;
 
     public Text playerTurnText;
-    public Text teamMarblText;
 
     int roundNumber = 0;
     int currentRound = 1;
@@ -307,9 +306,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                     Team currentTeam = (Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
                     playerTurnText.color = MarblGame.GetColor((int)currentTeam);
 
-                    teamMarblText.text = MarblFactory.FirstCharToUpper(GetNumberBallOfTeam(currentTeam).ToString()) + " Marbls left";
-                    teamMarblText.color = MarblGame.GetColor((int)currentTeam);
-
                     if(p.UserId == PhotonNetwork.LocalPlayer.UserId)
                     {
                         playerTurnText.text = "Your turn !";
@@ -333,9 +329,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                     playerTurnText.text = p.NickName + "'s turn !";
                     Team currentTeam = (Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
                     playerTurnText.color = MarblGame.GetColor((int)currentTeam);
-
-                    teamMarblText.text = MarblFactory.FirstCharToUpper(GetNumberBallOfTeam(currentTeam).ToString())  + " Marbls left";
-                    teamMarblText.color = MarblGame.GetColor((int)currentTeam);
 
                     if (p.UserId == PhotonNetwork.LocalPlayer.UserId)
                     {
