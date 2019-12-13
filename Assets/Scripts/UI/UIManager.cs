@@ -6,6 +6,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Photon.Pun.UtilityScripts;
+
 using static MarblGame;
 
 public class UIManager : MonoBehaviourPunCallbacks
@@ -37,6 +39,8 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject FreeCamTooltip;
 
     public GameObject LoadingPanel;
+    public GameObject InfoTurn;
+    public Text InfoTurnText;
 
     public bool isShooting = false;
 
@@ -277,5 +281,10 @@ public class UIManager : MonoBehaviourPunCallbacks
             FreeCamTooltip.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.CameraSpeed.ToString();
             FreeCamTooltip.SetActive(value);
         }
+    }
+
+    public void DisplayInfoTurn()
+    {       
+        InfoTurn.SetActive(true);
     }
 }

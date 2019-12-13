@@ -156,10 +156,12 @@ public class MouseControl : MonoBehaviour
     }
 
     private void NewTurnSequence()
-    {
+    {        
         player.ResetBallSelect();
         actualBallLineRenderer = null;
         turnLock = false;
+
+        UIManager.Instance.DisplayInfoTurn();
     }
 
     // Mouse elevation
