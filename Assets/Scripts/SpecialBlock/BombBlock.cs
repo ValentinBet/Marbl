@@ -56,13 +56,12 @@ public class BombBlock : MonoBehaviour
         {
             if (co.CompareTag("Ball") && co.GetComponent<Rigidbody>() != null)
             {
-                if (co.GetComponent<PhotonView>().IsOwnerActive)
+                if (co.GetComponent<PhotonView>().IsMine)
                 {
                     co.GetComponent<Rigidbody>().AddExplosionForce(power, this.transform.position, radius, upForce, ForceMode.Impulse);
                 }
             }
         }
-
 
         GameModeManager.Instance.localPlayerObj.GetComponent<CameraPlayer>().InitShakeScreen(baseScreenShakePower * power, screenShakeDuration);
 
