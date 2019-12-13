@@ -59,6 +59,9 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
         myTimerInfo.myImg.color = myColorTeam;
         myTimerInfo.mytext.color = myColorTeam;
+
+
+        Time.timeScale = 0.2f;
     }
 
     private void OnEnable()
