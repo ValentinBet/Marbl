@@ -98,7 +98,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                 _indexList.Add(index);
             }
         }
-
         int numbrBallByTeam = PhotonNetwork.CurrentRoom.GetNbrbBallProp();
 
         if (PhotonNetwork.CurrentRoom.GetSpawnMode() == 0)
@@ -159,6 +158,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         if(roundNumber == 21) {
             myPV.RPC("RpcDisableRoundText", RpcTarget.AllViaServer);
         }
+        myPV.RPC("RpcInfoTurn", RpcTarget.AllViaServer, playerplayed.NickName, (int)teamPlayed);
 
         myPV.RPC("RpcSetRoundText", RpcTarget.AllViaServer, "Round" + "\n" + "<size=180> " + currentRound + " / " + roundNumber + "</size>");
 
@@ -270,6 +270,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         SetPlayerTurn(playerplayed);
 
         playerAlreadyPlay.Add(playerplayed);
+
+        myPV.RPC("RpcInfoTurn", RpcTarget.AllViaServer, playerplayed.NickName, (int)teamPlayed);
     }
 
     //Return un joueur qui n'a pas jouer ou redémare le tour des joueurs
@@ -387,7 +389,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     }
 
     void CallEndTurnMode()
-    {
+    {   
         if (modeHill)
         {
             HillManager.Instance.EndTurn();
@@ -444,6 +446,12 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     void RpcDisableRoundText()
     {
         UIManager.Instance.round.gameObject.SetActive(false);
+    }
+
+    [PunRPC]
+    void RpcInfoTurn(string playerName, int playerTeam)
+    {
+        UIManager.Instance.DisplayInfoTurn(playerName, playerTeam);
     }
 
     [PunRPC]

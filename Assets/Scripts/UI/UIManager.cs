@@ -7,8 +7,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Photon.Pun.UtilityScripts;
-
 using static MarblGame;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class UIManager : MonoBehaviourPunCallbacks
 {
@@ -39,8 +39,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject FreeCamTooltip;
 
     public GameObject LoadingPanel;
-    public GameObject InfoTurn;
-    public Text InfoTurnText;
+    public InfoTurnSettings infoTurnSettings;
 
     public bool isShooting = false;
 
@@ -283,8 +282,10 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void DisplayInfoTurn()
-    {       
-        InfoTurn.SetActive(true);
+    public void DisplayInfoTurn(string playerName, int playerTeam)
+    {
+        infoTurnSettings.text.text = playerName + "'s Turn";
+        infoTurnSettings.MainBackground.GetComponent<Image>().color = MarblGame.GetColor(playerTeam);
+        infoTurnSettings.BackgroundGo.GetComponent<Animator>().SetTrigger("Display");
     }
 }

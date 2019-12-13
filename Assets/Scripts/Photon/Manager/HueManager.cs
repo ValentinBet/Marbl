@@ -33,6 +33,11 @@ public class HueManager : MonoBehaviour
         }
     }
 
+    private void EndGame()
+    {
+
+    }
+
     public void ActiveThisMode(bool value)
     {
         if (value)
