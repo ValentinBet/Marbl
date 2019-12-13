@@ -170,6 +170,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         HillManager.Instance.ActiveThisMode(modeHill);
         HueManager.Instance.ActiveThisMode(modeHue);
 
+        Time.timeScale = 0.2f;
+
     }
 
     void CreateTeamList()
