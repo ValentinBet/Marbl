@@ -106,7 +106,6 @@ public class PUNMouseControl : MonoBehaviour
             else
             {
                 lastSelected = null;
-                ResetBallSelect();
                 actualBallLineRenderer = null;
             }
         }
@@ -120,41 +119,10 @@ public class PUNMouseControl : MonoBehaviour
         UIManager.Instance.OnClickOnBall(ball);
 
         actualSelectedBall = ball;
-        ControlOutline(ball);
 
         if (GetComponent<LineRenderer>() != null)
         {
             actualBallLineRenderer = GetComponent<LineRenderer>();
-        }
-    }
-    public void ResetBallSelect()
-    {
-        if (actualSelectedBall != null)
-        {
-            actualSelectedBall.GetComponent<BallControl>().SetOutline(false);
-        }
-        actualSelectedBall = null;
-    }
-
-    private void ControlOutline(GameObject ball)
-    {
-        if (ball.GetComponent<PUNBallControl>() != null)
-        {
-            PUNBallControl _ballControl = ball.GetComponent<PUNBallControl>();
-            _ballControl.SetOutline(true);
-
-            foreach (GameObject b in player.teamBalls)
-            {
-                if (b == null)
-                {
-                    continue;
-                }
-
-                if (b != ball)
-                {
-                    b.GetComponent<PUNBallControl>().SetOutline(false);
-                }
-            }
         }
     }
 

@@ -25,35 +25,34 @@ public class PlayerControl : MonoBehaviour
     public void NewBallSelected(GameObject ball)
     {
         actualSelectedBall = ball;
-        ControlOutline(ball);
     }
 
-    public void ResetBallSelect()
-    {
-        if (actualSelectedBall != null)
-        {
-            actualSelectedBall.GetComponent<BallControl>().SetOutline(false);
-        }
-        actualSelectedBall = null;
-    }
+    //public void ResetBallSelect()
+    //{
+    //    if (actualSelectedBall != null)
+    //    {
+    //        actualSelectedBall.GetComponent<BallControl>().SetOutline(false);
+    //    }
+    //    actualSelectedBall = null;
+    //}
 
-    private void ControlOutline(GameObject ball)
-    {
-        BallControl _ballControl = ball.GetComponent<BallControl>();
-        _ballControl.SetOutline(true);
+    //private void ControlOutline(GameObject ball)
+    //{
+    //    BallControl _ballControl = ball.GetComponent<BallControl>();
+    //    _ballControl.SetOutline(true);
 
-        listBalls.Remove(null);
-        foreach (GameObject b in listBalls)
-        {
-            if (b == null)
-            {
-                continue;
-            }
-            if (b != ball)
-            {
-                b.GetComponent<BallControl>().SetOutline(false);
-            }
-        }
+    //    listBalls.Remove(null);
+    //    foreach (GameObject b in listBalls)
+    //    {
+    //        if (b == null)
+    //        {
+    //            continue;
+    //        }
+    //        if (b != ball)
+    //        {
+    //            b.GetComponent<BallControl>().SetOutlineOutline(false);
+    //        }
+    //    }
         
-    }
+    //}
 }

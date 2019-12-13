@@ -60,8 +60,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {
         myteam = team;
         SetColor();
-
-        GameModeManager.Instance.localPlayerObj.GetComponent<PUNMouseControl>().ResetBallSelect();
     }
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)

@@ -140,7 +140,7 @@ public class MouseControl : MonoBehaviour
         else
         {
             lastSelected = null;
-            player.ResetBallSelect();
+            //player.ResetBallSelect();
             actualBallLineRenderer = null;
         }
     }
@@ -157,7 +157,7 @@ public class MouseControl : MonoBehaviour
 
     private void NewTurnSequence()
     {        
-        player.ResetBallSelect();
+        //player.ResetBallSelect();
         actualBallLineRenderer = null;
         turnLock = false;
 

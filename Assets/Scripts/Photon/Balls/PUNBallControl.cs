@@ -46,15 +46,4 @@ public class PUNBallControl : MonoBehaviour
             StartCoroutine("WaitForRespawn");
         }
     }
-
-
-    public void SetOutline(bool value, Color? c = null)
-    {
-        Outline _outline = this.GetComponent<Outline>();
-
-        _outline.enabled = value;
-        _outline.OutlineColor = c ?? Color.white;
-
-        isSelected = _outline.enabled;
-    }
 }
