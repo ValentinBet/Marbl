@@ -2,199 +2,15 @@
     "mapName": "BasicMap",
     "mapObjects": [
         {
-            "objectName": "SpeedBoost (5)",
-            "prefabName": "SpeedBoost",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 18.059999465942384,
-                "y": 1.2599999904632569,
-                "z": 22.031999588012697
-            },
-            "rotation": {
-                "x": -0.7071068286895752,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 0.7071068286895752
-            },
-            "scale": {
-                "x": 0.39392998814582827,
-                "y": 0.39181023836135867,
-                "z": 0.2898101508617401
-            }
-        },
-        {
-            "objectName": "CFX_ElectricGround",
-            "prefabName": "CFX_ElectricGround",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 18.059999465942384,
-                "y": 1.3904145956039429,
-                "z": 22.031999588012697
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0000001192092896
-            },
-            "scale": {
-                "x": 1.825845718383789,
-                "y": 1.266391634941101,
-                "z": 1.58214271068573
-            }
-        },
-        {
-            "objectName": "Sparkles",
-            "prefabName": "Sparkles",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 18.059999465942384,
-                "y": 1.3904145956039429,
-                "z": 22.031999588012697
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0000001192092896
-            },
-            "scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        {
-            "objectName": "SpeedBoostCollider",
-            "prefabName": "SpeedBoostCollider",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 18.059999465942384,
-                "y": 1.2599999904632569,
-                "z": 22.031999588012697
-            },
-            "rotation": {
-                "x": -0.7071068286895752,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 0.7071068286895752
-            },
-            "scale": {
-                "x": 5.0995001792907719,
-                "y": 5.0995001792907719,
-                "z": 5.0995001792907719
-            }
-        },
-        {
-            "objectName": "SpeedBoost (4)",
-            "prefabName": "SpeedBoost",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 18.059999465942384,
-                "y": 1.2599999904632569,
-                "z": -22.020000457763673
-            },
-            "rotation": {
-                "x": -0.7071068286895752,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 0.7071068286895752
-            },
-            "scale": {
-                "x": 0.39392998814582827,
-                "y": 0.39181023836135867,
-                "z": 0.2898101508617401
-            }
-        },
-        {
-            "objectName": "CFX_ElectricGround",
-            "prefabName": "CFX_ElectricGround",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 18.059999465942384,
-                "y": 1.3904145956039429,
-                "z": -22.020000457763673
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0000001192092896
-            },
-            "scale": {
-                "x": 1.825845718383789,
-                "y": 1.266391634941101,
-                "z": 1.58214271068573
-            }
-        },
-        {
-            "objectName": "Sparkles",
-            "prefabName": "Sparkles",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 18.059999465942384,
-                "y": 1.3904145956039429,
-                "z": -22.020000457763673
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0000001192092896
-            },
-            "scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        {
-            "objectName": "SpeedBoostCollider",
-            "prefabName": "SpeedBoostCollider",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 18.059999465942384,
-                "y": 1.2599999904632569,
-                "z": -22.020000457763673
-            },
-            "rotation": {
-                "x": -0.7071068286895752,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 0.7071068286895752
-            },
-            "scale": {
-                "x": 5.0995001792907719,
-                "y": 5.0995001792907719,
-                "z": 5.0995001792907719
-            }
-        },
-        {
-            "objectName": "ButtonExplosion (1)",
+            "objectName": "ButtonExplosion (2)",
             "prefabName": "ButtonExplosion",
             "rootParent": "MapObj",
             "teamNumber": "",
             "isRootParent": false,
             "position": {
                 "x": 8.079331398010254,
-                "y": 2.043274402618408,
-                "z": -28.360000610351564
+                "y": 8.069999694824219,
+                "z": 0.05999999865889549
             },
             "rotation": {
                 "x": 0.0,
@@ -209,6 +25,29 @@
             }
         },
         {
+            "objectName": "ExposionMarkPos",
+            "prefabName": "ExposionMarkPos",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.079331398010254,
+                "y": 7.284268856048584,
+                "z": 0.05999999865889549
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
             "objectName": "pCylinder1",
             "prefabName": "pCylinder1",
             "rootParent": "MapObj",
@@ -216,8 +55,8 @@
             "isRootParent": false,
             "position": {
                 "x": 8.010083198547364,
-                "y": 2.021225690841675,
-                "z": -28.410306930541993
+                "y": 8.047951698303223,
+                "z": 0.009693771600723267
             },
             "rotation": {
                 "x": 6.657902673623539e-8,
@@ -239,8 +78,8 @@
             "isRootParent": false,
             "position": {
                 "x": 8.010083198547364,
-                "y": 1.524815559387207,
-                "z": -28.4132080078125
+                "y": 7.551541328430176,
+                "z": 0.0067930035293102268
             },
             "rotation": {
                 "x": 8.146034247147327e-8,
@@ -262,8 +101,8 @@
             "isRootParent": false,
             "position": {
                 "x": 7.990241527557373,
-                "y": 1.4793009757995606,
-                "z": -28.359922409057618
+                "y": 7.506026744842529,
+                "z": 0.06007840111851692
             },
             "rotation": {
                 "x": 0.70710688829422,
@@ -275,282 +114,6 @@
                 "x": 0.005307244602590799,
                 "y": 0.005307244602590799,
                 "z": 0.005307244602590799
-            }
-        },
-        {
-            "objectName": "SpeedBoost (3)",
-            "prefabName": "SpeedBoost",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 10.039999961853028,
-                "y": 1.2599999904632569,
-                "z": -22.020000457763673
-            },
-            "rotation": {
-                "x": -0.7071068286895752,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 0.7071068286895752
-            },
-            "scale": {
-                "x": 0.39392998814582827,
-                "y": 0.39181023836135867,
-                "z": 0.2898101508617401
-            }
-        },
-        {
-            "objectName": "CFX_ElectricGround",
-            "prefabName": "CFX_ElectricGround",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 10.039999961853028,
-                "y": 1.3904145956039429,
-                "z": -22.020000457763673
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0000001192092896
-            },
-            "scale": {
-                "x": 1.825845718383789,
-                "y": 1.266391634941101,
-                "z": 1.58214271068573
-            }
-        },
-        {
-            "objectName": "Sparkles",
-            "prefabName": "Sparkles",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 10.039999961853028,
-                "y": 1.3904145956039429,
-                "z": -22.020000457763673
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0000001192092896
-            },
-            "scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        {
-            "objectName": "SpeedBoostCollider",
-            "prefabName": "SpeedBoostCollider",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 10.039999961853028,
-                "y": 1.2599999904632569,
-                "z": -22.020000457763673
-            },
-            "rotation": {
-                "x": -0.7071068286895752,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 0.7071068286895752
-            },
-            "scale": {
-                "x": 5.0995001792907719,
-                "y": 5.0995001792907719,
-                "z": 5.0995001792907719
-            }
-        },
-        {
-            "objectName": "SpeedBoost (2)",
-            "prefabName": "SpeedBoost",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 1.9780000448226929,
-                "y": 1.2599999904632569,
-                "z": -22.020000457763673
-            },
-            "rotation": {
-                "x": -0.7071068286895752,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 0.7071068286895752
-            },
-            "scale": {
-                "x": 0.39392998814582827,
-                "y": 0.39181023836135867,
-                "z": 0.2898101508617401
-            }
-        },
-        {
-            "objectName": "CFX_ElectricGround",
-            "prefabName": "CFX_ElectricGround",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 1.9780000448226929,
-                "y": 1.3904145956039429,
-                "z": -22.020000457763673
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0000001192092896
-            },
-            "scale": {
-                "x": 1.825845718383789,
-                "y": 1.266391634941101,
-                "z": 1.58214271068573
-            }
-        },
-        {
-            "objectName": "Sparkles",
-            "prefabName": "Sparkles",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 1.9780000448226929,
-                "y": 1.3904145956039429,
-                "z": -22.020000457763673
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0000001192092896
-            },
-            "scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        {
-            "objectName": "SpeedBoostCollider",
-            "prefabName": "SpeedBoostCollider",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 1.9780000448226929,
-                "y": 1.2599999904632569,
-                "z": -22.020000457763673
-            },
-            "rotation": {
-                "x": -0.7071068286895752,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 0.7071068286895752
-            },
-            "scale": {
-                "x": 5.0995001792907719,
-                "y": 5.0995001792907719,
-                "z": 5.0995001792907719
-            }
-        },
-        {
-            "objectName": "SpeedBoost (1)",
-            "prefabName": "SpeedBoost",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 10.039999961853028,
-                "y": 1.2599999904632569,
-                "z": 21.974000930786134
-            },
-            "rotation": {
-                "x": -0.7071068286895752,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 0.7071068286895752
-            },
-            "scale": {
-                "x": 0.39392998814582827,
-                "y": 0.39181023836135867,
-                "z": 0.2898101508617401
-            }
-        },
-        {
-            "objectName": "CFX_ElectricGround",
-            "prefabName": "CFX_ElectricGround",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 10.039999961853028,
-                "y": 1.3904145956039429,
-                "z": 21.974000930786134
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0000001192092896
-            },
-            "scale": {
-                "x": 1.825845718383789,
-                "y": 1.266391634941101,
-                "z": 1.58214271068573
-            }
-        },
-        {
-            "objectName": "Sparkles",
-            "prefabName": "Sparkles",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 10.039999961853028,
-                "y": 1.3904145956039429,
-                "z": 21.974000930786134
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0000001192092896
-            },
-            "scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        {
-            "objectName": "SpeedBoostCollider",
-            "prefabName": "SpeedBoostCollider",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 10.039999961853028,
-                "y": 1.2599999904632569,
-                "z": 21.974000930786134
-            },
-            "rotation": {
-                "x": -0.7071068286895752,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 0.7071068286895752
-            },
-            "scale": {
-                "x": 5.0995001792907719,
-                "y": 5.0995001792907719,
-                "z": 5.0995001792907719
             }
         },
         {
@@ -620,6 +183,29 @@
                 "x": 4.485767841339111,
                 "y": 4.485767841339111,
                 "z": 4.485767841339111
+            }
+        },
+        {
+            "objectName": "ExposionMarkPos",
+            "prefabName": "ExposionMarkPos",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.079331398010254,
+                "y": 1.2575435638427735,
+                "z": 28.3555850982666
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
             }
         },
         {
@@ -876,6 +462,98 @@
             }
         },
         {
+            "objectName": "Sparkles",
+            "prefabName": "Sparkles",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 1.3904145956039429,
+                "z": 21.974000930786134
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "SpeedBoostCollider",
+            "prefabName": "SpeedBoostCollider",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 1.2599999904632569,
+                "z": 21.974000930786134
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 5.0995001792907719,
+                "y": 5.0995001792907719,
+                "z": 5.0995001792907719
+            }
+        },
+        {
+            "objectName": "CFX_ElectricGround",
+            "prefabName": "CFX_ElectricGround",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 1.3904145956039429,
+                "z": 21.974000930786134
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.825845718383789,
+                "y": 1.266391634941101,
+                "z": 1.58214271068573
+            }
+        },
+        {
+            "objectName": "SpeedBoost (1)",
+            "prefabName": "SpeedBoost",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 1.2599999904632569,
+                "z": 21.974000930786134
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 0.39392998814582827,
+                "y": 0.39181023836135867,
+                "z": 0.2898101508617401
+            }
+        },
+        {
             "objectName": "TileCoupée (12)",
             "prefabName": "TileCoupée",
             "rootParent": "MapObj",
@@ -1060,6 +738,213 @@
             }
         },
         {
+            "objectName": "bomb",
+            "prefabName": "bomb",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 7.990241527557373,
+                "y": 1.4793009757995606,
+                "z": -28.359922409057618
+            },
+            "rotation": {
+                "x": 0.70710688829422,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071067690849304
+            },
+            "scale": {
+                "x": 0.005307244602590799,
+                "y": 0.005307244602590799,
+                "z": 0.005307244602590799
+            }
+        },
+        {
+            "objectName": "Object001",
+            "prefabName": "Object001",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.010083198547364,
+                "y": 1.524815559387207,
+                "z": -28.4132080078125
+            },
+            "rotation": {
+                "x": 8.146034247147327e-8,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
+            }
+        },
+        {
+            "objectName": "pCylinder1",
+            "prefabName": "pCylinder1",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.010083198547364,
+                "y": 2.021225690841675,
+                "z": -28.410306930541993
+            },
+            "rotation": {
+                "x": 6.657902673623539e-8,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
+            }
+        },
+        {
+            "objectName": "ExposionMarkPos",
+            "prefabName": "ExposionMarkPos",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.079331398010254,
+                "y": 1.2575432062149048,
+                "z": -28.360000610351564
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "ButtonExplosion (1)",
+            "prefabName": "ButtonExplosion",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.079331398010254,
+                "y": 2.043274402618408,
+                "z": -28.360000610351564
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 6.186854839324951,
+                "y": 4.124573230743408,
+                "z": 6.186859607696533
+            }
+        },
+        {
+            "objectName": "Sparkles",
+            "prefabName": "Sparkles",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -26.040000915527345,
+                "y": 1.3904145956039429,
+                "z": 0.2199999988079071
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "SpeedBoostCollider",
+            "prefabName": "SpeedBoostCollider",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -26.040000915527345,
+                "y": 1.2599999904632569,
+                "z": 0.2199999988079071
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 5.0995001792907719,
+                "y": 5.0995001792907719,
+                "z": 5.0995001792907719
+            }
+        },
+        {
+            "objectName": "CFX_ElectricGround",
+            "prefabName": "CFX_ElectricGround",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -26.040000915527345,
+                "y": 1.3904145956039429,
+                "z": 0.2199999988079071
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.825845718383789,
+                "y": 1.266391634941101,
+                "z": 1.58214271068573
+            }
+        },
+        {
+            "objectName": "SpeedBoost (4)",
+            "prefabName": "SpeedBoost",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -26.040000915527345,
+                "y": 1.2599999904632569,
+                "z": 0.2199999988079071
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 0.39392998814582827,
+                "y": 0.39181023836135867,
+                "z": 0.2898101508617401
+            }
+        },
+        {
             "objectName": "TileCoupée (5)",
             "prefabName": "TileCoupée",
             "rootParent": "MapObj",
@@ -1103,98 +988,6 @@
                 "x": 4.0,
                 "y": 4.0,
                 "z": 4.0
-            }
-        },
-        {
-            "objectName": "Sparkles",
-            "prefabName": "Sparkles",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 1.9780000448226929,
-                "y": 1.3904143571853638,
-                "z": 21.974000930786134
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0000001192092896
-            },
-            "scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
-            }
-        },
-        {
-            "objectName": "SpeedBoostCollider",
-            "prefabName": "SpeedBoostCollider",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 1.9780000448226929,
-                "y": 1.2599999904632569,
-                "z": 21.974000930786134
-            },
-            "rotation": {
-                "x": -0.7071068286895752,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 0.7071068286895752
-            },
-            "scale": {
-                "x": 5.0995001792907719,
-                "y": 5.0995001792907719,
-                "z": 5.0995001792907719
-            }
-        },
-        {
-            "objectName": "CFX_ElectricGround",
-            "prefabName": "CFX_ElectricGround",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 1.9780000448226929,
-                "y": 1.3904143571853638,
-                "z": 21.974000930786134
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0000001192092896
-            },
-            "scale": {
-                "x": 1.825845718383789,
-                "y": 1.266391634941101,
-                "z": 1.58214271068573
-            }
-        },
-        {
-            "objectName": "SpeedBoost",
-            "prefabName": "SpeedBoost",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 1.9780000448226929,
-                "y": 1.2599999904632569,
-                "z": 21.974000930786134
-            },
-            "rotation": {
-                "x": -0.7071068286895752,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 0.7071068286895752
-            },
-            "scale": {
-                "x": 0.39393049478530886,
-                "y": 0.39181023836135867,
-                "z": 0.2898094058036804
             }
         },
         {
@@ -1287,6 +1080,190 @@
                 "x": 4.0,
                 "y": 4.0,
                 "z": 4.0
+            }
+        },
+        {
+            "objectName": "Sparkles",
+            "prefabName": "Sparkles",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 7.960000038146973,
+                "y": 1.3904145956039429,
+                "z": -22.020000457763673
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "SpeedBoostCollider",
+            "prefabName": "SpeedBoostCollider",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 7.960000038146973,
+                "y": 1.2599999904632569,
+                "z": -22.020000457763673
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 5.0995001792907719,
+                "y": 5.0995001792907719,
+                "z": 5.0995001792907719
+            }
+        },
+        {
+            "objectName": "CFX_ElectricGround",
+            "prefabName": "CFX_ElectricGround",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 7.960000038146973,
+                "y": 1.3904145956039429,
+                "z": -22.020000457763673
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.825845718383789,
+                "y": 1.266391634941101,
+                "z": 1.58214271068573
+            }
+        },
+        {
+            "objectName": "SpeedBoost (3)",
+            "prefabName": "SpeedBoost",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 7.960000038146973,
+                "y": 1.2599999904632569,
+                "z": -22.020000457763673
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 0.39392998814582827,
+                "y": 0.39181023836135867,
+                "z": 0.2898101508617401
+            }
+        },
+        {
+            "objectName": "Sparkles",
+            "prefabName": "Sparkles",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 42.119998931884769,
+                "y": 1.3904145956039429,
+                "z": -0.2199999988079071
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "SpeedBoostCollider",
+            "prefabName": "SpeedBoostCollider",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 42.119998931884769,
+                "y": 1.2599999904632569,
+                "z": -0.2199999988079071
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 5.0995001792907719,
+                "y": 5.0995001792907719,
+                "z": 5.0995001792907719
+            }
+        },
+        {
+            "objectName": "CFX_ElectricGround",
+            "prefabName": "CFX_ElectricGround",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 42.119998931884769,
+                "y": 1.3904145956039429,
+                "z": -0.2199999988079071
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.825845718383789,
+                "y": 1.266391634941101,
+                "z": 1.58214271068573
+            }
+        },
+        {
+            "objectName": "SpeedBoost (2)",
+            "prefabName": "SpeedBoost",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 42.119998931884769,
+                "y": 1.2599999904632569,
+                "z": -0.2199999988079071
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 0.39392998814582827,
+                "y": 0.39181023836135867,
+                "z": 0.2898101508617401
             }
         },
         {
@@ -3320,7 +3297,7 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 8.0,
+                "x": 8.119999885559082,
                 "y": 0.6000000238418579,
                 "z": -20.0
             },
