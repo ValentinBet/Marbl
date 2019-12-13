@@ -87,6 +87,28 @@ public class PUNBallMovement : MonoBehaviour
         if (other.gameObject.GetComponent<PUNBallMovement>() != null)
         {
 
+<<<<<<< HEAD
+=======
+                if (PhotonNetwork.CurrentRoom.GetHue())
+                {
+                    GetComponent<BallSettings>().ChangeTeam(other.gameObject.GetComponent<BallSettings>().myteam);
+                }
+
+                Debug.LogError(other.gameObject.name + " --> " + gameObject.name);
+                amplify = CollideStates.Reciever;
+            }
+            else
+            {
+                if (PhotonNetwork.CurrentRoom.GetHue())
+                {
+                    other.gameObject.GetComponent<BallSettings>().ChangeTeam(GetComponent<BallSettings>().myteam);
+                }
+
+                Debug.LogError(gameObject.name + " --> " + other.gameObject.name);
+                amplify = CollideStates.Giver;
+            }
+            QuickScoreboard.Instance.Refresh();
+>>>>>>> ec6d616e509b3d25b65675b1cd51a422275d790e
         }
     }
 

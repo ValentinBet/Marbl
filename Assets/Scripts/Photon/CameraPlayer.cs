@@ -8,20 +8,20 @@ public class CameraPlayer : MonoBehaviour
 {
     #region Variables
     public float curveVariation = 1.5f;
+    public AudioClip sd_cameraChange;
+
+    private AudioSource audioSource;
     private float orbitalAngle;
     private Quaternion initialRotation;
-    private Transform mapPivot;
-    Camera myCamera;
-    private CinemachineVirtualCamera[] cameras;
     private static CameraMode actualMode = CameraMode.Void;
-    Transform followBall;
-
-    Transform targetedTransform; //FollowedMarbletransform;
-
-    PUNMouseControl myMouseControl;
-    LocalPlayerManager myLocalPlayerManager;
-
-    bool isScreenShaking = false;
+    private Camera myCamera;
+    private CinemachineVirtualCamera[] cameras;
+    private Transform mapPivot;
+    private Transform followBall;
+    private Transform targetedTransform; //FollowedMarbletransform;
+    private PUNMouseControl myMouseControl;
+    private LocalPlayerManager myLocalPlayerManager;
+    private bool isScreenShaking = false;
 
     #endregion
 
@@ -63,6 +63,14 @@ public class CameraPlayer : MonoBehaviour
         InitCam();
     }
 
+    private void Start()
+    {
+        if (GetComponent<AudioSource>() != null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+    }
+
     public void InitCam()
     {
         SetCameraMode(CameraMode.MapCentered);
@@ -102,7 +110,16 @@ public class CameraPlayer : MonoBehaviour
     {
         myCamera.transform.rotation = Quaternion.identity;
 
+        if (actualMode != _newMode)  // SI --> la caméra précédente est différente de la nouvelle caméra
+        {
+            if (sd_cameraChange != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(sd_cameraChange);
+            }
+        }
+
         actualMode = _newMode;
+
         int _player = 0;
 
         switch (actualMode)
