@@ -8,7 +8,7 @@ using Photon.Pun.UtilityScripts;
 public class PUNBallMovement : MonoBehaviour
 {
     public float MovementSpeed = 2.0f;
-    public float MaxSpeed = 0.2f;
+    public float MaxSpeed = 15.0f;
     public float torqueForce = 1.0f;
 
     public float ImpactGivingCoef = 1.8f;
@@ -77,17 +77,17 @@ public class PUNBallMovement : MonoBehaviour
         //Debug.Log(direction);
         Vector3 _impulse = direction * (dragForce * rigidbody.mass * MovementSpeed);
 
-        this.GetComponent<Rigidbody>().AddForce(_impulse, ForceMode.Impulse);
+        this.GetComponent<Rigidbody>().AddForceAtPosition(_impulse,transform.position, ForceMode.Impulse);
         this.GetComponent<Rigidbody>().AddTorque(Vector3.Cross(direction, Vector3.up) * -torqueForce, ForceMode.Force);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ball" && collision.relativeVelocity.magnitude > 8)
+        if (collision.gameObject.tag == "Ball" && collision.relativeVelocity.sqrMagnitude > 64)
         {
 
             GameObject impact = Instantiate(impactPrefab[Random.Range(0, impactPrefab.Count)], collision.contacts[0].point, Quaternion.identity);
-            float size = collision.relativeVelocity.magnitude / 20;
+            float size = collision.relativeVelocity.sqrMagnitude / 400;
             impact.transform.localScale = new Vector3(size, size, size);
             Destroy(impact, 2);
         }
@@ -120,6 +120,11 @@ public class PUNBallMovement : MonoBehaviour
         }
 
 
+        
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
         if (collision.gameObject.GetComponent<PUNBallMovement>() != null && photonView.IsMine)
         {
             //Mathf.Abs(Mathf.Abs(collision.gameObject.transform.position.y) - Mathf.Abs(transform.position.y)) < 0.3f
@@ -129,12 +134,15 @@ public class PUNBallMovement : MonoBehaviour
                 if (amplify == CollideStates.Giver)
                 {
                     //Debug.Log("Giving Collider " + gameObject.name);
-                    rigidbody.velocity = rigidbody.velocity * ImpactGivingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1);
+                    float sqrSpeed = Mathf.Clamp((rigidbody.velocity * ImpactGivingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1)).sqrMagnitude, 0, MaxSpeed * MaxSpeed);
+                    rigidbody.velocity = (rigidbody.velocity * ImpactGivingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1)).normalized * Mathf.Sqrt(sqrSpeed); ;
                 }
                 else
                 {
                     //Debug.Log("Recieving Collider " + gameObject.name);
-                    rigidbody.velocity = rigidbody.velocity * ImpactRecievingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1);
+                    float sqrSpeed = Mathf.Clamp((rigidbody.velocity * ImpactRecievingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1)).sqrMagnitude, 0, MaxSpeed * MaxSpeed);
+
+                    rigidbody.velocity = (rigidbody.velocity * ImpactRecievingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1)).normalized * Mathf.Sqrt(sqrSpeed);
                 }
             }
         }

@@ -94,6 +94,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void QuitGame()
     {
         PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene(quitScene);
     }
 
     public override void OnLeftRoom()

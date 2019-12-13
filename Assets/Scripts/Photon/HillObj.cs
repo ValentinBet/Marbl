@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class HillObj : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class HillObj : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.tag == "Ball")
+        if(other.transform.tag == "Ball" && other.gameObject.GetComponent<BallSettings>().myteam != Team.neutral)
         {
             ballInside.Add(other.gameObject.GetComponent<BallSettings>());
         }
@@ -23,7 +24,7 @@ public class HillObj : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.transform.tag == "Ball")
+        if (other.transform.tag == "Ball" && other.gameObject.GetComponent<BallSettings>().myteam != Team.neutral)
         {
             ballInside.Remove(other.gameObject.GetComponent<BallSettings>());
         }
