@@ -117,7 +117,7 @@ public class PUNBallMovement : MonoBehaviour
         }
 
 
-        if (collision.gameObject.tag == "Ball" && photonView.IsOwnerActive)
+        if (collision.gameObject.tag == "Ball" && photonView.IsMine)
         {
             if (collision.gameObject.GetComponent<Rigidbody>().angularVelocity.sqrMagnitude < rigidbody.angularVelocity.sqrMagnitude)
             {
