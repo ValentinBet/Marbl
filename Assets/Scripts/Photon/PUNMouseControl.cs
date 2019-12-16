@@ -100,6 +100,8 @@ public class PUNMouseControl : MonoBehaviour
 
     public void ClickOnBall(GameObject target)
     {
+        OnBallClicked?.Invoke(target);
+
         if (target.GetComponent<BallSettings>().myteam == PhotonNetwork.LocalPlayer.GetTeam())
         {
             if (target != null)
@@ -116,8 +118,6 @@ public class PUNMouseControl : MonoBehaviour
 
     public void NewBallSelected(GameObject ball)
     {
-        OnBallClicked?.Invoke(ball);
-
         UIManager.Instance.OnEndTurn();
         UIManager.Instance.OnClickOnBall(ball);
 
@@ -207,7 +207,7 @@ public class PUNMouseControl : MonoBehaviour
         elevation = 0;
         dragForce = 0;
         DisplayDragForce();
-
+        actualSelectedBall = null;
         UIManager.Instance.isShooting = false;
     }
 
