@@ -12,6 +12,7 @@ public class RoomScripts : MonoBehaviour
     List<Text> removeTexts = new List<Text>();
 
     public RectTransform line;
+    public RoomSettings myRoomSetting;
 
 
     [Header("panel")]
@@ -99,6 +100,8 @@ public class RoomScripts : MonoBehaviour
         OutlineMode[mode].color = Color.white;
         mode = value;
         OutlineMode[mode].color = new Color(1, 0.1986281f, 0);
+
+        myRoomSetting.SetMode(mode);
     }
 
     public void SetMap(int value)
@@ -106,5 +109,6 @@ public class RoomScripts : MonoBehaviour
         OutlineMap[map].color = Color.white;
         map = value;
         OutlineMap[map].color = new Color(1, 0.1986281f, 0);
+        myRoomSetting.map.dropMap.value = map;
     }
 }
