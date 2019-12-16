@@ -69,8 +69,11 @@ public class TrajectoryRenderer : MonoBehaviour
         Vector3[]lrP = new Vector3[lr.positionCount];
         lr.GetPositions(lrP);
         lr.colorGradient = DefineGradient(lrP);
-        if (!PlaceLandingZone(lrP, lrP.Length / 2))
-            ResetLandingZone();
+        if (angle != 0)
+        {
+            if (!PlaceLandingZone(lrP, lrP.Length / 2))
+                ResetLandingZone();
+        }
     }
 
     private void OnClickOnBall(GameObject ball)

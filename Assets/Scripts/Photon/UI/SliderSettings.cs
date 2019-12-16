@@ -45,6 +45,10 @@ public class SliderSettings : MonoBehaviour
     public void SetSlider()
     {
         float value;
+        if (myInputfield.text.Contains("."))
+        {
+            myInputfield.text = myInputfield.text.Replace('.', ',');
+        }
         if (float.TryParse(myInputfield.text, out value)) 
         {
             if (float.Parse(myInputfield.text) >= mySlider.maxValue && HaveInfini)
