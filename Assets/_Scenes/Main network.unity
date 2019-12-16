@@ -2055,7 +2055,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -4427, y: 1855}
+  m_AnchoredPosition: {x: -4401, y: 1405}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &430645425
@@ -2498,6 +2498,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rankParent: {fileID: 1672754362}
   teamParent: {fileID: 1661227257}
+  Balls: []
 --- !u!1 &541984552
 GameObject:
   m_ObjectHideFlags: 0
@@ -3522,7 +3523,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.10630209, y: 0.5994333}
-  m_AnchoredPosition: {x: 70, y: 138}
+  m_AnchoredPosition: {x: 147, y: 138}
   m_SizeDelta: {x: 567.8, y: -858.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &755490011
