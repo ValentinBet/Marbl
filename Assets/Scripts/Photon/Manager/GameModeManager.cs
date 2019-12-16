@@ -508,5 +508,11 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public void SendMessage(InputField myInput)
+    {
+        string _text = "<color=" + MarblGame.GetColorUI((int)localPlayerTeam) + ">" + PhotonNetwork.LocalPlayer.NickName + "</color> : " + myInput.text;
+        myPV.RPC("RpcDisplayMessage", RpcTarget.AllViaServer, _text);
 
+        myInput.text = "";
+    }
 }

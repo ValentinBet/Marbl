@@ -30,6 +30,8 @@ public class RoomScripts : MonoBehaviour
     public int mode;
     public int map;
 
+    public GameObject settingsCustom;
+
 
     // Start is called before the first frame update
     void Start()
@@ -64,6 +66,7 @@ public class RoomScripts : MonoBehaviour
 
     public void SetChoice(RectTransform element)
     {
+        settingsCustom.SetActive(false);
         Text newtext = element.GetComponent<Text>();
 
         if (currentChoice != newtext)
@@ -101,6 +104,16 @@ public class RoomScripts : MonoBehaviour
         mode = value;
         OutlineMode[mode].color = new Color(1, 0.1986281f, 0);
 
+        if(value == 5)
+        {
+            settingsCustom.SetActive(true);
+            return;
+        }
+        else
+        {
+            settingsCustom.SetActive(false);
+        }
+
         myRoomSetting.SetMode(mode);
     }
 
@@ -110,5 +123,6 @@ public class RoomScripts : MonoBehaviour
         map = value;
         OutlineMap[map].color = new Color(1, 0.1986281f, 0);
         myRoomSetting.map.dropMap.value = map;
+        settingsCustom.SetActive(false);
     }
 }

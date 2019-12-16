@@ -10,7 +10,6 @@ using UnityEditor;
 
 public class RoomSettings : MonoBehaviour
 {
-    public Animator myAnimator;
     bool isOpen = false;
 
     public Transform parent;
@@ -91,6 +90,7 @@ public class RoomSettings : MonoBehaviour
         SetDropDownMap();
         SetDropDownSettings();
         Refresh();
+        gameObject.SetActive(false);
     }
 
     void SetDropDownSettings()
@@ -225,20 +225,6 @@ public class RoomSettings : MonoBehaviour
         {
             element.SetActive(value);
         }
-    }
-
-    public void OpenOrClose()
-    {
-        myAnimator.enabled = true;
-        if (isOpen)
-        {
-            myAnimator.SetTrigger("Close");
-        }
-        else
-        {
-            myAnimator.SetTrigger("Open");
-        }
-        isOpen = !isOpen;
     }
 
     public void SaveSettings()
