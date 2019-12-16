@@ -42,7 +42,6 @@ public class MarblBar : MonoBehaviour
 
         foreach (KeyValuePair<Team, ElementTeamBar> marblTeam in obj)
         {
-            print(teamBall[marblTeam.Key]);
             float newValue = (float) teamBall[marblTeam.Key] * (1000 / allBalls.Count);
 
             marblTeam.Value.myText.text = teamBall[marblTeam.Key].ToString();

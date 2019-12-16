@@ -22,7 +22,7 @@ public class PUNBallMovement : MonoBehaviour
     private new Collider collider;
     private new Renderer renderer;
     private CollideStates amplify = CollideStates.Null;
-
+    private CameraPlayer cameraPlayer;
     private float impactPower;
 
     public List<GameObject> impactPrefab;
@@ -32,6 +32,7 @@ public class PUNBallMovement : MonoBehaviour
     public AudioClip hitMarbl;
     public AudioClip hitWood;
     public AudioClip hitGround;
+
 
     private void Awake()
     {
@@ -46,7 +47,10 @@ public class PUNBallMovement : MonoBehaviour
 
         myAudioSource = GetComponent<AudioSource>();
     }
-
+    private void Start()
+    {
+        cameraPlayer = GameModeManager.Instance.localPlayerObj.GetComponent<CameraPlayer>();
+    }
     private void Update()
     {
         if (!photonView.IsMine || !controllable)
@@ -85,7 +89,6 @@ public class PUNBallMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ball" && collision.relativeVelocity.sqrMagnitude > 64)
         {
-
             GameObject impact = Instantiate(impactPrefab[Random.Range(0, impactPrefab.Count)], collision.contacts[0].point, Quaternion.identity);
             float size = collision.relativeVelocity.sqrMagnitude / 400;
             impact.transform.localScale = new Vector3(size, size, size);

@@ -3,10 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun.UtilityScripts;
+using static Photon.Pun.UtilityScripts.PunTeams;
+using Photon.Realtime;
+
 public class HueManager : MonoBehaviour
 {
     private static HueManager _instance;
     public static HueManager Instance { get { return _instance; } }
+
+    List<Team> listTeamInGame = new List<Team>();
 
     private void Awake()
     {
@@ -33,10 +38,87 @@ public class HueManager : MonoBehaviour
         }
     }
 
-    private void EndGame()
+    public void EndGame()
     {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            listTeamInGame = GetTeamsInGame();
 
+            foreach (Team team in listTeamInGame)
+            {
+                PhotonNetwork.CurrentRoom.AddTeamScore(team,GetBallNumber(team));
+            }
+        }
     }
+
+    public List<Team> GetTeamsInGame()
+    {
+        List<Team> _tempTeamInGame = new List<Team>();
+
+        foreach (Player p in PhotonNetwork.PlayerList)
+        {
+            if (!_tempTeamInGame.Contains(p.GetTeam()))
+            {
+                _tempTeamInGame.Add(p.GetTeam());
+            }
+        }
+
+        return _tempTeamInGame;
+    }
+
+    public int GetBallNumber(Team team)
+    {
+        int count = 0;
+
+        GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
+
+        foreach (GameObject b in _Balls)
+        {
+            if (b.GetComponent<BallSettings>() != null)
+            {
+                if (team == b.GetComponent<BallSettings>().myteam)
+                {
+                    count++;
+                } 
+            }
+        }
+
+        return count;
+    }
+
+    //public bool IsMultipleTeamAreAlive()
+    //{
+    //    listTeamAlive.Clear();
+
+    //    GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
+
+    //    foreach (GameObject ball in _Balls)
+    //    {
+    //        BallSettings _tempBallSettings;
+    //        _tempBallSettings = ball.GetComponent<BallSettings>();
+
+    //        if (listTeamAlive.Count < 2)
+    //        {
+    //            if (!listTeamAlive.Contains(_tempBallSettings.myteam))
+    //            {
+    //                listTeamAlive.Add(_tempBallSettings.myteam);
+    //            }
+    //        }
+    //        else
+    //        {
+    //            return true;
+    //        }
+    //    }
+
+    //    if (listTeamAlive.Count < 2)
+    //    {
+    //        return false;
+    //    }
+    //    else
+    //    {
+    //        return true;
+    //    }
+   // }
 
     public void ActiveThisMode(bool value)
     {
