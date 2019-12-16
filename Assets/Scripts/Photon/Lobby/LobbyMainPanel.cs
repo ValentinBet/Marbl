@@ -38,7 +38,9 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     [Header("Inside Room Panel")]
     public GameObject InsideRoomPanel;
+    public Transform parentPlayerList;
 
+    [Header("Other")]
     public Button StartGameButton;
     public GameObject SettingRoomPanel;
     public GameObject PlayerListEntryPrefab;
@@ -141,7 +143,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             GameObject entry = Instantiate(PlayerListEntryPrefab);
-            entry.transform.SetParent(InsideRoomPanel.transform);
+            entry.transform.SetParent(parentPlayerList);
             entry.transform.localScale = Vector3.one;
             entry.GetComponent<PlayerListEntry>().Initialize(p, p.GetTeam(), p.NickName);
 
