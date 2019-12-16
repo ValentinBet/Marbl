@@ -46,7 +46,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (myteam != lastTeam)
         {
-            Debug.Log("yo111");
             SetColor();
 
             GameModeManager.Instance.localPlayerObj.GetComponent<PUNMouseControl>().DeselectBall();
