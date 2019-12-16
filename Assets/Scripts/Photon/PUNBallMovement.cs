@@ -7,13 +7,15 @@ using UnityEngine;
 using Photon.Pun.UtilityScripts;
 public class PUNBallMovement : MonoBehaviour
 {
-    public float MovementSpeed = 2.0f;
     public float MaxSpeed = 15.0f;
     public float torqueForce = 1.0f;
 
     public float ImpactGivingCoef = 1.8f;
     public float ImpactRecievingCoef = 1.2f;
     public float MinimalImpactForce = 2.0f;
+
+    public float baseLaunchPower = 2.0f;
+    public float baseImpactPower = 1.5f;
 
     public bool controllable = true;
 
@@ -23,6 +25,7 @@ public class PUNBallMovement : MonoBehaviour
     private new Renderer renderer;
     private CollideStates amplify = CollideStates.Null;
 
+    private float MovementSpeed;
     private float impactPower;
 
     public List<GameObject> impactPrefab;
@@ -73,9 +76,9 @@ public class PUNBallMovement : MonoBehaviour
     public void MoveBall(Vector3 direction, float angle, float dragForce)
     {
         //Debug.Log(direction);
-        direction = new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * angle), ((45 - angle) / 45.0f + MovementSpeed) * Mathf.Sin(Mathf.Deg2Rad * angle) / MovementSpeed, direction.z * Mathf.Cos(Mathf.Deg2Rad * angle));
+        direction = new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * angle), ((45 - angle) / 45.0f + MovementSpeed* baseLaunchPower) * Mathf.Sin(Mathf.Deg2Rad * angle) / (MovementSpeed * baseLaunchPower), direction.z * Mathf.Cos(Mathf.Deg2Rad * angle));
         //Debug.Log(direction);
-        Vector3 _impulse = direction * (dragForce * rigidbody.mass * MovementSpeed);
+        Vector3 _impulse = direction * (dragForce * rigidbody.mass * MovementSpeed * baseLaunchPower);
 
         this.GetComponent<Rigidbody>().AddForceAtPosition(_impulse,transform.position, ForceMode.Impulse);
         this.GetComponent<Rigidbody>().AddTorque(Vector3.Cross(direction, Vector3.up) * -torqueForce, ForceMode.Force);
@@ -134,15 +137,15 @@ public class PUNBallMovement : MonoBehaviour
                 if (amplify == CollideStates.Giver)
                 {
                     //Debug.Log("Giving Collider " + gameObject.name);
-                    float sqrSpeed = Mathf.Clamp((rigidbody.velocity * ImpactGivingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1)).sqrMagnitude, 0, MaxSpeed * MaxSpeed);
-                    rigidbody.velocity = (rigidbody.velocity * ImpactGivingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1)).normalized * Mathf.Sqrt(sqrSpeed); ;
+                    float sqrSpeed = Mathf.Clamp((rigidbody.velocity * ImpactGivingCoef * impactPower * baseImpactPower - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1)).sqrMagnitude, 0, MaxSpeed * MaxSpeed);
+                    rigidbody.velocity = (rigidbody.velocity * ImpactGivingCoef * impactPower * baseImpactPower - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1)).normalized * Mathf.Sqrt(sqrSpeed); ;
                 }
                 else
                 {
                     //Debug.Log("Recieving Collider " + gameObject.name);
-                    float sqrSpeed = Mathf.Clamp((rigidbody.velocity * ImpactRecievingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1)).sqrMagnitude, 0, MaxSpeed * MaxSpeed);
+                    float sqrSpeed = Mathf.Clamp((rigidbody.velocity * ImpactRecievingCoef * impactPower * baseImpactPower - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1)).sqrMagnitude, 0, MaxSpeed * MaxSpeed);
 
-                    rigidbody.velocity = (rigidbody.velocity * ImpactRecievingCoef * impactPower - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1)).normalized * Mathf.Sqrt(sqrSpeed);
+                    rigidbody.velocity = (rigidbody.velocity * ImpactRecievingCoef * impactPower * baseImpactPower - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1)).normalized * Mathf.Sqrt(sqrSpeed);
                 }
             }
         }
