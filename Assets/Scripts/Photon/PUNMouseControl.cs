@@ -122,7 +122,7 @@ public class PUNMouseControl : MonoBehaviour
     // Mouse Elevation
     private void GetElevation()
     {
-        mouseScrollDelta += Input.GetAxis("Mouse ScrollWheel");
+        mouseScrollDelta -= Input.GetAxis("Mouse ScrollWheel");
         if (mouseScrollDelta > scrollSensivity)
         {
             angleIndex = Mathf.Clamp(angleIndex + 1, 0, possibleAngles.Length - 1);
