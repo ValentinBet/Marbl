@@ -11,77 +11,46 @@ using static Photon.Pun.UtilityScripts.PunTeams;
 public class MarblBar : MonoBehaviour
 {
     public GameObject prefab;
-    List<Team> presentTeam = new List<Team>();
     public Transform parent;
 
     Dictionary<Team, ElementTeamBar> obj = new Dictionary<Team, ElementTeamBar>();
 
-    List<GameObject> allBalls = new List<GameObject>();
-
-    Dictionary<Team, int> teamBall = new Dictionary<Team, int>();
-
-    List<Team> allBallsTeam = new List<Team>();
+    List<Team> presentTeam = new List<Team>();
 
     // Start is called before the first frame update
     void Start()
     {
-        CreateTeamList();
+        GetPresentTeam();
         CreateMarblCount();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(allBalls.Count == 0)
+        Dictionary<Team, int> MarblAndNum = QuickScoreboard.Instance.teamAndBall;
+
+        if (MarblAndNum.Count == 0)
         {
-            GetBall();
             return;
         }
 
-        Refresh();
-
         foreach (KeyValuePair<Team, ElementTeamBar> marblTeam in obj)
         {
-            print(teamBall[marblTeam.Key]);
-            float newValue = (float) teamBall[marblTeam.Key] * (1000 / allBalls.Count);
+            float newValue = 0;
+            try
+            {
+                newValue = MarblAndNum[marblTeam.Key] * (1000 / QuickScoreboard.Instance.Balls.Length);
+            }
+            catch { }
 
-            marblTeam.Value.myText.text = teamBall[marblTeam.Key].ToString();
-            marblTeam.Value.myRec.sizeDelta = new Vector2(Mathf.Lerp(marblTeam.Value.myRec.sizeDelta.x, newValue, 3),  marblTeam.Value.myRec.sizeDelta.y);
+            marblTeam.Value.myText.text = MarblAndNum[marblTeam.Key].ToString();
+            marblTeam.Value.myRec.sizeDelta = new Vector2(Mathf.Lerp(marblTeam.Value.myRec.sizeDelta.x, newValue, 3 * Time.deltaTime),  marblTeam.Value.myRec.sizeDelta.y);
         }
     }
     
-    void GetBall()
-    {
-        GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
-        allBalls.AddRange(_Balls);
-
-        if(allBalls.Count == 0) { return; }
-
-        foreach(GameObject ball in allBalls)
-        {
-            allBallsTeam.Add(ball.GetComponent<BallSettings>().myteam);
-        }
-    }
-
-    void Refresh()
-    {
-        teamBall.Clear();
-        
-        foreach(Team team in presentTeam)
-        {
-            teamBall.Add(team, 0);
-        }
-
-        foreach (Team element in allBallsTeam)
-        {
-            if(allBallsTeam == null) { continue; }
-
-            teamBall[element] = teamBall[element] + 1;
-        }
-    }
 
 
-    void CreateTeamList()
+    void GetPresentTeam()
     {
         foreach (Player p in PhotonNetwork.PlayerList)
         {
@@ -101,8 +70,6 @@ public class MarblBar : MonoBehaviour
 
     void CreateMarblCount()
     {
-        int numberMarbl = 5 * presentTeam.Count;
-
         foreach(Team element in presentTeam)
         {
             GameObject newObj = Instantiate(prefab, parent);

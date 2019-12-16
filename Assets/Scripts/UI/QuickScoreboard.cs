@@ -14,6 +14,9 @@ public class QuickScoreboard : MonoBehaviour
     public Transform teamParent;
     List<GameObject> teamObj = new List<GameObject>();
 
+    public Dictionary<Team, int> teamAndBall = new Dictionary<Team, int>();
+    public GameObject[] Balls;
+
 
     private static QuickScoreboard _instance;
     public static QuickScoreboard Instance { get { return _instance; } }
@@ -58,10 +61,10 @@ public class QuickScoreboard : MonoBehaviour
         foreach (KeyValuePair<Team, int> element in listTeams)
         {
             teamObj[i].GetComponent<TeamListElement>().SetElements(element.Key, element.Value, PhotonNetwork.CurrentRoom.GetNbrbBallProp());
+            teamAndBall[element.Key] = PhotonNetwork.CurrentRoom.GetNbrbBallProp();
             i++;
         }
     }
-
 
     public void Refresh()
     {
@@ -70,7 +73,9 @@ public class QuickScoreboard : MonoBehaviour
         int i = 0;
         foreach(KeyValuePair<Team, int> element in listTeams)
         {
-            teamObj[i].GetComponent<TeamListElement>().SetElements(element.Key, element.Value, CountBallOfThisTeam(element.Key));
+            int ballNumber = CountBallOfThisTeam(element.Key);
+            teamObj[i].GetComponent<TeamListElement>().SetElements(element.Key, element.Value, ballNumber);
+            teamAndBall[element.Key] = ballNumber;
             i++;
         }
     }
@@ -80,15 +85,25 @@ public class QuickScoreboard : MonoBehaviour
     {
         int number = 0;
 
-        GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
+        Balls = GameObject.FindGameObjectsWithTag("Ball");
 
-        foreach (GameObject ball in _Balls)
+        foreach (GameObject ball in Balls)
         {
             if( ball.GetComponent<BallSettings>().myteam == myTeam)
             {
                 number++;
             }
         }
+
+        int neutralBall = 0;
+        foreach (GameObject ball in Balls)
+        {
+            if (ball.GetComponent<BallSettings>().myteam == Team.neutral)
+            {
+                neutralBall++;
+            }
+        }
+        teamAndBall[Team.neutral] = neutralBall;
 
         return number;
     }
@@ -104,7 +119,13 @@ public class QuickScoreboard : MonoBehaviour
             if (!presentTeam.Contains(_pTeam))
             {
                 presentTeam.Add(_pTeam);
+                teamAndBall.Add(_pTeam, 0);
             }
+        }
+
+        if (PhotonNetwork.CurrentRoom.GetHue())
+        {
+            teamAndBall.Add(Team.neutral, 0);
         }
 
         return presentTeam;
