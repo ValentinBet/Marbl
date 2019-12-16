@@ -42,7 +42,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public Team localPlayerTeam;
     public bool localPlayerTurn = false;
 
-
     //----------------    BOOL DE CHAQUE MODE   -----------------
     bool modeDM = false;
     bool modeHill = false;
@@ -457,6 +456,9 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public void EndMode()
     {
         if (gameFinish) { return; }
+        
+        // Hue GameMode End
+        HueManager.Instance.EndGame();
 
         myPV.RPC("RpcDisplayScoreBoard", RpcTarget.AllViaServer);
         gameFinish = true;

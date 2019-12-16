@@ -64,6 +64,7 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             DisplayEscapeMenu();
@@ -289,7 +290,14 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public void DisplayInfoTurn(string playerName, int playerTeam)
     {
-        infoTurnSettings.text.text = playerName + "'s Turn";
+        if (PhotonNetwork.LocalPlayer.GetPlayerTurnState())
+        {
+            infoTurnSettings.text.text = "Your turn";
+        } else
+        {
+            infoTurnSettings.text.text = playerName + "'s Turn";
+        }
+
         infoTurnSettings.MainBackground.GetComponent<Image>().color = MarblGame.GetColor(playerTeam);
         infoTurnSettings.BackgroundGo.GetComponent<Animator>().SetTrigger("Display");
     }

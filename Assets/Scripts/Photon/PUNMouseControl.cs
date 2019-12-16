@@ -38,7 +38,6 @@ public class PUNMouseControl : MonoBehaviour
     private Vector3 direction;
     private Image dragForceBar;
 
-
     [SerializeField]
     private float cancelForce = 0.08f;
     [SerializeField]
@@ -57,6 +56,7 @@ public class PUNMouseControl : MonoBehaviour
         mainCamera = Camera.main;
         dragForceBar = UIManager.Instance.dragForceBar;
     }
+
     void Update()
     {
         if (!photonView.IsMine)
@@ -175,7 +175,6 @@ public class PUNMouseControl : MonoBehaviour
 
     private void ShootBall()
     {
-
         if (dragForce > dragForceMaxValue * cancelForce)
         {
             actualSelectedBall.GetComponent<PUNBallMovement>().MoveBall(direction, elevation, dragForce);
@@ -200,7 +199,6 @@ public class PUNMouseControl : MonoBehaviour
         DisplayDragForce();
 
         UIManager.Instance.isShooting = false;
-
     }
 
     private void DisplayLineRenderer()
