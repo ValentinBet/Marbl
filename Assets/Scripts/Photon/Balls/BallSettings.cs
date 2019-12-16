@@ -16,14 +16,19 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 
     public float currentSpeed = 0;
 
+    private Team lastTeam;
+
     private void Start()
     {
         SetColor();
         myTrail.startColor = MarblGame.GetColor((int)myteam);
+
+        lastTeam = myteam;
     }
 
     private void Update()
     {
+        CheckTeam();
         SetColor();
         currentSpeed = myRigid.velocity.sqrMagnitude;
     }
@@ -37,17 +42,26 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
         isVisible = false;
     }
 
+    public void CheckTeam()
+    {
+        if (myteam != lastTeam)
+        {
+            Debug.Log("yo111");
+            SetColor();
+
+            GameModeManager.Instance.localPlayerObj.GetComponent<PUNMouseControl>().DeselectBall();
+
+            lastTeam = myteam;
+        }
+    }
     public void SetColor()
     {
-        //TODO A CHANGER
-        if (this.GetComponent<Renderer>().materials[1] != GameModeManager.Instance.colors[(int)myteam])
-        {
-            Material[] _mats = this.GetComponent<Renderer>().materials;
-            _mats[1] = GameModeManager.Instance.colors[(int)myteam];
-            this.GetComponent<Renderer>().materials = _mats;
+        Material[] _mats = this.GetComponent<Renderer>().materials;
+        _mats[1] = GameModeManager.Instance.colors[(int)myteam];
+        this.GetComponent<Renderer>().materials = _mats;
 
-            myTrail.startColor = MarblGame.GetColor((int)myteam);
-        }
+        myTrail.startColor = MarblGame.GetColor((int)myteam);
+
     }
 
     public void SpawnOverchargedFx()
@@ -71,9 +85,10 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
         if (stream.IsWriting)
         {
             stream.SendNext(myteam);
-        } else
+        }
+        else
         {
-            myteam = (Team) stream.ReceiveNext();
+            myteam = (Team)stream.ReceiveNext();
             QuickScoreboard.Instance.Refresh();
         }
     }

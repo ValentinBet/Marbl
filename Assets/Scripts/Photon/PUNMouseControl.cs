@@ -7,6 +7,7 @@ using Photon.Realtime;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Photon.Pun.UtilityScripts;
 
 public class PUNMouseControl : MonoBehaviour
 {
@@ -88,9 +89,18 @@ public class PUNMouseControl : MonoBehaviour
         }
     }
 
+    public void DeselectBall()
+    {
+        lastSelected = null;
+        actualBallLineRenderer = null;
+        actualSelectedBall = null;
+
+        StopShoot();
+    }
+
     public void ClickOnBall(GameObject target)
     {
-        if (player.teamBalls.Contains(target))
+        if (target.GetComponent<BallSettings>().myteam == PhotonNetwork.LocalPlayer.GetTeam())
         {
             if (target != null)
             {

@@ -86,40 +86,6 @@ public class HueManager : MonoBehaviour
         return count;
     }
 
-    //public bool IsMultipleTeamAreAlive()
-    //{
-    //    listTeamAlive.Clear();
-
-    //    GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
-
-    //    foreach (GameObject ball in _Balls)
-    //    {
-    //        BallSettings _tempBallSettings;
-    //        _tempBallSettings = ball.GetComponent<BallSettings>();
-
-    //        if (listTeamAlive.Count < 2)
-    //        {
-    //            if (!listTeamAlive.Contains(_tempBallSettings.myteam))
-    //            {
-    //                listTeamAlive.Add(_tempBallSettings.myteam);
-    //            }
-    //        }
-    //        else
-    //        {
-    //            return true;
-    //        }
-    //    }
-
-    //    if (listTeamAlive.Count < 2)
-    //    {
-    //        return false;
-    //    }
-    //    else
-    //    {
-    //        return true;
-    //    }
-   // }
-
     public void ActiveThisMode(bool value)
     {
         if (value)
@@ -133,3 +99,39 @@ public class HueManager : MonoBehaviour
         }
     }
 }
+
+
+
+//public bool IsMultipleTeamAreAlive()
+//{
+//    listTeamAlive.Clear();
+
+//    GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
+
+//    foreach (GameObject ball in _Balls)
+//    {
+//        BallSettings _tempBallSettings;
+//        _tempBallSettings = ball.GetComponent<BallSettings>();
+
+//        if (listTeamAlive.Count < 2)
+//        {
+//            if (!listTeamAlive.Contains(_tempBallSettings.myteam))
+//            {
+//                listTeamAlive.Add(_tempBallSettings.myteam);
+//            }
+//        }
+//        else
+//        {
+//            return true;
+//        }
+//    }
+
+//    if (listTeamAlive.Count < 2)
+//    {
+//        return false;
+//    }
+//    else
+//    {
+//        return true;
+//    }
+// }
