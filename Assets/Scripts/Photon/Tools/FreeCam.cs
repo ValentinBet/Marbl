@@ -7,13 +7,14 @@ public class FreeCam : MonoBehaviour
     public float mainSpeed = 100.0f; //regular speed
     public float shiftAdd = 250.0f; //multiplied by how long shift is held.  Basically running
     public float maxShift = 1000.0f; //Maximum speed when holdin gshift
-    public float camSens = 0.25f; //How sensitive it with mouse
+    public float camSens = 3.0f; //How sensitive it with mouse
     public bool rotateOnlyIfMousedown = true;
     public bool movementStaysFlat = true;
     public bool onFreeCam = false;
 
     private Vector3 lastMouse = new Vector3(255, 255, 255); //kind of in the middle of the screen, rather than at the top (play)
     private float totalRun = 1.0f;
+    float lastX = 0.0f;
 
     void Update()
     {
@@ -35,11 +36,12 @@ public class FreeCam : MonoBehaviour
         if (!rotateOnlyIfMousedown ||
             (rotateOnlyIfMousedown && Input.GetMouseButton(1)) )
         {
-            lastMouse = Input.mousePosition - lastMouse;
-            lastMouse = new Vector3(-lastMouse.y * camSens, lastMouse.x * camSens, 0);
-            lastMouse = new Vector3(transform.eulerAngles.x + lastMouse.x, transform.eulerAngles.y + lastMouse.y, 0);
+            //lastMouse = Input.mousePosition - lastMouse;
+            //lastMouse = new Vector3(-lastMouse.y * camSens, lastMouse.x * camSens, 0);
+            lastMouse = new Vector3(Mathf.Clamp(lastX+ -Input.GetAxis("Mouse Y") * camSens, -90.0f, 90.0f), transform.eulerAngles.y + Input.GetAxis("Mouse X") * camSens, 0);
+            lastX = lastMouse.x;
             transform.eulerAngles = lastMouse;
-            lastMouse = Input.mousePosition;
+            //lastMouse = Input.mousePosition;
             //Mouse  camera angle done.  
             Cursor.visible = false;
         }
