@@ -10,7 +10,7 @@ using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class LocalPlayerManager : MonoBehaviourPunCallbacks
 {
-    List<GameObject> allBalls = new List<GameObject>();
+    public List<GameObject> allBalls = new List<GameObject>();
     public List<GameObject> teamBalls = new List<GameObject>();
     bool canShoot;
     PhotonView PV;
