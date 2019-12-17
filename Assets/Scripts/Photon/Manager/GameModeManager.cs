@@ -140,6 +140,9 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         CreateTeamList();
 
         //set turn
+        //teamPlayed = presentTeam[indexTeamPlaying];
+
+        indexTeamPlaying = Random.Range(0, presentTeam.Count);
         teamPlayed = presentTeam[indexTeamPlaying];
         RoomSetTurn();
         List<Player> _listPlayer = GetPlayerOfOneTeam(teamPlayed);
