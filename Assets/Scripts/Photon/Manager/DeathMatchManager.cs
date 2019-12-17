@@ -127,7 +127,7 @@ public class DeathMatchManager : MonoBehaviour
 
             
             string _messageKill = "<color=" + MarblGame.GetColorUI((int) GameModeManager.Instance.localPlayerTeam) + ">" + PhotonNetwork.LocalPlayer.NickName.ToString() + "</color> eject marbl of <color=" + MarblGame.GetColorUI((int)_ballTeam) + ">" + MarblFactory.FirstCharToUpper(_ballTeam.ToString()) + "</color> ";
-            GameModeManager.Instance.SendMessageString(_messageKill);
+            GameModeManager.Instance.localPlayerObj.GetComponent<LocalPlayerManager>().SendMessageString(_messageKill);
         }
 
         if (PhotonNetwork.IsMasterClient)

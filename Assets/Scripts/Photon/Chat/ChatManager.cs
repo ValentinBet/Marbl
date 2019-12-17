@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Collections.Generic;
+using Photon.Pun;
 
 public class ChatManager : MonoBehaviour
 {
@@ -25,16 +26,7 @@ public class ChatManager : MonoBehaviour
     public float FadeMessageIn = 7;
     public float FadeMessageSpeed = 2;
 
-    private NetworkClient Client;
     private bl_ChatUI ChatUI = null;
-    [HideInInspector] public bool ShowGroupsEditor;
-    private bool isSetup = false;
-    private bool isClientInitializated = false;
-
-    public class MyMsgType
-    {
-        public static short ChatMsn = MsgType.Highest + 1;
-    };
 
     private static ChatManager _instance;
     public static ChatManager Instance { get { return _instance; } }
@@ -53,7 +45,6 @@ public class ChatManager : MonoBehaviour
         ClientName = string.Empty;
         ChatUI = FindObjectOfType<bl_ChatUI>();
         ChatUI.MaxMessages = MaxMessages;
-        //ChatUI.ShowPlayerNameUI(false);
     }
 
     public void SendChatText(InputField field)
@@ -62,7 +53,10 @@ public class ChatManager : MonoBehaviour
         if (string.IsNullOrEmpty(text))
             return;
 
-        GameModeManager.Instance.SendMessageInputfield(field);
+        text = "<color=" + MarblGame.GetColorUI((int)GameModeManager.Instance.localPlayerTeam) + ">" + PhotonNetwork.LocalPlayer.NickName + "</color> : " + field.text;
+
+        GameModeManager.Instance.localPlayerObj.GetComponent<LocalPlayerManager>().SendMessageString(text);
+
         field.text = string.Empty;
     }
 
