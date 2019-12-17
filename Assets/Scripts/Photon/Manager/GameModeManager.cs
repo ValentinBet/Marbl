@@ -210,7 +210,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
             ball.GetComponent<PhotonView>().TransferOwnership(_player);
         }
 
-        string message = "<color=" + _player .GetTeam() + ">" + MarblFactory.FirstCharToUpper(_player.GetTeam().ToString()) + "</color>'s turn";
+        string message = "<color=" + MarblGame.GetColorUI((int) _player .GetTeam()) + ">" + _player.NickName + "</color>'s turn";
         myPV.RPC("RpcDisplayMessage", RpcTarget.AllViaServer, message);
     }
 
