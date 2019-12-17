@@ -45,7 +45,9 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     public GameObject hostPanel;
     public GameObject settingsPanel;
     public GameObject PlayerListEntryPrefab;
+    public Animator MainMenuAnim;
 
+    private bool locked = false;
     private Dictionary<string, RoomInfo> cachedRoomList;
     private Dictionary<string, GameObject> roomListEntries;
     private Dictionary<Player, GameObject> playerListEntries;
@@ -249,7 +251,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.LeaveLobby();
         }
-
         SetActivePanel(SelectionPanel.name);
     }
 
@@ -355,6 +356,18 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     private void SetActivePanel(string activePanel)
     {
+        if ((activePanel != SelectionPanel.name && MainMenuAnim != null && locked == false) || (activePanel == SelectionPanel.name && locked == true))
+        {
+            if (!locked)
+            {
+                locked = true;
+            }
+            else
+            {
+                locked = false;
+            }
+            MainMenuAnim.SetTrigger("Contextual");
+        }
         SelectionPanel.SetActive(activePanel.Equals(SelectionPanel.name));
         CreateRoomPanel.SetActive(activePanel.Equals(CreateRoomPanel.name));
         JoinRandomRoomPanel.SetActive(activePanel.Equals(JoinRandomRoomPanel.name));
