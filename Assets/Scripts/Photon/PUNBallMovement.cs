@@ -90,6 +90,7 @@ public class PUNBallMovement : MonoBehaviour
         {
             GameObject impact = Instantiate(impactPrefab[Random.Range(0, impactPrefab.Count)], collision.contacts[0].point, Quaternion.identity);
             float size = collision.relativeVelocity.sqrMagnitude / 400;
+            size = Mathf.Clamp(size, 0, 3);
             impact.transform.localScale = new Vector3(size, size, size);
             Destroy(impact, 2);
 
