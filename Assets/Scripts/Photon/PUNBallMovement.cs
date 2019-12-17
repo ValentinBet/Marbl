@@ -77,9 +77,7 @@ public class PUNBallMovement : MonoBehaviour
 
     public void MoveBall(Vector3 direction, float angle, float dragForce)
     {
-        //Debug.Log(direction);
         direction = new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * angle), ((45 - angle) / 45.0f + MovementSpeed * 2.0f) * Mathf.Sin(Mathf.Deg2Rad * angle) / MovementSpeed * 2.0f, direction.z * Mathf.Cos(Mathf.Deg2Rad * angle));
-        //Debug.Log(direction);
         Vector3 _impulse = direction * (dragForce * rigidbody.mass * MovementSpeed * 2.0f);
 
         this.GetComponent<Rigidbody>().AddForceAtPosition(_impulse, transform.position, ForceMode.Impulse);
@@ -96,16 +94,13 @@ public class PUNBallMovement : MonoBehaviour
             Destroy(impact, 2);
 
             float screenShakeDistance = Vector3.Distance(Camera.main.transform.position, this.gameObject.transform.position);
-            float screenShakePower = Mathf.Clamp(collision.relativeVelocity.sqrMagnitude / 250 - screenShakeDistance / 30, 0, 20);
-            Debug.Log(screenShakePower);
-            Debug.Log(screenShakeDistance);
+            float screenShakePower = Mathf.Clamp(collision.relativeVelocity.sqrMagnitude / 300 - screenShakeDistance / 30, 0, 20);
 
             if (screenShakePower > 0)
             {
                 cameraPlayer.InitShakeScreen(screenShakePower, 0.10f);
             }
         }
-
 
         if (collision.gameObject.tag == "Ball" && photonView.IsMine)
         {
@@ -114,7 +109,6 @@ public class PUNBallMovement : MonoBehaviour
 
             if (ballSettingReciever.currentSpeed < ballSettingGiver.currentSpeed)
             {
-
                 //print(ballSettingGiver.myteam + " - " + ballSettingGiver.currentSpeed + " --> " + ballSettingReciever.myteam + " - " + ballSettingReciever.currentSpeed);
 
                 if (PhotonNetwork.CurrentRoom.GetHue() && ballSettingReciever.myteam != ballSettingGiver.myteam)
