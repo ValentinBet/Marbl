@@ -19,7 +19,6 @@ public class RoomSettings : MonoBehaviour
     public Text saveSettingsText;
 
     [Header("Room")]
-    public MapSettings map;
     public DropdownSettings gameMode;
     public CheckBoxSettings deathmatch;
     public CheckBoxSettings hill;
@@ -87,66 +86,8 @@ public class RoomSettings : MonoBehaviour
 
     private void Start()
     {
-        SetDropDownMap();
-        SetDropDownSettings();
         Refresh();
         gameObject.SetActive(false);
-    }
-
-    void SetDropDownSettings()
-    {
-        gameMode.myDropdown.ClearOptions();
-
-        var info = new DirectoryInfo(Application.streamingAssetsPath + "/GameModesCustom/");
-        var fileInfo = info.GetFiles();
-
-        List<OptionData> listSettings = new List<OptionData>();
-
-        foreach (FileInfo file in fileInfo)
-        {
-            if (file.Name.Contains(".meta"))
-            {
-                continue;
-            }
-
-            string modeName = file.Name.Replace(".json", "");
-
-            if(modeName == "DeathMatch" || modeName == "King of the hill" || modeName == "Hue")
-            {
-
-            }
-            else
-            {
-                modeName = "<color=red>" + modeName + "</color>";
-            }
-
-            listSettings.Add(new OptionData(modeName));
-        }
-        listSettings.Add(new OptionData("<color=red>Custom</color>"));
-
-        gameMode.myDropdown.AddOptions(listSettings);
-    }
-
-    void SetDropDownMap()
-    {
-        map.dropMap.ClearOptions();
-
-        var info = new DirectoryInfo(Application.streamingAssetsPath + "/Map/");
-        var fileInfo = info.GetFiles();
-
-        List<OptionData> listSettings = new List<OptionData>();
-
-        foreach (FileInfo file in fileInfo)
-        {
-            if (file.Name.Contains(".meta"))
-            {
-                continue;
-            }
-
-            listSettings.Add(new OptionData(file.Name.Replace(".json", "")));
-        }
-
-        map.dropMap.AddOptions(listSettings);
     }
 
     public void Refresh()
@@ -229,7 +170,6 @@ public class RoomSettings : MonoBehaviour
 
     public void SaveSettings()
     {
-        PhotonNetwork.CurrentRoom.SetMap(Mathf.RoundToInt(map.dropMap.value));
         PhotonNetwork.CurrentRoom.SetTurnLimit(Mathf.RoundToInt(turnLimit.mySlider.value));
         PhotonNetwork.CurrentRoom.SetRoundProp(Mathf.RoundToInt(round.mySlider.value));
 
@@ -304,7 +244,6 @@ public class RoomSettings : MonoBehaviour
             element.gameObject.SetActive(false);
         }
 
-        map.gameObject.SetActive(true);
         gameMode.gameObject.SetActive(true);
         roomSettingsLabel.gameObject.SetActive(true);
 
@@ -317,7 +256,6 @@ public class RoomSettings : MonoBehaviour
 
         modeSettings = JsonUtility.FromJson<GameModeSettings>(data.text);
 
-        map.dropMap.value = modeSettings.map;
         deathmatch.SetValue(modeSettings.deathmatch);
         hill.SetValue(modeSettings.hill);
         coins.SetValue(modeSettings.coins);
@@ -351,8 +289,6 @@ public class RoomSettings : MonoBehaviour
 
         WWW data = null;
 
-        print(fileInfo.Length);
-
         int i = 0;
         foreach (FileInfo file in fileInfo)
         {
@@ -365,7 +301,6 @@ public class RoomSettings : MonoBehaviour
 
             if (i == indexFile)
             {
-                print(modeName);
                 data = new WWW(Application.streamingAssetsPath + "/GameModesDefault/" + modeName + ".json");
                 break;
             }
@@ -376,7 +311,6 @@ public class RoomSettings : MonoBehaviour
 
         modeSettings = JsonUtility.FromJson<GameModeSettings>(data.text);
 
-        //map.dropMap.value = modeSettings.map;
         deathmatch.SetValue(modeSettings.deathmatch);
         hill.SetValue(modeSettings.hill);
         coins.SetValue(modeSettings.coins);
@@ -408,14 +342,12 @@ public class RoomSettings : MonoBehaviour
     public void SaveCustomSettings()
     {
         SaveFile();
-        SetDropDownSettings();
     }
 
     void SaveFile()
     {
         GameModeSettings modeSettings = new GameModeSettings();
 
-        modeSettings.map = map.dropMap.value;
         modeSettings.deathmatch = deathmatch.statut;
         modeSettings.hill = hill.statut;
         modeSettings.coins = coins.statut;
@@ -443,7 +375,7 @@ public class RoomSettings : MonoBehaviour
 
         string toj = JsonUtility.ToJson(modeSettings);
 
-        File.WriteAllText(Application.streamingAssetsPath + "/GameModes/" + saveSettingsText.text + ".json", toj);
+        File.WriteAllText(Application.streamingAssetsPath + "/GameModesCustom/" + saveSettingsText.text + ".json", toj);
         Refresh();
     }
 }

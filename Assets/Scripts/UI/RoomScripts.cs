@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using Photon.Pun.UtilityScripts;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,6 +39,7 @@ public class RoomScripts : MonoBehaviour
     void Start()
     {
         line.position = currentChoice.position;
+        PhotonNetwork.CurrentRoom.SetMap(Mathf.RoundToInt(0));
     }
 
     // Update is called once per frame
@@ -107,6 +110,7 @@ public class RoomScripts : MonoBehaviour
         if(value == 5)
         {
             settingsCustom.SetActive(true);
+            settingsCustom.GetComponent<Image>().color = new Color(1,1,1,1);
             return;
         }
         else
@@ -122,7 +126,7 @@ public class RoomScripts : MonoBehaviour
         OutlineMap[map].color = Color.white;
         map = value;
         OutlineMap[map].color = new Color(1, 0.1986281f, 0);
-        myRoomSetting.map.dropMap.value = map;
+        PhotonNetwork.CurrentRoom.SetMap(Mathf.RoundToInt(value));
         settingsCustom.SetActive(false);
     }
 }
