@@ -15,6 +15,7 @@ public struct Inputs
     public KeyCode MainButton1;
     public KeyCode MainButton2;
     public KeyCode Learderboard;
+    public KeyCode Ping;
     public KeyCode CameraForward;
     public KeyCode CameraBackward;
     public KeyCode CameraLeft;

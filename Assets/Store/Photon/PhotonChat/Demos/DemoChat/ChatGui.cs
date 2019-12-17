@@ -12,7 +12,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 using Photon.Chat;
-using Photon.Realtime;
 
 #if PHOTON_UNITY_NETWORKING
 using Photon.Pun;
@@ -53,7 +52,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
     #if !PHOTON_UNITY_NETWORKING
     [SerializeField]
     #endif
-    protected internal AppSettings chatAppSettings;
+    protected internal ChatSettings chatAppSettings;
 
 
     public GameObject missingAppIdErrorPanel;
@@ -79,7 +78,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 
 	// private static string WelcomeText = "Welcome to chat. Type \\help to list commands.";
 	private static string HelpText = "\n    -- HELP --\n" +
-		"To subscribe to channel(s) (channelnames are case sensitive) :  \n" +
+		"To subscribe to channel(s):\n" +
 			"\t<color=#E07B00>\\subscribe</color> <color=green><list of channelnames></color>\n" +
 			"\tor\n" +
 			"\t<color=#E07B00>\\s</color> <color=green><list of channelnames></color>\n" +
@@ -94,7 +93,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 			"\tor\n" +
 			"\t<color=#E07B00>\\j</color> <color=green><channelname></color>\n" +
 			"\n" +
-			"To send a private message: (username are case sensitive)\n" +
+			"To send a private message:\n" +
 			"\t\\<color=#E07B00>msg</color> <color=green><username></color> <color=green><message></color>\n" +
 			"\n" +
 			"To change status:\n" +
@@ -115,6 +114,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 	{
 		DontDestroyOnLoad(this.gameObject);
 
+
 	    this.UserIdText.text = "";
 	    this.StateText.text  = "";
 	    this.StateText.gameObject.SetActive(true);
@@ -129,10 +129,15 @@ public class ChatGui : MonoBehaviour, IChatClientListener
 		}
 
         #if PHOTON_UNITY_NETWORKING
-        this.chatAppSettings = PhotonNetwork.PhotonServerSettings.AppSettings;
+        //this.chatAppSettings = PhotonNetwork.PhotonServerSettings.AppSettings;
+		#else
+		if (this.chatAppSettings == null)
+		{
+			this.chatAppSettings = ChatSettings.Instance;
+		}
         #endif
 
-        bool appIdPresent = !string.IsNullOrEmpty(this.chatAppSettings.AppIdChat);
+        bool appIdPresent = !string.IsNullOrEmpty(this.chatAppSettings.AppId);
 
 	    this.missingAppIdErrorPanel.SetActive(!appIdPresent);
 		this.UserIdFormPanel.gameObject.SetActive(appIdPresent);
@@ -152,7 +157,7 @@ public class ChatGui : MonoBehaviour, IChatClientListener
         this.chatClient.UseBackgroundWorkerForSending = true;
         #endif
 
-		this.chatClient.Connect(this.chatAppSettings.AppIdChat, "1.0", new Photon.Chat.AuthenticationValues(this.UserName));
+		this.chatClient.Connect(this.chatAppSettings.AppId, "1.0", new Photon.Chat.AuthenticationValues(this.UserName));
 
 		this.ChannelToggleToInstantiate.gameObject.SetActive(false);
 		Debug.Log("Connecting as: " + this.UserName);
