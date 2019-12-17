@@ -30,7 +30,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {
         CheckTeam();
         SetColor();
-        currentSpeed = myRigid.velocity.sqrMagnitude;
+        currentSpeed = Mathf.Lerp(currentSpeed ,myRigid.velocity.sqrMagnitude, 1 * Time.deltaTime);
     }
     private void OnBecameVisible()
     {
@@ -44,11 +44,17 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 
     public void CheckTeam()
     {
+        if (this.gameObject == GameModeManager.Instance.localPlayerObj.GetComponent<PUNMouseControl>().actualSelectedBall)
+        {
+            if (myteam != lastTeam)
+            {
+                GameModeManager.Instance.localPlayerObj.GetComponent<PUNMouseControl>().DeselectBall();
+            }
+        }
+
         if (myteam != lastTeam)
         {
             SetColor();
-
-            GameModeManager.Instance.localPlayerObj.GetComponent<PUNMouseControl>().DeselectBall();
 
             lastTeam = myteam;
         }

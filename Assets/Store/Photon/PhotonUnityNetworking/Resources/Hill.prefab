@@ -88,7 +88,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballInside: []
-  imgWall: []
+  imgWall:
+  - {fileID: 788307529019273276}
+  - {fileID: 788307529472076590}
+  - {fileID: 788307528779055712}
+  - {fileID: 788307528586594629}
 --- !u!65 &9101066640624418412
 BoxCollider:
   m_ObjectHideFlags: 0

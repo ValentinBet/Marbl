@@ -239,4 +239,15 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LocalPlayer.SetCustomProperties(_turnPlayer);
         DeathMatchManager.Instance.NewTrun();
     }
+
+    public void SendMessageString(string value)
+    {
+        PV.RPC("RpcChat", RpcTarget.AllViaServer, value);
+    }
+
+    [PunRPC]
+    void RpcChat(string _text)
+    {
+        ChatManager.Instance.OnChatMessage(_text);
+    }
 }

@@ -51,14 +51,6 @@ public class bl_ChatUI : MonoBehaviour {
         CheckMessageLenght();
     }
 
-    public void ShowPlayerNameUI(bool show)
-    {
-        if(PlayerNameUI != null)
-        {
-            PlayerNameUI.SetActive(show);
-        }
-    }
-
     void CheckMessageLenght()
     {
         if(cacheMessages.Count > MaxMessages)
@@ -69,16 +61,6 @@ public class bl_ChatUI : MonoBehaviour {
             }
             cacheMessages.RemoveAt(0);
         }
-    }
-
-    public void SetPlayerName(InputField field)
-    {
-        string t = field.text;
-        if (string.IsNullOrEmpty(t))
-            return;
-
-        field.text = string.Empty;
-        PlayerNameUI.SetActive(false);
     }
 
     public void Clean()

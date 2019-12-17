@@ -21,13 +21,6 @@ public class ChatManagerEditor : Editor {
         EditorGUILayout.BeginVertical(EditorStyles.helpBox);
         EditorGUILayout.LabelField("Groups Settings",EditorStyles.boldLabel);
         myTarget.GroupID = EditorGUILayout.Popup("My Group:",myTarget.GroupID, myTarget.GetGroupArray);
-        myTarget.ShowGroupsEditor = EditorGUILayout.ToggleLeft("Show Groups", myTarget.ShowGroupsEditor, EditorStyles.toolbarButton);
-        if (myTarget.ShowGroupsEditor)
-        {
-            serializedObject.Update();
-            GroupList.DoLayoutList();
-            serializedObject.ApplyModifiedProperties();
-        }
         EditorGUILayout.EndVertical();
 
         EditorGUILayout.BeginVertical(EditorStyles.helpBox);
