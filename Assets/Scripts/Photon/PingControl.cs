@@ -97,8 +97,7 @@ public class PingControl : MonoBehaviour
 
         SpawnPingLocal(ping, hit.point, PhotonNetwork.LocalPlayer.GetTeam()); // Spawn le ping en local
 
-        pv.RPC("SpawnPing", RpcTarget.Others, 1, hit.point, PhotonNetwork.LocalPlayer.GetTeam()); // Spawn le ping sur les autres joueurs
-
+        pv.RPC("RpcSpawnPing", RpcTarget.Others, 1, hit.point, PhotonNetwork.LocalPlayer.GetTeam()); // Spawn le ping sur les autres joueurs
     }
 
     [PunRPC]
