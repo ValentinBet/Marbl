@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject FreeCamButton;
     public GameObject PingCamButton;
 
+
+
     public bool pingStatut = false;
 
     public TimerInfo timer;
@@ -46,8 +48,9 @@ public class UIManager : MonoBehaviourPunCallbacks
     private bool isEscapeMenuDisplayed = false;
 
     Dictionary<BallSettings, PingElement> listOfPing = new Dictionary<BallSettings, PingElement>();
-    public GameObject pingPrefab;
 
+    public GameObject pingPrefab;
+    public GameObject PingChoice;
     public GameObject currentClickedBall;
 
     private void Awake()
