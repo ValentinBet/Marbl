@@ -42,7 +42,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     [Header("Other")]
     public Button StartGameButton;
-    public GameObject SettingRoomPanel;
+    public GameObject hostPanel;
+    public GameObject settingsPanel;
     public GameObject PlayerListEntryPrefab;
 
     private Dictionary<string, RoomInfo> cachedRoomList;
@@ -156,11 +157,12 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsMasterClient)
         {
-            SettingRoomPanel.SetActive(true);
+            hostPanel.SetActive(true);
         }
         else
         {
-            SettingRoomPanel.SetActive(false);
+            hostPanel.SetActive(false);
+            settingsPanel.SetActive(false);
         }
     }
 
@@ -175,7 +177,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         playerListEntries.Clear();
         playerListEntries = null;
-        SettingRoomPanel.SetActive(false);
+        hostPanel.SetActive(false);
+        settingsPanel.SetActive(false);
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)

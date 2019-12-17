@@ -10,7 +10,6 @@ using UnityEditor;
 
 public class RoomSettings : MonoBehaviour
 {
-    public Animator myAnimator;
     bool isOpen = false;
 
     public Transform parent;
@@ -20,7 +19,6 @@ public class RoomSettings : MonoBehaviour
     public Text saveSettingsText;
 
     [Header("Room")]
-
     public MapSettings map;
     public DropdownSettings gameMode;
     public CheckBoxSettings deathmatch;
@@ -92,13 +90,14 @@ public class RoomSettings : MonoBehaviour
         SetDropDownMap();
         SetDropDownSettings();
         Refresh();
+        gameObject.SetActive(false);
     }
 
     void SetDropDownSettings()
     {
         gameMode.myDropdown.ClearOptions();
 
-        var info = new DirectoryInfo(Application.streamingAssetsPath + "/GameModes/");
+        var info = new DirectoryInfo(Application.streamingAssetsPath + "/GameModesCustom/");
         var fileInfo = info.GetFiles();
 
         List<OptionData> listSettings = new List<OptionData>();
@@ -228,20 +227,6 @@ public class RoomSettings : MonoBehaviour
         }
     }
 
-    public void OpenOrClose()
-    {
-        myAnimator.enabled = true;
-        if (isOpen)
-        {
-            myAnimator.SetTrigger("Close");
-        }
-        else
-        {
-            myAnimator.SetTrigger("Open");
-        }
-        isOpen = !isOpen;
-    }
-
     public void SaveSettings()
     {
         PhotonNetwork.CurrentRoom.SetMap(Mathf.RoundToInt(map.dropMap.value));
@@ -359,6 +344,66 @@ public class RoomSettings : MonoBehaviour
         billardBall.mySlider.value = modeSettings.billardBall;
     }
 
+    public void SetMode(int indexFile)
+    {
+        var info = new DirectoryInfo(Application.streamingAssetsPath + "/GameModesDefault/");
+        var fileInfo = info.GetFiles();
+
+        WWW data = null;
+
+        print(fileInfo.Length);
+
+        int i = 0;
+        foreach (FileInfo file in fileInfo)
+        {
+            if (file.Name.Contains(".meta"))
+            {
+                continue;
+            }
+
+            string modeName = file.Name.Replace(".json", "");
+
+            if (i == indexFile)
+            {
+                print(modeName);
+                data = new WWW(Application.streamingAssetsPath + "/GameModesDefault/" + modeName + ".json");
+                break;
+            }
+            i++;
+        }
+
+        GameModeSettings modeSettings = new GameModeSettings();
+
+        modeSettings = JsonUtility.FromJson<GameModeSettings>(data.text);
+
+        //map.dropMap.value = modeSettings.map;
+        deathmatch.SetValue(modeSettings.deathmatch);
+        hill.SetValue(modeSettings.hill);
+        coins.SetValue(modeSettings.coins);
+        potato.SetValue(modeSettings.potato);
+        hue.SetValue(modeSettings.hue);
+        billard.SetValue(modeSettings.billard);
+        turnLimit.mySlider.value = modeSettings.turnLimit;
+        round.mySlider.value = modeSettings.round;
+        nbrBall.mySlider.value = modeSettings.nbrBall;
+        spawnMode.myDropdown.value = modeSettings.spawnMode;
+        launchPower.mySlider.value = modeSettings.launchPower;
+        impactPower.mySlider.value = modeSettings.impactPower;
+        winPointDM.mySlider.value = modeSettings.winPointDM;
+        elimPointDM.mySlider.value = modeSettings.elimPointDM;
+        killstreakDM.SetValue(modeSettings.killstreakDM);
+        suicidePointDM.mySlider.value = modeSettings.suicidePointDM;
+        nbrHill.mySlider.value = modeSettings.nbrHill;
+        hillMode.myDropdown.value = modeSettings.hillMode;
+        hillPoint.mySlider.value = modeSettings.hillPoint;
+        coinsAmount.myDropdown.value = modeSettings.coinsAmount;
+        potatoTurnMin.mySlider.value = modeSettings.potatoTurnMin;
+        potatoTurnMax.mySlider.value = modeSettings.potatoTurnMax;
+        hueNutralBall.mySlider.value = modeSettings.hueNutralBall;
+        billardBall.mySlider.value = modeSettings.billardBall;
+
+        SaveSettings();
+    }
 
     public void SaveCustomSettings()
     {
