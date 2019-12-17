@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject FreeCamButton;
     public GameObject PingCamButton;
 
-
+    public Text pingText;
 
     public bool pingStatut = false;
 
@@ -67,6 +67,10 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
+        if (pingText != null)
+        {
+            pingText.text = "Ping : " + PhotonNetwork.GetPing() +"ms";
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {

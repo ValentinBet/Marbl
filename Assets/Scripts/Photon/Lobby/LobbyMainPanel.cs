@@ -68,6 +68,9 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         PlayerNameInput.text = PlayerPrefs.GetString("Name");
 
         ReconnectButton.SetActive(false);
+
+        PhotonNetwork.SendRate = 100;
+        PhotonNetwork.SerializationRate = 100;
     }
 
     private void Start()
@@ -184,7 +187,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         GameObject entry = Instantiate(PlayerListEntryPrefab);
-        entry.transform.SetParent(InsideRoomPanel.transform);
+        entry.transform.SetParent(parentPlayerList.transform);
         entry.transform.localScale = Vector3.one;
         entry.GetComponent<PlayerListEntry>().Initialize(newPlayer, newPlayer.GetTeam(), newPlayer.NickName);
 

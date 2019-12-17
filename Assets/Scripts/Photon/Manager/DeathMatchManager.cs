@@ -126,10 +126,14 @@ public class DeathMatchManager : MonoBehaviour
             }
 
             
-            string _messageKill = "<color=" + MarblGame.GetColorUI((int) GameModeManager.Instance.localPlayerTeam) + ">" + PhotonNetwork.LocalPlayer.NickName.ToString() + "</color> eject marbl of <color=" + _ballTeam + ">" + MarblFactory.FirstCharToUpper(_ballTeam.ToString()) + "</color> ";
+            string _messageKill = "<color=" + MarblGame.GetColorUI((int) GameModeManager.Instance.localPlayerTeam) + ">" + PhotonNetwork.LocalPlayer.NickName.ToString() + "</color> eject marbl of <color=" + MarblGame.GetColorUI((int)_ballTeam) + ">" + MarblFactory.FirstCharToUpper(_ballTeam.ToString()) + "</color> ";
             GameModeManager.Instance.SendMessageString(_messageKill);
+        }
 
+        if (PhotonNetwork.IsMasterClient)
+        {
             PhotonView ballPV = marbl.GetPhotonView();
+            ballPV.TransferOwnership(PhotonNetwork.LocalPlayer);
             PhotonNetwork.Destroy(ballPV);
 
             GetMyBalls();
@@ -142,6 +146,7 @@ public class DeathMatchManager : MonoBehaviour
                 GameModeManager.Instance.SendMessageString(_messageEliminated);
             }
 
+            DetectEndGame();
         }
     }
 

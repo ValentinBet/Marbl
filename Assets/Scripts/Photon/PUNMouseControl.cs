@@ -83,6 +83,7 @@ public class PUNMouseControl : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100.0f, layerClickBall))
             {
                 StopShoot();
+                actualSelectedBall = null;
                 ClickOnBall(hit.collider.transform.parent.gameObject);
                 UIManager.Instance.ResetButton();
             }
@@ -207,7 +208,6 @@ public class PUNMouseControl : MonoBehaviour
         elevation = 0;
         dragForce = 0;
         DisplayDragForce();
-        actualSelectedBall = null;
         UIManager.Instance.isShooting = false;
     }
 
