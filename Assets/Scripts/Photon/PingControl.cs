@@ -92,12 +92,12 @@ public class PingControl : MonoBehaviour
         choiceSettings.rightCornerImage.color = Color.clear;
         choiceSettings.leftCornerImage.color = Color.clear;
     }
+
     private void InitSpawnPing(int ping)
     {
-
         SpawnPingLocal(ping, hit.point, PhotonNetwork.LocalPlayer.GetTeam()); // Spawn le ping en local
 
-        pv.RPC("RpcSpawnPing", RpcTarget.Others, 1, hit.point, PhotonNetwork.LocalPlayer.GetTeam()); // Spawn le ping sur les autres joueurs
+        pv.RPC("RpcSpawnPing", RpcTarget.Others, ping, hit.point, PhotonNetwork.LocalPlayer.GetTeam()); // Spawn le ping sur les autres joueurs
     }
 
     [PunRPC]

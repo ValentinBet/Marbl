@@ -68,6 +68,9 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         PlayerNameInput.text = PlayerPrefs.GetString("Name");
 
         ReconnectButton.SetActive(false);
+
+        PhotonNetwork.SendRate = 100;
+        PhotonNetwork.SerializationRate = 100;
     }
 
     private void Start()
