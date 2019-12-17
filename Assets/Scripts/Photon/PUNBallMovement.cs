@@ -78,11 +78,11 @@ public class PUNBallMovement : MonoBehaviour
     public void MoveBall(Vector3 direction, float angle, float dragForce)
     {
         //Debug.Log(direction);
-        direction = new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * angle), ((45 - angle) / 45.0f + MovementSpeed*2.0f) * Mathf.Sin(Mathf.Deg2Rad * angle) / MovementSpeed*2.0f, direction.z * Mathf.Cos(Mathf.Deg2Rad * angle));
+        direction = new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * angle), ((45 - angle) / 45.0f + MovementSpeed * 2.0f) * Mathf.Sin(Mathf.Deg2Rad * angle) / MovementSpeed * 2.0f, direction.z * Mathf.Cos(Mathf.Deg2Rad * angle));
         //Debug.Log(direction);
-        Vector3 _impulse = direction * (dragForce * rigidbody.mass * MovementSpeed*2.0f);
+        Vector3 _impulse = direction * (dragForce * rigidbody.mass * MovementSpeed * 2.0f);
 
-        this.GetComponent<Rigidbody>().AddForceAtPosition(_impulse,transform.position, ForceMode.Impulse);
+        this.GetComponent<Rigidbody>().AddForceAtPosition(_impulse, transform.position, ForceMode.Impulse);
         this.GetComponent<Rigidbody>().AddTorque(Vector3.Cross(direction, Vector3.up) * -torqueForce, ForceMode.Force);
     }
 
@@ -95,8 +95,15 @@ public class PUNBallMovement : MonoBehaviour
             impact.transform.localScale = new Vector3(size, size, size);
             Destroy(impact, 2);
 
-            float screenShakePower = Mathf.Clamp(collision.relativeVelocity.sqrMagnitude / 300, 0, 30);
-            cameraPlayer.InitShakeScreen(screenShakePower, 0.10f);
+            float screenShakeDistance = Vector3.Distance(Camera.main.transform.position, this.gameObject.transform.position);
+            float screenShakePower = Mathf.Clamp(collision.relativeVelocity.sqrMagnitude / 250 - screenShakeDistance / 30, 0, 20);
+            Debug.Log(screenShakePower);
+            Debug.Log(screenShakeDistance);
+
+            if (screenShakePower > 0)
+            {
+                cameraPlayer.InitShakeScreen(screenShakePower, 0.10f);
+            }
         }
 
 
@@ -127,7 +134,7 @@ public class PUNBallMovement : MonoBehaviour
         }
 
 
-        
+
     }
 
     private void OnCollisionExit(Collision collision)
@@ -141,15 +148,15 @@ public class PUNBallMovement : MonoBehaviour
                 if (amplify == CollideStates.Giver)
                 {
                     //Debug.Log("Giving Collider " + gameObject.name);
-                    float sqrSpeed = Mathf.Clamp((rigidbody.velocity * ImpactGivingCoef * impactPower*1.3f - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1)).sqrMagnitude, 0, MaxSpeed * MaxSpeed);
-                    rigidbody.velocity = (rigidbody.velocity * ImpactGivingCoef * impactPower*1.3f - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1)).normalized * Mathf.Sqrt(sqrSpeed); ;
+                    float sqrSpeed = Mathf.Clamp((rigidbody.velocity * ImpactGivingCoef * impactPower * 1.3f - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1)).sqrMagnitude, 0, MaxSpeed * MaxSpeed);
+                    rigidbody.velocity = (rigidbody.velocity * ImpactGivingCoef * impactPower * 1.3f - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1)).normalized * Mathf.Sqrt(sqrSpeed); ;
                 }
                 else
                 {
                     //Debug.Log("Recieving Collider " + gameObject.name);
-                    float sqrSpeed = Mathf.Clamp((rigidbody.velocity * ImpactRecievingCoef * impactPower*1.3f - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1)).sqrMagnitude, 0, MaxSpeed * MaxSpeed);
+                    float sqrSpeed = Mathf.Clamp((rigidbody.velocity * ImpactRecievingCoef * impactPower * 1.3f - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1)).sqrMagnitude, 0, MaxSpeed * MaxSpeed);
 
-                    rigidbody.velocity = (rigidbody.velocity * ImpactRecievingCoef * impactPower*1.3f - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1)).normalized * Mathf.Sqrt(sqrSpeed);
+                    rigidbody.velocity = (rigidbody.velocity * ImpactRecievingCoef * impactPower * 1.3f - Vector3.up * rigidbody.velocity.y * (ImpactRecievingCoef - 1)).normalized * Mathf.Sqrt(sqrSpeed);
                 }
             }
         }

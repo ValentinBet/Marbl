@@ -71,6 +71,7 @@ public class UIManager : MonoBehaviourPunCallbacks
         {
             pingText.text = "Ping : " + PhotonNetwork.GetPing() +"ms";
         }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             DisplayEscapeMenu();
