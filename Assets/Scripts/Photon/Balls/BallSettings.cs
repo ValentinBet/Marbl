@@ -44,11 +44,17 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 
     public void CheckTeam()
     {
+        if (this.gameObject == GameModeManager.Instance.localPlayerObj.GetComponent<PUNMouseControl>().actualSelectedBall)
+        {
+            if (myteam != lastTeam)
+            {
+                GameModeManager.Instance.localPlayerObj.GetComponent<PUNMouseControl>().DeselectBall();
+            }
+        }
+
         if (myteam != lastTeam)
         {
             SetColor();
-
-            GameModeManager.Instance.localPlayerObj.GetComponent<PUNMouseControl>().DeselectBall();
 
             lastTeam = myteam;
         }
