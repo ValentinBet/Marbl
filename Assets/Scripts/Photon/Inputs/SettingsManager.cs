@@ -6,9 +6,6 @@ using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
 {
-    // public static readonly int[,] Resolutions = new int[,] { { 1920, 1080 }, { 1680, 1050 }, { 1600, 1200 }, { 1600, 900 },
-    //   { 1440, 900 }, { 1366, 768 }, { 1360, 768 }, { 1280, 1024 }, { 1280, 960 }, { 1280, 800 }, { 1280, 768 }, { 1280, 720 }, { 1152, 864 }, { 1024, 768 } };
-
     public static readonly FullScreenMode[] Windowmodes = new FullScreenMode[4] { FullScreenMode.ExclusiveFullScreen, FullScreenMode.FullScreenWindow, FullScreenMode.MaximizedWindow, FullScreenMode.Windowed };
 
     [Header("General")]
@@ -293,6 +290,10 @@ public class SettingsManager : MonoBehaviour
                     keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.Learderboard.ToString();
                     keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.Learderboard;
                     break;
+                case "Ping":
+                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.Ping.ToString();
+                    keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.Ping;
+                    break;
                 case "Forward":
                     keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.CameraForward.ToString();
                     keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.CameraForward;
@@ -363,6 +364,10 @@ public class SettingsManager : MonoBehaviour
                     keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.Learderboard.ToString();
                     keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.Learderboard;
                     break;
+                case "Ping":
+                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.Ping.ToString();
+                    keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.Ping;
+                    break;
                 case "Forward":
                     keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.CameraForward.ToString();
                     keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.CameraForward;
@@ -401,6 +406,9 @@ public class SettingsManager : MonoBehaviour
                 break;
             case "Leaderboard":
                 InputManager.Instance.Inputs.inputs.Learderboard = keyButtonParameters.Key;
+                break;
+            case "Ping":
+                InputManager.Instance.Inputs.inputs.Ping = keyButtonParameters.Key;
                 break;
             case "Forward":
                 InputManager.Instance.Inputs.inputs.CameraForward = keyButtonParameters.Key;

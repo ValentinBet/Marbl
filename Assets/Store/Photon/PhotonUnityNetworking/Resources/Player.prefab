@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7933936372475012105}
   - component: {fileID: 8002847249796199712}
   - component: {fileID: 9170971878244695660}
+  - component: {fileID: 114797259138564754}
   - component: {fileID: 3014687846672754514}
   - component: {fileID: 8531607633140364554}
   m_Layer: 0
@@ -184,6 +185,23 @@ MonoBehaviour:
   landingZone: {fileID: 4553042780535758932, guid: a7b3948f2ae31d148b8941ee663e52ee,
     type: 3}
   landingGrowthRate: 0.1
+--- !u!114 &114797259138564754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892640998738306497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 791237a8d681a544595e415f885dd111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PingChoice: {fileID: 0}
+  BasicPing: {fileID: 3963836389222962955, guid: 34f09bfc8acc6f247ad119048ee80ad9,
+    type: 3}
+  QuestionMarkPing: {fileID: 6485425533979384264, guid: 2ff00ba150780d540836ab444399cf62,
+    type: 3}
 --- !u!120 &3014687846672754514
 LineRenderer:
   m_ObjectHideFlags: 0
