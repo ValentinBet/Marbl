@@ -24,10 +24,10 @@ public class MenuAnim : MonoBehaviour
         timerB += Time.deltaTime;
         if (timer > 1)
             timer = timer - 1;
-        if (timerB > 10.0f)
-            timerB = timerB - 10;
+        if (timerB > 20.0f)
+            timerB = timerB - 20;
         rotateMarbl.transform.localRotation = Quaternion.Euler(0, 0, -timer * 360.0f - additionalRotation);
-        cot.m_Heading.m_Bias = -180.0f + timerB * 36.0f;
+        cot.m_Heading.m_Bias = -180.0f + timerB * 18.0f;
         if(Input.anyKeyDown)
         {
             GetComponent<Animator>().SetTrigger("Clicked");
