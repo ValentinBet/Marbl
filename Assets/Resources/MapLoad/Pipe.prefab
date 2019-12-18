@@ -1,5 +1,65 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &670041509729758291
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 615242199840367240}
+  m_Layer: 0
+  m_Name: ExitDirection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &615242199840367240
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670041509729758291}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.8448294, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7334515368659690514}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2438557080835044511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7100228143674815102}
+  m_Layer: 0
+  m_Name: ExitDirection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7100228143674815102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2438557080835044511}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.949, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1364295701458952758}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2499128114452402585
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,9 +90,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.84000015, y: 11.84, z: -0.39}
   m_LocalScale: {x: 1.74, y: 1.740001, z: 1.740001}
-  m_Children: []
+  m_Children:
+  - {fileID: 615242199840367240}
   m_Father: {fileID: 6656559117908928672}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5345324963788184960
 MeshFilter:
@@ -105,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainPipe: {fileID: 3500656268235391872}
+  exitDirection: {fileID: 670041509729758291}
   entryNumber: 1
 --- !u!1 &3210562474082540146
 GameObject:
@@ -136,9 +198,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.84000015, y: 0.8, z: -0.39}
   m_LocalScale: {x: 1.74, y: 1.74, z: 1.74}
-  m_Children: []
+  m_Children:
+  - {fileID: 7100228143674815102}
   m_Father: {fileID: 6656559117908928672}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4757206065197991204
 MeshFilter:
@@ -211,37 +274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainPipe: {fileID: 3500656268235391872}
+  exitDirection: {fileID: 2438557080835044511}
   entryNumber: 0
---- !u!1 &5704470196421579694
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1568362155423034072}
-  m_Layer: 0
-  m_Name: WaitingPos
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1568362155423034072
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5704470196421579694}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.9, y: 6.56, z: -0.13}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 6656559117908928672}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6656559117908928698
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +309,6 @@ Transform:
   m_LocalPosition: {x: -18.2, y: 2, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1568362155423034072}
   - {fileID: 1364295701458952758}
   - {fileID: 7334515368659690514}
   m_Father: {fileID: 0}
@@ -14516,4 +14549,3 @@ MonoBehaviour:
   - {fileID: 2499128114452402585}
   ignoredBall: []
   oneSidedPipe: 0
-  waitingPos: {fileID: 5704470196421579694}
