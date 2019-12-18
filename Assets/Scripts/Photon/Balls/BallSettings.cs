@@ -55,9 +55,9 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
         if (myteam != lastTeam)
         {
             SetColor();
-
             lastTeam = myteam;
         }
+
     }
     public void SetColor()
     {

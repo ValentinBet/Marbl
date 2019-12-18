@@ -110,6 +110,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                     currentIndex++;
                     GameObject _newBall = PhotonNetwork.Instantiate("Marbl", element.position, Quaternion.identity);
                     _newBall.GetComponent<BallSettings>().myteam = MarblGame.GetTeam(index);
+                    Debug.Log(MarblGame.GetTeam(index));
 
                     if (currentIndex == numbrBallByTeam)
                     {
@@ -131,6 +132,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                 {
                     GameObject _newBall = PhotonNetwork.Instantiate("Marbl", spawnPos[0].position, Quaternion.identity);
                     _newBall.GetComponent<BallSettings>().myteam = MarblGame.GetTeam(index);
+                    Debug.Log(MarblGame.GetTeam(index));
                     spawnPos.Remove(spawnPos[0]);
                 }
             }
