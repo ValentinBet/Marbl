@@ -31,6 +31,19 @@ public static class MarblFactory
         return _myList;
     }
 
+    public static List<Team> ShuffleTeam(List<Team> _myList)
+    {;
+        for (int i = 1; i < _myList.Count; i++)
+        {
+            Team temp = _myList[i];
+            int randomIndex = UnityEngine.Random.Range(i, _myList.Count);
+            _myList[i] = _myList[randomIndex];
+            _myList[randomIndex] = temp;
+        }
+
+        return _myList;
+    }
+
     public static List<Transform> GetListOfAllChild(Transform _parent)
     {
         List<Transform> allChild = new List<Transform>();

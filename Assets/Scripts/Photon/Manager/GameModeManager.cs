@@ -141,11 +141,15 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         CreateTeamList();
 
-        //set turn
-        //teamPlayed = presentTeam[indexTeamPlaying];
+        presentTeam = MarblFactory.ShuffleTeam(presentTeam);
 
-        indexTeamPlaying = Random.Range(0, presentTeam.Count);
-        teamPlayed = presentTeam[indexTeamPlaying];
+        foreach(Team t in presentTeam)
+        {
+            print(t);
+        }
+
+        teamPlayed = presentTeam[0];
+
         RoomSetTurn();
         List<Player> _listPlayer = GetPlayerOfOneTeam(teamPlayed);
         playerplayed = CheckWhoHavePlayed(_listPlayer);
