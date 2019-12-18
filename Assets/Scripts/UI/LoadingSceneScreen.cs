@@ -34,7 +34,10 @@ public class LoadingSceneScreen : MonoBehaviourPunCallbacks
     //None
     public GameObject None;
 
-
+    private void Awake()
+    {
+        gameObject.SetActive(true);
+    }
 
     // Start is called before the first frame update
     void Start()
