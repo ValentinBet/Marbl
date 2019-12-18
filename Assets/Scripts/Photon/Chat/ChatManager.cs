@@ -47,13 +47,26 @@ public class ChatManager : MonoBehaviour
         ChatUI.MaxMessages = MaxMessages;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            SendChatText(ChatUI.myInputField);
+        }
+    }
+
     public void SendChatText(InputField field)
     {
         string text = field.text;
         if (string.IsNullOrEmpty(text))
             return;
 
-        text = "<color=" + MarblGame.GetColorUI((int)GameModeManager.Instance.localPlayerTeam) + ">" + PhotonNetwork.LocalPlayer.NickName + "</color> : " + field.text;
+        if(text.Length > 300)
+        {
+            text = text.Substring(0, 300);
+        }
+
+        text = "<color=" + MarblGame.GetColorUI((int)GameModeManager.Instance.localPlayerTeam) + ">" + PhotonNetwork.LocalPlayer.NickName + "</color> : " + text;
 
         GameModeManager.Instance.localPlayerObj.GetComponent<LocalPlayerManager>().SendMessageString(text);
 
