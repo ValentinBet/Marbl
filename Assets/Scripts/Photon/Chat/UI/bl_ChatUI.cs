@@ -13,6 +13,7 @@ public class bl_ChatUI : MonoBehaviour {
     [HideInInspector]public int MaxMessages = 10;
     private ChatManager Chat;
 
+    public InputField myInputField;
 
     void Awake()
     {
