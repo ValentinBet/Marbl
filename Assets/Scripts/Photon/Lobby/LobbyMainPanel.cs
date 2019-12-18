@@ -20,6 +20,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     [Header("Reconnect")]
     public GameObject ReconnectButton;
+    public Button QuickGameButton;
+    public Button CreateLobbyButton;
 
     [Header("Create Room Panel")]
     public GameObject CreateRoomPanel;
@@ -92,6 +94,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     public override void OnDisconnected(DisconnectCause cause)
     {
         base.OnDisconnected(cause);
+        QuickGameButton.interactable = false;
+        CreateLobbyButton.interactable = false;
         ReconnectButton.SetActive(true);
     }
 
@@ -101,6 +105,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         PhotonNetwork.LocalPlayer.NickName = PlayerNameInput.text;
         //On Connection
+        QuickGameButton.interactable = true;
+        CreateLobbyButton.interactable = true;
         PhotonNetwork.LocalPlayer.SetTeam(MarblFactory.GetRandomTeam());
     }
 
