@@ -5,7 +5,7 @@ using UnityEngine;
 public class PipeEntryBlock : MonoBehaviour
 {
     public PipeBlock mainPipe;
-
+    public GameObject exitDirection;
     public int entryNumber;
 
     private void OnTriggerEnter(Collider other)
@@ -23,10 +23,15 @@ public class PipeEntryBlock : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            if (mainPipe.ignoredBall.Contains(other.gameObject))
+            if (mainPipe.ignoredBall.Contains(other.gameObject) && mainPipe.entryGo != this)
             {
                 mainPipe.ignoredBall.Remove(other.gameObject);
             }
         }
+    }
+
+    public Vector3 GetExitDirectionVector()
+    {
+        return exitDirection.transform.position - this.transform.position;
     }
 }

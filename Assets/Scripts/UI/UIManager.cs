@@ -63,6 +63,8 @@ public class UIManager : MonoBehaviourPunCallbacks
         {
             _instance = this;
         }
+
+        LoadingPanel.SetActive(true);
     }
 
     private void Update()

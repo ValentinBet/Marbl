@@ -8,6 +8,7 @@ public class bl_ChatLine : MonoBehaviour
     public void FadeInTime(float t,float speed)
     {
         m_canvas = GetComponent<CanvasGroup>();
+        StopAllCoroutines();
         StartCoroutine(Fade(t,speed));
     }
 
@@ -19,6 +20,21 @@ public class bl_ChatLine : MonoBehaviour
             m_canvas.alpha -= Time.deltaTime * speed;
             yield return null;
         }
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+    }
+
+    public void ShowObj(float speed)
+    {
+        StopAllCoroutines();
+        StartCoroutine(Show(speed));
+    }
+
+    IEnumerator Show(float speed)
+    {
+        while (m_canvas.alpha < 1)
+        {
+            m_canvas.alpha += Time.deltaTime * speed;
+            yield return null;
+        }
     }
 }
