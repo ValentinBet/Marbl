@@ -5,8 +5,6 @@ using System.Collections.Generic;
 public class bl_ChatUI : MonoBehaviour {
 
     [SerializeField]private GameObject LinePrefabClient = null;
-    [SerializeField]private GameObject LinePrefabServer = null;
-    [SerializeField]private GameObject PlayerNameUI;
     [SerializeField]private Transform ChatPanel = null;
 
     private List<GameObject> cacheMessages = new List<GameObject>();
@@ -14,6 +12,8 @@ public class bl_ChatUI : MonoBehaviour {
     private ChatManager Chat;
 
     public InputField myInputField;
+
+    bool isShow = false;
 
     void Awake()
     {
@@ -36,41 +36,24 @@ public class bl_ChatUI : MonoBehaviour {
             newline.transform.SetParent(ChatPanel, false);
             cacheMessages.Add(newline);
         }
-        else
-        {
-            GameObject newlineremote = Instantiate(LinePrefabServer) as GameObject;
-            newlineremote.GetComponent<Text>().text = text;
-            newlineremote.GetComponent<LayoutElement>().CalculateLayoutInputVertical();
-            newlineremote.GetComponent<LayoutElement>().CalculateLayoutInputHorizontal();
-            if (fade)
-            {
-                newlineremote.GetComponent<bl_ChatLine>().FadeInTime(time, speed);
-            }
-            newlineremote.transform.SetParent(ChatPanel, false);
-            cacheMessages.Add(newlineremote);
-        }
-        CheckMessageLenght();
     }
 
-    void CheckMessageLenght()
+    public void ShowHisto(Image backGround)
     {
-        if(cacheMessages.Count > MaxMessages)
+        backGround.color = new Color(backGround.color.r, backGround.color.g, backGround.color.b, 0.1f);
+        foreach (GameObject obj in cacheMessages)
         {
-            if (cacheMessages[0] != null)
-            {
-                Destroy(cacheMessages[0]);
-            }
-            cacheMessages.RemoveAt(0);
+            obj.SetActive(true);
+            obj.GetComponent<bl_ChatLine>().ShowObj(1);
         }
     }
 
-    public void Clean()
+    public void Hide(Image backGround)
     {
-        foreach(GameObject g in cacheMessages)
+        backGround.color = new Color(backGround.color.r, backGround.color.g, backGround.color.b, 0.003921569f);
+        foreach (GameObject obj in cacheMessages)
         {
-            Destroy(g);
+            obj.GetComponent<bl_ChatLine>().FadeInTime(0.1f, 1);
         }
-        cacheMessages.Clear();
     }
-
 }
