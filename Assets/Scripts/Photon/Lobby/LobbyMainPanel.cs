@@ -20,6 +20,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     [Header("Reconnect")]
     public GameObject ReconnectButton;
+    public Button QuickGameButton;
+    public Button CreateLobbyButton;
 
     [Header("Create Room Panel")]
     public GameObject CreateRoomPanel;
@@ -38,11 +40,16 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     [Header("Inside Room Panel")]
     public GameObject InsideRoomPanel;
+    public Transform parentPlayerList;
 
+    [Header("Other")]
     public Button StartGameButton;
-    public GameObject SettingRoomPanel;
+    public GameObject hostPanel;
+    public GameObject settingsPanel;
     public GameObject PlayerListEntryPrefab;
+    public Animator MainMenuAnim;
 
+    private bool locked = false;
     private Dictionary<string, RoomInfo> cachedRoomList;
     private Dictionary<string, GameObject> roomListEntries;
     private Dictionary<Player, GameObject> playerListEntries;
@@ -65,6 +72,9 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         PlayerNameInput.text = PlayerPrefs.GetString("Name");
 
         ReconnectButton.SetActive(false);
+
+        PhotonNetwork.SendRate = 100;
+        PhotonNetwork.SerializationRate = 100;
     }
 
     private void Start()
@@ -84,6 +94,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     public override void OnDisconnected(DisconnectCause cause)
     {
         base.OnDisconnected(cause);
+        QuickGameButton.interactable = false;
+        CreateLobbyButton.interactable = false;
         ReconnectButton.SetActive(true);
     }
 
@@ -92,6 +104,9 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         this.SetActivePanel(SelectionPanel.name);
 
         PhotonNetwork.LocalPlayer.NickName = PlayerNameInput.text;
+        //On Connection
+        QuickGameButton.interactable = true;
+        CreateLobbyButton.interactable = true;
         PhotonNetwork.LocalPlayer.SetTeam(MarblFactory.GetRandomTeam());
     }
 
@@ -141,7 +156,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         foreach (Player p in PhotonNetwork.PlayerList)
         {
             GameObject entry = Instantiate(PlayerListEntryPrefab);
-            entry.transform.SetParent(InsideRoomPanel.transform);
+            entry.transform.SetParent(parentPlayerList);
             entry.transform.localScale = Vector3.one;
             entry.GetComponent<PlayerListEntry>().Initialize(p, p.GetTeam(), p.NickName);
 
@@ -154,11 +169,12 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsMasterClient)
         {
-            SettingRoomPanel.SetActive(true);
+            hostPanel.SetActive(true);
         }
         else
         {
-            SettingRoomPanel.SetActive(false);
+            hostPanel.SetActive(false);
+            settingsPanel.SetActive(false);
         }
     }
 
@@ -173,13 +189,14 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         playerListEntries.Clear();
         playerListEntries = null;
-        SettingRoomPanel.SetActive(false);
+        hostPanel.SetActive(false);
+        settingsPanel.SetActive(false);
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         GameObject entry = Instantiate(PlayerListEntryPrefab);
-        entry.transform.SetParent(InsideRoomPanel.transform);
+        entry.transform.SetParent(parentPlayerList.transform);
         entry.transform.localScale = Vector3.one;
         entry.GetComponent<PlayerListEntry>().Initialize(newPlayer, newPlayer.GetTeam(), newPlayer.NickName);
 
@@ -241,7 +258,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.LeaveLobby();
         }
-
         SetActivePanel(SelectionPanel.name);
     }
 
@@ -347,6 +363,18 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     private void SetActivePanel(string activePanel)
     {
+        if ((activePanel != SelectionPanel.name && MainMenuAnim != null && locked == false) || (activePanel == SelectionPanel.name && locked == true))
+        {
+            if (!locked)
+            {
+                locked = true;
+            }
+            else
+            {
+                locked = false;
+            }
+            MainMenuAnim.SetTrigger("Contextual");
+        }
         SelectionPanel.SetActive(activePanel.Equals(SelectionPanel.name));
         CreateRoomPanel.SetActive(activePanel.Equals(CreateRoomPanel.name));
         JoinRandomRoomPanel.SetActive(activePanel.Equals(JoinRandomRoomPanel.name));

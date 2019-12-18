@@ -21,6 +21,19 @@ public class MarblGame
         return Color.black; 
     }
 
+    public static string GetColorUI(int colorChoice)
+    {
+        switch (colorChoice)
+        {
+            case 0: return "red";
+            case 1: return "green";
+            case 2: return "#00afff";
+            case 3: return "yellow";
+            case 4: return "white";
+        }
+        return "black";
+    }
+
     public static Team GetTeam(int teamChoice)
     {
         switch (teamChoice)

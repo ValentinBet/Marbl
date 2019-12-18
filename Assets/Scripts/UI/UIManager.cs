@@ -27,6 +27,8 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject FreeCamButton;
     public GameObject PingCamButton;
 
+    public Text pingText;
+
     public bool pingStatut = false;
 
     public TimerInfo timer;
@@ -46,8 +48,9 @@ public class UIManager : MonoBehaviourPunCallbacks
     private bool isEscapeMenuDisplayed = false;
 
     Dictionary<BallSettings, PingElement> listOfPing = new Dictionary<BallSettings, PingElement>();
-    public GameObject pingPrefab;
 
+    public GameObject pingPrefab;
+    public GameObject PingChoice;
     public GameObject currentClickedBall;
 
     private void Awake()
@@ -64,6 +67,11 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
+        if (pingText != null)
+        {
+            pingText.text = "Ping : " + PhotonNetwork.GetPing() +"ms";
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             DisplayEscapeMenu();
@@ -99,7 +107,7 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        // SceneManager.LoadScene(quitScene);
+        //SceneManager.LoadScene(quitScene);
     }
 
     public void DisplaySettings()
@@ -289,7 +297,14 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public void DisplayInfoTurn(string playerName, int playerTeam)
     {
-        infoTurnSettings.text.text = playerName + "'s Turn";
+        if (PhotonNetwork.LocalPlayer.GetPlayerTurnState())
+        {
+            infoTurnSettings.text.text = "Your turn";
+        } else
+        {
+            infoTurnSettings.text.text = playerName + "'s Turn";
+        }
+
         infoTurnSettings.MainBackground.GetComponent<Image>().color = MarblGame.GetColor(playerTeam);
         infoTurnSettings.BackgroundGo.GetComponent<Animator>().SetTrigger("Display");
     }

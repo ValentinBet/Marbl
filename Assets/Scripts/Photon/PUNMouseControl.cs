@@ -7,6 +7,7 @@ using Photon.Realtime;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Photon.Pun.UtilityScripts;
 
 public class PUNMouseControl : MonoBehaviour
 {
@@ -38,7 +39,6 @@ public class PUNMouseControl : MonoBehaviour
     private Vector3 direction;
     private Image dragForceBar;
 
-
     [SerializeField]
     private float cancelForce = 0.08f;
     [SerializeField]
@@ -57,6 +57,7 @@ public class PUNMouseControl : MonoBehaviour
         mainCamera = Camera.main;
         dragForceBar = UIManager.Instance.dragForceBar;
     }
+
     void Update()
     {
         if (!photonView.IsMine)
@@ -82,15 +83,27 @@ public class PUNMouseControl : MonoBehaviour
             if (Physics.Raycast(ray, out hit, 100.0f, layerClickBall))
             {
                 StopShoot();
+                actualSelectedBall = null;
                 ClickOnBall(hit.collider.transform.parent.gameObject);
                 UIManager.Instance.ResetButton();
             }
         }
     }
 
+    public void DeselectBall()
+    {
+        lastSelected = null;
+        actualBallLineRenderer = null;
+        actualSelectedBall = null;
+
+        StopShoot();
+    }
+
     public void ClickOnBall(GameObject target)
     {
-        if (player.teamBalls.Contains(target))
+        OnBallClicked?.Invoke(target);
+
+        if (target.GetComponent<BallSettings>().myteam == PhotonNetwork.LocalPlayer.GetTeam())
         {
             if (target != null)
             {
@@ -106,8 +119,6 @@ public class PUNMouseControl : MonoBehaviour
 
     public void NewBallSelected(GameObject ball)
     {
-        OnBallClicked?.Invoke(ball);
-
         UIManager.Instance.OnEndTurn();
         UIManager.Instance.OnClickOnBall(ball);
 
@@ -122,7 +133,7 @@ public class PUNMouseControl : MonoBehaviour
     // Mouse Elevation
     private void GetElevation()
     {
-        mouseScrollDelta += Input.GetAxis("Mouse ScrollWheel");
+        mouseScrollDelta -= Input.GetAxis("Mouse ScrollWheel");
         if (mouseScrollDelta > scrollSensivity)
         {
             angleIndex = Mathf.Clamp(angleIndex + 1, 0, possibleAngles.Length - 1);
@@ -175,7 +186,6 @@ public class PUNMouseControl : MonoBehaviour
 
     private void ShootBall()
     {
-
         if (dragForce > dragForceMaxValue * cancelForce)
         {
             actualSelectedBall.GetComponent<PUNBallMovement>().MoveBall(direction, elevation, dragForce);
@@ -198,9 +208,7 @@ public class PUNMouseControl : MonoBehaviour
         elevation = 0;
         dragForce = 0;
         DisplayDragForce();
-
         UIManager.Instance.isShooting = false;
-
     }
 
     private void DisplayLineRenderer()

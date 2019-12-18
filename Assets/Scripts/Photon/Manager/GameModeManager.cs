@@ -42,7 +42,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public Team localPlayerTeam;
     public bool localPlayerTurn = false;
 
-
     //----------------    BOOL DE CHAQUE MODE   -----------------
     bool modeDM = false;
     bool modeHill = false;
@@ -111,6 +110,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                     currentIndex++;
                     GameObject _newBall = PhotonNetwork.Instantiate("Marbl", element.position, Quaternion.identity);
                     _newBall.GetComponent<BallSettings>().myteam = MarblGame.GetTeam(index);
+                    Debug.Log(MarblGame.GetTeam(index));
 
                     if (currentIndex == numbrBallByTeam)
                     {
@@ -132,6 +132,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                 {
                     GameObject _newBall = PhotonNetwork.Instantiate("Marbl", spawnPos[0].position, Quaternion.identity);
                     _newBall.GetComponent<BallSettings>().myteam = MarblGame.GetTeam(index);
+                    Debug.Log(MarblGame.GetTeam(index));
                     spawnPos.Remove(spawnPos[0]);
                 }
             }
@@ -141,6 +142,9 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         CreateTeamList();
 
         //set turn
+        //teamPlayed = presentTeam[indexTeamPlaying];
+
+        indexTeamPlaying = Random.Range(0, presentTeam.Count);
         teamPlayed = presentTeam[indexTeamPlaying];
         RoomSetTurn();
         List<Player> _listPlayer = GetPlayerOfOneTeam(teamPlayed);
@@ -211,7 +215,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
             ball.GetComponent<PhotonView>().TransferOwnership(_player);
         }
 
-        string message = "<color=" + _player .GetTeam() + ">" + MarblFactory.FirstCharToUpper(_player.GetTeam().ToString()) + "</color>'s turn";
+        string message = "<color=" + MarblGame.GetColorUI((int) _player .GetTeam()) + ">" + _player.NickName + "</color>'s turn";
         myPV.RPC("RpcDisplayMessage", RpcTarget.AllViaServer, message);
     }
 
@@ -406,15 +410,10 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         return number;
     }
 
-    public void SendKillFeedMessage(string _text)
-    {
-        myPV.RPC("RpcDisplayMessage", RpcTarget.AllViaServer, _text);
-    }
-
     [PunRPC]
     void RpcDisplayMessage(string _text)
     {
-        KillfeedManager.Instance.AddMessage(_text);
+        ChatManager.Instance.OnChatMessage(_text);
     }
 
     [PunRPC]
@@ -457,6 +456,9 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public void EndMode()
     {
         if (gameFinish) { return; }
+        
+        // Hue GameMode End
+        HueManager.Instance.EndGame();
 
         myPV.RPC("RpcDisplayScoreBoard", RpcTarget.AllViaServer);
         gameFinish = true;
@@ -506,5 +508,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         }
     }
 
-
+    public void SendMessageString(string value)
+    {
+        myPV.RPC("RpcDisplayMessage", RpcTarget.AllViaServer, value);
+    }
 }

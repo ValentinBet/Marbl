@@ -10,7 +10,7 @@ using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class LocalPlayerManager : MonoBehaviourPunCallbacks
 {
-    List<GameObject> allBalls = new List<GameObject>();
+    public List<GameObject> allBalls = new List<GameObject>();
     public List<GameObject> teamBalls = new List<GameObject>();
     bool canShoot;
     PhotonView PV;
@@ -238,5 +238,16 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
         _turnPlayer["playerTurn"] = false;
         PhotonNetwork.LocalPlayer.SetCustomProperties(_turnPlayer);
         DeathMatchManager.Instance.NewTrun();
+    }
+
+    public void SendMessageString(string value)
+    {
+        PV.RPC("RpcChat", RpcTarget.AllViaServer, value);
+    }
+
+    [PunRPC]
+    void RpcChat(string _text)
+    {
+        ChatManager.Instance.OnChatMessage(_text);
     }
 }

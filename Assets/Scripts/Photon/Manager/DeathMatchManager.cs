@@ -124,30 +124,17 @@ public class DeathMatchManager : MonoBehaviour
                     PhotonNetwork.CurrentRoom.AddTeamScore(localPlayerTeam, killPoint * killThisRound);
                 }
             }
+
+            
+            string _messageKill = "<color=" + MarblGame.GetColorUI((int) GameModeManager.Instance.localPlayerTeam) + ">" + PhotonNetwork.LocalPlayer.NickName.ToString() + "</color> eject marbl of <color=" + MarblGame.GetColorUI((int)_ballTeam) + ">" + MarblFactory.FirstCharToUpper(_ballTeam.ToString()) + "</color> ";
+            GameModeManager.Instance.localPlayerObj.GetComponent<LocalPlayerManager>().SendMessageString(_messageKill);
         }
 
         if (PhotonNetwork.IsMasterClient)
         {
-            foreach (Player p in PhotonNetwork.PlayerList)
-            {
-                try
-                {
-                    if ((bool)p.CustomProperties["playerTurn"])
-                    {
-                        Team _currentTeam = (Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
-                        string _messageKill = "<color=" + _currentTeam + ">" + MarblFactory.FirstCharToUpper(_currentTeam.ToString()) + "</color> eject marbl of <color=" + _ballTeam + ">" + MarblFactory.FirstCharToUpper(_ballTeam.ToString()) + "</color> ";
-                        GameModeManager.Instance.SendKillFeedMessage(_messageKill);
-                        break;
-                    }
-                }
-                catch { }
-            }
-
             PhotonView ballPV = marbl.GetPhotonView();
             ballPV.TransferOwnership(PhotonNetwork.LocalPlayer);
-
             PhotonNetwork.Destroy(ballPV);
-
 
             GetMyBalls();
 
@@ -155,8 +142,8 @@ public class DeathMatchManager : MonoBehaviour
             {
                 listTeamsDeath.Add(_ballTeam);
 
-                string _messageEliminated = "<color=" + _ballTeam + ">" + MarblFactory.FirstCharToUpper(_ballTeam.ToString()) + " Team</color> eliminated !";
-                GameModeManager.Instance.SendKillFeedMessage(_messageEliminated);
+                string _messageEliminated = "<color=" + MarblGame.GetColorUI((int)_ballTeam) + ">" + MarblFactory.FirstCharToUpper(_ballTeam.ToString()) + " Team</color> eliminated !";
+                GameModeManager.Instance.SendMessageString(_messageEliminated);
             }
 
             DetectEndGame();
