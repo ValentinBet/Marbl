@@ -100,6 +100,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         this.SetActivePanel(SelectionPanel.name);
 
         PhotonNetwork.LocalPlayer.NickName = PlayerNameInput.text;
+        //On Connection
         PhotonNetwork.LocalPlayer.SetTeam(MarblFactory.GetRandomTeam());
     }
 
