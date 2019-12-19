@@ -52,7 +52,20 @@ public class JsonMapLoader : MonoBehaviour
         {
             mapIndex = PhotonNetwork.CurrentRoom.GetMap();
 
-            var info = new DirectoryInfo(Application.streamingAssetsPath + "/Map/");
+            string path = "";
+            switch (PhotonNetwork.CurrentRoom.GetCustomMap())
+            {
+                case true:
+                    path = "/MapsCustom/";
+                    break;
+
+                case false:
+                    path = "/Maps/";
+                    break;
+            }
+
+
+            var info = new DirectoryInfo(Application.streamingAssetsPath + path);
             var files = info.GetFiles();
 
             List<FileInfo> fileInfo = files.ToList();
@@ -65,7 +78,7 @@ public class JsonMapLoader : MonoBehaviour
                 }
             }  
             
-            WWW data = new WWW(Application.streamingAssetsPath + "/Map/" + fileInfo[mapIndex].Name);
+            WWW data = new WWW(Application.streamingAssetsPath + path + fileInfo[mapIndex].Name);
 
             jsonMap = data.text;
 

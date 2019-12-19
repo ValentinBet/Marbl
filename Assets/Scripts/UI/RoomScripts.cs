@@ -25,14 +25,26 @@ public class RoomScripts : MonoBehaviour
     [Header("Mode")]
     public List<Image> OutlineMode = new List<Image>();
 
-    [Header("Map")]
-    public List<Image> OutlineMap = new List<Image>();
-
 
     public int mode;
     public int map;
 
     public GameObject settingsCustom;
+
+    private static RoomScripts _instance;
+    public static RoomScripts Instance { get { return _instance; } }
+
+    private void Awake()
+    {
+        if (_instance != null && _instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            _instance = this;
+        }
+    }
 
 
     // Start is called before the first frame update
@@ -123,10 +135,13 @@ public class RoomScripts : MonoBehaviour
 
     public void SetMap(int value)
     {
-        OutlineMap[map].color = Color.white;
         map = value;
-        OutlineMap[map].color = new Color(1, 0.1986281f, 0);
         PhotonNetwork.CurrentRoom.SetMap(Mathf.RoundToInt(value));
         settingsCustom.SetActive(false);
+    }
+
+    public void SetMapCustom(bool value)
+    {
+        PhotonNetwork.CurrentRoom.SetCustomMap(value);
     }
 }
