@@ -12,7 +12,7 @@ public class PipeEntryBlock : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            if (!mainPipe.ignoredBall.Contains(other.gameObject))
+            if (!mainPipe.ignoredBall.ContainsKey(other.gameObject))
             {
                 mainPipe.InitPipeTP(entryNumber, other.gameObject);
             }
@@ -23,9 +23,12 @@ public class PipeEntryBlock : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            if (mainPipe.ignoredBall.Contains(other.gameObject) && mainPipe.entryGo != this)
+            if (mainPipe.ignoredBall.ContainsKey(other.gameObject))
             {
-                mainPipe.ignoredBall.Remove(other.gameObject);
+                if (mainPipe.ignoredBall[other.gameObject].entryGo.gameObject != gameObject)
+                {
+                    mainPipe.ignoredBall.Remove(other.gameObject);
+                }
             }
         }
     }

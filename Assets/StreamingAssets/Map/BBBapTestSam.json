@@ -1,0 +1,3263 @@
+{
+    "mapName": "MapTestSam",
+    "mapObjects": [
+        {
+            "objectName": "Pipe",
+            "prefabName": "Pipe",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 17.079999923706056,
+                "y": 1.3600003719329835,
+                "z": -40.709999084472659
+            },
+            "rotation": {
+                "x": 0.5000000596046448,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.8660255074501038
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Bezier",
+            "prefabName": "Bezier",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -3.534818649291992,
+                "y": 1.9300005435943604,
+                "z": -39.02000045776367
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "ExitDirection",
+            "prefabName": "ExitDirection",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 16.227998733520509,
+                "y": 3.481132984161377,
+                "z": -37.91334915161133
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": -0.47754231095314028,
+                "z": 0.8786089420318604,
+                "w": 0.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "ExitDirection",
+            "prefabName": "ExitDirection",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -19.079999923706056,
+                "y": 1.5899975299835206,
+                "z": -26.329986572265626
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Entry (2)",
+            "prefabName": "Entry (2)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -19.079999923706056,
+                "y": 1.5899989604949952,
+                "z": -27.799991607666017
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 1.7400000095367432,
+                "y": 1.7400009632110596,
+                "z": 1.7400009632110596
+            }
+        },
+        {
+            "objectName": "Entry (1)",
+            "prefabName": "Entry (1)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 16.227998733520509,
+                "y": 2.583000898361206,
+                "z": -39.29899978637695
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": -0.47754231095314028,
+                "z": 0.8786089420318604,
+                "w": 0.0
+            },
+            "scale": {
+                "x": 1.7400000095367432,
+                "y": 1.7400000095367432,
+                "z": 1.7400000095367432
+            }
+        },
+        {
+            "objectName": "PipeInWall",
+            "prefabName": "PipeInWall",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -18.239999771118165,
+                "y": 1.2000000476837159,
+                "z": -39.63999938964844
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 0.5,
+                "y": 0.5000002384185791,
+                "z": 0.33333349227905276
+            }
+        },
+        {
+            "objectName": "Terrain_(-521,6, -0,5, -50,2)",
+            "prefabName": "Terrain_(-521,6, -0,5, -50,2)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -243.1999969482422,
+                "y": 0.0,
+                "z": -249.0399932861328
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 0.5,
+                "y": 0.3333333432674408,
+                "z": 0.5
+            }
+        },
+        {
+            "objectName": "Sparkles",
+            "prefabName": "Sparkles",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 17.239999771118165,
+                "y": 1.3610001802444459,
+                "z": 5.71999979019165
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "SpeedBoostCollider",
+            "prefabName": "SpeedBoostCollider",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 17.239999771118165,
+                "y": 1.2109999656677247,
+                "z": 5.71999979019165
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 5.0995001792907719,
+                "y": 5.0995001792907719,
+                "z": 5.0995001792907719
+            }
+        },
+        {
+            "objectName": "CFX_ElectricGround",
+            "prefabName": "CFX_ElectricGround",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 17.239999771118165,
+                "y": 1.3610001802444459,
+                "z": 5.71999979019165
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.825845718383789,
+                "y": 1.266391634941101,
+                "z": 1.58214271068573
+            }
+        },
+        {
+            "objectName": "SpeedBoost (1)",
+            "prefabName": "SpeedBoost",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 17.239999771118165,
+                "y": 1.2109999656677247,
+                "z": 5.71999979019165
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 0.5,
+                "y": 0.5000002384185791,
+                "z": 0.33333349227905276
+            }
+        },
+        {
+            "objectName": "Obstacle (1)",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 4.110000133514404,
+                "y": 2.930000066757202,
+                "z": 30.520000457763673
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.855599880218506,
+                "y": 3.2370667457580568,
+                "z": 4.855599880218506
+            }
+        },
+        {
+            "objectName": "Sparkles",
+            "prefabName": "Sparkles",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.949613571166992,
+                "y": 1.3610001802444459,
+                "z": -28.73316764831543
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "SpeedBoostCollider",
+            "prefabName": "SpeedBoostCollider",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.949613571166992,
+                "y": 1.2109999656677247,
+                "z": -28.73316764831543
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 5.0995001792907719,
+                "y": 5.0995001792907719,
+                "z": 5.0995001792907719
+            }
+        },
+        {
+            "objectName": "CFX_ElectricGround",
+            "prefabName": "CFX_ElectricGround",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.949613571166992,
+                "y": 1.3610001802444459,
+                "z": -28.73316764831543
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.825845718383789,
+                "y": 1.266391634941101,
+                "z": 1.58214271068573
+            }
+        },
+        {
+            "objectName": "SpeedBoost",
+            "prefabName": "SpeedBoost",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.949613571166992,
+                "y": 1.2109999656677247,
+                "z": -28.73316764831543
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 0.5,
+                "y": 0.5000002384185791,
+                "z": 0.33333349227905276
+            }
+        },
+        {
+            "objectName": "Obstacle",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 4.110000133514404,
+                "y": 2.930000066757202,
+                "z": -46.880001068115237
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "scale": {
+                "x": 4.855599880218506,
+                "y": 3.2370667457580568,
+                "z": 4.855599880218506
+            }
+        },
+        {
+            "objectName": "Obstacle (2)",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 34.81999969482422,
+                "y": 2.930000066757202,
+                "z": -7.800000190734863
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.7071057558059692,
+                "z": 0.0,
+                "w": 0.7071078419685364
+            },
+            "scale": {
+                "x": 6.737144947052002,
+                "y": 3.2370667457580568,
+                "z": 4.855599880218506
+            }
+        },
+        {
+            "objectName": "Obstacle (3)",
+            "prefabName": "Obstacle",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -27.219999313354493,
+                "y": 2.930000066757202,
+                "z": -7.800000190734863
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": -0.7071068286895752,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 6.737144947052002,
+                "y": 3.2370667457580568,
+                "z": 4.855599880218506
+            }
+        },
+        {
+            "objectName": "TileCube (68)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 24.0,
+                "y": 0.6000000238418579,
+                "z": -36.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (65)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 16.0,
+                "y": 0.6000000238418579,
+                "z": -36.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (14)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 13.690000534057618,
+                "y": 1.5999999046325684,
+                "z": 14.829999923706055
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (74)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 16.0,
+                "y": 0.6000000238418579,
+                "z": -12.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (111)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 0.0,
+                "y": 0.6000000238418579,
+                "z": 20.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Directional Light",
+            "prefabName": "",
+            "rootParent": "Directional Light",
+            "teamNumber": "",
+            "isRootParent": true,
+            "position": {
+                "x": 93.62185668945313,
+                "y": -71.62167358398438,
+                "z": -40.65216064453125
+            },
+            "rotation": {
+                "x": 0.4082178771495819,
+                "y": -0.23456968367099763,
+                "z": 0.10938163101673126,
+                "w": 0.8754261136054993
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -15.710000038146973,
+                "y": 1.5999999046325684,
+                "z": 14.829999923706055
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (103)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -16.0,
+                "y": 0.6000000238418579,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 1 (2)",
+            "prefabName": "",
+            "rootParent": "HillsPos",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -7.88540506362915,
+                "y": 1.1916849613189698,
+                "z": -32.150142669677737
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 0.3943995237350464,
+                "y": 0.3943995237350464,
+                "z": 0.3943995237350464
+            }
+        },
+        {
+            "objectName": "TileCube (88)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -16.0,
+                "y": 0.6000000238418579,
+                "z": -12.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (79)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -16.0,
+                "y": 0.6000000238418579,
+                "z": -36.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (5)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 6.768620491027832,
+                "y": 1.5999999046325684,
+                "z": 6.199660301208496
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 1",
+            "prefabName": "",
+            "rootParent": "HillsPos",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 5.755585193634033,
+                "y": 1.1916849613189698,
+                "z": -7.327595233917236
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 0.3943995237350464,
+                "y": 0.3943995237350464,
+                "z": 0.3943995237350464
+            }
+        },
+        {
+            "objectName": "TileCube (66)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 16.0,
+                "y": 0.6000000238418579,
+                "z": -28.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team4",
+            "isRootParent": false,
+            "position": {
+                "x": 14.820000648498536,
+                "y": 1.5999999046325684,
+                "z": -12.680000305175782
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (1)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team2",
+            "isRootParent": false,
+            "position": {
+                "x": 24.620006561279298,
+                "y": 1.5999999046325684,
+                "z": 18.10999870300293
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (1)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.53000020980835,
+                "y": 1.5999999046325684,
+                "z": 18.110000610351564
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (9)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 10.315351486206055,
+                "y": 1.5999999046325684,
+                "z": 6.226035118103027
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (3)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -4.260000228881836,
+                "y": 1.5999999046325684,
+                "z": 14.829999923706055
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (16)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 13.639999389648438,
+                "y": 1.5999999046325684,
+                "z": -20.31999969482422
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (5)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -15.710000038146973,
+                "y": 1.5999999046325684,
+                "z": -4.5
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (7)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -15.710000038146973,
+                "y": 1.5999999046325684,
+                "z": -0.35000038146972659
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (8)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -4.260000228881836,
+                "y": 1.5999999046325684,
+                "z": -4.5
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -15.710986137390137,
+                "y": 1.5999999046325684,
+                "z": -20.97942543029785
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (3)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team2",
+            "isRootParent": false,
+            "position": {
+                "x": 26.890005111694337,
+                "y": 1.5999999046325684,
+                "z": 14.829998016357422
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (98)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 16.0,
+                "y": 0.6000000238418579,
+                "z": 20.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (89)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 16.0,
+                "y": 0.6000000238418579,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (15)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 4.460000038146973,
+                "y": 1.5999999046325684,
+                "z": -23.600000381469728
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (69)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 0.6000000238418579,
+                "z": -36.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (112)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -16.0,
+                "y": 0.6000000238418579,
+                "z": 20.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (2)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -15.710000038146973,
+                "y": 1.5999999046325684,
+                "z": 18.979999542236329
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (19)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 1.5999999046325684,
+                "z": -23.600000381469728
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team1",
+            "isRootParent": false,
+            "position": {
+                "x": -15.710000038146973,
+                "y": 1.5999999046325684,
+                "z": 14.829999923706055
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (3)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -4.2618584632873539,
+                "y": 1.5999999046325684,
+                "z": -20.97858428955078
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (2)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team4",
+            "isRootParent": false,
+            "position": {
+                "x": 14.820000648498536,
+                "y": 1.5999999046325684,
+                "z": -8.530000686645508
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (106)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -16.0,
+                "y": 0.6000000238418579,
+                "z": 4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (107)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.0,
+                "y": 0.6000000238418579,
+                "z": 12.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (17)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 4.460000038146973,
+                "y": 1.5999999046325684,
+                "z": -19.450000762939454
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (4)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team1",
+            "isRootParent": false,
+            "position": {
+                "x": -12.170000076293946,
+                "y": 1.5999999046325684,
+                "z": 14.829999923706055
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Team2",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "",
+            "isRootParent": true,
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.7071068286895752,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (83)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.0,
+                "y": 0.6000000238418579,
+                "z": -20.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (93)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 24.0,
+                "y": 0.5999999642372131,
+                "z": 4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team2",
+            "isRootParent": false,
+            "position": {
+                "x": 15.440003395080567,
+                "y": 1.5999999046325684,
+                "z": 14.829998970031739
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (110)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.0,
+                "y": 0.6000000238418579,
+                "z": 20.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (14)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -4.953839302062988,
+                "y": 1.5999999046325684,
+                "z": -3.4145984649658205
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (18)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 15.90999984741211,
+                "y": 1.5999999046325684,
+                "z": -23.600000381469728
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (4)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -12.169448852539063,
+                "y": 1.5999999046325684,
+                "z": -20.97479820251465
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (95)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 16.0,
+                "y": 0.6000000238418579,
+                "z": 12.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (97)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 0.6000000238418579,
+                "z": 12.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (4)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team4",
+            "isRootParent": false,
+            "position": {
+                "x": 18.360000610351564,
+                "y": 1.5999999046325684,
+                "z": -12.680000305175782
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (6)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.53000020980835,
+                "y": 1.5999999046325684,
+                "z": -1.2199993133544922
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (71)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 0.5999999642372131,
+                "z": -28.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (10)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.500571250915528,
+                "y": 1.5999999046325684,
+                "z": -3.440974235534668
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (102)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 0.0,
+                "y": 0.6000000238418579,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Team3",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "",
+            "isRootParent": true,
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (73)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 0.6000000238418579,
+                "z": -20.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (76)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 0.5999999642372131,
+                "z": -12.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (90)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 24.0,
+                "y": 0.6000000238418579,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (77)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.0,
+                "y": 0.6000000238418579,
+                "z": -36.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (1)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team1",
+            "isRootParent": false,
+            "position": {
+                "x": -6.53000020980835,
+                "y": 1.5999999046325684,
+                "z": 18.110000610351564
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (84)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 0.0,
+                "y": 0.6000000238418579,
+                "z": -20.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (101)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.0,
+                "y": 0.6000000238418579,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (8)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 18.266441345214845,
+                "y": 1.5999999046325684,
+                "z": 6.211858749389648
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (13)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 21.600000381469728,
+                "y": 1.5999999046325684,
+                "z": 14.829999923706055
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (105)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 0.0,
+                "y": 0.6000000238418579,
+                "z": 4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (80)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.0,
+                "y": 0.6000000238418579,
+                "z": -28.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (100)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 0.5999999642372131,
+                "z": 20.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (82)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -16.0,
+                "y": 0.6000000238418579,
+                "z": -28.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (92)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 16.0,
+                "y": 0.6000000238418579,
+                "z": 4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (13)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 2.997249126434326,
+                "y": 1.5999999046325684,
+                "z": -3.4287753105163576
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (81)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 0.0,
+                "y": 0.6000000238418579,
+                "z": -28.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (11)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 0.6524630188941956,
+                "y": 1.5999999046325684,
+                "z": -0.15585920214653016
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (96)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 24.0,
+                "y": 0.6000000238418579,
+                "z": 12.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (99)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 24.0,
+                "y": 0.5999999642372131,
+                "z": 20.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (1)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.529775619506836,
+                "y": 1.5999999046325684,
+                "z": -17.69184684753418
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (108)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 0.0,
+                "y": 0.6000000238418579,
+                "z": 12.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (2)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team3",
+            "isRootParent": false,
+            "position": {
+                "x": -1.0500001907348633,
+                "y": 1.5999999046325684,
+                "z": -32.35000228881836
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "neutralBallsSpawn",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": true,
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.34202009439468386,
+                "z": 0.0,
+                "w": 0.9396926760673523
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (2)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team2",
+            "isRootParent": false,
+            "position": {
+                "x": 15.440003395080567,
+                "y": 1.5999999046325684,
+                "z": 18.979999542236329
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (78)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 0.0,
+                "y": 0.6000000238418579,
+                "z": -36.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (72)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 24.0,
+                "y": 0.6000000238418579,
+                "z": -20.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (1)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.735452651977539,
+                "y": 1.5999999046325684,
+                "z": -8.087050437927246
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (3)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team4",
+            "isRootParent": false,
+            "position": {
+                "x": 26.270000457763673,
+                "y": 1.5999999046325684,
+                "z": -12.680000305175782
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (12)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.511970520019532,
+                "y": 1.5999999046325684,
+                "z": 0.7458949089050293
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (1)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team4",
+            "isRootParent": false,
+            "position": {
+                "x": 24.0,
+                "y": 1.5999999046325684,
+                "z": -9.399999618530274
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (7)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 6.757220268249512,
+                "y": 1.5999999046325684,
+                "z": 10.386528015136719
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (75)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 24.0,
+                "y": 0.5999999642372131,
+                "z": -12.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (2)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team1",
+            "isRootParent": false,
+            "position": {
+                "x": -15.710000038146973,
+                "y": 1.5999999046325684,
+                "z": 18.979999542236329
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Team1",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "",
+            "isRootParent": true,
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (3)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team3",
+            "isRootParent": false,
+            "position": {
+                "x": 10.399999618530274,
+                "y": 1.5999999046325684,
+                "z": -36.5
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (67)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 16.0,
+                "y": 0.6000000238418579,
+                "z": -20.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (2)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -15.712260246276856,
+                "y": 1.5999999046325684,
+                "z": -16.82716178894043
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (4)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -12.170000076293946,
+                "y": 1.5999999046325684,
+                "z": 14.829999923706055
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (91)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 0.6000000238418579,
+                "z": -4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team3",
+            "isRootParent": false,
+            "position": {
+                "x": -1.0500001907348633,
+                "y": 1.5999999046325684,
+                "z": -36.5
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (11)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 19.329999923706056,
+                "y": 1.5999999046325684,
+                "z": 18.110000610351564
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 1 (1)",
+            "prefabName": "",
+            "rootParent": "HillsPos",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 15.162290573120118,
+                "y": 1.1916849613189698,
+                "z": 6.516234874725342
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 0.3943995237350464,
+                "y": 0.3943995237350464,
+                "z": 0.3943995237350464
+            }
+        },
+        {
+            "objectName": "Pos 5 (3)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team1",
+            "isRootParent": false,
+            "position": {
+                "x": -4.260000228881836,
+                "y": 1.5999999046325684,
+                "z": 14.829999923706055
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (2)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -0.44060420989990237,
+                "y": 1.5999999046325684,
+                "z": -7.214704513549805
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (4)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team2",
+            "isRootParent": false,
+            "position": {
+                "x": 18.980003356933595,
+                "y": 1.5999999046325684,
+                "z": 14.829999923706055
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0000001192092896
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (1)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team3",
+            "isRootParent": false,
+            "position": {
+                "x": 8.129999160766602,
+                "y": 1.5999999046325684,
+                "z": -33.220001220703128
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (10)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 10.15000057220459,
+                "y": 1.5999999046325684,
+                "z": 14.829999923706055
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (104)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.0,
+                "y": 0.6000000238418579,
+                "z": 4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (12)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 10.15000057220459,
+                "y": 1.5999999046325684,
+                "z": 18.979999542236329
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (94)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 0.5999999642372131,
+                "z": 4.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (9)",
+            "prefabName": "",
+            "rootParent": "AllPosRandom",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -12.170000076293946,
+                "y": 1.5999999046325684,
+                "z": -4.5
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (109)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -16.0,
+                "y": 0.6000000238418579,
+                "z": 12.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (6)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 15.921653747558594,
+                "y": 1.5999999046325684,
+                "z": 9.484774589538575
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -0.4393301010131836,
+                "y": 1.5999999046325684,
+                "z": -11.366969108581543
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (86)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.0,
+                "y": 0.6000000238418579,
+                "z": -12.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "TileCube (85)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -16.0,
+                "y": 0.6000000238418579,
+                "z": -20.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "HillsPos",
+            "prefabName": "",
+            "rootParent": "HillsPos",
+            "teamNumber": "",
+            "isRootParent": true,
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 2.5355000495910646,
+                "y": 2.5355000495910646,
+                "z": 2.5355000495910646
+            }
+        },
+        {
+            "objectName": "Pos 5 (3)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 11.009797096252442,
+                "y": 1.5999999046325684,
+                "z": -11.366128921508789
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (4)",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "Team3",
+            "isRootParent": false,
+            "position": {
+                "x": 2.489999771118164,
+                "y": 1.5999999046325684,
+                "z": -36.5
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (70)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 24.0,
+                "y": 0.5999999642372131,
+                "z": -28.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Pos 5 (4)",
+            "prefabName": "",
+            "rootParent": "neutralBallsSpawn",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 3.095778465270996,
+                "y": 1.5999999046325684,
+                "z": -11.370002746582032
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Team4",
+            "prefabName": "",
+            "rootParent": "AllPos",
+            "teamNumber": "",
+            "isRootParent": true,
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "TileCube (87)",
+            "prefabName": "TileCube",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 0.0,
+                "y": 0.6000000238418579,
+                "z": -12.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        }
+    ],
+    "mapObjectsPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "mapObjectsRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+    },
+    "mapObjectsScale": {
+        "x": 2.0,
+        "y": 3.0,
+        "z": 2.0
+    },
+    "fixedSpawnPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "fixedSpawnRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+    },
+    "fixedSpawnScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+    },
+    "randomSpawnPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "randomSpawnRotation": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 1.0
+    },
+    "randomSpawnScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+    },
+    "neutralSpawnPosition": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "neutralSpawnRotation": {
+        "x": 0.0,
+        "y": 0.34202009439468386,
+        "z": 0.0,
+        "w": 0.9396926760673523
+    },
+    "neutralSpawnScale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+    },
+    "team1Scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+    },
+    "team2Scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+    },
+    "team3Scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+    },
+    "team4Scale": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0
+    }
+}
