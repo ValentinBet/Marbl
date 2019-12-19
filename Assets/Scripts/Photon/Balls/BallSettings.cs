@@ -13,7 +13,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 
     public bool isVisible = true;
     public Rigidbody myRigid;
-
+    public bool isOnPipe = false;
     public float currentSpeed = 0;
 
     private Team lastTeam;

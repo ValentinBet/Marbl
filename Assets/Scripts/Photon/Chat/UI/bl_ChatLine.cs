@@ -8,6 +8,7 @@ public class bl_ChatLine : MonoBehaviour
     public void FadeInTime(float t,float speed)
     {
         m_canvas = GetComponent<CanvasGroup>();
+        StopAllCoroutines();
         StartCoroutine(Fade(t,speed));
     }
 
