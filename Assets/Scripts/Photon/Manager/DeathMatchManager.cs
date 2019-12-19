@@ -64,8 +64,8 @@ public class DeathMatchManager : MonoBehaviour
 
             foreach (Team _team in listTeamsDeath)
             {
-                PhotonNetwork.CurrentRoom.AddTeamScore(_team, point);
                 point += Mathf.FloorToInt(winPoint / PhotonNetwork.PlayerList.Length);
+                PhotonNetwork.CurrentRoom.AddTeamScore(_team, point);
             }
 
             foreach (Team _element in _presentTeam)
