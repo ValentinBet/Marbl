@@ -64,7 +64,7 @@ public class MapTools : EditorWindow
             {
                 string _ToJson = SaveMap();
 
-                File.WriteAllText(Application.streamingAssetsPath + "/Map/" + mapName + ".json", _ToJson);
+                File.WriteAllText(Application.streamingAssetsPath + "/MapsCustom/" + mapName + ".json", _ToJson);
                 AssetDatabase.Refresh();
             }
         }
