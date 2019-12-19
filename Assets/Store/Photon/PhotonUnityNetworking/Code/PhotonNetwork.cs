@@ -2931,6 +2931,8 @@ namespace Photon.Pun
         /// </param>
         public static void LoadLevel(string levelName)
         {
+            if(levelName == "Lobby") { return; }
+
             if (PhotonNetwork.AutomaticallySyncScene)
             {
                 SetLevelInPropsIfSynced(levelName);

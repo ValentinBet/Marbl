@@ -264,7 +264,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     public void OnCreateRoomButtonClicked()
     {
         string roomName = RoomNameInputField.text;
-        roomName = (roomName.Equals(string.Empty)) ? "Room " + Random.Range(1000, 10000) : roomName;
+        roomName = (roomName.Equals(string.Empty)) ? "Room " + Random.Range(1, 1000) : roomName;
 
         byte maxPlayers;
         byte.TryParse(MaxPlayersInputField.text, out maxPlayers);
