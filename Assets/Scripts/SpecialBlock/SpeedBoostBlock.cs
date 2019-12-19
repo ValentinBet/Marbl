@@ -12,11 +12,21 @@ public class SpeedBoostBlock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Ball") && other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsMine)
+        if (other.CompareTag("Ball"))
         {
-            other.GetComponent<Rigidbody>().velocity *= 2;
             other.GetComponent<BallSettings>().SpawnOverchargedFx();
             audioSource.PlayOneShot(electricSound);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Ball"))
+        {
+            if (other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsMine)
+            {
+                other.GetComponent<Rigidbody>().velocity *= 1.1f;
+            }
         }
     }
 }

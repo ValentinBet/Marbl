@@ -3972,7 +3972,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &816957748
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9391,7 +9391,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -1.6, y: 0.000015258789}
+  m_AnchoredPosition: {x: -1.6, y: 0.0000014523054}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1895139878
@@ -11289,7 +11289,7 @@ MonoBehaviour:
   - {fileID: 1778979270}
   listPosRandom: {fileID: 164057750}
   listNeutralPos: {fileID: 757315349}
-  lobbyScene: Lobby
+  lobbyScene: _MainMenu
   colors:
   - {fileID: 2100000, guid: e6b120985ff306f458411d5bfb30f1b8, type: 2}
   - {fileID: 2100000, guid: 7347cf7679d4806418aa1e66fabbc03c, type: 2}
