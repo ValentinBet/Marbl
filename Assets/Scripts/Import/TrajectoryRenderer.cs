@@ -74,6 +74,10 @@ public class TrajectoryRenderer : MonoBehaviour
             if (!PlaceLandingZone(lrP, lrP.Length / 2))
                 ResetLandingZone();
         }
+        else if (landingZone.transform.position != Vector3.down * 100)
+        {
+            ResetLandingZone();
+        }
     }
 
     private void OnClickOnBall(GameObject ball)
