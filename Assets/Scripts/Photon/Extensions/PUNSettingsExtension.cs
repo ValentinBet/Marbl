@@ -13,6 +13,7 @@ namespace Photon.Pun.UtilityScripts
     public class PUNSettingsExtension : MonoBehaviour
     {
         public const string mapProp = "map";
+        public const string customMap = "mapCustom";
         public const string deathmatchProp = "deathmatch";
         public const string hillProp = "hill";
         public const string coinsProp = "coins";
@@ -58,6 +59,24 @@ namespace Photon.Pun.UtilityScripts
                 return (int)_map;
             }
             return 0;
+        }
+
+        public static void SetCustomMap(this Room room, bool map)
+        {
+            Hashtable _mapCust = new Hashtable();
+            _mapCust[PUNSettingsExtension.customMap] = map;
+            room.SetCustomProperties(_mapCust);
+        }
+
+        public static bool GetCustomMap(this Room room)
+        {
+            object _mapCust;
+
+            if (room.CustomProperties.TryGetValue(PUNSettingsExtension.customMap, out _mapCust))
+            {
+                return (bool)_mapCust;
+            }
+            return false;
         }
 
         public static void SetDeathmatch(this Room room, bool deathmatch)
