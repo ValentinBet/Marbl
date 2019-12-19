@@ -81,6 +81,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     {
         if(PhotonNetwork.PlayerList.Length > 0) {
             OnJoinedRoom();
+            MainMenuAnim.SetBool("GameRestarted", true);
+            MainMenuAnim.Play("RestartGame");
             PhotonNetwork.CurrentRoom.IsOpen = true;
             PhotonNetwork.CurrentRoom.IsVisible = true;
 
@@ -284,6 +286,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public void OnLeaveGameButtonClicked()
     {
+        MainMenuAnim.SetBool("GameRestated", false);
         PhotonNetwork.LeaveRoom();
     }
 
