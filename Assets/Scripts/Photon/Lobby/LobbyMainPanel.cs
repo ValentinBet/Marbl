@@ -73,8 +73,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         ReconnectButton.SetActive(false);
 
-        PhotonNetwork.SendRate = 50;
-        PhotonNetwork.SerializationRate = 50;
+        PhotonNetwork.SendRate = 100;
+        PhotonNetwork.SerializationRate = 100;
     }
 
     private void Start()

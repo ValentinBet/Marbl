@@ -32,12 +32,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
         myTrail.startColor = MarblGame.GetColor((int)myteam);
 
         lastTeam = myteam;
-
-        if (!pv.IsMine)
-        {
-            networkPosition = transform.position;
-            networkRotation = transform.rotation;
-        }
     }
 
     private void Update()
@@ -51,12 +45,9 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {        
         if (!pv.IsMine)
         {
-            //myRigid.position = Vector3.MoveTowards(myRigid.position, networkPosition, Time.fixedDeltaTime * 100.0f);
-            //myRigid.rotation = Quaternion.RotateTowards(myRigid.rotation, networkRotation, Time.fixedDeltaTime * 100.0f);
+            myRigid.position = Vector3.MoveTowards(myRigid.position, networkPosition, Time.fixedDeltaTime * 2f);
+            myRigid.rotation = Quaternion.RotateTowards(myRigid.rotation, networkRotation, Time.fixedDeltaTime * 100.0f);
 
-            myRigid.transform.position = Vector3.MoveTowards(myRigid.position, networkPosition, Time.fixedDeltaTime);
-            myRigid.transform.rotation = Quaternion.RotateTowards(myRigid.rotation, networkRotation, Time.fixedDeltaTime * 720.0f);
-            return;
         }
     }
     private void OnBecameVisible()
@@ -120,36 +111,22 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
         if (stream.IsWriting)
         {
             stream.SendNext((int)myteam);
-        }
-        else
-        {
-            myteam = MarblGame.GetTeam((int)stream.ReceiveNext());
-            QuickScoreboard.Instance.Refresh();
-        }
 
-
-        if (stream.IsWriting)
-        {
             stream.SendNext(this.myRigid.position);
             stream.SendNext(this.myRigid.rotation);
             stream.SendNext(this.myRigid.velocity);
         }
         else
         {
+            myteam = MarblGame.GetTeam((int)stream.ReceiveNext());
+            QuickScoreboard.Instance.Refresh();
+
             networkPosition = (Vector3)stream.ReceiveNext();
             networkRotation = (Quaternion)stream.ReceiveNext();
             myRigid.velocity = (Vector3)stream.ReceiveNext();
 
             float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.timestamp));
-            print(lag);
-            networkPosition += (myRigid.velocity * lag);
-            if (Vector3.Distance(transform.position, networkPosition) > 20.0f) // more or less a replacement for CheckExitScreen function on remote clients
-            {
-                transform.position = networkPosition;
-            }
-
-            //float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
-            //networkPosition += (this.myRigid.velocity * lag);
+            networkPosition += (this.myRigid.velocity * lag);
         }
     }
 
