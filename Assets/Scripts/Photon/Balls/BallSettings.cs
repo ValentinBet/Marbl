@@ -89,11 +89,11 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (stream.IsWriting)
         {
-            stream.SendNext(myteam);
+            stream.SendNext((int)myteam);
         }
         else
         {
-            myteam = (Team)stream.ReceiveNext();
+            myteam =  MarblGame.GetTeam((int)stream.ReceiveNext());
             QuickScoreboard.Instance.Refresh();
         }
     }
