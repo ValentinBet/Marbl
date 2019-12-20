@@ -18,6 +18,9 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 
     private Team lastTeam;
 
+
+    private Vector3 networkPosition;
+    private Quaternion networkRotation;
     private void Start()
     {
         SetColor();
@@ -30,7 +33,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {
         CheckTeam();
         SetColor();
-        currentSpeed = Mathf.Lerp(currentSpeed ,myRigid.velocity.sqrMagnitude, 1 * Time.deltaTime);
+        currentSpeed = Mathf.Lerp(currentSpeed, myRigid.velocity.sqrMagnitude, 1 * Time.deltaTime);
     }
     private void OnBecameVisible()
     {
@@ -85,16 +88,45 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
         SetColor();
     }
 
+    public void FixedUpdate()
+    {
+        if (!photonView.IsMine)
+        {
+            myRigid.position = Vector3.MoveTowards(myRigid.position, networkPosition, Time.fixedDeltaTime);
+            myRigid.rotation = Quaternion.RotateTowards(myRigid.rotation, networkRotation, Time.fixedDeltaTime * 100.0f);
+        }
+    }
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
+
+
         if (stream.IsWriting)
         {
             stream.SendNext((int)myteam);
         }
         else
         {
-            myteam =  MarblGame.GetTeam((int)stream.ReceiveNext());
+            myteam = MarblGame.GetTeam((int)stream.ReceiveNext());
             QuickScoreboard.Instance.Refresh();
         }
+
+
+        if (stream.IsWriting)
+        {
+            stream.SendNext(this.myRigid.position);
+            stream.SendNext(this.myRigid.rotation);
+            stream.SendNext(this.myRigid.velocity);
+        }
+        else
+        {
+            networkPosition = (Vector3)stream.ReceiveNext();
+            networkRotation = (Quaternion)stream.ReceiveNext();
+            myRigid.velocity = (Vector3)stream.ReceiveNext();
+
+            float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.timestamp));
+            networkPosition += (this.myRigid.velocity * lag);
+        }
     }
+
 }
