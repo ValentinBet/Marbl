@@ -86,6 +86,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8172198314359232504, guid: 3db116db348a6ed45bc9f1c4ea3af03c,
+        type: 3}
+      propertyPath: m_SelectedEditorRenderState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172198314359232504, guid: 3db116db348a6ed45bc9f1c4ea3af03c,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8172198314359232505, guid: 3db116db348a6ed45bc9f1c4ea3af03c,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8172198314359232506, guid: 3db116db348a6ed45bc9f1c4ea3af03c,
         type: 3}
       propertyPath: _quads.Array.size
@@ -620,16 +635,6 @@ PrefabInstance:
         type: 3}
       propertyPath: _uv.Array.data[17].y
       value: 0.54999995
-      objectReference: {fileID: 0}
-    - target: {fileID: 8172198314359232505, guid: 3db116db348a6ed45bc9f1c4ea3af03c,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8172198314359232504, guid: 3db116db348a6ed45bc9f1c4ea3af03c,
-        type: 3}
-      propertyPath: m_SelectedEditorRenderState
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3db116db348a6ed45bc9f1c4ea3af03c, type: 3}
