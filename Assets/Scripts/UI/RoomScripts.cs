@@ -21,6 +21,10 @@ public class RoomScripts : MonoBehaviour
     public GameObject PlayersList;
     public GameObject GameMode;
     public GameObject Map;
+    public GameObject Custom;
+
+    [Header("Menu")]
+    public GameObject CustomLabel;
 
     [Header("Mode")]
     public List<Image> OutlineMode = new List<Image>();
@@ -29,7 +33,7 @@ public class RoomScripts : MonoBehaviour
     public int mode;
     public int map;
 
-    public GameObject settingsCustom;
+    public bool customMode = false;
 
     private static RoomScripts _instance;
     public static RoomScripts Instance { get { return _instance; } }
@@ -81,7 +85,6 @@ public class RoomScripts : MonoBehaviour
 
     public void SetChoice(RectTransform element)
     {
-        settingsCustom.SetActive(false);
         Text newtext = element.GetComponent<Text>();
 
         if (currentChoice != newtext)
@@ -96,18 +99,28 @@ public class RoomScripts : MonoBehaviour
                     PlayersList.SetActive(true);
                     GameMode.SetActive(false);
                     Map.SetActive(false);
+                    Custom.SetActive(false);
                     break;
 
                 case "Gamemode":
                     PlayersList.SetActive(false);
                     GameMode.SetActive(true);
                     Map.SetActive(false);
+                    Custom.SetActive(false);
                     break;
 
                 case "Map":
                     PlayersList.SetActive(false);
                     GameMode.SetActive(false);
                     Map.SetActive(true);
+                    Custom.SetActive(false);
+                    break;
+
+                case "Custom":
+                    PlayersList.SetActive(false);
+                    GameMode.SetActive(false);
+                    Map.SetActive(false);
+                    Custom.SetActive(true);
                     break;
             }
         }
@@ -115,29 +128,33 @@ public class RoomScripts : MonoBehaviour
 
     public void SetMode(int value)
     {
+
         OutlineMode[mode].color = Color.white;
         mode = value;
         OutlineMode[mode].color = new Color(1, 0.1986281f, 0);
 
-        if(value == 5)
-        {
-            settingsCustom.SetActive(true);
-            settingsCustom.GetComponent<Image>().color = new Color(1,1,1,1);
-            return;
-        }
-        else
-        {
-            settingsCustom.SetActive(false);
-        }
+        CustomLabel.SetActive(false);
 
-        myRoomSetting.SetMode(mode);
+        if (customMode)
+        {
+            customMode = false;
+            OutlineMode[5].color = Color.white;
+        }
+    }
+
+    public void SetCustom()
+    {
+        customMode = true;
+        CustomLabel.SetActive(true);
+
+        OutlineMode[mode].color = Color.white;
+        OutlineMode[5].color = new Color(1, 0.1986281f, 0);
     }
 
     public void SetMap(int value)
     {
         map = value;
         PhotonNetwork.CurrentRoom.SetMap(Mathf.RoundToInt(value));
-        settingsCustom.SetActive(false);
     }
 
     public void SetMapCustom(bool value)

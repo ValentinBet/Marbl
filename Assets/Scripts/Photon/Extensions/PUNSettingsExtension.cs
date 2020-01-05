@@ -130,23 +130,7 @@ namespace Photon.Pun.UtilityScripts
             }
             return false;
         }
-        public static void SetPotato(this Room room, bool potato)
-        {
-            Hashtable _potato = new Hashtable();
-            _potato[PUNSettingsExtension.potatoProp] = potato;
-            room.SetCustomProperties(_potato);
-        }
-
-        public static bool GetPotato(this Room room)
-        {
-            object _potato;
-
-            if (room.CustomProperties.TryGetValue(PUNSettingsExtension.potatoProp, out _potato))
-            {
-                return (bool)_potato;
-            }
-            return false;
-        }
+       
         public static void SetHue(this Room room, bool hue)
         {
             Hashtable _hue = new Hashtable();
@@ -164,24 +148,6 @@ namespace Photon.Pun.UtilityScripts
             }
             return false;
         }
-        public static void SetBillard(this Room room, bool billard)
-        {
-            Hashtable _billard = new Hashtable();
-            _billard[PUNSettingsExtension.billardProp] = billard;
-            room.SetCustomProperties(_billard);
-        }
-
-        public static bool GetBillard(this Room room)
-        {
-            object _billard;
-
-            if (room.CustomProperties.TryGetValue(PUNSettingsExtension.billardProp, out _billard))
-            {
-                return (bool)_billard;
-            }
-            return false;
-        }
-
 
         public static void SetTurnLimit(this Room room, int turnLimit)
         {
