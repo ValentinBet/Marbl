@@ -10,7 +10,6 @@ using UnityEditor;
 
 public class RoomSettings : MonoBehaviour
 {
-    public GameObject saveSettingsObj;
     public Text saveSettingsText;
 
     [Header("Room")]
@@ -204,12 +203,7 @@ public class RoomSettings : MonoBehaviour
         SaveSettings();
     }
 
-    public void SaveCustomSettings()
-    {
-        SaveFile();
-    }
-
-    void SaveFile()
+    public void SaveFile()
     {
         GameModeSettings modeSettings = new GameModeSettings();
 

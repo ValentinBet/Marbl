@@ -2,6 +2,7 @@
 using Photon.Pun.UtilityScripts;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,6 +35,10 @@ public class RoomScripts : MonoBehaviour
     public int map;
 
     public bool customMode = false;
+
+    List<GameObject> allCustomMode = new List<GameObject>();
+    public GameObject customGamemodePrefab;
+    public Transform gamemodeParent;
 
     private static RoomScripts _instance;
     public static RoomScripts Instance { get { return _instance; } }
@@ -160,5 +165,35 @@ public class RoomScripts : MonoBehaviour
     public void SetMapCustom(bool value)
     {
         PhotonNetwork.CurrentRoom.SetCustomMap(value);
+    }
+
+    public void Refresh()
+    {
+        foreach (GameObject element in allCustomMode)
+        {
+            Destroy(element);
+        }
+
+        var info = new DirectoryInfo(Application.streamingAssetsPath + "/GameModesCustom/");
+        var fileInfo = info.GetFiles();
+
+        foreach (FileInfo file in fileInfo)
+        {
+            if (file.Name.Contains(".meta")) { continue; }
+
+            GameObject newCustomGameMode = Instantiate(customGamemodePrefab, gamemodeParent);
+
+            allCustomMode.Add(newCustomGameMode);
+
+            print(file.Name);
+
+            newCustomGameMode.GetComponent<GamemodeElement>().labelMode =
+
+            WWW data = new WWW(Application.streamingAssetsPath + "/GameModesDefault/" + file.Name + ".json");
+            GameModeSettings modeSettings = new GameModeSettings();
+            modeSettings = JsonUtility.FromJson<GameModeSettings>(data.text);
+
+
+        }
     }
 }
