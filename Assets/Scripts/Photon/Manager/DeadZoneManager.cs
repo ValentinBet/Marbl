@@ -19,6 +19,8 @@ public class DeadZoneManager : MonoBehaviour
     {
         if (other.tag == "Ball")
         {
+            AudioManager.Instance.PlaySoundAtPoint(AudioManager.Instance.ballDeath, other.transform.position);
+
             if (DMactif)
             {
                 DeathMatchManager.Instance.OnMarblDie(other.gameObject);

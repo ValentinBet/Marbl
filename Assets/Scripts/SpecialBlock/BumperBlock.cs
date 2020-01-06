@@ -10,12 +10,19 @@ public class BumperBlock : MonoBehaviour
     public float power = 0.2f;
 
     public Vector3 ExplosionOffset = Vector3.zero;
+    public AudioSource audioSource;
+    public AudioClip ballHit;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Ball"))
         {
             GameObject _ball = collision.collider.gameObject;
+
+            if (ballHit != null)
+            {
+                audioSource.PlayOneShot(ballHit);
+            }
 
             if (_ball.GetComponent<PhotonView>().IsMine)
             {
