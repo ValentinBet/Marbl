@@ -2,15 +2,1395 @@
     "mapName": "MapSam",
     "mapObjects": [
         {
+            "objectName": "ButtonExplosion (7)",
+            "prefabName": "ButtonExplosion",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -47.5303955078125,
+                "y": -2.045271635055542,
+                "z": 0.519860029220581
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 7.9228835105896,
+                "y": 5.28192663192749,
+                "z": 7.9228901863098148
+            }
+        },
+        {
+            "objectName": "ExposionMarkPos",
+            "prefabName": "ExposionMarkPos",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -47.5303955078125,
+                "y": -2.332329511642456,
+                "z": 0.519860029220581
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "pCylinder1",
+            "prefabName": "pCylinder1",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -47.56834411621094,
+                "y": -2.0533268451690676,
+                "z": 0.4922918379306793
+            },
+            "rotation": {
+                "x": 6.657902673623539e-8,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
+            }
+        },
+        {
+            "objectName": "Object001",
+            "prefabName": "Object001",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -47.56834411621094,
+                "y": -2.2346842288970949,
+                "z": 0.49070221185684206
+            },
+            "rotation": {
+                "x": 8.146034247147327e-8,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
+            }
+        },
+        {
+            "objectName": "bomb",
+            "prefabName": "bomb",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -47.579219818115237,
+                "y": -2.251312494277954,
+                "z": 0.5199030041694641
+            },
+            "rotation": {
+                "x": 0.70710688829422,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071067690849304
+            },
+            "scale": {
+                "x": 0.005307244602590799,
+                "y": 0.005307244602590799,
+                "z": 0.005307244602590799
+            }
+        },
+        {
+            "objectName": "bomb",
+            "prefabName": "bomb",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 35.21924591064453,
+                "y": -2.251312494277954,
+                "z": 0.5199030041694641
+            },
+            "rotation": {
+                "x": 0.70710688829422,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071067690849304
+            },
+            "scale": {
+                "x": 0.005307244602590799,
+                "y": 0.005307244602590799,
+                "z": 0.005307244602590799
+            }
+        },
+        {
+            "objectName": "ButtonExplosion (6)",
+            "prefabName": "ButtonExplosion",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.123887062072754,
+                "y": -2.045271635055542,
+                "z": -40.815608978271487
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 7.9228835105896,
+                "y": 5.28192663192749,
+                "z": 7.9228901863098148
+            }
+        },
+        {
+            "objectName": "ExposionMarkPos",
+            "prefabName": "ExposionMarkPos",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.123887062072754,
+                "y": -2.332329511642456,
+                "z": -40.815608978271487
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "pCylinder1",
+            "prefabName": "pCylinder1",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.161835670471191,
+                "y": -2.0533268451690676,
+                "z": -40.843177795410159
+            },
+            "rotation": {
+                "x": 6.657902673623539e-8,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
+            }
+        },
+        {
+            "objectName": "Object001",
+            "prefabName": "Object001",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.161835670471191,
+                "y": -2.2346842288970949,
+                "z": -40.84476852416992
+            },
+            "rotation": {
+                "x": 8.146034247147327e-8,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
+            }
+        },
+        {
+            "objectName": "bomb",
+            "prefabName": "bomb",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.1727094650268559,
+                "y": -2.251312494277954,
+                "z": -40.81556701660156
+            },
+            "rotation": {
+                "x": 0.70710688829422,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071067690849304
+            },
+            "scale": {
+                "x": 0.005307244602590799,
+                "y": 0.005307244602590799,
+                "z": 0.005307244602590799
+            }
+        },
+        {
+            "objectName": "ButtonExplosion (5)",
+            "prefabName": "ButtonExplosion",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.123887062072754,
+                "y": -2.045271635055542,
+                "z": 41.8578987121582
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 7.9228835105896,
+                "y": 5.28192663192749,
+                "z": 7.9228901863098148
+            }
+        },
+        {
+            "objectName": "ExposionMarkPos",
+            "prefabName": "ExposionMarkPos",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.123887062072754,
+                "y": -2.332329511642456,
+                "z": 41.8578987121582
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "pCylinder1",
+            "prefabName": "pCylinder1",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.161835670471191,
+                "y": -2.0533268451690676,
+                "z": 41.83032989501953
+            },
+            "rotation": {
+                "x": 6.657902673623539e-8,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
+            }
+        },
+        {
+            "objectName": "Object001",
+            "prefabName": "Object001",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.161835670471191,
+                "y": -2.2346842288970949,
+                "z": 41.828739166259769
+            },
+            "rotation": {
+                "x": 8.146034247147327e-8,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
+            }
+        },
+        {
+            "objectName": "bomb",
+            "prefabName": "bomb",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.1727094650268559,
+                "y": -2.251312494277954,
+                "z": 41.857940673828128
+            },
+            "rotation": {
+                "x": 0.70710688829422,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071067690849304
+            },
+            "scale": {
+                "x": 0.005307244602590799,
+                "y": 0.005307244602590799,
+                "z": 0.005307244602590799
+            }
+        },
+        {
+            "objectName": "ButtonExplosion (4)",
+            "prefabName": "ButtonExplosion",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 35.26806640625,
+                "y": -2.045271635055542,
+                "z": 0.519860029220581
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 7.9228835105896,
+                "y": 5.28192663192749,
+                "z": 7.9228901863098148
+            }
+        },
+        {
+            "objectName": "ExposionMarkPos",
+            "prefabName": "ExposionMarkPos",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 35.26806640625,
+                "y": -2.332329511642456,
+                "z": 0.519860029220581
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "pCylinder1",
+            "prefabName": "pCylinder1",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 35.23012161254883,
+                "y": -2.0533268451690676,
+                "z": 0.4922918379306793
+            },
+            "rotation": {
+                "x": 6.657902673623539e-8,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
+            }
+        },
+        {
+            "objectName": "Object001",
+            "prefabName": "Object001",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 35.23012161254883,
+                "y": -2.2346842288970949,
+                "z": 0.49070221185684206
+            },
+            "rotation": {
+                "x": 8.146034247147327e-8,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
+            }
+        },
+        {
+            "objectName": "Bumper (11)",
+            "prefabName": "Bumper",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 23.75418472290039,
+                "y": -1.669532060623169,
+                "z": 1.0790929794311524
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.9659267067909241,
+                "z": 0.0,
+                "w": -0.258815735578537
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Sphere (2)",
+            "prefabName": "Sphere (2)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 24.474550247192384,
+                "y": -0.7931313514709473,
+                "z": -1.0259525775909424
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.9659267067909241,
+                "z": 0.0,
+                "w": -0.258815735578537
+            },
+            "scale": {
+                "x": 0.16727998852729798,
+                "y": 0.16727998852729798,
+                "z": 0.16727998852729798
+            }
+        },
+        {
+            "objectName": "Sphere (1)",
+            "prefabName": "Sphere (1)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 24.515605926513673,
+                "y": -0.7931313514709473,
+                "z": 2.4207117557525636
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.9659267067909241,
+                "z": 0.0,
+                "w": -0.258815735578537
+            },
+            "scale": {
+                "x": 0.16727998852729798,
+                "y": 0.16727998852729798,
+                "z": 0.16727998852729798
+            }
+        },
+        {
+            "objectName": "Sphere",
+            "prefabName": "Sphere",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 21.504905700683595,
+                "y": -0.7931313514709473,
+                "z": 0.6841973066329956
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.9659267067909241,
+                "z": 0.0,
+                "w": -0.258815735578537
+            },
+            "scale": {
+                "x": 0.16727782785892487,
+                "y": 0.16727782785892487,
+                "z": 0.16727782785892487
+            }
+        },
+        {
+            "objectName": "Cylinder (3)",
+            "prefabName": "Cylinder (3)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 21.51923370361328,
+                "y": -0.8136725425720215,
+                "z": 0.647132933139801
+            },
+            "rotation": {
+                "x": 0.683012068271637,
+                "y": 0.683012068271637,
+                "z": 0.18301506340503694,
+                "w": 0.18301506340503694
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (2)",
+            "prefabName": "Cylinder (2)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 24.470552444458009,
+                "y": -0.8136718273162842,
+                "z": 2.4111456871032717
+            },
+            "rotation": {
+                "x": 0.5000017285346985,
+                "y": 0.5000017285346985,
+                "z": -0.4999983310699463,
+                "w": -0.4999983310699463
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (1)",
+            "prefabName": "Cylinder (1)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 21.535348892211915,
+                "y": -0.8136718273162842,
+                "z": 0.6547631025314331
+            },
+            "rotation": {
+                "x": 0.683013379573822,
+                "y": 0.683013379573822,
+                "z": -0.18301036953926087,
+                "w": -0.18301036953926087
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (2)",
+            "prefabName": "Cylinder (2)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 24.486385345458986,
+                "y": -2.5253918170928957,
+                "z": 2.3427088260650636
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.9659267067909241,
+                "z": 0.0,
+                "w": -0.258815735578537
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (1)",
+            "prefabName": "Cylinder (1)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 21.535348892211915,
+                "y": -2.5253918170928957,
+                "z": 0.6547631025314331
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.9659267067909241,
+                "z": 0.0,
+                "w": -0.258815735578537
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder",
+            "prefabName": "Cylinder",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 24.500144958496095,
+                "y": -2.5253918170928957,
+                "z": -1.056936502456665
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.9659267067909241,
+                "z": 0.0,
+                "w": -0.258815735578537
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Bumper (10)",
+            "prefabName": "Bumper",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -36.173133850097659,
+                "y": -1.669532060623169,
+                "z": 1.0269699096679688
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.9659252166748047,
+                "z": 0.0,
+                "w": 0.25882142782211306
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Sphere (2)",
+            "prefabName": "Sphere (2)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -33.98992919921875,
+                "y": -0.7931313514709473,
+                "z": 0.5982967615127564
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.9659252166748047,
+                "z": 0.0,
+                "w": 0.25882142782211306
+            },
+            "scale": {
+                "x": 0.16727998852729798,
+                "y": 0.16727998852729798,
+                "z": 0.16727998852729798
+            }
+        },
+        {
+            "objectName": "Sphere (1)",
+            "prefabName": "Sphere (1)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -36.95429611206055,
+                "y": -0.7931313514709473,
+                "z": 2.3571903705596926
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.9659252166748047,
+                "z": 0.0,
+                "w": 0.25882142782211306
+            },
+            "scale": {
+                "x": 0.16727998852729798,
+                "y": 0.16727998852729798,
+                "z": 0.16727998852729798
+            }
+        },
+        {
+            "objectName": "Sphere",
+            "prefabName": "Sphere",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -36.955787658691409,
+                "y": -0.7931313514709473,
+                "z": -1.1184111833572388
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.9659252166748047,
+                "z": 0.0,
+                "w": 0.25882142782211306
+            },
+            "scale": {
+                "x": 0.16727782785892487,
+                "y": 0.16727782785892487,
+                "z": 0.16727782785892487
+            }
+        },
+        {
+            "objectName": "Cylinder (3)",
+            "prefabName": "Cylinder (3)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -36.916526794433597,
+                "y": -0.8136725425720215,
+                "z": -1.124532699584961
+            },
+            "rotation": {
+                "x": 0.4999988079071045,
+                "y": 0.4999988079071045,
+                "z": 0.5000012516975403,
+                "w": 0.5000012516975403
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (2)",
+            "prefabName": "Cylinder (2)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -36.96854019165039,
+                "y": -0.8136718273162842,
+                "z": 2.3133909702301027
+            },
+            "rotation": {
+                "x": 0.6830132007598877,
+                "y": 0.6830132007598877,
+                "z": -0.1830110400915146,
+                "w": -0.1830110400915146
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (1)",
+            "prefabName": "Cylinder (1)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -36.915077209472659,
+                "y": -0.8136718273162842,
+                "z": -1.1067638397216797
+            },
+            "rotation": {
+                "x": 0.6830123066902161,
+                "y": 0.6830123066902161,
+                "z": 0.1830143928527832,
+                "w": 0.1830143928527832
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (2)",
+            "prefabName": "Cylinder (2)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -36.9013557434082,
+                "y": -2.5253918170928957,
+                "z": 2.2928824424743654
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.9659252166748047,
+                "z": 0.0,
+                "w": 0.25882142782211306
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (1)",
+            "prefabName": "Cylinder (1)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -36.915077209472659,
+                "y": -2.5253918170928957,
+                "z": -1.1067638397216797
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.9659252166748047,
+                "z": 0.0,
+                "w": 0.25882142782211306
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder",
+            "prefabName": "Cylinder",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -33.95029830932617,
+                "y": -2.5253918170928957,
+                "z": 0.6049709320068359
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.9659252166748047,
+                "z": 0.0,
+                "w": 0.25882142782211306
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Bumper (9)",
+            "prefabName": "Bumper",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.567262649536133,
+                "y": -1.669532060623169,
+                "z": 30.295228958129884
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.8660244345664978,
+                "z": 0.0,
+                "w": 0.5000017881393433
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Sphere (2)",
+            "prefabName": "Sphere (2)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -4.462215423583984,
+                "y": -0.7931313514709473,
+                "z": 31.015586853027345
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.8660244345664978,
+                "z": 0.0,
+                "w": 0.5000017881393433
+            },
+            "scale": {
+                "x": 0.16727998852729798,
+                "y": 0.16727998852729798,
+                "z": 0.16727998852729798
+            }
+        },
+        {
+            "objectName": "Sphere (1)",
+            "prefabName": "Sphere (1)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -7.908879280090332,
+                "y": -0.7931313514709473,
+                "z": 31.056652069091798
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.8660244345664978,
+                "z": 0.0,
+                "w": 0.5000017881393433
+            },
+            "scale": {
+                "x": 0.16727998852729798,
+                "y": 0.16727998852729798,
+                "z": 0.16727998852729798
+            }
+        },
+        {
+            "objectName": "Sphere",
+            "prefabName": "Sphere",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.1723737716674809,
+                "y": -0.7931313514709473,
+                "z": 28.045944213867189
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.8660244345664978,
+                "z": 0.0,
+                "w": 0.5000017881393433
+            },
+            "scale": {
+                "x": 0.16727782785892487,
+                "y": 0.16727782785892487,
+                "z": 0.16727782785892487
+            }
+        },
+        {
+            "objectName": "Cylinder (3)",
+            "prefabName": "Cylinder (3)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.135309219360352,
+                "y": -0.8136725425720215,
+                "z": 28.060277938842775
+            },
+            "rotation": {
+                "x": 0.3535521924495697,
+                "y": 0.3535521924495697,
+                "z": 0.6123732328414917,
+                "w": 0.6123732328414917
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (2)",
+            "prefabName": "Cylinder (2)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -7.899314880371094,
+                "y": -0.8136718273162842,
+                "z": 31.011600494384767
+            },
+            "rotation": {
+                "x": 0.7071068286895752,
+                "y": 0.7071068286895752,
+                "z": 0.000001430511474609375,
+                "w": 0.000001430511474609375
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (1)",
+            "prefabName": "Cylinder (1)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.142939567565918,
+                "y": -0.8136718273162842,
+                "z": 28.07638931274414
+            },
+            "rotation": {
+                "x": 0.6123718023300171,
+                "y": 0.6123718023300171,
+                "z": 0.3535546660423279,
+                "w": 0.3535546660423279
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (2)",
+            "prefabName": "Cylinder (2)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -7.830877304077148,
+                "y": -2.5253918170928957,
+                "z": 31.027433395385743
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.8660244345664978,
+                "z": 0.0,
+                "w": 0.5000017881393433
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (1)",
+            "prefabName": "Cylinder (1)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.142939567565918,
+                "y": -2.5253918170928957,
+                "z": 28.07638931274414
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.8660244345664978,
+                "z": 0.0,
+                "w": 0.5000017881393433
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder",
+            "prefabName": "Cylinder",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -4.4312310218811039,
+                "y": -2.5253918170928957,
+                "z": 31.041181564331056
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.8660244345664978,
+                "z": 0.0,
+                "w": 0.5000017881393433
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Bumper (8)",
+            "prefabName": "Bumper",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.515190124511719,
+                "y": -1.669532060623169,
+                "z": -29.37411117553711
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.49999916553497317,
+                "z": 0.0,
+                "w": 0.8660259246826172
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "Sphere (2)",
+            "prefabName": "Sphere (2)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.08651065826416,
+                "y": -0.7931313514709473,
+                "z": -27.190906524658204
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.49999916553497317,
+                "z": 0.0,
+                "w": 0.8660259246826172
+            },
+            "scale": {
+                "x": 0.16727998852729798,
+                "y": 0.16727998852729798,
+                "z": 0.16727998852729798
+            }
+        },
+        {
+            "objectName": "Sphere (1)",
+            "prefabName": "Sphere (1)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -7.8454132080078129,
+                "y": -0.7931313514709473,
+                "z": -30.155271530151368
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.49999916553497317,
+                "z": 0.0,
+                "w": 0.8660259246826172
+            },
+            "scale": {
+                "x": 0.16727998852729798,
+                "y": 0.16727998852729798,
+                "z": 0.16727998852729798
+            }
+        },
+        {
+            "objectName": "Sphere",
+            "prefabName": "Sphere",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -4.36981201171875,
+                "y": -0.7931313514709473,
+                "z": -30.15677261352539
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.49999916553497317,
+                "z": 0.0,
+                "w": 0.8660259246826172
+            },
+            "scale": {
+                "x": 0.16727782785892487,
+                "y": 0.16727782785892487,
+                "z": 0.16727782785892487
+            }
+        },
+        {
+            "objectName": "Cylinder (3)",
+            "prefabName": "Cylinder (3)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -4.363690376281738,
+                "y": -0.8136725425720215,
+                "z": -30.117509841918947
+            },
+            "rotation": {
+                "x": -6.854534149169922e-7,
+                "y": -6.854534149169922e-7,
+                "z": 0.7071068286895752,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (2)",
+            "prefabName": "Cylinder (2)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -7.801613807678223,
+                "y": -0.8136718273162842,
+                "z": -30.169511795043947
+            },
+            "rotation": {
+                "x": 0.6123721599578857,
+                "y": 0.6123721599578857,
+                "z": 0.35355401039123537,
+                "w": 0.35355401039123537
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (1)",
+            "prefabName": "Cylinder (1)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -4.3814592361450199,
+                "y": -0.8136718273162842,
+                "z": -30.116060256958009
+            },
+            "rotation": {
+                "x": 0.35355281829833987,
+                "y": 0.35355281829833987,
+                "z": 0.6123728156089783,
+                "w": 0.6123728156089783
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (2)",
+            "prefabName": "Cylinder (2)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -7.781105041503906,
+                "y": -2.5253918170928957,
+                "z": -30.102327346801759
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.49999916553497317,
+                "z": 0.0,
+                "w": 0.8660259246826172
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder (1)",
+            "prefabName": "Cylinder (1)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -4.3814592361450199,
+                "y": -2.5253918170928957,
+                "z": -30.116060256958009
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.49999916553497317,
+                "z": 0.0,
+                "w": 0.8660259246826172
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Cylinder",
+            "prefabName": "Cylinder",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -6.093184471130371,
+                "y": -2.5253918170928957,
+                "z": -27.151277542114259
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.49999916553497317,
+                "z": 0.0,
+                "w": 0.8660259246826172
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
             "objectName": "tile (13)",
             "prefabName": "tile",
             "rootParent": "MapObj",
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 42.111000061035159,
-                "y": -3.828000068664551,
-                "z": -34.029998779296878
+                "x": 35.129417419433597,
+                "y": -3.533612012863159,
+                "z": -29.11857032775879
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -31,9 +1411,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.560001373291019,
-                "y": -3.6898999214172365,
-                "z": -19.20400047302246
+                "x": 41.504722595214847,
+                "y": -3.4154179096221926,
+                "z": -16.42959213256836
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -54,9 +1434,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 14.487000465393067,
-                "y": -3.828000068664551,
-                "z": 48.84199905395508
+                "x": 11.487143516540528,
+                "y": -3.533612012863159,
+                "z": 41.808258056640628
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -77,9 +1457,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -44.29999923706055,
-                "y": -2.2799997329711916,
-                "z": 38.477664947509769
+                "x": -38.826297760009769,
+                "y": -2.208740472793579,
+                "z": 32.93783950805664
             },
             "rotation": {
                 "x": 0.0,
@@ -100,9 +1480,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -44.29999923706055,
-                "y": -2.429999828338623,
-                "z": 38.477664947509769
+                "x": -38.826297760009769,
+                "y": -2.3371198177337648,
+                "z": 32.93783950805664
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -123,9 +1503,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -44.29999923706055,
-                "y": -2.2799997329711916,
-                "z": 38.477664947509769
+                "x": -38.826297760009769,
+                "y": -2.208740472793579,
+                "z": 32.93783950805664
             },
             "rotation": {
                 "x": 0.0,
@@ -146,9 +1526,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -44.29999923706055,
-                "y": -2.429999828338623,
-                "z": 38.477664947509769
+                "x": -38.826297760009769,
+                "y": -2.3371198177337648,
+                "z": 32.93783950805664
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -169,9 +1549,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 5.69129753112793,
-                "y": -0.626000165939331,
-                "z": 15.287705421447754
+                "x": 3.959254026412964,
+                "y": -0.7931485176086426,
+                "z": 13.090478897094727
             },
             "rotation": {
                 "x": 0.0,
@@ -192,9 +1572,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 9.508255004882813,
-                "y": -0.6499998569488525,
-                "z": 16.32743263244629
+                "x": 7.226035118103027,
+                "y": -0.8136889934539795,
+                "z": 13.980340003967286
             },
             "rotation": {
                 "x": -0.0922958105802536,
@@ -215,9 +1595,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 8.534290313720704,
-                "y": -0.6499998569488525,
-                "z": 12.451274871826172
+                "x": 6.392457962036133,
+                "y": -0.8136889934539795,
+                "z": 10.66289234161377
             },
             "rotation": {
                 "x": 0.27059823274612429,
@@ -238,9 +1618,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 8.504971504211426,
-                "y": -0.626000165939331,
-                "z": 12.406149864196778
+                "x": 6.367364883422852,
+                "y": -0.7931485176086426,
+                "z": 10.624271392822266
             },
             "rotation": {
                 "x": 0.0,
@@ -261,9 +1641,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 8.464669227600098,
-                "y": -2.6500000953674318,
-                "z": 12.494738578796387
+                "x": 6.332871437072754,
+                "y": -2.525408983230591,
+                "z": 10.700090408325196
             },
             "rotation": {
                 "x": 0.0,
@@ -284,9 +1664,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 9.515263557434082,
-                "y": -0.650000810623169,
-                "z": 16.347047805786134
+                "x": 7.232032775878906,
+                "y": -0.8136897087097168,
+                "z": 13.9971284866333
             },
             "rotation": {
                 "x": -0.43045926094055178,
@@ -307,9 +1687,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 9.508255004882813,
-                "y": -2.6500000953674318,
-                "z": 16.32743263244629
+                "x": 7.226035118103027,
+                "y": -2.525408983230591,
+                "z": 13.980340003967286
             },
             "rotation": {
                 "x": 0.0,
@@ -330,9 +1710,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 5.644551753997803,
-                "y": -2.6500000953674318,
-                "z": 15.292158126831055
+                "x": 3.919245958328247,
+                "y": -2.525408983230591,
+                "z": 13.094289779663086
             },
             "rotation": {
                 "x": 0.0,
@@ -353,9 +1733,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 9.55772590637207,
-                "y": -0.626000165939331,
-                "z": 16.328266143798829
+                "x": 7.268375396728516,
+                "y": -0.7931485176086426,
+                "z": 13.981053352355957
             },
             "rotation": {
                 "x": 0.0,
@@ -376,9 +1756,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 8.025627136230469,
-                "y": -1.6500000953674317,
-                "z": 14.143672943115235
+                "x": 5.957113265991211,
+                "y": -1.6695489883422852,
+                "z": 12.111348152160645
             },
             "rotation": {
                 "x": 0.0,
@@ -399,9 +1779,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -20.441999435424806,
-                "y": -3.8666000366210939,
-                "z": -7.122000217437744
+                "x": -18.407188415527345,
+                "y": -3.566648244857788,
+                "z": -6.0890913009643559
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -422,9 +1802,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -26.948999404907228,
-                "y": -3.828000068664551,
-                "z": 21.218000411987306
+                "x": -23.97627067565918,
+                "y": -3.533612012863159,
+                "z": 18.16598129272461
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -445,9 +1825,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 42.111000061035159,
-                "y": -3.6898999214172365,
-                "z": -55.29100036621094
+                "x": 35.129417419433597,
+                "y": -3.4154179096221926,
+                "z": -47.31501007080078
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -468,9 +1848,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 28.298999786376954,
-                "y": -3.828000068664551,
-                "z": -34.029998779296878
+                "x": 23.30828285217285,
+                "y": -3.533612012863159,
+                "z": -29.11857032775879
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -491,9 +1871,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -14.37600040435791,
-                "y": -3.866300106048584,
-                "z": 14.711000442504883
+                "x": -13.215543746948243,
+                "y": -3.566391706466675,
+                "z": 12.596900939941407
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -514,9 +1894,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.560001373291019,
-                "y": -3.6898999214172365,
-                "z": 35.029998779296878
+                "x": 41.504722595214847,
+                "y": -3.4154179096221926,
+                "z": 29.987117767333986
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -537,9 +1917,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -54.573001861572269,
-                "y": -3.828000068664551,
-                "z": -6.406099796295166
+                "x": -47.61854934692383,
+                "y": -3.533612012863159,
+                "z": -5.476380825042725
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -560,9 +1940,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 14.487000465393067,
-                "y": -3.828000068664551,
-                "z": -6.406099796295166
+                "x": 11.487143516540528,
+                "y": -3.533612012863159,
+                "z": -5.476380825042725
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -583,9 +1963,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 42.111000061035159,
-                "y": -3.828000068664551,
-                "z": -6.406099796295166
+                "x": 35.129417419433597,
+                "y": -3.533612012863159,
+                "z": -5.476380825042725
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -606,9 +1986,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -40.76100158691406,
-                "y": -3.828000068664551,
-                "z": 7.406000137329102
+                "x": -35.79741287231445,
+                "y": -3.533612012863159,
+                "z": 6.344842910766602
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -629,9 +2009,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 42.111000061035159,
-                "y": -3.828000068664551,
-                "z": 48.84199905395508
+                "x": 35.129417419433597,
+                "y": -3.533612012863159,
+                "z": 41.808258056640628
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -652,9 +2032,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 28.298999786376954,
-                "y": -3.828000068664551,
-                "z": -20.218000411987306
+                "x": 23.30828285217285,
+                "y": -3.533612012863159,
+                "z": -17.297433853149415
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -675,9 +2055,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -54.573001861572269,
-                "y": -3.828000068664551,
-                "z": 21.218000411987306
+                "x": -47.61854934692383,
+                "y": -3.533612012863159,
+                "z": 18.16598129272461
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -698,9 +2078,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -13.13700008392334,
-                "y": -3.828000068664551,
-                "z": 35.029998779296878
+                "x": -12.155133247375489,
+                "y": -3.533612012863159,
+                "z": 29.987117767333986
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -721,9 +2101,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -40.76100158691406,
-                "y": -3.828000068664551,
-                "z": -20.218000411987306
+                "x": -35.79741287231445,
+                "y": -3.533612012863159,
+                "z": -17.297433853149415
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -744,9 +2124,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -6.13454532623291,
-                "y": -2.3454084396362306,
-                "z": 15.470039367675782
+                "x": -6.1727094650268559,
+                "y": -2.251312494277954,
+                "z": 13.246541023254395
             },
             "rotation": {
                 "x": 0.70710688829422,
@@ -767,9 +2147,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -6.124624252319336,
-                "y": -2.3302369117736818,
-                "z": 15.44339656829834
+                "x": -6.161835670471191,
+                "y": -2.2346842288970949,
+                "z": 13.217340469360352
             },
             "rotation": {
                 "x": 8.146034247147327e-8,
@@ -790,9 +2170,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -6.124624252319336,
-                "y": -2.164766788482666,
-                "z": 15.444847106933594
+                "x": -6.161835670471191,
+                "y": -2.0533268451690676,
+                "z": 13.2189302444458
             },
             "rotation": {
                 "x": 6.657902673623539e-8,
@@ -813,9 +2193,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -6.090000152587891,
-                "y": -2.419327735900879,
-                "z": 15.470000267028809
+                "x": -6.123887062072754,
+                "y": -2.332329511642456,
+                "z": 13.246498107910157
             },
             "rotation": {
                 "x": 0.0,
@@ -836,9 +2216,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -6.090000152587891,
-                "y": -2.1574172973632814,
-                "z": 15.470000267028809
+                "x": -6.123887062072754,
+                "y": -2.045271635055542,
+                "z": 13.246498107910157
             },
             "rotation": {
                 "x": 0.0,
@@ -847,9 +2227,9 @@
                 "w": 1.0
             },
             "scale": {
-                "x": 6.186852931976318,
-                "y": 4.124571800231934,
-                "z": 6.186858177185059
+                "x": 7.9228835105896,
+                "y": 5.28192663192749,
+                "z": 7.9228901863098148
             }
         },
         {
@@ -859,9 +2239,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -13.13700008392334,
-                "y": -3.828000068664551,
-                "z": -34.029998779296878
+                "x": -12.155133247375489,
+                "y": -3.533612012863159,
+                "z": -29.11857032775879
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -882,9 +2262,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 42.111000061035159,
-                "y": -3.828000068664551,
-                "z": 35.029998779296878
+                "x": 35.129417419433597,
+                "y": -3.533612012863159,
+                "z": 29.987117767333986
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -905,9 +2285,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 28.298999786376954,
-                "y": -3.828000068664551,
-                "z": -6.406099796295166
+                "x": 23.30828285217285,
+                "y": -3.533612012863159,
+                "z": -5.476380825042725
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -928,9 +2308,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -62.82957458496094,
-                "y": -0.626000165939331,
-                "z": 57.117923736572269
+                "x": -54.685020446777347,
+                "y": -0.7931485176086426,
+                "z": 48.89128875732422
             },
             "rotation": {
                 "x": 0.0,
@@ -951,9 +2331,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -59.004127502441409,
-                "y": -0.6499998569488525,
-                "z": 56.10987854003906
+                "x": -51.410972595214847,
+                "y": -0.8136889934539795,
+                "z": 48.02854537963867
             },
             "rotation": {
                 "x": 0.09229578822851181,
@@ -974,9 +2354,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -61.785682678222659,
-                "y": -0.6499998569488525,
-                "z": 53.24000930786133
+                "x": -53.791595458984378,
+                "y": -0.8136889934539795,
+                "z": 45.57233810424805
             },
             "rotation": {
                 "x": 0.43045923113822939,
@@ -997,9 +2377,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -61.83363723754883,
-                "y": -0.626000165939331,
-                "z": 53.2155876159668
+                "x": -53.832637786865237,
+                "y": -0.7931485176086426,
+                "z": 45.55143737792969
             },
             "rotation": {
                 "x": 0.0,
@@ -1020,9 +2400,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -61.82424545288086,
-                "y": -2.6500000953674318,
-                "z": 53.31245803833008
+                "x": -53.82460021972656,
+                "y": -2.525408983230591,
+                "z": 45.634342193603519
             },
             "rotation": {
                 "x": 0.0,
@@ -1043,9 +2423,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -58.988250732421878,
-                "y": -0.650000810623169,
-                "z": 56.12336349487305
+                "x": -51.39738464355469,
+                "y": -0.8136897087097168,
+                "z": 48.04008483886719
             },
             "rotation": {
                 "x": -0.27059826254844668,
@@ -1066,9 +2446,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -59.004127502441409,
-                "y": -2.6500000953674318,
-                "z": 56.10987854003906
+                "x": -51.410972595214847,
+                "y": -2.525408983230591,
+                "z": 48.02854537963867
             },
             "rotation": {
                 "x": 0.0,
@@ -1089,9 +2469,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -62.86783218383789,
-                "y": -2.6500000953674318,
-                "z": 57.1451530456543
+                "x": -54.7177619934082,
+                "y": -2.525408983230591,
+                "z": 48.91459274291992
             },
             "rotation": {
                 "x": 0.0,
@@ -1112,9 +2492,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -58.96086883544922,
-                "y": -0.626000165939331,
-                "z": 56.08586502075195
+                "x": -51.37395095825195,
+                "y": -0.7931485176086426,
+                "z": 48.007991790771487
             },
             "rotation": {
                 "x": 0.0,
@@ -1135,9 +2515,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -61.380001068115237,
-                "y": -1.6500000953674317,
-                "z": 54.959999084472659
+                "x": -53.44438934326172,
+                "y": -1.6695489883422852,
+                "z": 47.04440689086914
             },
             "rotation": {
                 "x": 0.0,
@@ -1158,9 +2538,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.560001373291019,
-                "y": -3.6898999214172365,
-                "z": 48.84199905395508
+                "x": 41.504722595214847,
+                "y": -3.4154179096221926,
+                "z": 41.808258056640628
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -1181,9 +2561,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -44.279998779296878,
-                "y": -2.2799997329711916,
-                "z": -37.529998779296878
+                "x": -38.809181213378909,
+                "y": -2.208740472793579,
+                "z": -32.11408233642578
             },
             "rotation": {
                 "x": 0.0,
@@ -1204,9 +2584,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -44.279998779296878,
-                "y": -2.429999828338623,
-                "z": -37.529998779296878
+                "x": -38.809181213378909,
+                "y": -2.3371198177337648,
+                "z": -32.11408233642578
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -1227,9 +2607,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -44.279998779296878,
-                "y": -2.2799997329711916,
-                "z": -37.529998779296878
+                "x": -38.809181213378909,
+                "y": -2.208740472793579,
+                "z": -32.11408233642578
             },
             "rotation": {
                 "x": 0.0,
@@ -1250,9 +2630,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -44.279998779296878,
-                "y": -2.429999828338623,
-                "z": -37.529998779296878
+                "x": -38.809181213378909,
+                "y": -2.3371198177337648,
+                "z": -32.11408233642578
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -1273,9 +2653,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -40.76100158691406,
-                "y": -3.828000068664551,
-                "z": 48.84199905395508
+                "x": -35.79741287231445,
+                "y": -3.533612012863159,
+                "z": 41.808258056640628
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -1296,9 +2676,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 28.298999786376954,
-                "y": -3.828000068664551,
-                "z": -47.84199905395508
+                "x": 23.30828285217285,
+                "y": -3.533612012863159,
+                "z": -40.9397087097168
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -1319,9 +2699,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 14.487000465393067,
-                "y": -3.828000068664551,
-                "z": 21.218000411987306
+                "x": 11.487143516540528,
+                "y": -3.533612012863159,
+                "z": 18.16598129272461
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -1342,9 +2722,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -40.76100158691406,
-                "y": -3.828000068664551,
-                "z": -6.406099796295166
+                "x": -35.79741287231445,
+                "y": -3.533612012863159,
+                "z": -5.476380825042725
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -1365,9 +2745,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -40.76100158691406,
-                "y": -3.6898999214172365,
-                "z": 56.29100036621094
+                "x": -35.79741287231445,
+                "y": -3.4154179096221926,
+                "z": 48.18355941772461
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -1388,9 +2768,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 46.426395416259769,
-                "y": -0.626000165939331,
-                "z": -54.9463996887207
+                "x": 38.822792053222659,
+                "y": -0.7931485176086426,
+                "z": -47.02008056640625
             },
             "rotation": {
                 "x": 0.0,
@@ -1411,9 +2791,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.21211624145508,
-                "y": -0.6499998569488525,
-                "z": -52.13749694824219
+                "x": 41.20698165893555,
+                "y": -0.8136889934539795,
+                "z": -44.61605453491211
             },
             "rotation": {
                 "x": -0.2705976068973541,
@@ -1434,9 +2814,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 50.30671310424805,
-                "y": -0.6499998569488525,
-                "z": -55.98133087158203
+                "x": 42.143802642822269,
+                "y": -0.8136889934539795,
+                "z": -47.90583801269531
             },
             "rotation": {
                 "x": 0.09229646623134613,
@@ -1457,9 +2837,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 50.30388641357422,
-                "y": -0.626000165939331,
-                "z": -56.03506851196289
+                "x": 42.14138412475586,
+                "y": -0.7931485176086426,
+                "z": -47.95182800292969
             },
             "rotation": {
                 "x": 0.0,
@@ -1480,9 +2860,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 50.22468948364258,
-                "y": -2.6500000953674318,
-                "z": -55.97850036621094
+                "x": 42.07360076904297,
+                "y": -2.525408983230591,
+                "z": -47.90341567993164
             },
             "rotation": {
                 "x": 0.0,
@@ -1503,9 +2883,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.208377838134769,
-                "y": -0.650000810623169,
-                "z": -52.11700439453125
+                "x": 41.20378112792969,
+                "y": -0.8136897087097168,
+                "z": -44.598514556884769
             },
             "rotation": {
                 "x": -0.560985267162323,
@@ -1526,9 +2906,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.21211624145508,
-                "y": -2.6500000953674318,
-                "z": -52.13749694824219
+                "x": 41.20698165893555,
+                "y": -2.525408983230591,
+                "z": -44.61605453491211
             },
             "rotation": {
                 "x": 0.0,
@@ -1549,9 +2929,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 46.38368606567383,
-                "y": -2.6500000953674318,
-                "z": -54.965919494628909
+                "x": 38.78623962402344,
+                "y": -2.525408983230591,
+                "z": -47.03678894042969
             },
             "rotation": {
                 "x": 0.0,
@@ -1572,9 +2952,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.25454330444336,
-                "y": -0.626000165939331,
-                "z": -52.112037658691409
+                "x": 41.24329376220703,
+                "y": -0.7931485176086426,
+                "z": -44.59426498413086
             },
             "rotation": {
                 "x": 0.0,
@@ -1595,9 +2975,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.02000045776367,
-                "y": -1.6500000953674317,
-                "z": -54.77000045776367
+                "x": 41.04255676269531,
+                "y": -1.6695489883422852,
+                "z": -46.869110107421878
             },
             "rotation": {
                 "x": 0.0,
@@ -1618,9 +2998,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -26.948999404907228,
-                "y": -3.828000068664551,
-                "z": -6.406099796295166
+                "x": -23.97627067565918,
+                "y": -3.533612012863159,
+                "z": -5.476380825042725
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -1641,9 +3021,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -62.02199935913086,
-                "y": -3.6898999214172365,
-                "z": -6.406099796295166
+                "x": -53.99385070800781,
+                "y": -3.4154179096221926,
+                "z": -5.476380825042725
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -1664,9 +3044,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 31.790000915527345,
-                "y": -2.2799997329711916,
-                "z": 38.477664947509769
+                "x": 26.296091079711915,
+                "y": -2.208740472793579,
+                "z": 32.93783950805664
             },
             "rotation": {
                 "x": 0.0,
@@ -1687,9 +3067,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 31.790000915527345,
-                "y": -2.429999828338623,
-                "z": 38.477664947509769
+                "x": 26.296091079711915,
+                "y": -2.3371198177337648,
+                "z": 32.93783950805664
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -1710,9 +3090,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 31.790000915527345,
-                "y": -2.2799997329711916,
-                "z": 38.477664947509769
+                "x": 26.296091079711915,
+                "y": -2.208740472793579,
+                "z": 32.93783950805664
             },
             "rotation": {
                 "x": 0.0,
@@ -1733,9 +3113,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 31.790000915527345,
-                "y": -2.429999828338623,
-                "z": 38.477664947509769
+                "x": 26.296091079711915,
+                "y": -2.3371198177337648,
+                "z": 32.93783950805664
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -1756,9 +3136,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -22.066577911376954,
-                "y": -0.626000165939331,
-                "z": 16.387924194335939
+                "x": -19.79759979248047,
+                "y": -0.7931485176086426,
+                "z": 14.032112121582032
             },
             "rotation": {
                 "x": 0.0,
@@ -1779,9 +3159,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -18.241130828857423,
-                "y": -0.6499998569488525,
-                "z": 15.379878997802735
+                "x": -16.5235538482666,
+                "y": -0.8136889934539795,
+                "z": 13.169366836547852
             },
             "rotation": {
                 "x": 0.09229578822851181,
@@ -1802,9 +3182,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -21.022686004638673,
-                "y": -0.6499998569488525,
-                "z": 12.510008811950684
+                "x": -18.9041748046875,
+                "y": -0.8136889934539795,
+                "z": 10.713159561157227
             },
             "rotation": {
                 "x": 0.43045923113822939,
@@ -1825,9 +3205,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -21.070640563964845,
-                "y": -0.626000165939331,
-                "z": 12.485588073730469
+                "x": -18.94521713256836,
+                "y": -0.7931485176086426,
+                "z": 10.692258834838868
             },
             "rotation": {
                 "x": 0.0,
@@ -1848,9 +3228,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -21.061248779296876,
-                "y": -2.6500000953674318,
-                "z": 12.58245849609375
+                "x": -18.937179565429689,
+                "y": -2.525408983230591,
+                "z": 10.775166511535645
             },
             "rotation": {
                 "x": 0.0,
@@ -1871,9 +3251,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -18.22525405883789,
-                "y": -0.650000810623169,
-                "z": 15.393362998962403
+                "x": -16.509965896606447,
+                "y": -0.8136897087097168,
+                "z": 13.180907249450684
             },
             "rotation": {
                 "x": -0.27059826254844668,
@@ -1894,9 +3274,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -18.241130828857423,
-                "y": -2.6500000953674318,
-                "z": 15.379878997802735
+                "x": -16.5235538482666,
+                "y": -2.525408983230591,
+                "z": 13.169366836547852
             },
             "rotation": {
                 "x": 0.0,
@@ -1917,9 +3297,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -22.104835510253908,
-                "y": -2.6500000953674318,
-                "z": 16.41515350341797
+                "x": -19.83034324645996,
+                "y": -2.525408983230591,
+                "z": 14.05541706085205
             },
             "rotation": {
                 "x": 0.0,
@@ -1940,9 +3320,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -18.197872161865236,
-                "y": -0.626000165939331,
-                "z": 15.355865478515625
+                "x": -16.486530303955079,
+                "y": -0.7931485176086426,
+                "z": 13.148815155029297
             },
             "rotation": {
                 "x": 0.0,
@@ -1963,9 +3343,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -20.61700439453125,
-                "y": -1.6500000953674317,
-                "z": 14.229999542236329
+                "x": -18.556968688964845,
+                "y": -1.6695489883422852,
+                "z": 12.18523120880127
             },
             "rotation": {
                 "x": 0.0,
@@ -1986,9 +3366,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 28.298999786376954,
-                "y": -3.828000068664551,
-                "z": 21.218000411987306
+                "x": 23.30828285217285,
+                "y": -3.533612012863159,
+                "z": 18.16598129272461
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2009,9 +3389,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.560001373291019,
-                "y": -3.6898999214172365,
-                "z": 7.406000137329102
+                "x": 41.504722595214847,
+                "y": -3.4154179096221926,
+                "z": 6.344842910766602
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2032,9 +3412,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 46.54566955566406,
-                "y": -0.626000165939331,
-                "z": 56.094032287597659
+                "x": 38.92487716674805,
+                "y": -0.7931485176086426,
+                "z": 48.01498031616211
             },
             "rotation": {
                 "x": 0.0,
@@ -2055,9 +3435,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 50.36262893676758,
-                "y": -0.6499998569488525,
-                "z": 57.133758544921878
+                "x": 42.19165802001953,
+                "y": -0.8136889934539795,
+                "z": 48.904842376708987
             },
             "rotation": {
                 "x": -0.0922958105802536,
@@ -2078,9 +3458,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.38866424560547,
-                "y": -0.6499998569488525,
-                "z": 53.25760269165039
+                "x": 41.35808181762695,
+                "y": -0.8136889934539795,
+                "z": 45.58739471435547
             },
             "rotation": {
                 "x": 0.27059823274612429,
@@ -2101,9 +3481,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.359344482421878,
-                "y": -0.626000165939331,
-                "z": 53.21247863769531
+                "x": 41.33298873901367,
+                "y": -0.7931485176086426,
+                "z": 45.54877471923828
             },
             "rotation": {
                 "x": 0.0,
@@ -2124,9 +3504,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.31904220581055,
-                "y": -2.6500000953674318,
-                "z": 53.30106735229492
+                "x": 41.298492431640628,
+                "y": -2.525408983230591,
+                "z": 45.624595642089847
             },
             "rotation": {
                 "x": 0.0,
@@ -2147,9 +3527,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 50.36963653564453,
-                "y": -0.650000810623169,
-                "z": 57.153377532958987
+                "x": 42.197654724121097,
+                "y": -0.8136897087097168,
+                "z": 48.921634674072269
             },
             "rotation": {
                 "x": -0.43045926094055178,
@@ -2170,9 +3550,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 50.36262893676758,
-                "y": -2.6500000953674318,
-                "z": 57.133758544921878
+                "x": 42.19165802001953,
+                "y": -2.525408983230591,
+                "z": 48.904842376708987
             },
             "rotation": {
                 "x": 0.0,
@@ -2193,9 +3573,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 46.498924255371097,
-                "y": -2.6500000953674318,
-                "z": 56.098487854003909
+                "x": 38.88486862182617,
+                "y": -2.525408983230591,
+                "z": 48.018795013427737
             },
             "rotation": {
                 "x": 0.0,
@@ -2216,9 +3596,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 50.4120979309082,
-                "y": -0.626000165939331,
-                "z": 57.13459396362305
+                "x": 42.2339973449707,
+                "y": -0.7931485176086426,
+                "z": 48.905555725097659
             },
             "rotation": {
                 "x": 0.0,
@@ -2239,9 +3619,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 48.880001068115237,
-                "y": -1.6500000953674317,
-                "z": 54.95000076293945
+                "x": 40.92273712158203,
+                "y": -1.6695489883422852,
+                "z": 47.035850524902347
             },
             "rotation": {
                 "x": 0.0,
@@ -2262,9 +3642,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 14.487000465393067,
-                "y": -3.6898999214172365,
-                "z": -55.29100036621094
+                "x": 11.487143516540528,
+                "y": -3.4154179096221926,
+                "z": -47.31501007080078
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -2285,9 +3665,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -20.441999435424806,
-                "y": -3.8666000366210939,
-                "z": 8.15999984741211
+                "x": -18.407188415527345,
+                "y": -3.566648244857788,
+                "z": 6.990161418914795
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2308,9 +3688,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 7.980599880218506,
-                "y": -3.8666000366210939,
-                "z": -6.959000110626221
+                "x": 5.918576240539551,
+                "y": -3.566648244857788,
+                "z": -5.949585914611816
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2331,9 +3711,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -26.948999404907228,
-                "y": -3.828000068664551,
-                "z": -34.029998779296878
+                "x": -23.97627067565918,
+                "y": -3.533612012863159,
+                "z": -29.11857032775879
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2354,9 +3734,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 42.11199951171875,
-                "y": -3.6898999214172365,
-                "z": 56.29100036621094
+                "x": 35.13027572631836,
+                "y": -3.4154179096221926,
+                "z": 48.18355941772461
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -2377,9 +3757,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -13.13599967956543,
-                "y": -3.6898999214172365,
-                "z": 56.29100036621094
+                "x": -12.154276847839356,
+                "y": -3.4154179096221926,
+                "z": 48.18355941772461
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -2400,9 +3780,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -54.573001861572269,
-                "y": -3.6898999214172365,
-                "z": 56.29100036621094
+                "x": -47.61854934692383,
+                "y": -3.4154179096221926,
+                "z": 48.18355941772461
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -2423,9 +3803,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -54.573001861572269,
-                "y": -3.828000068664551,
-                "z": 48.84199905395508
+                "x": -47.61854934692383,
+                "y": -3.533612012863159,
+                "z": 41.808258056640628
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2446,9 +3826,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -26.948999404907228,
-                "y": -3.828000068664551,
-                "z": 48.84199905395508
+                "x": -23.97627067565918,
+                "y": -3.533612012863159,
+                "z": 41.808258056640628
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2469,9 +3849,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.560001373291019,
-                "y": -3.6898999214172365,
-                "z": -34.029998779296878
+                "x": 41.504722595214847,
+                "y": -3.4154179096221926,
+                "z": -29.11857032775879
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2492,9 +3872,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -26.948999404907228,
-                "y": -3.6898999214172365,
-                "z": 56.29100036621094
+                "x": -23.97627067565918,
+                "y": -3.4154179096221926,
+                "z": 48.18355941772461
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -2515,9 +3895,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 31.799999237060548,
-                "y": -2.2799997329711916,
-                "z": -37.529998779296878
+                "x": 26.30464744567871,
+                "y": -2.208740472793579,
+                "z": -32.11408233642578
             },
             "rotation": {
                 "x": 0.0,
@@ -2538,9 +3918,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 31.799999237060548,
-                "y": -2.429999828338623,
-                "z": -37.529998779296878
+                "x": 26.30464744567871,
+                "y": -2.3371198177337648,
+                "z": -32.11408233642578
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2561,9 +3941,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 31.799999237060548,
-                "y": -2.2799997329711916,
-                "z": -37.529998779296878
+                "x": 26.30464744567871,
+                "y": -2.208740472793579,
+                "z": -32.11408233642578
             },
             "rotation": {
                 "x": 0.0,
@@ -2584,9 +3964,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 31.799999237060548,
-                "y": -2.429999828338623,
-                "z": -37.529998779296878
+                "x": 26.30464744567871,
+                "y": -2.3371198177337648,
+                "z": -32.11408233642578
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2607,9 +3987,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -40.76100158691406,
-                "y": -3.828000068664551,
-                "z": 21.218000411987306
+                "x": -35.79741287231445,
+                "y": -3.533612012863159,
+                "z": 18.16598129272461
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2630,9 +4010,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 42.111000061035159,
-                "y": -3.828000068664551,
-                "z": -20.218000411987306
+                "x": 35.129417419433597,
+                "y": -3.533612012863159,
+                "z": -17.297433853149415
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2653,9 +4033,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -26.948999404907228,
-                "y": -3.828000068664551,
-                "z": 7.406000137329102
+                "x": -23.97627067565918,
+                "y": -3.533612012863159,
+                "z": 6.344842910766602
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2676,9 +4056,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -40.76100158691406,
-                "y": -3.6898999214172365,
-                "z": -55.29100036621094
+                "x": -35.79741287231445,
+                "y": -3.4154179096221926,
+                "z": -47.31501007080078
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -2699,9 +4079,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -26.948999404907228,
-                "y": -3.828000068664551,
-                "z": -20.218000411987306
+                "x": -23.97627067565918,
+                "y": -3.533612012863159,
+                "z": -17.297433853149415
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2722,9 +4102,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.560001373291019,
-                "y": -3.6898999214172365,
-                "z": -47.84199905395508
+                "x": 41.504722595214847,
+                "y": -3.4154179096221926,
+                "z": -40.9397087097168
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2745,9 +4125,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 0.6752499938011169,
-                "y": -3.828000068664551,
-                "z": -20.218000411987306
+                "x": -0.33378052711486819,
+                "y": -3.533612012863159,
+                "z": -17.297433853149415
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2768,9 +4148,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -13.13700008392334,
-                "y": -3.828000068664551,
-                "z": 21.218000411987306
+                "x": -12.155133247375489,
+                "y": -3.533612012863159,
+                "z": 18.16598129272461
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2791,9 +4171,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -21.14454460144043,
-                "y": -2.3454084396362306,
-                "z": 0.6000392436981201
+                "x": -19.019168853759767,
+                "y": -2.251312494277954,
+                "z": 0.5199030041694641
             },
             "rotation": {
                 "x": 0.70710688829422,
@@ -2814,9 +4194,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -21.134624481201173,
-                "y": -2.3302369117736818,
-                "z": 0.5733965039253235
+                "x": -19.0082950592041,
+                "y": -2.2346842288970949,
+                "z": 0.49070221185684206
             },
             "rotation": {
                 "x": 8.146034247147327e-8,
@@ -2837,9 +4217,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -21.134624481201173,
-                "y": -2.164766788482666,
-                "z": 0.5748469233512878
+                "x": -19.0082950592041,
+                "y": -2.0533268451690676,
+                "z": 0.4922918379306793
             },
             "rotation": {
                 "x": 6.657902673623539e-8,
@@ -2860,9 +4240,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -21.100000381469728,
-                "y": -2.419327735900879,
-                "z": 0.6000000238418579
+                "x": -18.970346450805665,
+                "y": -2.332329511642456,
+                "z": 0.519860029220581
             },
             "rotation": {
                 "x": 0.0,
@@ -2883,9 +4263,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -21.100000381469728,
-                "y": -2.1574172973632814,
-                "z": 0.6000000238418579
+                "x": -18.970346450805665,
+                "y": -2.045271635055542,
+                "z": 0.519860029220581
             },
             "rotation": {
                 "x": 0.0,
@@ -2894,9 +4274,9 @@
                 "w": 1.0
             },
             "scale": {
-                "x": 6.186852931976318,
-                "y": 4.124571800231934,
-                "z": 6.186858177185059
+                "x": 7.9228835105896,
+                "y": 5.28192663192749,
+                "z": 7.9228901863098148
             }
         },
         {
@@ -2906,9 +4286,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.560001373291019,
-                "y": -3.6898999214172365,
-                "z": 21.218000411987306
+                "x": 41.504722595214847,
+                "y": -3.4154179096221926,
+                "z": 18.16598129272461
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2929,9 +4309,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 0.6752499938011169,
-                "y": -3.828000068664551,
-                "z": 35.029998779296878
+                "x": -0.33378052711486819,
+                "y": -3.533612012863159,
+                "z": 29.987117767333986
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2952,9 +4332,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 28.298999786376954,
-                "y": -3.828000068664551,
-                "z": 35.029998779296878
+                "x": 23.30828285217285,
+                "y": -3.533612012863159,
+                "z": 29.987117767333986
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2975,9 +4355,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -26.948999404907228,
-                "y": -3.828000068664551,
-                "z": 35.029998779296878
+                "x": -23.97627067565918,
+                "y": -3.533612012863159,
+                "z": 29.987117767333986
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -2998,9 +4378,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -40.76100158691406,
-                "y": -3.828000068664551,
-                "z": 35.029998779296878
+                "x": -35.79741287231445,
+                "y": -3.533612012863159,
+                "z": 29.987117767333986
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3021,9 +4401,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -54.573001861572269,
-                "y": -3.6898999214172365,
-                "z": -55.29100036621094
+                "x": -47.61854934692383,
+                "y": -3.4154179096221926,
+                "z": -47.31501007080078
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -3044,9 +4424,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -6.13454532623291,
-                "y": -2.3454084396362306,
-                "z": -14.319960594177246
+                "x": -6.1727094650268559,
+                "y": -2.251312494277954,
+                "z": -12.249527931213379
             },
             "rotation": {
                 "x": 0.70710688829422,
@@ -3067,9 +4447,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -6.124624252319336,
-                "y": -2.3302369117736818,
-                "z": -14.346603393554688
+                "x": -6.161835670471191,
+                "y": -2.2346842288970949,
+                "z": -12.278728485107422
             },
             "rotation": {
                 "x": 8.146034247147327e-8,
@@ -3090,9 +4470,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -6.124624252319336,
-                "y": -2.164766788482666,
-                "z": -14.345152854919434
+                "x": -6.161835670471191,
+                "y": -2.0533268451690676,
+                "z": -12.277139663696289
             },
             "rotation": {
                 "x": 6.657902673623539e-8,
@@ -3113,9 +4493,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -6.090000152587891,
-                "y": -2.419327735900879,
-                "z": -14.319999694824219
+                "x": -6.123887062072754,
+                "y": -2.332329511642456,
+                "z": -12.249570846557618
             },
             "rotation": {
                 "x": 0.0,
@@ -3136,9 +4516,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -6.090000152587891,
-                "y": -2.1574172973632814,
-                "z": -14.319999694824219
+                "x": -6.123887062072754,
+                "y": -2.045271635055542,
+                "z": -12.249570846557618
             },
             "rotation": {
                 "x": 0.0,
@@ -3147,9 +4527,9 @@
                 "w": 1.0
             },
             "scale": {
-                "x": 6.186852931976318,
-                "y": 4.124571800231934,
-                "z": 6.186858177185059
+                "x": 7.9228835105896,
+                "y": 5.28192663192749,
+                "z": 7.9228901863098148
             }
         },
         {
@@ -3159,9 +4539,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -20.93416404724121,
-                "y": -0.626000165939331,
-                "z": -11.376395225524903
+                "x": -18.828413009643556,
+                "y": -0.7931485176086426,
+                "z": -9.730257987976075
             },
             "rotation": {
                 "x": 0.0,
@@ -3182,9 +4562,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -18.1252498626709,
-                "y": -0.6499998569488525,
-                "z": -14.162109375
+                "x": -16.424375534057618,
+                "y": -0.8136889934539795,
+                "z": -12.114439010620118
             },
             "rotation": {
                 "x": 0.27059757709503176,
@@ -3205,9 +4585,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -21.969079971313478,
-                "y": -0.6499998569488525,
-                "z": -15.25671672821045
+                "x": -19.714155197143556,
+                "y": -0.8136889934539795,
+                "z": -13.05126953125
             },
             "rotation": {
                 "x": 0.5609852075576782,
@@ -3228,9 +4608,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -22.02281951904297,
-                "y": -0.626000165939331,
-                "z": -15.253888130187989
+                "x": -19.760149002075197,
+                "y": -0.7931485176086426,
+                "z": -13.048849105834961
             },
             "rotation": {
                 "x": 0.0,
@@ -3251,9 +4631,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -21.966251373291017,
-                "y": -2.6500000953674318,
-                "z": -15.174691200256348
+                "x": -19.711734771728517,
+                "y": -2.525408983230591,
+                "z": -12.981067657470704
             },
             "rotation": {
                 "x": 0.0,
@@ -3274,9 +4654,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -18.10475730895996,
-                "y": -0.650000810623169,
-                "z": -14.158370018005371
+                "x": -16.406837463378908,
+                "y": -0.8136897087097168,
+                "z": -12.111238479614258
             },
             "rotation": {
                 "x": -0.09229648113250733,
@@ -3297,9 +4677,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -18.1252498626709,
-                "y": -2.6500000953674318,
-                "z": -14.162109375
+                "x": -16.424375534057618,
+                "y": -2.525408983230591,
+                "z": -12.114439010620118
             },
             "rotation": {
                 "x": 0.0,
@@ -3320,9 +4700,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -20.95368003845215,
-                "y": -2.6500000953674318,
-                "z": -11.333686828613282
+                "x": -18.845115661621095,
+                "y": -2.525408983230591,
+                "z": -9.693705558776856
             },
             "rotation": {
                 "x": 0.0,
@@ -3343,9 +4723,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -18.09979248046875,
-                "y": -0.626000165939331,
-                "z": -14.204534530639649
+                "x": -16.402587890625,
+                "y": -0.7931485176086426,
+                "z": -12.150749206542969
             },
             "rotation": {
                 "x": 0.0,
@@ -3366,9 +4746,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -20.757755279541017,
-                "y": -1.6500000953674317,
-                "z": -13.970000267028809
+                "x": -18.677431106567384,
+                "y": -1.6695489883422852,
+                "z": -11.950020790100098
             },
             "rotation": {
                 "x": 0.0,
@@ -3389,9 +4769,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 0.6752499938011169,
-                "y": -3.828000068664551,
-                "z": -47.84199905395508
+                "x": -0.33378052711486819,
+                "y": -3.533612012863159,
+                "z": -40.9397087097168
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3412,9 +4792,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -26.948999404907228,
-                "y": -3.828000068664551,
-                "z": -47.84199905395508
+                "x": -23.97627067565918,
+                "y": -3.533612012863159,
+                "z": -40.9397087097168
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3435,9 +4815,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -40.76100158691406,
-                "y": -3.828000068664551,
-                "z": -47.84199905395508
+                "x": -35.79741287231445,
+                "y": -3.533612012863159,
+                "z": -40.9397087097168
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3458,9 +4838,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 28.298999786376954,
-                "y": -3.828000068664551,
-                "z": 48.84199905395508
+                "x": 23.30828285217285,
+                "y": -3.533612012863159,
+                "z": 41.808258056640628
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3481,9 +4861,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 42.111000061035159,
-                "y": -3.828000068664551,
-                "z": -47.84199905395508
+                "x": 35.129417419433597,
+                "y": -3.533612012863159,
+                "z": -40.9397087097168
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3504,9 +4884,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 0.6752499938011169,
-                "y": -3.828000068664551,
-                "z": 21.218000411987306
+                "x": -0.33378052711486819,
+                "y": -3.533612012863159,
+                "z": 18.16598129272461
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3527,9 +4907,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -54.573001861572269,
-                "y": -3.828000068664551,
-                "z": -34.029998779296878
+                "x": -47.61854934692383,
+                "y": -3.533612012863159,
+                "z": -29.11857032775879
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3550,9 +4930,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -13.13700008392334,
-                "y": -3.828000068664551,
-                "z": 48.84199905395508
+                "x": -12.155133247375489,
+                "y": -3.533612012863159,
+                "z": 41.808258056640628
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3573,9 +4953,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 49.560001373291019,
-                "y": -3.6898999214172365,
-                "z": -5.396999835968018
+                "x": 41.504722595214847,
+                "y": -3.4154179096221926,
+                "z": -4.612732410430908
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3596,9 +4976,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -62.02199935913086,
-                "y": -3.6898999214172365,
-                "z": 35.029998779296878
+                "x": -53.99385070800781,
+                "y": -3.4154179096221926,
+                "z": 29.987117767333986
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3619,9 +4999,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 0.6755499839782715,
-                "y": -3.6898999214172365,
-                "z": 56.29100036621094
+                "x": -0.33352380990982058,
+                "y": -3.4154179096221926,
+                "z": 48.18355941772461
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -3642,9 +5022,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -62.02199935913086,
-                "y": -3.6898999214172365,
-                "z": -20.218000411987306
+                "x": -53.99385070800781,
+                "y": -3.4154179096221926,
+                "z": -17.297433853149415
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3665,9 +5045,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 42.111000061035159,
-                "y": -3.828000068664551,
-                "z": 7.406000137329102
+                "x": 35.129417419433597,
+                "y": -3.533612012863159,
+                "z": 6.344842910766602
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3688,9 +5068,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -62.02199935913086,
-                "y": -3.6898999214172365,
-                "z": -34.029998779296878
+                "x": -53.99385070800781,
+                "y": -3.4154179096221926,
+                "z": -29.11857032775879
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3711,9 +5091,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -54.573001861572269,
-                "y": -3.828000068664551,
-                "z": -20.218000411987306
+                "x": -47.61854934692383,
+                "y": -3.533612012863159,
+                "z": -17.297433853149415
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3734,9 +5114,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 14.487000465393067,
-                "y": -3.828000068664551,
-                "z": 35.029998779296878
+                "x": 11.487143516540528,
+                "y": -3.533612012863159,
+                "z": 29.987117767333986
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3757,9 +5137,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -26.948999404907228,
-                "y": -3.6898999214172365,
-                "z": -55.29100036621094
+                "x": -23.97627067565918,
+                "y": -3.4154179096221926,
+                "z": -47.31501007080078
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -3780,9 +5160,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 0.6752499938011169,
-                "y": -3.828000068664551,
-                "z": 48.84199905395508
+                "x": -0.33378052711486819,
+                "y": -3.533612012863159,
+                "z": 41.808258056640628
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3803,9 +5183,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -62.02199935913086,
-                "y": -3.6898999214172365,
-                "z": -47.84199905395508
+                "x": -53.99385070800781,
+                "y": -3.4154179096221926,
+                "z": -40.9397087097168
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3826,9 +5206,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 0.6752499938011169,
-                "y": -3.828000068664551,
-                "z": -34.029998779296878
+                "x": -0.33378052711486819,
+                "y": -3.533612012863159,
+                "z": -29.11857032775879
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3849,9 +5229,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 0.6749799847602844,
-                "y": -3.6898999214172365,
-                "z": -55.29100036621094
+                "x": -0.33401161432266238,
+                "y": -3.4154179096221926,
+                "z": -47.31501007080078
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -3872,9 +5252,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 7.980599880218506,
-                "y": -3.8666000366210939,
-                "z": 8.057000160217286
+                "x": 5.918576240539551,
+                "y": -3.566648244857788,
+                "z": 6.902008056640625
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3895,9 +5275,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -62.02199935913086,
-                "y": -3.6898999214172365,
-                "z": 48.84199905395508
+                "x": -53.99385070800781,
+                "y": -3.4154179096221926,
+                "z": 41.808258056640628
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3918,9 +5298,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -54.573001861572269,
-                "y": -3.828000068664551,
-                "z": 7.406000137329102
+                "x": -47.61854934692383,
+                "y": -3.533612012863159,
+                "z": 6.344842910766602
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -3941,9 +5321,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -14.420999526977539,
-                "y": -3.866300106048584,
-                "z": -13.711000442504883
+                "x": -13.254056930541993,
+                "y": -3.566391706466675,
+                "z": -11.728352546691895
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -3964,9 +5344,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 9.055455207824707,
-                "y": -2.3454084396362306,
-                "z": 0.6000392436981201
+                "x": 6.8278045654296879,
+                "y": -2.251312494277954,
+                "z": 0.5199030041694641
             },
             "rotation": {
                 "x": 0.70710688829422,
@@ -3987,9 +5367,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 9.065376281738282,
-                "y": -2.3302369117736818,
-                "z": 0.5733965039253235
+                "x": 6.838677406311035,
+                "y": -2.2346842288970949,
+                "z": 0.49070221185684206
             },
             "rotation": {
                 "x": 8.146034247147327e-8,
@@ -4010,9 +5390,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 9.065376281738282,
-                "y": -2.164766788482666,
-                "z": 0.5748469233512878
+                "x": 6.838677406311035,
+                "y": -2.0533268451690676,
+                "z": 0.4922918379306793
             },
             "rotation": {
                 "x": 6.657902673623539e-8,
@@ -4033,9 +5413,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 9.100000381469727,
-                "y": -2.419327735900879,
-                "z": 0.6000000238418579
+                "x": 6.876626014709473,
+                "y": -2.332329511642456,
+                "z": 0.519860029220581
             },
             "rotation": {
                 "x": 0.0,
@@ -4056,9 +5436,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 9.100000381469727,
-                "y": -2.1574172973632814,
-                "z": 0.6000000238418579
+                "x": 6.876626014709473,
+                "y": -2.045271635055542,
+                "z": 0.519860029220581
             },
             "rotation": {
                 "x": 0.0,
@@ -4067,9 +5447,9 @@
                 "w": 1.0
             },
             "scale": {
-                "x": 6.186852931976318,
-                "y": 4.124571800231934,
-                "z": 6.186858177185059
+                "x": 7.9228835105896,
+                "y": 5.28192663192749,
+                "z": 7.9228901863098148
             }
         },
         {
@@ -4079,9 +5459,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -62.02199935913086,
-                "y": -3.6898999214172365,
-                "z": 7.406000137329102
+                "x": -53.99385070800781,
+                "y": -3.4154179096221926,
+                "z": 6.344842910766602
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -4102,9 +5482,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -54.573001861572269,
-                "y": -3.828000068664551,
-                "z": -47.84199905395508
+                "x": -47.61854934692383,
+                "y": -3.533612012863159,
+                "z": -40.9397087097168
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -4125,9 +5505,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -13.13700008392334,
-                "y": -3.6898999214172365,
-                "z": -55.29100036621094
+                "x": -12.155133247375489,
+                "y": -3.4154179096221926,
+                "z": -47.31501007080078
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -4148,9 +5528,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 14.48799991607666,
-                "y": -3.6898999214172365,
-                "z": 56.29100036621094
+                "x": 11.487998962402344,
+                "y": -3.4154179096221926,
+                "z": 48.18355941772461
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -4171,9 +5551,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -40.76100158691406,
-                "y": -3.828000068664551,
-                "z": -34.029998779296878
+                "x": -35.79741287231445,
+                "y": -3.533612012863159,
+                "z": -29.11857032775879
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -4194,9 +5574,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -61.846405029296878,
-                "y": -0.626000165939331,
-                "z": -52.22639465332031
+                "x": -53.84356689453125,
+                "y": -0.7931485176086426,
+                "z": -44.692138671875
             },
             "rotation": {
                 "x": 0.0,
@@ -4217,9 +5597,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -59.03749084472656,
-                "y": -0.6499998569488525,
-                "z": -55.012107849121097
+                "x": -51.43952941894531,
+                "y": -0.8136889934539795,
+                "z": -47.076316833496097
             },
             "rotation": {
                 "x": 0.27059757709503176,
@@ -4240,9 +5620,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -62.881324768066409,
-                "y": -0.6499998569488525,
-                "z": -56.10671615600586
+                "x": -54.729312896728519,
+                "y": -0.8136889934539795,
+                "z": -48.01314926147461
             },
             "rotation": {
                 "x": 0.5609852075576782,
@@ -4263,9 +5643,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -62.935062408447269,
-                "y": -0.626000165939331,
-                "z": -56.10388946533203
+                "x": -54.77530288696289,
+                "y": -0.7931485176086426,
+                "z": -48.0107307434082
             },
             "rotation": {
                 "x": 0.0,
@@ -4286,9 +5666,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -62.87849426269531,
-                "y": -2.6500000953674318,
-                "z": -56.024688720703128
+                "x": -54.726890563964847,
+                "y": -2.525408983230591,
+                "z": -47.94294738769531
             },
             "rotation": {
                 "x": 0.0,
@@ -4309,9 +5689,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -59.016998291015628,
-                "y": -0.650000810623169,
-                "z": -55.00836944580078
+                "x": -51.42198944091797,
+                "y": -0.8136897087097168,
+                "z": -47.0731201171875
             },
             "rotation": {
                 "x": -0.09229648113250733,
@@ -4332,9 +5712,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -59.03749084472656,
-                "y": -2.6500000953674318,
-                "z": -55.012107849121097
+                "x": -51.43952941894531,
+                "y": -2.525408983230591,
+                "z": -47.076316833496097
             },
             "rotation": {
                 "x": 0.0,
@@ -4355,9 +5735,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -61.86592483520508,
-                "y": -2.6500000953674318,
-                "z": -52.183685302734378
+                "x": -53.86027145385742,
+                "y": -2.525408983230591,
+                "z": -44.65558624267578
             },
             "rotation": {
                 "x": 0.0,
@@ -4378,9 +5758,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -59.01203536987305,
-                "y": -0.626000165939331,
-                "z": -55.054534912109378
+                "x": -51.41773986816406,
+                "y": -0.7931485176086426,
+                "z": -47.11262893676758
             },
             "rotation": {
                 "x": 0.0,
@@ -4401,9 +5781,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -61.66999816894531,
-                "y": -1.6500000953674317,
-                "z": -54.81999969482422
+                "x": -53.69258499145508,
+                "y": -1.6695489883422852,
+                "z": -46.91189956665039
             },
             "rotation": {
                 "x": 0.0,
@@ -4424,9 +5804,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 1.9809999465942383,
-                "y": -3.866300106048584,
-                "z": -13.711000442504883
+                "x": 0.7837586402893066,
+                "y": -3.566391706466675,
+                "z": -11.728352546691895
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -4447,9 +5827,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 14.487000465393067,
-                "y": -3.828000068664551,
-                "z": -34.029998779296878
+                "x": 11.487143516540528,
+                "y": -3.533612012863159,
+                "z": -29.11857032775879
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -4470,9 +5850,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -62.02199935913086,
-                "y": -3.6898999214172365,
-                "z": 21.218000411987306
+                "x": -53.99385070800781,
+                "y": -3.4154179096221926,
+                "z": 18.16598129272461
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -4493,9 +5873,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 28.298999786376954,
-                "y": -3.828000068664551,
-                "z": 7.406000137329102
+                "x": 23.30828285217285,
+                "y": -3.533612012863159,
+                "z": 6.344842910766602
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -4516,9 +5896,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -13.13700008392334,
-                "y": -3.828000068664551,
-                "z": -20.218000411987306
+                "x": -12.155133247375489,
+                "y": -3.533612012863159,
+                "z": -17.297433853149415
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -4539,9 +5919,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 42.111000061035159,
-                "y": -3.828000068664551,
-                "z": 21.218000411987306
+                "x": 35.129417419433597,
+                "y": -3.533612012863159,
+                "z": 18.16598129272461
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -4562,9 +5942,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 14.487000465393067,
-                "y": -3.828000068664551,
-                "z": -47.84199905395508
+                "x": 11.487143516540528,
+                "y": -3.533612012863159,
+                "z": -40.9397087097168
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -4585,9 +5965,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -54.573001861572269,
-                "y": -3.828000068664551,
-                "z": 35.029998779296878
+                "x": -47.61854934692383,
+                "y": -3.533612012863159,
+                "z": 29.987117767333986
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -4608,9 +5988,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 28.299999237060548,
-                "y": -3.6898999214172365,
-                "z": 56.29100036621094
+                "x": 23.30913734436035,
+                "y": -3.4154179096221926,
+                "z": 48.18355941772461
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -4631,9 +6011,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 14.487000465393067,
-                "y": -3.828000068664551,
-                "z": -20.218000411987306
+                "x": 11.487143516540528,
+                "y": -3.533612012863159,
+                "z": -17.297433853149415
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -4654,9 +6034,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -13.13700008392334,
-                "y": -3.828000068664551,
-                "z": -47.84199905395508
+                "x": -12.155133247375489,
+                "y": -3.533612012863159,
+                "z": -40.9397087097168
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -4677,9 +6057,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 1.9759999513626099,
-                "y": -3.866300106048584,
-                "z": 14.711000442504883
+                "x": 0.7794792652130127,
+                "y": -3.566391706466675,
+                "z": 12.596900939941407
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -4700,9 +6080,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 5.756394863128662,
-                "y": -0.626000165939331,
-                "z": -14.306401252746582
+                "x": 4.014967918395996,
+                "y": -0.7931485176086426,
+                "z": -12.237932205200196
             },
             "rotation": {
                 "x": 0.0,
@@ -4723,9 +6103,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 8.542116165161133,
-                "y": -0.6499998569488525,
-                "z": -11.4974946975708
+                "x": 6.399155616760254,
+                "y": -0.8136889934539795,
+                "z": -9.833902359008789
             },
             "rotation": {
                 "x": -0.2705976068973541,
@@ -4746,9 +6126,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 9.636713027954102,
-                "y": -0.6499998569488525,
-                "z": -15.341329574584961
+                "x": 7.335976600646973,
+                "y": -0.8136889934539795,
+                "z": -13.123686790466309
             },
             "rotation": {
                 "x": 0.09229646623134613,
@@ -4769,9 +6149,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 9.63388442993164,
-                "y": -0.626000165939331,
-                "z": -15.395068168640137
+                "x": 7.333556175231934,
+                "y": -0.7931485176086426,
+                "z": -13.169678688049317
             },
             "rotation": {
                 "x": 0.0,
@@ -4792,9 +6172,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 9.5546875,
-                "y": -2.6500000953674318,
-                "z": -15.338499069213868
+                "x": 7.265774726867676,
+                "y": -2.525408983230591,
+                "z": -13.12126350402832
             },
             "rotation": {
                 "x": 0.0,
@@ -4815,9 +6195,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 8.53837776184082,
-                "y": -0.650000810623169,
-                "z": -11.47700309753418
+                "x": 6.395956039428711,
+                "y": -0.8136897087097168,
+                "z": -9.816364288330079
             },
             "rotation": {
                 "x": -0.560985267162323,
@@ -4838,9 +6218,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 8.542116165161133,
-                "y": -2.6500000953674318,
-                "z": -11.4974946975708
+                "x": 6.399155616760254,
+                "y": -2.525408983230591,
+                "z": -9.833902359008789
             },
             "rotation": {
                 "x": 0.0,
@@ -4861,9 +6241,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 5.713685512542725,
-                "y": -2.6500000953674318,
-                "z": -14.325918197631836
+                "x": 3.97841477394104,
+                "y": -2.525408983230591,
+                "z": -12.254636764526368
             },
             "rotation": {
                 "x": 0.0,
@@ -4884,9 +6264,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 8.584543228149414,
-                "y": -0.626000165939331,
-                "z": -11.472038269042969
+                "x": 6.435466766357422,
+                "y": -0.7931485176086426,
+                "z": -9.812114715576172
             },
             "rotation": {
                 "x": 0.0,
@@ -4907,9 +6287,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 8.350000381469727,
-                "y": -1.6500000953674317,
-                "z": -14.130000114440918
+                "x": 6.234731674194336,
+                "y": -1.6695489883422852,
+                "z": -12.086957931518555
             },
             "rotation": {
                 "x": 0.0,
@@ -4930,9 +6310,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 28.298999786376954,
-                "y": -3.6898999214172365,
-                "z": -55.29100036621094
+                "x": 23.30828285217285,
+                "y": -3.4154179096221926,
+                "z": -47.31501007080078
             },
             "rotation": {
                 "x": -0.5000007152557373,
@@ -4953,9 +6333,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 14.487000465393067,
-                "y": -3.828000068664551,
-                "z": 7.406000137329102
+                "x": 11.487143516540528,
+                "y": -3.533612012863159,
+                "z": 6.344842910766602
             },
             "rotation": {
                 "x": -0.7071068286895752,
@@ -4976,9 +6356,9 @@
             "teamNumber": "Team2",
             "isRootParent": false,
             "position": {
-                "x": -49.31100082397461,
-                "y": -1.673299789428711,
-                "z": -32.64899826049805
+                "x": -43.115013122558597,
+                "y": -1.6894903182983399,
+                "z": -27.936628341674806
             },
             "rotation": {
                 "x": 0.0,
@@ -4999,9 +6379,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 31.47599983215332,
-                "y": -1.5075998306274415,
-                "z": 45.27000045776367
+                "x": 26.0273494720459,
+                "y": -1.5476744174957276,
+                "z": 38.75112533569336
             },
             "rotation": {
                 "x": 0.0,
@@ -5022,9 +6402,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -20.594999313354493,
-                "y": -1.5075998306274415,
-                "z": 32.54399871826172
+                "x": -18.538135528564454,
+                "y": -1.5476744174957276,
+                "z": 27.859451293945314
             },
             "rotation": {
                 "x": 0.0,
@@ -5045,9 +6425,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -1.2583999633789063,
-                "y": -1.5075998306274415,
-                "z": -44.250999450683597
+                "x": -1.9887142181396485,
+                "y": -1.5476744174957276,
+                "z": -37.86631774902344
             },
             "rotation": {
                 "x": 0.0,
@@ -5068,9 +6448,9 @@
             "teamNumber": "",
             "isRootParent": true,
             "position": {
-                "x": 0.0,
-                "y": 3.0,
-                "z": 0.0
+                "x": -0.9117000102996826,
+                "y": 2.3101999759674074,
+                "z": 0.00634399987757206
             },
             "rotation": {
                 "x": 0.0,
@@ -5091,9 +6471,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -26.395999908447267,
-                "y": -1.5075998306274415,
-                "z": -33.20100021362305
+                "x": -23.502979278564454,
+                "y": -1.5476744174957276,
+                "z": -28.4090633392334
             },
             "rotation": {
                 "x": 0.0,
@@ -5114,9 +6494,9 @@
             "teamNumber": "Team3",
             "isRootParent": false,
             "position": {
-                "x": 31.73900032043457,
-                "y": -1.673299789428711,
-                "z": -23.200000762939454
+                "x": 26.25244140625,
+                "y": -1.6894903182983399,
+                "z": -19.849609375
             },
             "rotation": {
                 "x": 0.0,
@@ -5137,9 +6517,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -44.76599884033203,
-                "y": -1.5500001907348633,
-                "z": -11.517000198364258
+                "x": -39.225128173828128,
+                "y": -1.58396315574646,
+                "z": -9.850595474243164
             },
             "rotation": {
                 "x": 0.0,
@@ -5160,9 +6540,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -46.5620002746582,
-                "y": -1.5500001907348633,
-                "z": -50.465999603271487
+                "x": -40.76225280761719,
+                "y": -1.58396315574646,
+                "z": -43.18548583984375
             },
             "rotation": {
                 "x": 0.0,
@@ -5206,9 +6586,9 @@
             "teamNumber": "",
             "isRootParent": true,
             "position": {
-                "x": 0.0,
-                "y": 3.0,
-                "z": 0.0
+                "x": -0.9117000102996826,
+                "y": 2.3101999759674074,
+                "z": 0.00634399987757206
             },
             "rotation": {
                 "x": 0.0,
@@ -5217,9 +6597,9 @@
                 "w": 1.0
             },
             "scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
+                "x": 0.8558599948883057,
+                "y": 0.8558599948883057,
+                "z": 0.8558599948883057
             }
         },
         {
@@ -5229,9 +6609,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -38.275001525878909,
-                "y": -1.5075998306274415,
-                "z": -29.610000610351564
+                "x": -33.669742584228519,
+                "y": -1.5476744174957276,
+                "z": -25.335670471191408
             },
             "rotation": {
                 "x": 0.0,
@@ -5252,9 +6632,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -6.797100067138672,
-                "y": -1.5500001907348633,
-                "z": -50.465999603271487
+                "x": -6.729065895080566,
+                "y": -1.58396315574646,
+                "z": -44.583961486816409
             },
             "rotation": {
                 "x": 0.0,
@@ -5275,9 +6655,9 @@
             "teamNumber": "Team1",
             "isRootParent": false,
             "position": {
-                "x": 40.869998931884769,
-                "y": -1.673299789428711,
-                "z": 47.59000015258789
+                "x": 34.06729507446289,
+                "y": -1.6894903182983399,
+                "z": 40.73672103881836
             },
             "rotation": {
                 "x": 0.0,
@@ -5298,9 +6678,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 30.785999298095704,
-                "y": -1.5075998306274415,
-                "z": -46.58000183105469
+                "x": 25.436805725097658,
+                "y": -1.5476744174957276,
+                "z": -39.859615325927737
             },
             "rotation": {
                 "x": 0.0,
@@ -5321,9 +6701,9 @@
             "teamNumber": "",
             "isRootParent": true,
             "position": {
-                "x": 0.0,
-                "y": 3.0,
-                "z": 0.0
+                "x": -0.9117000102996826,
+                "y": 2.3101999759674074,
+                "z": 0.00634399987757206
             },
             "rotation": {
                 "x": 0.0,
@@ -5344,9 +6724,9 @@
             "teamNumber": "Team3",
             "isRootParent": false,
             "position": {
-                "x": 31.73900032043457,
-                "y": -1.673299789428711,
-                "z": -45.729000091552737
+                "x": 26.25244140625,
+                "y": -1.6894903182983399,
+                "z": -39.13127899169922
             },
             "rotation": {
                 "x": 0.0,
@@ -5367,9 +6747,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -18.66200065612793,
-                "y": -1.5500001907348633,
-                "z": 53.53799819946289
+                "x": -16.883760452270509,
+                "y": -1.58396315574646,
+                "z": 45.82737350463867
             },
             "rotation": {
                 "x": 0.0,
@@ -5390,9 +6770,9 @@
             "teamNumber": "Team4",
             "isRootParent": false,
             "position": {
-                "x": -57.957000732421878,
-                "y": -1.673299789428711,
-                "z": 39.07699966430664
+                "x": -50.51477813720703,
+                "y": -1.6894903182983399,
+                "z": 33.450782775878909
             },
             "rotation": {
                 "x": 0.0,
@@ -5413,9 +6793,9 @@
             "teamNumber": "Team2",
             "isRootParent": false,
             "position": {
-                "x": -56.36899948120117,
-                "y": -1.673299789428711,
-                "z": -40.38399887084961
+                "x": -49.15567398071289,
+                "y": -1.6894903182983399,
+                "z": -34.556705474853519
             },
             "rotation": {
                 "x": 0.0,
@@ -5436,9 +6816,9 @@
             "teamNumber": "Team4",
             "isRootParent": false,
             "position": {
-                "x": -50.89899826049805,
-                "y": -1.673299789428711,
-                "z": 46.8120002746582
+                "x": -44.474117279052737,
+                "y": -1.6894903182983399,
+                "z": 40.07086181640625
             },
             "rotation": {
                 "x": 0.0,
@@ -5459,9 +6839,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -31.134000778198243,
-                "y": -1.5500001907348633,
-                "z": -11.461000442504883
+                "x": -27.55804443359375,
+                "y": -1.58396315574646,
+                "z": -9.802667617797852
             },
             "rotation": {
                 "x": 0.0,
@@ -5482,9 +6862,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 17.663999557495118,
-                "y": -1.5500001907348633,
-                "z": -10.411999702453614
+                "x": 14.206210136413575,
+                "y": -1.58396315574646,
+                "z": -8.90487003326416
             },
             "rotation": {
                 "x": 0.0,
@@ -5505,9 +6885,9 @@
             "teamNumber": "Team1",
             "isRootParent": false,
             "position": {
-                "x": 31.73900032043457,
-                "y": -1.673299789428711,
-                "z": 46.8120002746582
+                "x": 26.25244140625,
+                "y": -1.6894903182983399,
+                "z": 40.07086181640625
             },
             "rotation": {
                 "x": 0.0,
@@ -5528,9 +6908,9 @@
             "teamNumber": "",
             "isRootParent": true,
             "position": {
-                "x": 0.0,
-                "y": 3.0,
-                "z": 0.0
+                "x": -0.9117000102996826,
+                "y": 2.3101999759674074,
+                "z": 0.00634399987757206
             },
             "rotation": {
                 "x": 0.0,
@@ -5551,9 +6931,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 32.856998443603519,
-                "y": -1.5075998306274415,
-                "z": 4.643599987030029
+                "x": 27.209291458129884,
+                "y": -1.5476744174957276,
+                "z": 3.9806156158447267
             },
             "rotation": {
                 "x": 0.0,
@@ -5574,9 +6954,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -1.2583999633789063,
-                "y": -1.5075998306274415,
-                "z": 23.56599998474121
+                "x": -1.9887142181396485,
+                "y": -1.5476744174957276,
+                "z": 20.175540924072267
             },
             "rotation": {
                 "x": 0.0,
@@ -5597,9 +6977,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 14.211000442504883,
-                "y": -1.5075998306274415,
-                "z": 17.35099983215332
+                "x": 11.250926971435547,
+                "y": -1.5476744174957276,
+                "z": 14.85637092590332
             },
             "rotation": {
                 "x": 0.0,
@@ -5620,9 +7000,9 @@
             "teamNumber": "Team1",
             "isRootParent": false,
             "position": {
-                "x": 24.680999755859376,
-                "y": -1.673299789428711,
-                "z": 39.07699966430664
+                "x": 20.211780548095704,
+                "y": -1.6894903182983399,
+                "z": 33.450782775878909
             },
             "rotation": {
                 "x": 0.0,
@@ -5643,9 +7023,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -46.9900016784668,
-                "y": -1.5500001907348633,
-                "z": -20.881000518798829
+                "x": -41.128562927246097,
+                "y": -1.58396315574646,
+                "z": -17.864870071411134
             },
             "rotation": {
                 "x": 0.0,
@@ -5666,9 +7046,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -6.797100067138672,
-                "y": -1.5500001907348633,
-                "z": 29.64299964904785
+                "x": -6.729065895080566,
+                "y": -1.58396315574646,
+                "z": 25.376602172851564
             },
             "rotation": {
                 "x": 0.0,
@@ -5689,9 +7069,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -28.329999923706056,
-                "y": -1.5075998306274415,
-                "z": 35.85900115966797
+                "x": -25.158212661743165,
+                "y": -1.5476744174957276,
+                "z": 30.69662857055664
             },
             "rotation": {
                 "x": 0.0,
@@ -5712,9 +7092,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -40.48500061035156,
-                "y": -1.5075998306274415,
-                "z": -23.256999969482423
+                "x": -35.561195373535159,
+                "y": -1.5476744174957276,
+                "z": -19.898391723632814
             },
             "rotation": {
                 "x": 0.0,
@@ -5735,9 +7115,9 @@
             "teamNumber": "Team2",
             "isRootParent": false,
             "position": {
-                "x": -49.31100082397461,
-                "y": -1.673299789428711,
-                "z": -40.38399887084961
+                "x": -43.115013122558597,
+                "y": -1.6894903182983399,
+                "z": -34.556705474853519
             },
             "rotation": {
                 "x": 0.0,
@@ -5758,9 +7138,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -6.092700004577637,
-                "y": -2.5157999992370607,
-                "z": -34.167999267578128
+                "x": -6.126197814941406,
+                "y": -2.410552740097046,
+                "z": -29.236679077148439
             },
             "rotation": {
                 "x": 0.0,
@@ -5781,9 +7161,9 @@
             "teamNumber": "Team4",
             "isRootParent": false,
             "position": {
-                "x": -50.89899826049805,
-                "y": -1.673299789428711,
-                "z": 31.10700035095215
+                "x": -44.474117279052737,
+                "y": -1.6894903182983399,
+                "z": 26.629581451416017
             },
             "rotation": {
                 "x": 0.0,
@@ -5804,9 +7184,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 24.983999252319337,
-                "y": -1.5500001907348633,
-                "z": 23.152000427246095
+                "x": 20.471105575561525,
+                "y": -1.58396315574646,
+                "z": 19.82121467590332
             },
             "rotation": {
                 "x": 0.0,
@@ -5827,9 +7207,9 @@
             "teamNumber": "Team2",
             "isRootParent": false,
             "position": {
-                "x": -49.31100082397461,
-                "y": -1.673299789428711,
-                "z": -48.35300064086914
+                "x": -43.115013122558597,
+                "y": -1.6894903182983399,
+                "z": -41.37705612182617
             },
             "rotation": {
                 "x": 0.0,
@@ -5850,9 +7230,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -1.2583999633789063,
-                "y": -1.5075998306274415,
-                "z": 39.72600173950195
+                "x": -1.9887142181396485,
+                "y": -1.5476744174957276,
+                "z": 34.00624084472656
             },
             "rotation": {
                 "x": 0.0,
@@ -5873,9 +7253,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 33.13399887084961,
-                "y": -1.5500001907348633,
-                "z": 45.803001403808597
+                "x": 27.446365356445314,
+                "y": -1.58396315574646,
+                "z": 39.20730209350586
             },
             "rotation": {
                 "x": 0.0,
@@ -5896,9 +7276,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 16.42099952697754,
-                "y": -1.5075998306274415,
-                "z": 13.482999801635743
+                "x": 13.142375946044922,
+                "y": -1.5476744174957276,
+                "z": 11.545904159545899
             },
             "rotation": {
                 "x": 0.0,
@@ -5919,9 +7299,9 @@
             "teamNumber": "Team3",
             "isRootParent": false,
             "position": {
-                "x": 39.38999938964844,
-                "y": -1.673299789428711,
-                "z": -37.75899887084961
+                "x": 32.80062484741211,
+                "y": -1.6894903182983399,
+                "z": -32.31007385253906
             },
             "rotation": {
                 "x": 0.0,
@@ -5942,9 +7322,9 @@
             "teamNumber": "Team3",
             "isRootParent": false,
             "position": {
-                "x": 24.680999755859376,
-                "y": -1.673299789428711,
-                "z": -37.75899887084961
+                "x": 20.211780548095704,
+                "y": -1.6894903182983399,
+                "z": -32.31007385253906
             },
             "rotation": {
                 "x": 0.0,
@@ -5965,9 +7345,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -47.52899932861328,
-                "y": -1.5075998306274415,
-                "z": 6.715400218963623
+                "x": -41.58987045288086,
+                "y": -1.5476744174957276,
+                "z": 5.753786087036133
             },
             "rotation": {
                 "x": 0.0,
@@ -5988,9 +7368,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -33.99300003051758,
-                "y": -1.5500001907348633,
-                "z": 30.058000564575197
+                "x": -30.004947662353517,
+                "y": -1.58396315574646,
+                "z": 25.73178482055664
             },
             "rotation": {
                 "x": 0.0,
@@ -6011,9 +7391,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -49.32400131225586,
-                "y": -1.5500001907348633,
-                "z": 27.433000564575197
+                "x": -43.12614059448242,
+                "y": -1.58396315574646,
+                "z": 23.485151290893556
             },
             "rotation": {
                 "x": 0.0,
@@ -6034,9 +7414,9 @@
             "teamNumber": "Team3",
             "isRootParent": false,
             "position": {
-                "x": 31.73900032043457,
-                "y": -1.673299789428711,
-                "z": -30.024999618530275
+                "x": 26.25244140625,
+                "y": -1.6894903182983399,
+                "z": -25.690853118896486
             },
             "rotation": {
                 "x": 0.0,
@@ -6057,9 +7437,9 @@
             "teamNumber": "Team4",
             "isRootParent": false,
             "position": {
-                "x": -50.89899826049805,
-                "y": -1.673299789428711,
-                "z": 39.07699966430664
+                "x": -44.474117279052737,
+                "y": -1.6894903182983399,
+                "z": 33.450782775878909
             },
             "rotation": {
                 "x": 0.0,
@@ -6080,9 +7460,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 29.54199981689453,
-                "y": -1.5500001907348633,
-                "z": -6.406099796295166
+                "x": 24.372116088867189,
+                "y": -1.58396315574646,
+                "z": -5.476380825042725
             },
             "rotation": {
                 "x": 0.0,
@@ -6103,9 +7483,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -29.711000442504884,
-                "y": -1.5075998306274415,
-                "z": 23.56599998474121
+                "x": -26.34015655517578,
+                "y": -1.5476744174957276,
+                "z": 20.175540924072267
             },
             "rotation": {
                 "x": 0.0,
@@ -6126,9 +7506,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 33.35499954223633,
-                "y": -1.5075998306274415,
-                "z": 0.36184000968933108
+                "x": 27.635509490966798,
+                "y": -1.5476744174957276,
+                "z": 0.3160283863544464
             },
             "rotation": {
                 "x": 0.0,
@@ -6149,9 +7529,9 @@
             "teamNumber": "",
             "isRootParent": true,
             "position": {
-                "x": 0.0,
-                "y": 3.0,
-                "z": 0.0
+                "x": -0.9117000102996826,
+                "y": 2.3101999759674074,
+                "z": 0.00634399987757206
             },
             "rotation": {
                 "x": 0.0,
@@ -6160,9 +7540,9 @@
                 "w": 1.0
             },
             "scale": {
-                "x": 1.0,
-                "y": 1.0,
-                "z": 1.0
+                "x": 0.8558599948883057,
+                "y": 0.8558599948883057,
+                "z": 0.8558599948883057
             }
         },
         {
@@ -6172,9 +7552,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 13.79699993133545,
-                "y": -1.5075998306274415,
-                "z": 8.649100303649903
+                "x": 10.896599769592286,
+                "y": -1.5476744174957276,
+                "z": 7.4087629318237309
             },
             "rotation": {
                 "x": 0.0,
@@ -6195,9 +7575,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -48.840999603271487,
-                "y": -1.5500001907348633,
-                "z": -6.668499946594238
+                "x": -42.7127571105957,
+                "y": -1.58396315574646,
+                "z": -5.700958251953125
             },
             "rotation": {
                 "x": 0.0,
@@ -6218,9 +7598,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -1.2583999633789063,
-                "y": -1.5075998306274415,
-                "z": 23.56599998474121
+                "x": -1.9887142181396485,
+                "y": -1.5476744174957276,
+                "z": 20.175540924072267
             },
             "rotation": {
                 "x": 0.0,
@@ -6241,9 +7621,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -6.797100067138672,
-                "y": -1.5500001907348633,
-                "z": -20.881000518798829
+                "x": -6.729065895080566,
+                "y": -1.58396315574646,
+                "z": -17.864870071411134
             },
             "rotation": {
                 "x": 0.0,
@@ -6264,9 +7644,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 34.51499938964844,
-                "y": -1.5500001907348633,
-                "z": -49.5
+                "x": 28.628307342529298,
+                "y": -1.58396315574646,
+                "z": -42.358726501464847
             },
             "rotation": {
                 "x": 0.0,
@@ -6287,9 +7667,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 23.97599983215332,
-                "y": -2.5157999992370607,
-                "z": 0.44472000002861025
+                "x": 19.608400344848634,
+                "y": -2.410552740097046,
+                "z": 0.38696205615997317
             },
             "rotation": {
                 "x": 0.0,
@@ -6310,9 +7690,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -35.650001525878909,
-                "y": -2.5157999992370607,
-                "z": 0.44472000002861025
+                "x": -31.42310905456543,
+                "y": -2.410552740097046,
+                "z": 0.38696205615997317
             },
             "rotation": {
                 "x": 0.0,
@@ -6333,9 +7713,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -40.319000244140628,
-                "y": -1.5500001907348633,
-                "z": 13.621000289916993
+                "x": -35.41912078857422,
+                "y": -1.58396315574646,
+                "z": 11.664012908935547
             },
             "rotation": {
                 "x": 0.0,
@@ -6356,9 +7736,9 @@
             "teamNumber": "",
             "isRootParent": true,
             "position": {
-                "x": 0.0,
-                "y": 3.0,
-                "z": 0.0
+                "x": -0.9117000102996826,
+                "y": 2.3101999759674074,
+                "z": 0.00634399987757206
             },
             "rotation": {
                 "x": 0.0,
@@ -6379,9 +7759,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -1.2583999633789063,
-                "y": -1.5075998306274415,
-                "z": -21.322999954223634
+                "x": -1.9887142181396485,
+                "y": -1.5476744174957276,
+                "z": -18.2431583404541
             },
             "rotation": {
                 "x": 0.0,
@@ -6402,9 +7782,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -58.0260009765625,
-                "y": -1.5500001907348633,
-                "z": -7.649099826812744
+                "x": -50.57383346557617,
+                "y": -1.58396315574646,
+                "z": -6.540214538574219
             },
             "rotation": {
                 "x": 0.0,
@@ -6425,9 +7805,9 @@
             "teamNumber": "Team1",
             "isRootParent": false,
             "position": {
-                "x": 31.73900032043457,
-                "y": -1.673299789428711,
-                "z": 31.10700035095215
+                "x": 26.25244140625,
+                "y": -1.6894903182983399,
+                "z": 26.629581451416017
             },
             "rotation": {
                 "x": 0.0,
@@ -6448,9 +7828,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 24.70800018310547,
-                "y": -1.5500001907348633,
-                "z": -20.881000518798829
+                "x": 20.23488998413086,
+                "y": -1.58396315574646,
+                "z": -17.864870071411134
             },
             "rotation": {
                 "x": 0.0,
@@ -6471,9 +7851,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 27.429000854492189,
-                "y": -1.5075998306274415,
-                "z": 31.43899917602539
+                "x": 22.563684463500978,
+                "y": -1.5476744174957276,
+                "z": 26.913724899291993
             },
             "rotation": {
                 "x": 0.0,
@@ -6494,9 +7874,9 @@
             "teamNumber": "Team1",
             "isRootParent": false,
             "position": {
-                "x": 39.38999938964844,
-                "y": -1.673299789428711,
-                "z": 39.07699966430664
+                "x": 32.80062484741211,
+                "y": -1.6894903182983399,
+                "z": 33.450782775878909
             },
             "rotation": {
                 "x": 0.0,
@@ -6517,9 +7897,9 @@
             "teamNumber": "Team4",
             "isRootParent": false,
             "position": {
-                "x": -37.88999938964844,
-                "y": -1.673299789428711,
-                "z": 39.07699966430664
+                "x": -33.34023666381836,
+                "y": -1.6894903182983399,
+                "z": 33.450782775878909
             },
             "rotation": {
                 "x": 0.0,
@@ -6540,9 +7920,9 @@
             "teamNumber": "Team2",
             "isRootParent": false,
             "position": {
-                "x": -41.659000396728519,
-                "y": -1.673299789428711,
-                "z": -45.18000030517578
+                "x": -36.56597137451172,
+                "y": -1.6894903182983399,
+                "z": -38.66141128540039
             },
             "rotation": {
                 "x": 0.0,
@@ -6558,9 +7938,9 @@
         }
     ],
     "mapObjectsPosition": {
-        "x": 0.0,
-        "y": 3.0,
-        "z": 0.0
+        "x": -0.9117000102996826,
+        "y": 2.3101999759674074,
+        "z": 0.00634399987757206
     },
     "mapObjectsRotation": {
         "x": 0.0,
@@ -6569,14 +7949,14 @@
         "w": 1.0
     },
     "mapObjectsScale": {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 1.0
+        "x": 0.8558599948883057,
+        "y": 0.8558599948883057,
+        "z": 0.8558599948883057
     },
     "fixedSpawnPosition": {
-        "x": 0.0,
-        "y": 3.0,
-        "z": 0.0
+        "x": -0.9117000102996826,
+        "y": 2.3101999759674074,
+        "z": 0.00634399987757206
     },
     "fixedSpawnRotation": {
         "x": 0.0,
@@ -6585,14 +7965,14 @@
         "w": 1.0
     },
     "fixedSpawnScale": {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 1.0
+        "x": 0.8558599948883057,
+        "y": 0.8558599948883057,
+        "z": 0.8558599948883057
     },
     "randomSpawnPosition": {
-        "x": 0.0,
-        "y": 3.0,
-        "z": 0.0
+        "x": -0.9117000102996826,
+        "y": 2.3101999759674074,
+        "z": 0.00634399987757206
     },
     "randomSpawnRotation": {
         "x": 0.0,
@@ -6601,14 +7981,14 @@
         "w": 1.0
     },
     "randomSpawnScale": {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 1.0
+        "x": 0.8558599948883057,
+        "y": 0.8558599948883057,
+        "z": 0.8558599948883057
     },
     "neutralSpawnPosition": {
-        "x": 0.0,
-        "y": 3.0,
-        "z": 0.0
+        "x": -0.9117000102996826,
+        "y": 2.3101999759674074,
+        "z": 0.00634399987757206
     },
     "neutralSpawnRotation": {
         "x": 0.0,
@@ -6617,9 +7997,9 @@
         "w": 1.0
     },
     "neutralSpawnScale": {
-        "x": 1.0,
-        "y": 1.0,
-        "z": 1.0
+        "x": 0.8558599948883057,
+        "y": 0.8558599948883057,
+        "z": 0.8558599948883057
     },
     "team1Scale": {
         "x": 1.0,
