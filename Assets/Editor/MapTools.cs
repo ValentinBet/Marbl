@@ -144,7 +144,10 @@ public class MapTools : EditorWindow
                 _object.rotation = go.transform.rotation;
                 _object.scale = go.transform.localScale;
 
-
+                if (_object == null)
+                {
+                    Debug.Log(go.name);
+                }
                     map.mapObjects.Add(_object);
             }
         }
