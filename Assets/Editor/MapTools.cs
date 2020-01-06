@@ -148,7 +148,7 @@ public class MapTools : EditorWindow
                 {
                     Debug.Log(go.name);
                 }
-                    map.mapObjects.Add(_object);
+                    map.mapObjects.Add(_object); 
             }
         }
 

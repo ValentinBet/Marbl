@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 7049549560478241681}
   - component: {fileID: 7049549560477143377}
   - component: {fileID: 5563770077528080370}
-  - component: {fileID: 5977335335022055713}
   m_Layer: 10
   m_Name: tile
   m_TagString: Untagged
@@ -92,21 +91,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0000001, z: 0.10000002}
   m_Center: {x: 0, y: 0.00000023841858, z: 0.05000001}
---- !u!114 &5977335335022055713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7049549560479403921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 0
-  outlineColor: {r: 0, g: 0, b: 0, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
