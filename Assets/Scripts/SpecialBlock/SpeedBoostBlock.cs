@@ -19,7 +19,7 @@ public class SpeedBoostBlock : MonoBehaviour
             audioSource.PlayOneShot(electricSound);
         }
 
-        if (other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsMine)
+        if (other.GetComponent<Rigidbody>() != null)
         {
             Vector3 _temp = other.GetComponent<Rigidbody>().velocity.normalized;
             other.GetComponent<Rigidbody>().velocity = _temp * speedBoostPower;
