@@ -12,6 +12,8 @@ public class GamemodeElement : MonoBehaviour
 
     [SerializeField]
     public Tag myTags;
+
+    public bool isCustom = false;
 }
 
 public class Tag

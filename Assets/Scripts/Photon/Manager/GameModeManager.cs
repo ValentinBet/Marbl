@@ -47,8 +47,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     bool modeHill = false;
     bool modeHue = false;
     bool modeCoins = false;
-    bool modePotato = false;
-    bool modeBillard = false;
 
     private static GameModeManager _instance;
     public static GameModeManager Instance { get { return _instance; } }
@@ -79,8 +77,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         modeHill = PhotonNetwork.CurrentRoom.GetHill();
         modeHue = PhotonNetwork.CurrentRoom.GetHue();
         modeCoins = PhotonNetwork.CurrentRoom.GetCoins();
-        modePotato = PhotonNetwork.CurrentRoom.GetPotato();
-        modeBillard = PhotonNetwork.CurrentRoom.GetBillard();
 
 
         myPV = GetComponent<PhotonView>();
