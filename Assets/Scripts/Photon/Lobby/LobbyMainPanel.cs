@@ -22,6 +22,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     public GameObject ReconnectButton;
     public Button QuickGameButton;
     public Button CreateLobbyButton;
+    public Button JoinLobbyButton;
 
     [Header("Create Room Panel")]
     public GameObject CreateRoomPanel;
@@ -98,6 +99,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         base.OnDisconnected(cause);
         QuickGameButton.interactable = false;
         CreateLobbyButton.interactable = false;
+        JoinLobbyButton.interactable = false;
         ReconnectButton.SetActive(true);
     }
 
@@ -109,6 +111,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         //On Connection
         QuickGameButton.interactable = true;
         CreateLobbyButton.interactable = true;
+        JoinLobbyButton.interactable = true;
         PhotonNetwork.LocalPlayer.SetTeam(MarblFactory.GetRandomTeam());
     }
 
@@ -275,6 +278,11 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         RoomOptions options = new RoomOptions { MaxPlayers = maxPlayers };
 
         PhotonNetwork.CreateRoom(roomName, options, null);
+    }
+
+    public void OnCreateLobbyButtonClicked()
+    {
+        SetActivePanel(CreateRoomPanel.name);
     }
 
     public void OnJoinRandomRoomButtonClicked()
