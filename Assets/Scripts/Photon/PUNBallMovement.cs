@@ -34,6 +34,7 @@ public class PUNBallMovement : MonoBehaviour
     public AudioClip hitWood;
     public AudioClip hitGround;
     public AudioClip shootSound;
+    public AudioClip hueCaptureSound;
 
     private void Awake()
     {
@@ -121,6 +122,11 @@ public class PUNBallMovement : MonoBehaviour
                 {
                     ballSettingReciever.ChangeTeam(ballSettingGiver.myteam);
                     PhotonNetwork.LocalPlayer.AddPlayerScore(1);
+                }
+
+                if (hueCaptureSound != null)
+                {
+                    myAudioSource.PlayOneShot(hueCaptureSound);
                 }
 
                 amplify = CollideStates.Giver;
