@@ -187,7 +187,7 @@ public class RoomScripts : MonoBehaviour
 
             print(file.Name);
 
-            newCustomGameMode.GetComponent<GamemodeElement>().labelMode =
+            //newCustomGameMode.GetComponent<GamemodeElement>().labelMode;
 
             WWW data = new WWW(Application.streamingAssetsPath + "/GameModesDefault/" + file.Name + ".json");
             GameModeSettings modeSettings = new GameModeSettings();
