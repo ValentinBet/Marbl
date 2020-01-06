@@ -28,13 +28,13 @@ public class RoomScripts : MonoBehaviour
     public GameObject CustomLabel;
 
     [Header("Mode")]
-    public List<Image> OutlineMode = new List<Image>();
+    public Image OutlinedMode;
 
-
-    public int mode;
     public int map;
 
     public bool customMode = false;
+    public bool customModeSave = false;
+    public string fileModeName;
 
     List<GameObject> allCustomMode = new List<GameObject>();
     public GameObject customGamemodePrefab;
@@ -61,6 +61,8 @@ public class RoomScripts : MonoBehaviour
     {
         line.position = currentChoice.position;
         PhotonNetwork.CurrentRoom.SetMap(Mathf.RoundToInt(0));
+
+        Refresh();
     }
 
     // Update is called once per frame
@@ -131,29 +133,25 @@ public class RoomScripts : MonoBehaviour
         }
     }
 
-    public void SetMode(int value)
+    public void SetMode(Image img)
     {
 
-        OutlineMode[mode].color = Color.white;
-        mode = value;
-        OutlineMode[mode].color = new Color(1, 0.1986281f, 0);
+        OutlinedMode.color = Color.white;
+        OutlinedMode = img;
+        OutlinedMode.color = new Color(1, 0.1986281f, 0);
 
         CustomLabel.SetActive(false);
-
-        if (customMode)
-        {
-            customMode = false;
-            OutlineMode[5].color = Color.white;
-        }
     }
 
-    public void SetCustom()
+    public void SetCustom(Image img)
     {
-        customMode = true;
-        CustomLabel.SetActive(true);
+        OutlinedMode.color = Color.white;
+        OutlinedMode = img;
+        OutlinedMode.color = new Color(1, 0.1986281f, 0);
 
-        OutlineMode[mode].color = Color.white;
-        OutlineMode[5].color = new Color(1, 0.1986281f, 0);
+        customMode = true;
+        customModeSave = false;
+        CustomLabel.SetActive(true);
     }
 
     public void SetMap(int value)
@@ -185,15 +183,60 @@ public class RoomScripts : MonoBehaviour
 
             allCustomMode.Add(newCustomGameMode);
 
-            print(file.Name);
+            GamemodeElement gModeElement = newCustomGameMode.GetComponent<GamemodeElement>();
 
-            //newCustomGameMode.GetComponent<GamemodeElement>().labelMode;
+            gModeElement.labelMode.text = file.Name.Replace(".json", "");
 
-            WWW data = new WWW(Application.streamingAssetsPath + "/GameModesDefault/" + file.Name + ".json");
+            WWW data = new WWW(Application.streamingAssetsPath + "/GameModesCustom/" + file.Name);
             GameModeSettings modeSettings = new GameModeSettings();
+
             modeSettings = JsonUtility.FromJson<GameModeSettings>(data.text);
 
+            string infoMode = CheckInfoMode(modeSettings, gModeElement);
+            gModeElement.Description.text = infoMode;
 
+            gModeElement.fileName = file.Name;
         }
+    }
+
+
+    string CheckInfoMode(GameModeSettings modeSettings, GamemodeElement gModeElement)
+    {
+        string infoMode = "";
+
+        if (modeSettings.deathmatch)
+        {
+            infoMode += "DeathMatch";
+            gModeElement.Deathmatch = true;
+        }
+
+        if (modeSettings.hill)
+        {
+            infoMode += " x King of the hill";
+            gModeElement.KingOfTheHill = true;
+
+            switch (modeSettings.hillMode)
+            {
+                case 0:
+                    infoMode += " (One for One)";
+                    break;
+
+                case 1:
+                    infoMode += " (Contest)";
+                    break;
+
+                case 2:
+                    infoMode += " (Domination)";
+                    break;
+            }
+        }
+
+        if (modeSettings.hue)
+        {
+            infoMode += " x Hue";
+            gModeElement.Hue = true;
+        }
+
+        return infoMode;
     }
 }

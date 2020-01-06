@@ -8,19 +8,22 @@ public class GamemodeElement : MonoBehaviour
     public Image Icon;
     public Text labelMode;
     public Text Description;
-    public int indexMode;
+    public Image imgOutline;
 
-    [SerializeField]
-    public Tag myTags;
-
-    public bool isCustom = false;
-}
-
-public class Tag
-{
     public bool Deathmatch = false;
     public bool KingOfTheHill = false;
     public bool Hue = false;
-    public bool Coins = false;
-    public bool Potato = false;
+
+    public bool isCustom = false;
+
+    public string fileName;
+
+    public void OnClick()
+    {
+        RoomScripts.Instance.customMode = false;
+        RoomScripts.Instance.customModeSave = isCustom;
+        RoomScripts.Instance.fileModeName = fileName;
+
+        RoomScripts.Instance.SetMode(imgOutline);
+    }
 }
