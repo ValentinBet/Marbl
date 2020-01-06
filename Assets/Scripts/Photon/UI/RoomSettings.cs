@@ -151,30 +151,23 @@ public class RoomSettings : MonoBehaviour
         hueNutralBall.mySlider.value = modeSettings.hueNutralBall;
     }
 
-    public void SetMode(int indexFile)
+    public void SetMode(string nameFile)
     {
-        var info = new DirectoryInfo(Application.streamingAssetsPath + "/GameModesDefault/");
-        var fileInfo = info.GetFiles();
+        string path = "";
 
-        WWW data = null;
-
-        int i = 0;
-        foreach (FileInfo file in fileInfo)
+        switch (RoomScripts.Instance.customModeSave)
         {
-            if (file.Name.Contains(".meta"))
-            {
-                continue;
-            }
-
-            string modeName = file.Name.Replace(".json", "");
-
-            if (i == indexFile)
-            {
-                data = new WWW(Application.streamingAssetsPath + "/GameModesDefault/" + modeName + ".json");
+            case true:
+                path = "/GameModesCustom/";
                 break;
-            }
-            i++;
+
+            case false:
+                path = "/GameModesDefault/";
+                break;
         }
+
+        WWW data = new WWW(Application.streamingAssetsPath + path + nameFile);
+
 
         GameModeSettings modeSettings = new GameModeSettings();
 
@@ -231,5 +224,7 @@ public class RoomSettings : MonoBehaviour
 
         File.WriteAllText(Application.streamingAssetsPath + "/GameModesCustom/" + saveSettingsText.text + ".json", toj);
         Refresh();
+
+        RoomScripts.Instance.Refresh();
     }
 }
