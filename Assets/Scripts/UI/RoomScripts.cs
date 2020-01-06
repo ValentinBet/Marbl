@@ -2,6 +2,7 @@
 using Photon.Pun.UtilityScripts;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,15 +22,23 @@ public class RoomScripts : MonoBehaviour
     public GameObject PlayersList;
     public GameObject GameMode;
     public GameObject Map;
+    public GameObject Custom;
+
+    [Header("Menu")]
+    public GameObject CustomLabel;
 
     [Header("Mode")]
-    public List<Image> OutlineMode = new List<Image>();
+    public Image OutlinedMode;
 
-
-    public int mode;
     public int map;
 
-    public GameObject settingsCustom;
+    public bool customMode = false;
+    public bool customModeSave = false;
+    public string fileModeName;
+
+    List<GameObject> allCustomMode = new List<GameObject>();
+    public GameObject customGamemodePrefab;
+    public Transform gamemodeParent;
 
     private static RoomScripts _instance;
     public static RoomScripts Instance { get { return _instance; } }
@@ -52,6 +61,8 @@ public class RoomScripts : MonoBehaviour
     {
         line.position = currentChoice.position;
         PhotonNetwork.CurrentRoom.SetMap(Mathf.RoundToInt(0));
+
+        Refresh();
     }
 
     // Update is called once per frame
@@ -81,7 +92,6 @@ public class RoomScripts : MonoBehaviour
 
     public void SetChoice(RectTransform element)
     {
-        settingsCustom.SetActive(false);
         Text newtext = element.GetComponent<Text>();
 
         if (currentChoice != newtext)
@@ -96,52 +106,137 @@ public class RoomScripts : MonoBehaviour
                     PlayersList.SetActive(true);
                     GameMode.SetActive(false);
                     Map.SetActive(false);
+                    Custom.SetActive(false);
                     break;
 
                 case "Gamemode":
                     PlayersList.SetActive(false);
                     GameMode.SetActive(true);
                     Map.SetActive(false);
+                    Custom.SetActive(false);
                     break;
 
                 case "Map":
                     PlayersList.SetActive(false);
                     GameMode.SetActive(false);
                     Map.SetActive(true);
+                    Custom.SetActive(false);
+                    break;
+
+                case "Custom":
+                    PlayersList.SetActive(false);
+                    GameMode.SetActive(false);
+                    Map.SetActive(false);
+                    Custom.SetActive(true);
                     break;
             }
         }
     }
 
-    public void SetMode(int value)
+    public void SetMode(Image img)
     {
-        OutlineMode[mode].color = Color.white;
-        mode = value;
-        OutlineMode[mode].color = new Color(1, 0.1986281f, 0);
 
-        if(value == 5)
-        {
-            settingsCustom.SetActive(true);
-            settingsCustom.GetComponent<Image>().color = new Color(1,1,1,1);
-            return;
-        }
-        else
-        {
-            settingsCustom.SetActive(false);
-        }
+        OutlinedMode.color = Color.white;
+        OutlinedMode = img;
+        OutlinedMode.color = new Color(1, 0.1986281f, 0);
 
-        myRoomSetting.SetMode(mode);
+        CustomLabel.SetActive(false);
+    }
+
+    public void SetCustom(Image img)
+    {
+        OutlinedMode.color = Color.white;
+        OutlinedMode = img;
+        OutlinedMode.color = new Color(1, 0.1986281f, 0);
+
+        customMode = true;
+        customModeSave = false;
+        CustomLabel.SetActive(true);
     }
 
     public void SetMap(int value)
     {
         map = value;
         PhotonNetwork.CurrentRoom.SetMap(Mathf.RoundToInt(value));
-        settingsCustom.SetActive(false);
     }
 
     public void SetMapCustom(bool value)
     {
         PhotonNetwork.CurrentRoom.SetCustomMap(value);
+    }
+
+    public void Refresh()
+    {
+        foreach (GameObject element in allCustomMode)
+        {
+            Destroy(element);
+        }
+
+        var info = new DirectoryInfo(Application.streamingAssetsPath + "/GameModesCustom/");
+        var fileInfo = info.GetFiles();
+
+        foreach (FileInfo file in fileInfo)
+        {
+            if (file.Name.Contains(".meta")) { continue; }
+
+            GameObject newCustomGameMode = Instantiate(customGamemodePrefab, gamemodeParent);
+
+            allCustomMode.Add(newCustomGameMode);
+
+            GamemodeElement gModeElement = newCustomGameMode.GetComponent<GamemodeElement>();
+
+            gModeElement.labelMode.text = file.Name.Replace(".json", "");
+
+            WWW data = new WWW(Application.streamingAssetsPath + "/GameModesCustom/" + file.Name);
+            GameModeSettings modeSettings = new GameModeSettings();
+
+            modeSettings = JsonUtility.FromJson<GameModeSettings>(data.text);
+
+            string infoMode = CheckInfoMode(modeSettings, gModeElement);
+            gModeElement.Description.text = infoMode;
+
+            gModeElement.fileName = file.Name;
+        }
+    }
+
+
+    string CheckInfoMode(GameModeSettings modeSettings, GamemodeElement gModeElement)
+    {
+        string infoMode = "";
+
+        if (modeSettings.deathmatch)
+        {
+            infoMode += "DeathMatch";
+            gModeElement.Deathmatch = true;
+        }
+
+        if (modeSettings.hill)
+        {
+            infoMode += " x King of the hill";
+            gModeElement.KingOfTheHill = true;
+
+            switch (modeSettings.hillMode)
+            {
+                case 0:
+                    infoMode += " (One for One)";
+                    break;
+
+                case 1:
+                    infoMode += " (Contest)";
+                    break;
+
+                case 2:
+                    infoMode += " (Domination)";
+                    break;
+            }
+        }
+
+        if (modeSettings.hue)
+        {
+            infoMode += " x Hue";
+            gModeElement.Hue = true;
+        }
+
+        return infoMode;
     }
 }

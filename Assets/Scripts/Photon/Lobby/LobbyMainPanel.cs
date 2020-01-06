@@ -320,6 +320,11 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;
 
+        if (!RoomScripts.Instance.customMode)
+        {
+            RoomSettings.Instance.SetMode(RoomScripts.Instance.fileModeName);
+        }
+
         RoomSettings.Instance.SaveSettings();
 
         PhotonNetwork.LoadLevel(multiplayerScene);

@@ -9,6 +9,7 @@ public class SpeedBoostBlock : MonoBehaviour
     public AudioSource audioSource;
 
     public AudioClip electricSound;
+    public int speedBoostPower;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,16 +18,22 @@ public class SpeedBoostBlock : MonoBehaviour
             other.GetComponent<BallSettings>().SpawnOverchargedFx();
             audioSource.PlayOneShot(electricSound);
         }
-    }
 
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.CompareTag("Ball"))
+        if (other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsMine)
         {
-            if (other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsMine)
-            {
-                other.GetComponent<Rigidbody>().velocity *= 1.1f;
-            }
+            Vector3 _temp = other.GetComponent<Rigidbody>().velocity.normalized;
+            other.GetComponent<Rigidbody>().velocity = _temp * speedBoostPower;
         }
     }
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.CompareTag("Ball"))
+    //    {
+    //        if (other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsMine)
+    //        {
+    //            other.GetComponent<Rigidbody>().velocity *= 1.1f;
+    //        }
+    //    }
+    //}
 }
