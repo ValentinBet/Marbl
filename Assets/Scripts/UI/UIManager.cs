@@ -53,6 +53,12 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject PingChoice;
     public GameObject currentClickedBall;
 
+    private GameObject actualCommand;
+    public GameObject commandNoButtons;
+    public GameObject commandAim;
+    public GameObject commandFocus;
+    public GameObject commandShoot;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -120,6 +126,13 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void SetCamButtonState(bool value)
     {
         TopCamButton.SetActive(value);
+        if(value == false)
+        {
+            if (actualCommand != null)
+                actualCommand.SetActive(false);
+            actualCommand = commandShoot;
+            actualCommand.SetActive(true);
+        }
         //TeamCamButton.SetActive(value);
         FreeCamButton.SetActive(value);
     }
@@ -127,6 +140,13 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void SetFreeCam()
     {
         ResetButton();
+        if(actualCommand != commandFocus)
+        {
+            if (actualCommand != null)
+                actualCommand.SetActive(false);
+            actualCommand = commandFocus;
+            actualCommand.SetActive(true);
+        }
         OnFreeCam(CameraMode.Free);
         FreeCamButton.GetComponent<Image>().color = Color.white;
         FreeCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
@@ -136,6 +156,13 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void SetTeamCam()
     {
         ResetButton();
+        if (actualCommand != commandFocus)
+        {
+            if (actualCommand != null)
+                actualCommand.SetActive(false);
+            actualCommand = commandFocus;
+            actualCommand.SetActive(true);
+        }
         OnTeamCam(CameraMode.TeamCentered);
         TeamCamButton.GetComponent<Image>().color = Color.white;
         TeamCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
@@ -144,6 +171,13 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void SetTopCam()
     {
         ResetButton();
+        if (actualCommand != commandFocus)
+        {
+            if (actualCommand != null)
+                actualCommand.SetActive(false);
+            actualCommand = commandFocus;
+            actualCommand.SetActive(true);
+        }
         OnTopCam(CameraMode.MapCentered);
         TopCamButton.GetComponent<Image>().color = Color.white;
         TopCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
@@ -226,9 +260,47 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
     }
 
+    public void StartAim()
+    {
+        if (actualCommand != commandAim)
+        {
+            if (actualCommand != null)
+                actualCommand.SetActive(false);
+            actualCommand = commandAim;
+            actualCommand.SetActive(true);
+        }
+    }
+
+    public void ReleaseAim()
+    {
+        if (actualCommand != commandNoButtons)
+        {
+            if (actualCommand != null)
+                actualCommand.SetActive(false);
+            actualCommand = commandNoButtons;
+            actualCommand.SetActive(true);
+        }
+    }
     public void OnClickOnBall(GameObject ball)
     {
         if (!pingStatut) { return; }
+        /*foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
+        {
+            if (element.Key == null) { continue; }
+
+            if (element.Key.myteam == GameModeManager.Instance.localPlayerTeam)
+            {
+                element.Value.Trail.enabled = true;
+            }
+        }*/
+
+        if (actualCommand != commandNoButtons)
+        {
+            if (actualCommand != null)
+                actualCommand.SetActive(false);
+            actualCommand = commandNoButtons;
+            actualCommand.SetActive(true);
+        }
 
         currentClickedBall = ball;
 
@@ -246,7 +318,8 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void OnEndTurn()
     {
         if (!pingStatut) { return; }
-
+        if (actualCommand != null)
+            actualCommand.SetActive(false);
         foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
         {
             if (element.Key == null) { continue; }

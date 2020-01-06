@@ -119,7 +119,6 @@ public class PUNMouseControl : MonoBehaviour
 
     public void NewBallSelected(GameObject ball)
     {
-        UIManager.Instance.OnEndTurn();
         UIManager.Instance.OnClickOnBall(ball);
 
         actualSelectedBall = ball;
@@ -178,6 +177,7 @@ public class PUNMouseControl : MonoBehaviour
                 }
                 if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(InputManager.Instance.Inputs.inputs.MainButton1)) && isHoldingShoot)
                 {
+                    UIManager.Instance.ReleaseAim();
                     StopShoot();
                 }
             }
