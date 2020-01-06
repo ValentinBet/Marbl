@@ -88,6 +88,7 @@ public class HillManager : MonoBehaviour
         {
             foreach(BallSettings _ball in _hill.ballInside)
             {
+                if(_ball.myteam == Team.neutral) { continue; }
                 PhotonNetwork.CurrentRoom.AddTeamScore(_ball.myteam, currentPoint);
             }
         }
@@ -106,7 +107,8 @@ public class HillManager : MonoBehaviour
 
             foreach (BallSettings _element in _hill.ballInside)
             {
-                if(_element.myteam != teamAlone)
+                if (_element.myteam == Team.neutral) { continue; }
+                if (_element.myteam != teamAlone)
                 {
                     return;
                 }
@@ -129,6 +131,7 @@ public class HillManager : MonoBehaviour
 
             foreach (BallSettings _element in _hill.ballInside)
             {
+                if (_element.myteam == Team.neutral) { continue; }
                 teamValue[_element.myteam] += 1;
             }
 
