@@ -45,7 +45,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {        
         if (!pv.IsMine)
         {
-            myRigid.position = Vector3.MoveTowards(myRigid.position, networkPosition, Time.fixedDeltaTime * 2f);
+            myRigid.position = Vector3.Lerp(myRigid.position, networkPosition, Time.fixedDeltaTime * 2f);
             myRigid.rotation = Quaternion.RotateTowards(myRigid.rotation, networkRotation, Time.fixedDeltaTime * 100.0f);
         }
     }
@@ -124,10 +124,12 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
             networkRotation = (Quaternion)stream.ReceiveNext();
             myRigid.velocity = (Vector3)stream.ReceiveNext();
 
-            float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
+            float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.timestamp));
             networkPosition += (this.myRigid.velocity * lag);
         }
     }
+
+
 
 
 }

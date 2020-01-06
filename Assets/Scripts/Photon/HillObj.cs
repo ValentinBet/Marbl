@@ -15,7 +15,7 @@ public class HillObj : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.transform.tag == "Ball")
+        if(other.transform.tag == "Ball" && other.gameObject.GetComponent<BallSettings>().myteam != Team.neutral)
         {
             ballInside.Add(other.gameObject.GetComponent<BallSettings>());
         }
@@ -24,7 +24,7 @@ public class HillObj : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.transform.tag == "Ball")
+        if (other.transform.tag == "Ball" && other.gameObject.GetComponent<BallSettings>().myteam != Team.neutral)
         {
             ballInside.Remove(other.gameObject.GetComponent<BallSettings>());
         }
@@ -43,14 +43,7 @@ public class HillObj : MonoBehaviour
 
         foreach (BallSettings _element in ballInside)
         {
-            if(_element.myteam == Team.neutral) { continue; }
             teamValue[MarblGame.GetColor((int)_element.myteam)] += 1;
-        }
-
-        if(teamValue.Count == 0)
-        {
-            SetColor(Color.white);
-            return;
         }
 
         Color keyOfMaxValue = teamValue.Aggregate((x, y) => x.Value > y.Value ? x : y).Key;
@@ -74,10 +67,5 @@ public class HillObj : MonoBehaviour
         {
             img.color = newColor;
         }
-    }
-
-    private void OnTriggerStay(Collider other)
-    {
-        CheckColor();
     }
 }

@@ -53,12 +53,6 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject PingChoice;
     public GameObject currentClickedBall;
 
-    private GameObject actualCommand;
-    public GameObject commandNoButtons;
-    public GameObject commandAim;
-    public GameObject commandFocus;
-    public GameObject commandShoot;
-
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -126,13 +120,6 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void SetCamButtonState(bool value)
     {
         TopCamButton.SetActive(value);
-        if(value == false)
-        {
-            if (actualCommand != null)
-                actualCommand.SetActive(false);
-            actualCommand = commandShoot;
-            actualCommand.SetActive(true);
-        }
         //TeamCamButton.SetActive(value);
         FreeCamButton.SetActive(value);
     }
@@ -140,11 +127,6 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void SetFreeCam()
     {
         ResetButton();
-        if(actualCommand != commandNoButtons)
-        {
-            actualCommand = commandNoButtons;
-            actualCommand.SetActive(true);
-        }
         OnFreeCam(CameraMode.Free);
         FreeCamButton.GetComponent<Image>().color = Color.white;
         FreeCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
@@ -154,11 +136,6 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void SetTeamCam()
     {
         ResetButton();
-        if (actualCommand != commandNoButtons)
-        {
-            actualCommand = commandNoButtons;
-            actualCommand.SetActive(true);
-        }
         OnTeamCam(CameraMode.TeamCentered);
         TeamCamButton.GetComponent<Image>().color = Color.white;
         TeamCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
@@ -167,11 +144,6 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void SetTopCam()
     {
         ResetButton();
-        if (actualCommand != commandNoButtons)
-        {
-            actualCommand = commandNoButtons;
-            actualCommand.SetActive(true);
-        }
         OnTopCam(CameraMode.MapCentered);
         TopCamButton.GetComponent<Image>().color = Color.white;
         TopCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
@@ -254,36 +226,9 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void StartAim()
-    {
-        if (actualCommand != commandAim)
-        {
-            if (actualCommand != null)
-                actualCommand.SetActive(false);
-            actualCommand = commandAim;
-            actualCommand.SetActive(true);
-        }
-    }
-
-    public void ReleaseAim()
-    {
-        if (actualCommand != commandNoButtons)
-        {
-            actualCommand = commandNoButtons;
-            actualCommand.SetActive(true);
-        }
-    }
     public void OnClickOnBall(GameObject ball)
     {
         if (!pingStatut) { return; }
-
-        if (actualCommand != commandFocus)
-        {
-            if (actualCommand != null)
-                actualCommand.SetActive(false);
-            actualCommand = commandNoButtons;
-            actualCommand.SetActive(true);
-        }
 
         currentClickedBall = ball;
 
