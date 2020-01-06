@@ -45,7 +45,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {        
         if (!pv.IsMine)
         {
-            myRigid.position = Vector3.MoveTowards(myRigid.position, networkPosition, Time.fixedDeltaTime * 100f);
+            myRigid.position = Vector3.MoveTowards(myRigid.position, networkPosition, Time.fixedDeltaTime * 2f);
             myRigid.rotation = Quaternion.RotateTowards(myRigid.rotation, networkRotation, Time.fixedDeltaTime * 100.0f);
         }
     }
@@ -129,11 +129,5 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
         }
     }
 
-
-    public void OnOwnershipRequest(object[] viewAndPlayer)
-    {
-        Debug.Log(this.gameObject);
-        Debug.Log(viewAndPlayer[0]);
-    }
 
 }
