@@ -33,7 +33,7 @@ public class PUNBallMovement : MonoBehaviour
     public AudioClip hitMarbl;
     public AudioClip hitWood;
     public AudioClip hitGround;
-
+    public AudioClip shootSound;
 
     private void Awake()
     {
@@ -82,6 +82,11 @@ public class PUNBallMovement : MonoBehaviour
 
         this.GetComponent<Rigidbody>().AddForceAtPosition(_impulse, transform.position, ForceMode.Impulse);
         this.GetComponent<Rigidbody>().AddTorque(Vector3.Cross(direction, Vector3.up) * -torqueForce, ForceMode.Force);
+
+        if (shootSound != null)
+        {
+            myAudioSource.PlayOneShot(shootSound);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

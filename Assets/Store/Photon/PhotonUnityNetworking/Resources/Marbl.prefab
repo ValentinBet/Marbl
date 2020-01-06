@@ -236,10 +236,11 @@ MonoBehaviour:
   - {fileID: 100002, guid: 5c1a1b8b0fc6a7a4083086fd4b43b8cf, type: 3}
   - {fileID: 100002, guid: c6bb7802ff756c7468bc01ea0e605e0e, type: 3}
   - {fileID: 100002, guid: c238cf19a1358114a8f6efc4ef866c05, type: 3}
-  myAudioSource: {fileID: 0}
+  myAudioSource: {fileID: 7541338621667027302}
   hitMarbl: {fileID: 0}
   hitWood: {fileID: 0}
   hitGround: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: b599413697af7384ea63608c589a1af1, type: 3}
 --- !u!114 &7495604838127120502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,14 +278,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.655
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 70
   Pan2D: 0
