@@ -140,9 +140,11 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void SetFreeCam()
     {
         ResetButton();
-        if(actualCommand != commandNoButtons)
+        if(actualCommand != commandFocus)
         {
-            actualCommand = commandNoButtons;
+            if (actualCommand != null)
+                actualCommand.SetActive(false);
+            actualCommand = commandFocus;
             actualCommand.SetActive(true);
         }
         OnFreeCam(CameraMode.Free);
@@ -154,9 +156,11 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void SetTeamCam()
     {
         ResetButton();
-        if (actualCommand != commandNoButtons)
+        if (actualCommand != commandFocus)
         {
-            actualCommand = commandNoButtons;
+            if (actualCommand != null)
+                actualCommand.SetActive(false);
+            actualCommand = commandFocus;
             actualCommand.SetActive(true);
         }
         OnTeamCam(CameraMode.TeamCentered);
@@ -167,9 +171,11 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void SetTopCam()
     {
         ResetButton();
-        if (actualCommand != commandNoButtons)
+        if (actualCommand != commandFocus)
         {
-            actualCommand = commandNoButtons;
+            if (actualCommand != null)
+                actualCommand.SetActive(false);
+            actualCommand = commandFocus;
             actualCommand.SetActive(true);
         }
         OnTopCam(CameraMode.MapCentered);
@@ -269,6 +275,8 @@ public class UIManager : MonoBehaviourPunCallbacks
     {
         if (actualCommand != commandNoButtons)
         {
+            if (actualCommand != null)
+                actualCommand.SetActive(false);
             actualCommand = commandNoButtons;
             actualCommand.SetActive(true);
         }
@@ -276,8 +284,17 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void OnClickOnBall(GameObject ball)
     {
         if (!pingStatut) { return; }
+        /*foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
+        {
+            if (element.Key == null) { continue; }
 
-        if (actualCommand != commandFocus)
+            if (element.Key.myteam == GameModeManager.Instance.localPlayerTeam)
+            {
+                element.Value.Trail.enabled = true;
+            }
+        }*/
+
+        if (actualCommand != commandNoButtons)
         {
             if (actualCommand != null)
                 actualCommand.SetActive(false);
@@ -301,7 +318,8 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void OnEndTurn()
     {
         if (!pingStatut) { return; }
-
+        if (actualCommand != null)
+            actualCommand.SetActive(false);
         foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
         {
             if (element.Key == null) { continue; }

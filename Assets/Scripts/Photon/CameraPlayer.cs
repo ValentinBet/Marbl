@@ -194,11 +194,19 @@ public class CameraPlayer : MonoBehaviour
 
         followBall.transform.position = targetedTransform.position;
 
+        if (Input.GetKeyDown(InputManager.Instance.Inputs.inputs.MainButton1))
+        {
+            UIManager.Instance.StartAim();
+        }
         if (Input.GetKey(InputManager.Instance.Inputs.inputs.MainButton1) || Input.GetKey(InputManager.Instance.Inputs.inputs.MainButton2))
         {
             //orbitalAngle += Input.GetAxis("Mouse X") * 2.5f;
             //followBall.transform.rotation = Quaternion.Euler(initialRotation.eulerAngles + new Vector3(0, orbitalAngle, 0));// + myMouseControl.possibleAngles[myMouseControl.angleIndex] * curveVariation, 0));
             followBall.transform.rotation = Quaternion.Euler(followBall.transform.rotation.eulerAngles + new Vector3(0, Input.GetAxis("Mouse X") * 2.5f, 0));
+        }
+        if(Input.GetKeyUp(InputManager.Instance.Inputs.inputs.MainButton1))
+        {
+            UIManager.Instance.ReleaseAim();
         }
     }
 
