@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 482338}
   - component: {fileID: 3362642}
   - component: {fileID: 2356512}
-  - component: {fileID: 13614844}
   m_Layer: 0
   m_Name: FlowerBush_a_m_03
   m_TagString: Untagged
@@ -78,17 +77,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &13614844
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 165740}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.39713088
-  m_Height: 2.1130888
-  m_Direction: 1
-  m_Center: {x: -0.00722757, y: 1.04, z: 0.006168425}
