@@ -158,6 +158,7 @@ public class RoomScripts : MonoBehaviour
     {
         map = value;
         PhotonNetwork.CurrentRoom.SetMap(value);
+        print("test");
     }
 
     public void SetMapCustom(bool value)
