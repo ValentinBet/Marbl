@@ -50,9 +50,7 @@ public class JsonMapLoader : MonoBehaviour
     {
         if (PhotonNetwork.LocalPlayer.IsMasterClient)
         {
-            print("tftdazu");
             mapName = PhotonNetwork.CurrentRoom.GetMap();
-            print(mapName);
 
             string path = "";
             switch (PhotonNetwork.CurrentRoom.GetCustomMap())

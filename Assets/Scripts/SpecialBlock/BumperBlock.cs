@@ -13,10 +13,14 @@ public class BumperBlock : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip ballHit;
 
+    public Animator myAnimator;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Ball"))
         {
+            myAnimator.SetTrigger("Boom");
+
             GameObject _ball = collision.collider.gameObject;
 
             if (ballHit != null)
