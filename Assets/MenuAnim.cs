@@ -12,6 +12,7 @@ public class MenuAnim : MonoBehaviour
     public float additionalRotation;
     private float timer = 0.0f;
     private float timerB = 0.0f;
+    public LobbyMainPanel LMP;
     // Start is called before the first frame update
     void Start()
     {

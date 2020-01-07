@@ -51,6 +51,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     public Animator MainMenuAnim;
 
     private bool locked = false;
+    private bool restartedGame = false;
     private Dictionary<string, RoomInfo> cachedRoomList;
     private Dictionary<string, GameObject> roomListEntries;
     private Dictionary<Player, GameObject> playerListEntries;
@@ -82,7 +83,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     {
         if(PhotonNetwork.PlayerList.Length > 0) {
             OnJoinedRoom();
-            MainMenuAnim.SetBool("GameRestarted", true);
+            restartedGame = true;
             MainMenuAnim.Play("RestartGame");
             PhotonNetwork.CurrentRoom.IsOpen = true;
             PhotonNetwork.CurrentRoom.IsVisible = true;
@@ -294,7 +295,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public void OnLeaveGameButtonClicked()
     {
-        MainMenuAnim.SetBool("GameRestated", false);
         PhotonNetwork.LeaveRoom();
     }
 
@@ -389,7 +389,15 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
             {
                 locked = false;
             }
-            MainMenuAnim.SetTrigger("Contextual");
+            //Return to menu from lobby after first game
+            if (activePanel == SelectionPanel.name && locked == false && restartedGame)
+            {
+                MainMenuAnim.SetTrigger("ReturnToMenu");
+            }
+            else if (!restartedGame)
+            {
+                MainMenuAnim.SetTrigger("Contextual");
+            }
         }
         SelectionPanel.SetActive(activePanel.Equals(SelectionPanel.name));
         CreateRoomPanel.SetActive(activePanel.Equals(CreateRoomPanel.name));
