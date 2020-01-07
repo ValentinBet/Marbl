@@ -101,9 +101,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
         myteam = team;
         SetColor();
     }
-
-
-
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
 
@@ -123,9 +120,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
             networkPosition = (Vector3)stream.ReceiveNext();
             networkRotation = (Quaternion)stream.ReceiveNext();
             myRigid.velocity = (Vector3)stream.ReceiveNext();
-
-            float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.SentServerTime));
-            networkPosition += (this.myRigid.velocity * lag);
         }
     }
 
