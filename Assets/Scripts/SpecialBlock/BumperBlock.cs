@@ -15,11 +15,15 @@ public class BumperBlock : MonoBehaviour
 
     public Animator myAnimator;
 
+    public GameObject fxPrefab;
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Ball"))
         {
             myAnimator.SetTrigger("Boom");
+
+            Destroy(Instantiate(fxPrefab, collision.contacts[0].point, Random.rotation), 2);
 
             GameObject _ball = collision.collider.gameObject;
 
