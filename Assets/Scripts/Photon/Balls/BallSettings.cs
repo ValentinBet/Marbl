@@ -45,7 +45,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {        
         if (!pv.IsMine)
         {
-            myRigid.position = Vector3.Lerp(myRigid.position, networkPosition, Time.fixedDeltaTime * 2f);
+            myRigid.position = Vector3.MoveTowards(myRigid.position, networkPosition, Time.fixedDeltaTime);
             myRigid.rotation = Quaternion.RotateTowards(myRigid.rotation, networkRotation, Time.fixedDeltaTime * 100.0f);
         }
     }
@@ -101,9 +101,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
         myteam = team;
         SetColor();
     }
-
-
-
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
 
@@ -123,9 +120,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
             networkPosition = (Vector3)stream.ReceiveNext();
             networkRotation = (Quaternion)stream.ReceiveNext();
             myRigid.velocity = (Vector3)stream.ReceiveNext();
-
-            float lag = Mathf.Abs((float)(PhotonNetwork.Time - info.timestamp));
-            networkPosition += (this.myRigid.velocity * lag);
         }
     }
 

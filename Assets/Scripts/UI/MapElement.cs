@@ -15,6 +15,7 @@ public class MapElement : MonoBehaviour
     public void SetMap()
     {
         RoomScripts.Instance.SetMap(nameMap);
+        print(nameMap);
         RoomScripts.Instance.SetMapCustom(isCustom);
 
         GameObject[] allMap = GameObject.FindGameObjectsWithTag("Map");
