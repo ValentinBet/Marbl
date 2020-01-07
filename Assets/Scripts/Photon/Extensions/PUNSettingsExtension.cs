@@ -43,22 +43,22 @@ namespace Photon.Pun.UtilityScripts
 
     public static class SettingsExtension
     {
-        public static void SetMap(this Room room, int map)
+        public static void SetMap(this Room room, string map)
         {
             Hashtable _map = new Hashtable();
             _map[PUNSettingsExtension.mapProp] = map;
             room.SetCustomProperties(_map);
         }
 
-        public static int GetMap(this Room room)
+        public static string GetMap(this Room room)
         {
             object _map;
 
             if (room.CustomProperties.TryGetValue(PUNSettingsExtension.mapProp, out _map))
             {
-                return (int)_map;
+                return (string)_map;
             }
-            return 0;
+            return "";
         }
 
         public static void SetCustomMap(this Room room, bool map)
