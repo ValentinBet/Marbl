@@ -27,7 +27,7 @@ public class JsonMapLoader : MonoBehaviour
     private List<MapObject> fixSpawn = new List<MapObject>();
     private PhotonView myPV;
 
-    int mapIndex;
+    string mapName;
 
     private static JsonMapLoader _instance;
     public static JsonMapLoader Instance { get { return _instance; } }
@@ -50,7 +50,9 @@ public class JsonMapLoader : MonoBehaviour
     {
         if (PhotonNetwork.LocalPlayer.IsMasterClient)
         {
-            mapIndex = PhotonNetwork.CurrentRoom.GetMap();
+            print("tftdazu");
+            mapName = PhotonNetwork.CurrentRoom.GetMap();
+            print(mapName);
 
             string path = "";
             switch (PhotonNetwork.CurrentRoom.GetCustomMap())
@@ -62,23 +64,9 @@ public class JsonMapLoader : MonoBehaviour
                 case false:
                     path = "/Maps/";
                     break;
-            }
-
-
-            var info = new DirectoryInfo(Application.streamingAssetsPath + path);
-            var files = info.GetFiles();
-
-            List<FileInfo> fileInfo = files.ToList();
-
-            for (int i = 0; i < fileInfo.Count; i++)
-            {
-                if (fileInfo[i].Name.Contains(".meta"))
-                {
-                    fileInfo.RemoveAt(i);
-                }
-            }  
+            } 
             
-            WWW data = new WWW(Application.streamingAssetsPath + path + fileInfo[mapIndex].Name);
+            WWW data = new WWW(Application.streamingAssetsPath + path + mapName);
 
             jsonMap = data.text;
 
