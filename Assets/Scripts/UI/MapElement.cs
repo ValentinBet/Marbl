@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class MapElement : MonoBehaviour
 {
-    public int intMap = 0;
+    public string nameMap;
 
     public Text NameMap;
     public Image myOutline;
@@ -14,7 +14,7 @@ public class MapElement : MonoBehaviour
 
     public void SetMap()
     {
-        RoomScripts.Instance.SetMap(intMap);
+        RoomScripts.Instance.SetMap(nameMap);
         RoomScripts.Instance.SetMapCustom(isCustom);
 
         GameObject[] allMap = GameObject.FindGameObjectsWithTag("Map");

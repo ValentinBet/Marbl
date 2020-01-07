@@ -30,7 +30,7 @@ public class RoomScripts : MonoBehaviour
     [Header("Mode")]
     public Image OutlinedMode;
 
-    public int map;
+    public string map = "BasicMap.json";
 
     public bool customMode = false;
     public bool customModeSave = false;
@@ -60,7 +60,7 @@ public class RoomScripts : MonoBehaviour
     void Start()
     {
         line.position = currentChoice.position;
-        PhotonNetwork.CurrentRoom.SetMap(Mathf.RoundToInt(0));
+        PhotonNetwork.CurrentRoom.SetMap("BasicMap.json");
 
         Refresh();
     }
@@ -154,10 +154,10 @@ public class RoomScripts : MonoBehaviour
         CustomLabel.SetActive(true);
     }
 
-    public void SetMap(int value)
+    public void SetMap(string value)
     {
         map = value;
-        PhotonNetwork.CurrentRoom.SetMap(Mathf.RoundToInt(value));
+        PhotonNetwork.CurrentRoom.SetMap(value);
     }
 
     public void SetMapCustom(bool value)

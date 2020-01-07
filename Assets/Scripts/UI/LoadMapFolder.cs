@@ -22,7 +22,7 @@ public class LoadMapFolder : MonoBehaviour
 
             GameObject newMap = Instantiate(prefabMap, parent);
             newMap.GetComponent<MapElement>().NameMap.text = (file.Name).Replace(".json", "");
-            newMap.GetComponent<MapElement>().intMap = i;
+            newMap.GetComponent<MapElement>().nameMap = file.Name;
             i++;
         }
     }
