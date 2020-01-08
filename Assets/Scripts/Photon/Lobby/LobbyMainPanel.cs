@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using static Photon.Pun.UtilityScripts.PunTeams;
+using static PopupManager;
 
 public class LobbyMainPanel : MonoBehaviourPunCallbacks
 {
@@ -306,10 +307,11 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.LocalPlayer.NickName = playerName;
             PlayerPrefs.SetString("Name", playerName);
+            PopupManager.Instance.DisplayPopup(popUpType.Confirmation, "Name changed");
         }
         else
         {
-            Debug.LogError("Player Name is invalid.");
+            PopupManager.Instance.DisplayPopup(popUpType.Forbident, "Failed to change name");
         }
     }
 
