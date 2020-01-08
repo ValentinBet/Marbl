@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     AudioSource myAudioSource;
-
+    public AudioClip ballDeath;
     private static AudioManager _instance;
     public static AudioManager Instance { get { return _instance; } }
 
