@@ -82,8 +82,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     private void Start()
     {
         if(PhotonNetwork.PlayerList.Length > 0) {
-            OnJoinedRoom();
             restartedGame = true;
+            OnJoinedRoom();
             MainMenuAnim.Play("RestartGame");
             PhotonNetwork.CurrentRoom.IsOpen = true;
             PhotonNetwork.CurrentRoom.IsVisible = true;
