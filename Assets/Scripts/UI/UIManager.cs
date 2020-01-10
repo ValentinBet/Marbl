@@ -41,6 +41,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject FreeCamTooltip;
 
     public GameObject LoadingPanel;
+    public GameObject chat;
     public InfoTurnSettings infoTurnSettings;
 
     public bool isShooting = false;
@@ -84,6 +85,11 @@ public class UIManager : MonoBehaviourPunCallbacks
         {
             DisplayEscapeMenu();
         }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            DisplayChat();
+        }
+
         if (isShooting)
         {
             SetCamButtonState(false);
@@ -394,6 +400,15 @@ public class UIManager : MonoBehaviourPunCallbacks
                 element.Value.Trail.enabled = false;
                 continue;
             }
+        }
+    }
+
+    public void DisplayChat()
+    {
+        if (!chat.activeInHierarchy)
+        {
+            chat.SetActive(true);
+           // chat.GetComponent<bl_ChatUI>().OnChatDisplay();
         }
     }
 }

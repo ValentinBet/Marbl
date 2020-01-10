@@ -84,7 +84,11 @@ public class ChatManager : MonoBehaviour
     
     public void OnChatMessage(string message)
     {
-        ChatUI.AddNewLine(message, FadeMessage, FadeMessageIn, FadeMessageSpeed, true);
+        if (message != null)
+        {
+            ChatUI.AddNewLine(message, FadeMessage, FadeMessageIn, FadeMessageSpeed, true);
+        }
+
     }
 
 
