@@ -7,6 +7,7 @@ using Photon.Pun.UtilityScripts;
 using static UnityEngine.UI.Dropdown;
 using System.IO;
 using UnityEditor;
+using static PopupManager;
 
 public class RoomSettings : MonoBehaviour
 {
@@ -226,5 +227,7 @@ public class RoomSettings : MonoBehaviour
         Refresh();
 
         RoomScripts.Instance.Refresh();
+
+        PopupManager.Instance.DisplayPopup(popUpType.Confirmation, "Gamemode saved");
     }
 }
