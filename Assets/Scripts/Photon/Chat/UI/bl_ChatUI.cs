@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 public class bl_ChatUI : MonoBehaviour {
 
@@ -55,5 +56,10 @@ public class bl_ChatUI : MonoBehaviour {
         {
             obj.GetComponent<bl_ChatLine>().FadeInTime(0.1f, 1);
         }
+    }
+
+    public void OnChatDisplay()
+    {
+        EventSystem.current.SetSelectedGameObject(myInputField.gameObject, null);
     }
 }

@@ -406,7 +406,10 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     [PunRPC]
     void RpcDisplayMessage(string _text)
     {
-        ChatManager.Instance.OnChatMessage(_text);
+        if (_text != null)
+        {
+            ChatManager.Instance.OnChatMessage(_text);
+        }
     }
 
     [PunRPC]
