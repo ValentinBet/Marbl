@@ -80,7 +80,7 @@ public class PUNMouseControl : MonoBehaviour
 
         if (Input.GetKeyDown(InputManager.Instance.Inputs.inputs.MainButton1))
         {
-            if (Physics.Raycast(ray, out hit, 100.0f, layerClickBall))
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerClickBall))
             {
                 StopShoot();
                 actualSelectedBall = null;
