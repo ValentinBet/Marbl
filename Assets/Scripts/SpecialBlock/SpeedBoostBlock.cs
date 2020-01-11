@@ -17,12 +17,12 @@ public class SpeedBoostBlock : MonoBehaviour
         {
             other.GetComponent<BallSettings>().SpawnOverchargedFx();
             audioSource.PlayOneShot(electricSound);
-        }
 
-        if (other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsMine)
-        {
-            Vector3 _temp = other.GetComponent<Rigidbody>().velocity.normalized;
-            other.GetComponent<Rigidbody>().velocity = _temp * speedBoostPower;
+            if (other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsMine)
+            {
+                Vector3 _temp = other.GetComponent<Rigidbody>().velocity.normalized;
+                other.GetComponent<Rigidbody>().velocity = _temp * speedBoostPower;
+            }
         }
     }
 
