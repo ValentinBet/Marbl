@@ -20,7 +20,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     PhotonView myPV;
 
     Dictionary<Player, Team> teamPlayer = new Dictionary<Player, Team>();
-    List<Team> presentTeam = new List<Team>();
+    public List<Team> presentTeam = new List<Team>();
 
     Team teamPlayed;
     Player playerplayed;
