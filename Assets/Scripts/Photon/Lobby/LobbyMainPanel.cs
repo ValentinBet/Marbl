@@ -200,6 +200,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         playerListEntries = null;
         hostPanel.SetActive(false);
         settingsPanel.SetActive(false);
+        restartedGame = false;
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
