@@ -352,6 +352,11 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         foreach (Player p in PhotonNetwork.PlayerList)
         {
+            if(p == PhotonNetwork.LocalPlayer)
+            {
+                continue;
+            }
+
             if (p.GetPlayerReadyState())
             {
                 GetPlayerListEntry(p).PlayerReadyImage.gameObject.SetActive(true);
