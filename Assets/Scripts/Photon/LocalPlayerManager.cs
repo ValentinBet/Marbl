@@ -183,7 +183,6 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
         this.GetComponent<PUNMouseControl>().DisableShootInTime();
 
-        AudioManager.Instance.SetBackSong(false);
         AudioManager.Instance.SetPlayingSong(true);
     }
 
@@ -242,7 +241,6 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
         PhotonNetwork.LocalPlayer.SetCustomProperties(_turnPlayer);
         DeathMatchManager.Instance.NewTrun();
 
-        AudioManager.Instance.SetBackSong(true);
         AudioManager.Instance.SetPlayingSong(false);
     }
 

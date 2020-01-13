@@ -39,12 +39,19 @@ public class MarblBar : MonoBehaviour
             float newValue = 0;
             try
             {
-                newValue = MarblAndNum[marblTeam.Key] * (1000 / QuickScoreboard.Instance.Balls.Length);
+                newValue = MarblAndNum[marblTeam.Key] * (1000f / QuickScoreboard.Instance.Balls.Length);
+                print(newValue);
             }
             catch { }
 
+            if (float.IsNaN(newValue))
+            {
+                return;
+            }
+
             marblTeam.Value.myText.text = MarblAndNum[marblTeam.Key].ToString();
             marblTeam.Value.myRec.sizeDelta = new Vector2(Mathf.Lerp(marblTeam.Value.myRec.sizeDelta.x, newValue, 3 * Time.deltaTime),  marblTeam.Value.myRec.sizeDelta.y);
+            print(marblTeam.Value.myRec.sizeDelta.x);
         }
     }
     
@@ -78,8 +85,6 @@ public class MarblBar : MonoBehaviour
             ElementTeamBar newElement = new ElementTeamBar();
             newElement.myRec = newObj.GetComponent<RectTransform>();
             newElement.myText = newObj.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-
-            newElement.myRec.sizeDelta = new Vector2(100 * 5, newElement.myRec.sizeDelta.y);
 
             obj.Add(element, newElement);
         }

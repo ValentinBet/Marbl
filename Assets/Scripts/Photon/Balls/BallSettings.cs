@@ -79,7 +79,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     public void SetColor()
     {
         Material[] _mats = this.GetComponent<Renderer>().materials;
-        _mats[1] = GameModeManager.Instance.colors[(int)myteam];
+        _mats[0] = GameModeManager.Instance.colorsMat[(int)myteam];
         this.GetComponent<Renderer>().materials = _mats;
 
         myTrail.startColor = MarblGame.GetColor((int)myteam);
