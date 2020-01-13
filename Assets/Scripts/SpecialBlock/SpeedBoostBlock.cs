@@ -10,6 +10,7 @@ public class SpeedBoostBlock : MonoBehaviour
 
     public AudioClip electricSound;
     public int speedBoostPower;
+    public float addPowerAtHighSpeed;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -20,8 +21,18 @@ public class SpeedBoostBlock : MonoBehaviour
 
             if (other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsMine)
             {
-                Vector3 _temp = other.GetComponent<Rigidbody>().velocity.normalized;
-                other.GetComponent<Rigidbody>().velocity = _temp * speedBoostPower;
+                Rigidbody rb = other.GetComponent<Rigidbody>();
+                Vector3 _temp = rb.velocity.normalized;
+                if (rb.velocity.magnitude > ((_temp * speedBoostPower).magnitude))
+                {
+                    print("usain bolt");
+                    rb.velocity *= addPowerAtHighSpeed;
+                } else
+                {
+                    print("lent");
+                    rb.velocity = _temp * speedBoostPower;
+                }
+                
             }
         }
     }
