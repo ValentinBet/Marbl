@@ -130,6 +130,7 @@ public class PUNBallMovement : MonoBehaviour
                 }
 
                 amplify = CollideStates.Giver;
+
             }
             else
             {

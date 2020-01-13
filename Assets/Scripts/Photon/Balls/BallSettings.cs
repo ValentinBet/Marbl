@@ -98,9 +98,12 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 
     public void ChangeTeam(Team team)
     {
+        HueManager.Instance.OnCollisionBall(myteam, team);
+
         myteam = team;
         SetColor();
     }
+
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
 

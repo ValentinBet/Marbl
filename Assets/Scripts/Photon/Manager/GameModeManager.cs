@@ -20,7 +20,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     PhotonView myPV;
 
     Dictionary<Player, Team> teamPlayer = new Dictionary<Player, Team>();
-    List<Team> presentTeam = new List<Team>();
+    public List<Team> presentTeam = new List<Team>();
 
     Team teamPlayed;
     Player playerplayed;
@@ -266,7 +266,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         SetPlayerTurn(playerplayed);
 
         playerAlreadyPlay.Add(playerplayed);
-
+        
         myPV.RPC("RpcInfoTurn", RpcTarget.AllViaServer, playerplayed.NickName, (int)teamPlayed);
     }
 
@@ -454,7 +454,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         if (gameFinish) { return; }
         
         // Hue GameMode End
-        HueManager.Instance.EndGame();
 
         myPV.RPC("RpcDisplayScoreBoard", RpcTarget.AllViaServer);
         gameFinish = true;

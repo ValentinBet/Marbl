@@ -34,7 +34,9 @@ public class BumperBlock : MonoBehaviour
 
             if (_ball.GetComponent<PhotonView>().IsMine)
             {
-                _ball.GetComponent<Rigidbody>().AddExplosionForce(power, this.transform.position + ExplosionOffset, radius, upForce, ForceMode.Impulse);
+                Rigidbody _rb = _ball.GetComponent<Rigidbody>();
+                _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
+                _rb.AddExplosionForce(power, this.transform.position + ExplosionOffset, radius, upForce, ForceMode.Impulse);
             }
         }
 
