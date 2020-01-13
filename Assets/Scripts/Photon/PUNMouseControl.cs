@@ -87,7 +87,6 @@ public class PUNMouseControl : MonoBehaviour
             {
                 StopShoot();
                 actualSelectedBall = null;
-                print(hit.collider.transform.gameObject);
                 ClickOnBall(hit.collider.transform.parent.gameObject);
                 UIManager.Instance.ResetButton();
             }

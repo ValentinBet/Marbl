@@ -59,6 +59,8 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
         myTimerInfo.myImg.color = myColorTeam;
         myTimerInfo.mytext.color = myColorTeam;
+
+        AudioManager.Instance.SetBackSong(true);
     }
 
     private void OnEnable()
@@ -88,12 +90,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
         {
             if(!canShoot && (bool)PhotonNetwork.LocalPlayer.CustomProperties["playerTurn"])
             {
-                currentTimer = startTimer;
-                doTimer = true;
-                myTimerInfo.gameObject.SetActive(true);
-                GetMyBalls();
-
-                this.GetComponent<PUNMouseControl>().DisableShootInTime();
+                YourTurnToPlay();
             }
 
             canShoot = (bool)PhotonNetwork.LocalPlayer.CustomProperties["playerTurn"];
@@ -179,13 +176,15 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
     public void YourTurnToPlay()
     {
+        currentTimer = startTimer;
+        doTimer = true;
+        myTimerInfo.gameObject.SetActive(true);
         GetMyBalls();
 
-        currentTimer = startTimer;
-        myTimerInfo.gameObject.SetActive(true);
-        doTimer = true;
+        this.GetComponent<PUNMouseControl>().DisableShootInTime();
 
-
+        AudioManager.Instance.SetBackSong(false);
+        AudioManager.Instance.SetPlayingSong(true);
     }
 
     public void GetMyBalls()
@@ -242,6 +241,9 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
         _turnPlayer["playerTurn"] = false;
         PhotonNetwork.LocalPlayer.SetCustomProperties(_turnPlayer);
         DeathMatchManager.Instance.NewTrun();
+
+        AudioManager.Instance.SetBackSong(true);
+        AudioManager.Instance.SetPlayingSong(false);
     }
 
     public void SendMessageString(string value)

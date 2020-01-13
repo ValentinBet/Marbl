@@ -22,6 +22,11 @@ public class HideObstacle : MonoBehaviour
             {
                 if (objHide != hit.transform.gameObject.GetComponent<Renderer>())
                 {
+                    if (objHide != null)
+                    {
+                        oldObs.Add(objHide);
+                    }
+
                     objHide = hit.transform.gameObject.GetComponent<Renderer>();
                 }
 
