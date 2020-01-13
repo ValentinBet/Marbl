@@ -16,7 +16,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public Transform listNeutralPos;
     public string lobbyScene;
 
-    public List<Material> colors = new List<Material>();
+    public List<Material> colorsMat = new List<Material>();
     PhotonView myPV;
 
     Dictionary<Player, Team> teamPlayer = new Dictionary<Player, Team>();

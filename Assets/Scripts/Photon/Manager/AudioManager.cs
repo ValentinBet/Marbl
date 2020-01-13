@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource backSong;
     public AudioSource playingSong;
 
-    bool playBack = false;
+    bool playBack = true;
     bool playPlaying = false;
 
     float currentVolume = 0.2f;
@@ -31,7 +31,10 @@ public class AudioManager : MonoBehaviour
         {
             _instance = this;
         }
+
+        DontDestroyOnLoad(this);
     }
+
 
     private void Start()
     {
