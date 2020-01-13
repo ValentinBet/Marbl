@@ -140,15 +140,15 @@
             }
         },
         {
-            "objectName": "E_Ramp",
-            "prefabName": "E_Ramp",
+            "objectName": "2FH_NE_HalfColumn",
+            "prefabName": "2FH_NE_HalfColumn",
             "rootParent": "MapObj",
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 0.0,
+                "x": -40.0,
                 "y": 0.0,
-                "z": 8.0
+                "z": 39.959999084472659
             },
             "rotation": {
                 "x": 0.0,
@@ -163,15 +163,15 @@
             }
         },
         {
-            "objectName": "2FH_NE_HalfColumn",
-            "prefabName": "2FH_NE_HalfColumn",
+            "objectName": "E_Ramp",
+            "prefabName": "E_Ramp",
             "rootParent": "MapObj",
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -40.0,
+                "x": 8.0,
                 "y": 0.0,
-                "z": 39.959999084472659
+                "z": 8.0
             },
             "rotation": {
                 "x": 0.0,
@@ -761,6 +761,29 @@
             }
         },
         {
+            "objectName": "2FH_SE_HalfColumn",
+            "prefabName": "2FHighColumn",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -40.0,
+                "y": 0.0,
+                "z": 16.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
             "objectName": "BaseTile (49)",
             "prefabName": "TileCube",
             "rootParent": "MapObj",
@@ -1037,6 +1060,29 @@
             }
         },
         {
+            "objectName": "Wall (7)",
+            "prefabName": "Wall",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 21.0,
+                "y": 4.0,
+                "z": 32.0
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 20.0,
+                "z": 15.0
+            }
+        },
+        {
             "objectName": "2FHighColumn (3)",
             "prefabName": "2FHighColumn",
             "rootParent": "MapObj",
@@ -1057,6 +1103,29 @@
                 "x": 4.0,
                 "y": 4.0,
                 "z": 4.0
+            }
+        },
+        {
+            "objectName": "Wall (1)",
+            "prefabName": "Wall",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 61.0
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 8.0,
+                "y": 1.0,
+                "z": 15.0
             }
         },
         {
@@ -1152,6 +1221,29 @@
             }
         },
         {
+            "objectName": "2FH_NW_HalfColumn (2)",
+            "prefabName": "2FH_NW_HalfColumn (1)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -16.0,
+                "y": 0.0,
+                "z": 40.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": 0.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
             "objectName": "BaseTile (11)",
             "prefabName": "TileCube",
             "rootParent": "MapObj",
@@ -1195,6 +1287,121 @@
                 "x": 4.0,
                 "y": 4.0,
                 "z": 4.0
+            }
+        },
+        {
+            "objectName": "bomb",
+            "prefabName": "bomb",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -4.086399078369141,
+                "y": 4.7638258934021,
+                "z": -30.357770919799806
+            },
+            "rotation": {
+                "x": 0.70710688829422,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071067690849304
+            },
+            "scale": {
+                "x": 0.005307244602590799,
+                "y": 0.005307244602590799,
+                "z": 0.005307244602590799
+            }
+        },
+        {
+            "objectName": "Object001",
+            "prefabName": "Object001",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -4.067156791687012,
+                "y": 4.7972002029418949,
+                "z": -30.41160011291504
+            },
+            "rotation": {
+                "x": 8.146034247147327e-8,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
+            }
+        },
+        {
+            "objectName": "pCylinder1",
+            "prefabName": "pCylinder1",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -4.067156791687012,
+                "y": 5.2786173820495609,
+                "z": -30.40878677368164
+            },
+            "rotation": {
+                "x": 6.657902673623539e-8,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
+            }
+        },
+        {
+            "objectName": "ExposionMarkPos",
+            "prefabName": "ExposionMarkPos",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -4.0,
+                "y": 4.538000106811523,
+                "z": -30.360000610351564
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "ButtonExplosion (1)",
+            "prefabName": "ButtonExplosion",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -4.0,
+                "y": 5.300000190734863,
+                "z": -30.360000610351564
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 6.0,
+                "y": 6.0,
+                "z": 6.0
             }
         },
         {
@@ -1264,6 +1471,144 @@
                 "x": 4.0,
                 "y": 4.0,
                 "z": 4.0
+            }
+        },
+        {
+            "objectName": "Wall (9)",
+            "prefabName": "Wall",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -28.0,
+                "y": 4.0,
+                "z": 53.0
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 16.0,
+                "y": 1.0,
+                "z": 15.0
+            }
+        },
+        {
+            "objectName": "bomb",
+            "prefabName": "bomb",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -12.08639907836914,
+                "y": 4.7638258934021,
+                "z": 44.002227783203128
+            },
+            "rotation": {
+                "x": 0.70710688829422,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071067690849304
+            },
+            "scale": {
+                "x": 0.005307244602590799,
+                "y": 0.005307244602590799,
+                "z": 0.005307244602590799
+            }
+        },
+        {
+            "objectName": "Object001",
+            "prefabName": "Object001",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -12.067156791687012,
+                "y": 4.7972002029418949,
+                "z": 43.94839859008789
+            },
+            "rotation": {
+                "x": 8.146034247147327e-8,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
+            }
+        },
+        {
+            "objectName": "pCylinder1",
+            "prefabName": "pCylinder1",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -12.067156791687012,
+                "y": 5.2786173820495609,
+                "z": 43.95121383666992
+            },
+            "rotation": {
+                "x": 6.657902673623539e-8,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.485767841339111,
+                "y": 4.485767841339111,
+                "z": 4.485767841339111
+            }
+        },
+        {
+            "objectName": "ExposionMarkPos",
+            "prefabName": "ExposionMarkPos",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -12.0,
+                "y": 4.538000106811523,
+                "z": 44.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 1.0,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "ButtonExplosion",
+            "prefabName": "ButtonExplosion",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -12.0,
+                "y": 5.300000190734863,
+                "z": 44.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 6.0,
+                "y": 6.0,
+                "z": 6.0
             }
         },
         {
@@ -1374,6 +1719,29 @@
                 "y": 0.0,
                 "z": 0.0,
                 "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "2FH_NW_HalfColumn (1)",
+            "prefabName": "2FH_NW_HalfColumn (1)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 24.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0,
+                "w": 0.0
             },
             "scale": {
                 "x": 4.0,
@@ -1681,29 +2049,6 @@
             }
         },
         {
-            "objectName": "E_Ramp",
-            "prefabName": "E_Ramp",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 8.0
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "scale": {
-                "x": 4.0,
-                "y": 4.0,
-                "z": 4.0
-            }
-        },
-        {
             "objectName": "2FHighColumn (2)",
             "prefabName": "2FHighColumn",
             "rootParent": "MapObj",
@@ -1796,15 +2141,61 @@
             }
         },
         {
-            "objectName": "E_Ramp (3)",
-            "prefabName": "E_Ramp",
+            "objectName": "Wall (6)",
+            "prefabName": "Wall",
             "rootParent": "MapObj",
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 8.0,
-                "y": 2.0,
-                "z": 31.979999542236329
+                "x": 37.0,
+                "y": 4.0,
+                "z": -8.0
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 20.0,
+                "z": 15.0
+            }
+        },
+        {
+            "objectName": "Wall (3)",
+            "prefabName": "Wall",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -37.0,
+                "y": 4.0,
+                "z": -16.0
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 20.0,
+                "z": 15.0
+            }
+        },
+        {
+            "objectName": "2FH_SE_HalfColumn (1)",
+            "prefabName": "2FHighColumn",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": -24.0
             },
             "rotation": {
                 "x": 0.0,
@@ -1851,6 +2242,29 @@
                 "x": -16.0,
                 "y": 0.0,
                 "z": 16.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "E_Ramp (2)",
+            "prefabName": "E_Ramp",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 0.0,
+                "y": 2.0,
+                "z": 32.0
             },
             "rotation": {
                 "x": 0.0,
@@ -1934,49 +2348,26 @@
             }
         },
         {
-            "objectName": "E_Ramp (2)",
-            "prefabName": "E_Ramp",
+            "objectName": "Wall (2)",
+            "prefabName": "Wall",
             "rootParent": "MapObj",
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": 0.0,
-                "y": 2.0,
-                "z": 31.979999542236329
+                "x": -20.0,
+                "y": 4.0,
+                "z": -45.0
             },
             "rotation": {
-                "x": 0.0,
+                "x": -0.7071068286895752,
                 "y": 0.0,
                 "z": 0.0,
-                "w": 1.0
+                "w": 0.7071068286895752
             },
             "scale": {
-                "x": 4.0,
-                "y": 4.0,
-                "z": 4.0
-            }
-        },
-        {
-            "objectName": "E_Ramp",
-            "prefabName": "E_Ramp",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 8.0
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "scale": {
-                "x": 4.0,
-                "y": 4.0,
-                "z": 4.0
+                "x": 8.0,
+                "y": 1.0,
+                "z": 15.0
             }
         },
         {
@@ -2000,6 +2391,29 @@
                 "x": 4.0,
                 "y": 4.0,
                 "z": 4.0
+            }
+        },
+        {
+            "objectName": "Wall (8)",
+            "prefabName": "Wall",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 30.0,
+                "y": 4.0,
+                "z": 13.0
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 8.0,
+                "y": 1.0,
+                "z": 15.0
             }
         },
         {
@@ -2035,29 +2449,6 @@
                 "x": 16.0,
                 "y": 0.0,
                 "z": -32.0
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "scale": {
-                "x": 4.0,
-                "y": 4.0,
-                "z": 4.0
-            }
-        },
-        {
-            "objectName": "E_Ramp (1)",
-            "prefabName": "E_Ramp",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 8.0,
-                "y": 0.0,
-                "z": 8.0
             },
             "rotation": {
                 "x": 0.0,
@@ -2302,6 +2693,52 @@
             }
         },
         {
+            "objectName": "Wall (5)",
+            "prefabName": "Wall",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -46.0,
+                "y": 4.0,
+                "z": 3.0
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 8.0,
+                "y": 1.0,
+                "z": 15.0
+            }
+        },
+        {
+            "objectName": "E_Ramp (1)",
+            "prefabName": "E_Ramp",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 8.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
             "objectName": "BaseTile (12)",
             "prefabName": "TileCube",
             "rootParent": "MapObj",
@@ -2486,6 +2923,121 @@
             }
         },
         {
+            "objectName": "Sphere (6)",
+            "prefabName": "Sphere (6)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.0,
+                "y": 4.181851863861084,
+                "z": 8.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.1298458576202393,
+                "y": 0.9311859011650086,
+                "z": 1.3840612173080445
+            }
+        },
+        {
+            "objectName": "Sphere (5)",
+            "prefabName": "Sphere (5)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.0,
+                "y": 5.302773952484131,
+                "z": 8.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.1298458576202393,
+                "y": 0.9311859011650086,
+                "z": 1.3840612173080445
+            }
+        },
+        {
+            "objectName": "Sphere (4)",
+            "prefabName": "Sphere (4)",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.0,
+                "y": 3.009645938873291,
+                "z": 8.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.1298458576202393,
+                "y": 0.9311859011650086,
+                "z": 1.3840612173080445
+            }
+        },
+        {
+            "objectName": "Cylinder",
+            "prefabName": "Cylinder",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.0,
+                "y": 4.0279998779296879,
+                "z": 8.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 1.2323999404907227,
+                "y": 0.4000000059604645,
+                "z": 1.0
+            }
+        },
+        {
+            "objectName": "Bumper",
+            "prefabName": "Bumper",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.0,
+                "y": 3.0,
+                "z": 8.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 2.0,
+                "y": 2.0,
+                "z": 2.0
+            }
+        },
+        {
             "objectName": "BaseTile (3)",
             "prefabName": "TileCube",
             "rootParent": "MapObj",
@@ -2578,6 +3130,29 @@
             }
         },
         {
+            "objectName": "2FHighColumn (34)",
+            "prefabName": "2FHighColumn",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -8.0,
+                "y": 0.0,
+                "z": 8.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 2.0,
+                "z": 4.0
+            }
+        },
+        {
             "objectName": "2FHighColumn (7)",
             "prefabName": "2FHighColumn",
             "rootParent": "MapObj",
@@ -2647,6 +3222,29 @@
             }
         },
         {
+            "objectName": "Wall (10)",
+            "prefabName": "Wall",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 12.0,
+                "y": 4.0,
+                "z": -37.0
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 16.0,
+                "y": 1.0,
+                "z": 15.0
+            }
+        },
+        {
             "objectName": "2FHighColumn (22)",
             "prefabName": "2FHighColumn",
             "rootParent": "MapObj",
@@ -2656,29 +3254,6 @@
                 "x": 32.0,
                 "y": 0.0,
                 "z": 0.0
-            },
-            "rotation": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 0.0,
-                "w": 1.0
-            },
-            "scale": {
-                "x": 4.0,
-                "y": 4.0,
-                "z": 4.0
-            }
-        },
-        {
-            "objectName": "E_Ramp",
-            "prefabName": "E_Ramp",
-            "rootParent": "MapObj",
-            "teamNumber": "",
-            "isRootParent": false,
-            "position": {
-                "x": 0.0,
-                "y": 0.0,
-                "z": 8.0
             },
             "rotation": {
                 "x": 0.0,
@@ -2736,6 +3311,29 @@
                 "x": 4.0,
                 "y": 4.0,
                 "z": 4.0
+            }
+        },
+        {
+            "objectName": "Wall (4)",
+            "prefabName": "Wall",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": -53.0,
+                "y": 4.0,
+                "z": 24.0
+            },
+            "rotation": {
+                "x": -0.7071068286895752,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 0.7071068286895752
+            },
+            "scale": {
+                "x": 1.0,
+                "y": 20.0,
+                "z": 15.0
             }
         },
         {
@@ -2840,6 +3438,29 @@
                 "x": -32.0,
                 "y": 0.0,
                 "z": -16.0
+            },
+            "rotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0,
+                "w": 1.0
+            },
+            "scale": {
+                "x": 4.0,
+                "y": 4.0,
+                "z": 4.0
+            }
+        },
+        {
+            "objectName": "E_Ramp (3)",
+            "prefabName": "E_Ramp",
+            "rootParent": "MapObj",
+            "teamNumber": "",
+            "isRootParent": false,
+            "position": {
+                "x": 8.0,
+                "y": 2.0,
+                "z": 32.0
             },
             "rotation": {
                 "x": 0.0,
@@ -3597,8 +4218,8 @@
             "isRootParent": false,
             "position": {
                 "x": -8.0,
-                "y": 0.4000000059604645,
-                "z": 8.0
+                "y": 4.400000095367432,
+                "z": 24.0
             },
             "rotation": {
                 "x": 0.0,
@@ -4126,7 +4747,7 @@
             "isRootParent": false,
             "position": {
                 "x": 16.0,
-                "y": -0.4000000059604645,
+                "y": 3.200000047683716,
                 "z": -24.0
             },
             "rotation": {
@@ -4310,8 +4931,8 @@
             "isRootParent": false,
             "position": {
                 "x": -8.0,
-                "y": 0.4000000059604645,
-                "z": 8.0
+                "y": 4.400000095367432,
+                "z": -8.0
             },
             "rotation": {
                 "x": 0.0,
@@ -4332,9 +4953,9 @@
             "teamNumber": "",
             "isRootParent": false,
             "position": {
-                "x": -8.0,
-                "y": 0.4000000059604645,
-                "z": 8.0
+                "x": 28.0,
+                "y": 4.400000095367432,
+                "z": 4.0
             },
             "rotation": {
                 "x": 0.0,
