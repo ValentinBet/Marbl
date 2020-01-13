@@ -266,7 +266,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         SetPlayerTurn(playerplayed);
 
         playerAlreadyPlay.Add(playerplayed);
-
+        
         myPV.RPC("RpcInfoTurn", RpcTarget.AllViaServer, playerplayed.NickName, (int)teamPlayed);
     }
 
@@ -454,7 +454,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         if (gameFinish) { return; }
         
         // Hue GameMode End
-        HueManager.Instance.EndGame();
 
         myPV.RPC("RpcDisplayScoreBoard", RpcTarget.AllViaServer);
         gameFinish = true;

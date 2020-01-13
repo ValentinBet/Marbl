@@ -21,7 +21,7 @@ public class PUNMouseControl : MonoBehaviour
     public float scrollSensivity = 0.1f;
     public float[] possibleAngles;
     public LayerMask layerClickBall;
-
+    public float timeBeforeShoot = 1.5f;
     [SerializeField]
     private LineRenderer actualBallLineRenderer;
 
@@ -49,6 +49,9 @@ public class PUNMouseControl : MonoBehaviour
     public int angleIndex = 0;
     private float mouseScrollDelta;
     public bool isHoldingShoot;
+
+    private bool canShoot = true;
+    private bool isStoppingShoot = false;
 
     private void Start()
     {
@@ -152,7 +155,7 @@ public class PUNMouseControl : MonoBehaviour
     // --->> MOUSE DRAG  --->> //
     private void MouseDrag()
     {
-        if (actualSelectedBall != null)
+        if (actualSelectedBall != null && canShoot)
         {
             if (!EventSystem.current.IsPointerOverGameObject())
             {
@@ -227,5 +230,22 @@ public class PUNMouseControl : MonoBehaviour
     private void DisplayDragForce()
     {
         dragForceBar.fillAmount = ((dragForce * 100) / dragForceMaxValue) / 100; // Génère un pourcentage 
+    }
+
+    public void DisableShootInTime()
+    {
+        if (!isStoppingShoot)
+        {
+            StartCoroutine(WaitForShoot());
+        }
+    }
+
+    IEnumerator WaitForShoot()
+    {
+        isStoppingShoot = true;
+        canShoot = false;
+        yield return new WaitForSeconds(timeBeforeShoot);
+        canShoot = true;
+        isStoppingShoot = false;
     }
 }

@@ -30,6 +30,7 @@ public class bl_ChatUI : MonoBehaviour {
             newline.GetComponent<Text>().text = text;
             newline.GetComponent<LayoutElement>().CalculateLayoutInputVertical();
             newline.GetComponent<LayoutElement>().CalculateLayoutInputHorizontal();
+
             if (fade)
             {
                 newline.GetComponent<bl_ChatLine>().FadeInTime(time, speed);
@@ -60,6 +61,7 @@ public class bl_ChatUI : MonoBehaviour {
 
     public void OnChatDisplay()
     {
-        EventSystem.current.SetSelectedGameObject(myInputField.gameObject, null);
+        myInputField.Select();
+        myInputField.ActivateInputField();
     }
 }

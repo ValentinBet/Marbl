@@ -38,7 +38,7 @@ public class HueManager : MonoBehaviour
         }
     }
 
-    public void EndGame()
+    public void RefreshPointHue()
     {
         if (PhotonNetwork.IsMasterClient)
         {
@@ -46,7 +46,7 @@ public class HueManager : MonoBehaviour
 
             foreach (Team team in listTeamInGame)
             {
-                PhotonNetwork.CurrentRoom.AddTeamScore(team,GetBallNumber(team));
+                PhotonNetwork.CurrentRoom.AddTeamScore(team, GetBallNumber(team));
             }
         }
     }

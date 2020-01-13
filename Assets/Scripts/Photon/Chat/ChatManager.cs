@@ -51,14 +51,9 @@ public class ChatManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            print(ChatUI.myInputField.isFocused);
             if (ChatUI.myInputField.isActiveAndEnabled)
             {
                 SendChatText(ChatUI.myInputField);
-            }
-            else
-            {
-                ChatUI.myInputField.Select();
             }
         }
     }

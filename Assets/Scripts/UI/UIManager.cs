@@ -42,6 +42,7 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public GameObject LoadingPanel;
     public GameObject chat;
+    public bl_ChatUI chatUI;
     public InfoTurnSettings infoTurnSettings;
 
     public bool isShooting = false;
@@ -405,10 +406,14 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public void DisplayChat()
     {
+        chatUI.OnChatDisplay();
+
         if (!chat.activeInHierarchy)
         {
             chat.SetActive(true);
-           // chat.GetComponent<bl_ChatUI>().OnChatDisplay();
+        } else
+        {
+            chat.SetActive(false);
         }
     }
 }

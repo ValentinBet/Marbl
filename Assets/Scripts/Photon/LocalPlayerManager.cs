@@ -92,6 +92,8 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
                 doTimer = true;
                 myTimerInfo.gameObject.SetActive(true);
                 GetMyBalls();
+
+                this.GetComponent<PUNMouseControl>().DisableShootInTime();
             }
 
             canShoot = (bool)PhotonNetwork.LocalPlayer.CustomProperties["playerTurn"];
@@ -182,6 +184,8 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
         currentTimer = startTimer;
         myTimerInfo.gameObject.SetActive(true);
         doTimer = true;
+
+
     }
 
     public void GetMyBalls()
