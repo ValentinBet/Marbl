@@ -14,16 +14,26 @@ public class PlayerListEntry : MonoBehaviour
 
     public Image PlayerColorImage;
     public Button PlayerReadyButton;
+    public Button PlayerKickButton;
     public Image PlayerReadyImage;
 
     public Dropdown dropTeam;
 
+    Player myPlayer;
+
     public void Initialize(Player player, Team team, string playerName)
     {
-        if(player != PhotonNetwork.LocalPlayer)
+        myPlayer = player;
+
+        if (player != PhotonNetwork.LocalPlayer)
         {
             PlayerReadyButton.gameObject.SetActive(false);
             dropTeam.gameObject.SetActive(false);
+
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PlayerKickButton.gameObject.SetActive(true);
+            }
         }
         else
         {
@@ -73,4 +83,10 @@ public class PlayerListEntry : MonoBehaviour
         PhotonNetwork.LocalPlayer.SetTeam(myTeam);
         PlayerColorImage.color = MarblGame.GetColor(idTeam);
     }
+
+    public void KickPlayer()
+    {
+        PhotonNetwork.CloseConnection(myPlayer);
+    }
 }
+
