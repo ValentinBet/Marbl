@@ -404,7 +404,6 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
         else
         {
-            Debug.Log("yo");
             infoTurnSettings.text.text = playerName + "'s Turn";
             DisplayChatTooltip(true);
             DisplayPingTooltip(true);
