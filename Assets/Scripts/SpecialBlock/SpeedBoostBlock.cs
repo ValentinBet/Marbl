@@ -23,13 +23,11 @@ public class SpeedBoostBlock : MonoBehaviour
             {
                 Rigidbody rb = other.GetComponent<Rigidbody>();
                 Vector3 _temp = rb.velocity.normalized;
-                if (rb.velocity.magnitude > ((_temp * speedBoostPower).magnitude))
+                if (rb.velocity.sqrMagnitude > ((_temp * speedBoostPower).sqrMagnitude))
                 {
-                    print("usain bolt");
                     rb.velocity *= addPowerAtHighSpeed;
                 } else
                 {
-                    print("lent");
                     rb.velocity = _temp * speedBoostPower;
                 }
                 

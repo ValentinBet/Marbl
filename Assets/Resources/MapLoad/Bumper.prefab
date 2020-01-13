@@ -298,10 +298,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
+  m_Radius: 0.5353102
+  m_Height: 3.388517
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.000000048364694, y: 0, z: -0.0015439987}
 --- !u!82 &3969389332838655029
 AudioSource:
   m_ObjectHideFlags: 0
@@ -322,7 +322,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 0
-  MinDistance: 1
+  MinDistance: 1.3376215
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 2
@@ -410,9 +410,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abe62a4f888bc61458129626c335e065, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 4
+  radius: 2
   upForce: 0
-  power: 1
+  power: 3
   ExplosionOffset: {x: 0, y: 0, z: 0}
   audioSource: {fileID: 3969389332838655029}
   ballHit: {fileID: 8300000, guid: ae94e876a0fff6e4fae81861c7b25939, type: 3}

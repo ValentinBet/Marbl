@@ -166,10 +166,12 @@ public class PUNMouseControl : MonoBehaviour
                     actualBallLineRenderer.transform.position = actualSelectedBall.transform.position;
                     dragForce = 0;
                     Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
                 }
 
                 if (Input.GetKey(InputManager.Instance.Inputs.inputs.MainButton2) && isHoldingShoot) // HOLD
                 {
+                    
                     dragForce += -Input.GetAxis("Mouse Y") * (InputManager.Instance.Inputs.inputs.MouseSensitivity / 4); // generate dragForce --> la limite est dragForceMaxValue;
                     dragForce = Mathf.Clamp(dragForce, 0, dragForceMaxValue);
                     direction = mainCamera.transform.forward;
@@ -207,6 +209,7 @@ public class PUNMouseControl : MonoBehaviour
     {
         isHoldingShoot = false;
         Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         if (actualBallLineRenderer != null)
             actualBallLineRenderer.enabled = false;
         elevation = 0;
