@@ -200,6 +200,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         playerListEntries = null;
         hostPanel.SetActive(false);
         settingsPanel.SetActive(false);
+        restartedGame = false;
     }
 
     public override void OnPlayerEnteredRoom(Player newPlayer)
@@ -351,6 +352,11 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         foreach (Player p in PhotonNetwork.PlayerList)
         {
+            if(p == PhotonNetwork.LocalPlayer)
+            {
+                continue;
+            }
+
             if (p.GetPlayerReadyState())
             {
                 GetPlayerListEntry(p).PlayerReadyImage.gameObject.SetActive(true);

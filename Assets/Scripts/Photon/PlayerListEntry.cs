@@ -28,6 +28,12 @@ public class PlayerListEntry : MonoBehaviour
         else
         {
             dropTeam.value = (int) team;
+
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.LocalPlayer.SetPlayerReadyState(true);
+                PlayerReadyButton.gameObject.SetActive(false);
+            }
         }
 
         PlayerColorImage.color = MarblGame.GetColor((int) team);
