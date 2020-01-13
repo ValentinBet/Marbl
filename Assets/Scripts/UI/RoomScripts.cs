@@ -213,7 +213,12 @@ public class RoomScripts : MonoBehaviour
 
         if (modeSettings.hill)
         {
-            infoMode += " x King of the hill";
+            if(infoMode != "")
+            {
+                infoMode += "<color=red> X </color>";
+            }
+
+            infoMode += "King of the hill";
             gModeElement.KingOfTheHill = true;
 
             switch (modeSettings.hillMode)
@@ -234,7 +239,12 @@ public class RoomScripts : MonoBehaviour
 
         if (modeSettings.hue)
         {
-            infoMode += " x Hue";
+            if (infoMode != "")
+            {
+                infoMode += "<color=red> X </color>";
+            }
+
+            infoMode += "Hue";
             gModeElement.Hue = true;
         }
 
