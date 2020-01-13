@@ -2342,7 +2342,7 @@ MonoBehaviour:
   Custom: {fileID: 784244850}
   CustomLabel: {fileID: 1020847345}
   OutlinedMode: {fileID: 1040995732}
-  map: BasicMap.json
+  map: Close.json
   customMode: 0
   customModeSave: 0
   fileModeName: DeathMatch.json
@@ -14325,7 +14325,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774267923}
-  m_LocalRotation: {x: -0.0415872, y: 0.95669615, z: -0.23083057, w: -0.17239587}
+  m_LocalRotation: {x: -0.041586764, y: 0.95669645, z: -0.23083067, w: -0.17239405}
   m_LocalPosition: {x: 86.4, y: 100, z: 175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -39386,8 +39386,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 63.94, y: 3.55}
-  m_SizeDelta: {x: 1051.6, y: 342.94}
+  m_AnchoredPosition: {x: 61.99, y: 1.21}
+  m_SizeDelta: {x: 938.11, y: 268.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1917943797
 MonoBehaviour:
@@ -42686,7 +42686,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101710303}
-  m_LocalRotation: {x: -0.0415872, y: 0.95669615, z: -0.23083057, w: -0.17239587}
+  m_LocalRotation: {x: -0.041586764, y: 0.95669645, z: -0.23083067, w: -0.17239405}
   m_LocalPosition: {x: 86.4, y: 100, z: 175}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -60699,7 +60699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.19215688, b: 0, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:

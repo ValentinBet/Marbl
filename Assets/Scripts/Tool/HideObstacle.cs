@@ -4,31 +4,25 @@ using UnityEngine;
 
 public class HideObstacle : MonoBehaviour
 {
-
     public LayerMask ObsAndBall;
 
-    public List<Renderer> objHide = new List<Renderer>();
+    public Renderer objHide;
 
     public List<Renderer> oldObs = new List<Renderer>();
-
-    List<GameObject> objTouch = new List<GameObject>();
 
     // Update is called once per frame
     void Update()
     {
-        List<RaycastHit> hits = new List<RaycastHit>();
-        hits.AddRange(Physics.RaycastAll(Camera.main.transform.position, Camera.main.transform.forward));
+        RaycastHit hit;
 
-        objTouch.Clear();
-
-        foreach (RaycastHit hit in hits)
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hit))
         {
-            objTouch.Add(hit.transform.gameObject);
+
             if (hit.transform.gameObject.layer == 14)
             {
-                if (!objHide.Contains(hit.transform.gameObject.GetComponent<Renderer>()))
+                if (objHide != hit.transform.gameObject.GetComponent<Renderer>())
                 {
-                    objHide.Add(hit.transform.gameObject.GetComponent<Renderer>());
+                    objHide = hit.transform.gameObject.GetComponent<Renderer>();
                 }
 
                 if (oldObs.Contains(hit.transform.gameObject.GetComponent<Renderer>()))
@@ -36,33 +30,24 @@ public class HideObstacle : MonoBehaviour
                     oldObs.Remove(hit.transform.gameObject.GetComponent<Renderer>());
                 }
             }
-            break;
-        }
-
-        List<Renderer> removeThis = new List<Renderer>();
-        foreach (Renderer obj in objHide)
-        {
-            if( !objTouch.Contains(obj.gameObject))
-            {
-                oldObs.Add(obj.GetComponent<Renderer>());
-                removeThis.Add(obj.GetComponent<Renderer>());
-            }
             else
             {
-                //Hide
-
-                float currentAlpha = Mathf.Lerp(obj.material.GetFloat("_Alpha"), 0f, 3 * Time.deltaTime);
-                obj.material.SetFloat("_Alpha", currentAlpha);
+                if(objHide != null)
+                {
+                    oldObs.Add(objHide);
+                    objHide = null;
+                }
             }
         }
 
-        foreach (Renderer element in removeThis)
+        if(objHide != null)
         {
-            objHide.Remove(element);
+            float currentAlpha = Mathf.Lerp(objHide.material.GetFloat("_Alpha"), 0f, 3 * Time.deltaTime);
+            objHide.material.SetFloat("_Alpha", currentAlpha);
         }
 
 
-        List<Renderer> removeThis2 = new List<Renderer>();
+        List<Renderer> removeThis = new List<Renderer>();
         foreach(Renderer element in oldObs)
         {
             float currentAlpha = Mathf.Lerp(element.material.GetFloat("_Alpha"), 1f, 3 * Time.deltaTime);
@@ -74,7 +59,7 @@ public class HideObstacle : MonoBehaviour
             }
         }
 
-        foreach(Renderer element in removeThis2)
+        foreach(Renderer element in removeThis)
         {
             oldObs.Remove(element);
         }

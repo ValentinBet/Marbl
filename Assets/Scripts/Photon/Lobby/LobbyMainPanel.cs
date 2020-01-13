@@ -144,6 +144,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
+        PopupManager.Instance.DisplayPopup(popUpType.Exclamation, "No game available \n Creating ...");
+
         string roomName = "Room " + Random.Range(1000, 10000);
 
         RoomOptions options = new RoomOptions { MaxPlayers = 8 };

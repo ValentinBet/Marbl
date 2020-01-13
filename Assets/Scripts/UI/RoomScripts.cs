@@ -30,7 +30,7 @@ public class RoomScripts : MonoBehaviour
     [Header("Mode")]
     public Image OutlinedMode;
 
-    public string map = "BasicMap.json";
+    public string map = "Close.json";
 
     public bool customMode = false;
     public bool customModeSave = false;
@@ -60,7 +60,8 @@ public class RoomScripts : MonoBehaviour
     void Start()
     {
         line.position = currentChoice.position;
-        PhotonNetwork.CurrentRoom.SetMap("BasicMap.json");
+        PhotonNetwork.CurrentRoom.SetMap(map);
+        PhotonNetwork.CurrentRoom.SetCustomMap(false);
 
         Refresh();
     }
