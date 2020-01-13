@@ -39,6 +39,8 @@ public class UIManager : MonoBehaviourPunCallbacks
     public Action<CameraMode> OnFreeCam;
 
     public GameObject FreeCamTooltip;
+    public GameObject ChatTooltip;
+    public GameObject PingTooltip;
 
     public GameObject LoadingPanel;
     public GameObject chat;
@@ -117,12 +119,12 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void QuitGame()
     {
         PhotonNetwork.LeaveRoom();
-        SceneManager.LoadScene(quitScene);
+        SceneManager.LoadScene(quitScene, LoadSceneMode.Single);
     }
 
     public override void OnLeftRoom()
     {
-        //SceneManager.LoadScene(quitScene);
+      //  SceneManager.LoadScene(quitScene, LoadSceneMode.Single);
     }
 
     public void DisplaySettings()
@@ -369,11 +371,26 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public void DisplayFreeCamTooltip(bool value)
     {
-
         if (FreeCamTooltip != null)
         {
             FreeCamTooltip.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.CameraSpeed.ToString();
             FreeCamTooltip.SetActive(value);
+        }
+    }
+    public void DisplayChatTooltip(bool value)
+    {
+        if (ChatTooltip != null)
+        {
+            ChatTooltip.GetComponentInChildren<Text>().text = "Enter"; // to assign
+            ChatTooltip.SetActive(value);
+        }
+    }
+    public void DisplayPingTooltip(bool value)
+    {
+        if (PingTooltip != null)
+        {
+            PingTooltip.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.Ping.ToString();
+            PingTooltip.SetActive(value);
         }
     }
 
@@ -382,10 +399,15 @@ public class UIManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.LocalPlayer.GetPlayerTurnState())
         {
             infoTurnSettings.text.text = "Your turn";
+            DisplayChatTooltip(false);
+            DisplayPingTooltip(false);
         }
         else
         {
+            Debug.Log("yo");
             infoTurnSettings.text.text = playerName + "'s Turn";
+            DisplayChatTooltip(true);
+            DisplayPingTooltip(true);
         }
 
         infoTurnSettings.MainBackground.GetComponent<Image>().color = MarblGame.GetColor(playerTeam);
