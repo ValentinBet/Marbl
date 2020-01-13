@@ -36,6 +36,11 @@ public class HueManager : MonoBehaviour
             _neutralBall.GetComponent<BallSettings>().myteam = MarblGame.GetTeam(4);
             spawnPos.Remove(spawnPos[0]);
         }
+
+        foreach(Team team in GameModeManager.Instance.presentTeam)
+        {
+            PhotonNetwork.CurrentRoom.AddTeamScore(team, PhotonNetwork.CurrentRoom.GetNbrbBallProp());
+        }
     }
 
     public void EndGame()
@@ -96,6 +101,19 @@ public class HueManager : MonoBehaviour
         else
         {
             enabled = false;
+        }
+    }
+
+    public void OnCollisionBall(Team oldTeam, Team newTeam)
+    {
+        if(oldTeam != Team.neutral)
+        {
+            PhotonNetwork.CurrentRoom.AddTeamScore(oldTeam, -1);
+        }
+
+        if (newTeam != Team.neutral)
+        {
+            PhotonNetwork.CurrentRoom.AddTeamScore(newTeam, +1);
         }
     }
 }
