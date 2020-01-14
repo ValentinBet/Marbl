@@ -42,6 +42,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public Team localPlayerTeam;
     public bool localPlayerTurn = false;
 
+    public PhotonView specCamPV;
+
     //----------------    BOOL DE CHAQUE MODE   -----------------
     bool modeDM = false;
     bool modeHill = false;
@@ -71,6 +73,11 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     private void StartGame()
     {
         if (!PhotonNetwork.IsMasterClient) { return; }
+
+        //CameraSpec
+        GameObject camSpec = PhotonNetwork.Instantiate("CamSpec", Vector3.zero, Quaternion.identity);
+
+        specCamPV = camSpec.GetComponent<PhotonView>();
 
         //GET MODE ACTIF
         modeDM = PhotonNetwork.CurrentRoom.GetDeathmatch();
@@ -160,12 +167,13 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         myPV.RPC("RpcStartGame", RpcTarget.All);
 
+        specCamPV.TransferOwnership(playerplayed);
+
         //-----------------------------ACTIVATION DES MODES ACTIF-------------------------------------
 
         DeathMatchManager.Instance.ActiveThisMode(modeDM);
         HillManager.Instance.ActiveThisMode(modeHill);
         HueManager.Instance.ActiveThisMode(modeHue);
-
     }
 
     void CreateTeamList()
@@ -268,6 +276,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         playerAlreadyPlay.Add(playerplayed);
         
         myPV.RPC("RpcInfoTurn", RpcTarget.AllViaServer, playerplayed.NickName, (int)teamPlayed);
+        specCamPV.TransferOwnership(playerplayed);
     }
 
     //Return un joueur qui n'a pas jouer ou redémare le tour des joueurs
