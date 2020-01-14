@@ -10,7 +10,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     public Team myteam;
     public ParticleSystem myTrail;
     public ParticleSystem fx_Overcharged;
-
     public bool isVisible = true;
     public Rigidbody myRigid;
     public bool isOnPipe = false;
@@ -106,7 +105,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-
         if (stream.IsWriting)
         {
             stream.SendNext((int)myteam);

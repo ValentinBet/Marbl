@@ -119,12 +119,17 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void QuitGame()
     {
         PhotonNetwork.LeaveRoom();
-        SceneManager.LoadScene(quitScene, LoadSceneMode.Single);
     }
 
     public override void OnLeftRoom()
     {
-      //  SceneManager.LoadScene(quitScene, LoadSceneMode.Single);
+        StartCoroutine(LoadScene());
+    }
+
+    IEnumerator LoadScene()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene(quitScene, LoadSceneMode.Single);
     }
 
     public void DisplaySettings()
@@ -427,12 +432,12 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public void DisplayChat()
     {
-        chatUI.OnChatDisplay();
-
         if (!chat.activeInHierarchy)
         {
             chat.SetActive(true);
-        } else
+            chatUI.OnChatDisplay();
+        }
+        else
         {
             chat.SetActive(false);
         }

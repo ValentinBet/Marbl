@@ -5,9 +5,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class DeadZoneManager : MonoBehaviour
 {
+
+    public GameObject fx_MarblDie;
+    public float fxDieWidth = 1;
     bool DMactif = false;
 
     public void Start()
@@ -19,7 +23,11 @@ public class DeadZoneManager : MonoBehaviour
     {
         if (other.tag == "Ball")
         {
-            AudioManager.Instance.PlaySoundAtPoint(AudioManager.Instance.ballDeath, other.transform.position);
+            AudioManager.Instance.PlayThisSound(AudioManager.Instance.ballDeath);
+
+            GameObject _fx = Instantiate(fx_MarblDie, other.transform.position, Random.rotation);
+            _fx.transform.localScale = new Vector3(fxDieWidth, fxDieWidth, fxDieWidth);
+            Destroy(_fx, 2);
 
             if (DMactif)
             {
