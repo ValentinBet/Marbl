@@ -8,13 +8,12 @@ public class CameraManager : MonoBehaviour
 
     public GameObject CameraMain;
     public GameObject CameraTop;
-    public GameObject CameraTeam;
-    public GameObject CameraFree;
+
+    public Transform CameraSpec;
 
     public CinemachineVirtualCamera CineMain;
     public CinemachineVirtualCamera CineTop;
-    public CinemachineVirtualCamera CineTeam;
-    public CinemachineVirtualCamera CineFree;
+    public CinemachineVirtualCamera CineSpec;
 
     private static CameraManager _instance;
     public static CameraManager Instance { get { return _instance; } }

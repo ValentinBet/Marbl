@@ -85,13 +85,18 @@ public class PUNMouseControl : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit, 1000, layerClickBall))
             {
-                StopShoot();
-                actualSelectedBall = null;
-                ClickOnBall(hit.collider.transform.parent.gameObject);
-                UIManager.Instance.ResetButton();
+                if (GameModeManager.Instance.localPlayerTurn)
+                {
+                    StopShoot();
+                    actualSelectedBall = null;
+                    ClickOnBall(hit.collider.transform.parent.gameObject);
+                    UIManager.Instance.ResetButton();
+                }
             }
         }
     }
+
+
 
     public void DeselectBall()
     {
@@ -104,20 +109,23 @@ public class PUNMouseControl : MonoBehaviour
 
     public void ClickOnBall(GameObject target)
     {
-        OnBallClicked?.Invoke(target);
+        
+            OnBallClicked?.Invoke(target);
 
-        if (target.GetComponent<BallSettings>().myteam == PhotonNetwork.LocalPlayer.GetTeam())
-        {
-            if (target != null)
+            if (target.GetComponent<BallSettings>().myteam == PhotonNetwork.LocalPlayer.GetTeam())
             {
-                NewBallSelected(target);
+                if (target != null)
+                {
+                    NewBallSelected(target);
+                }
+                else
+                {
+                    lastSelected = null;
+                    actualBallLineRenderer = null;
+                }
             }
-            else
-            {
-                lastSelected = null;
-                actualBallLineRenderer = null;
-            }
-        }
+
+        
     }
 
     public void NewBallSelected(GameObject ball)

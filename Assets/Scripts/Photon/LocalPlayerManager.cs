@@ -61,6 +61,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
         myTimerInfo.mytext.color = myColorTeam;
 
         AudioManager.Instance.SetBackSong(true);
+        UIManager.Instance.SetSpecCam();
     }
 
     private void OnEnable()
@@ -147,12 +148,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
             if (speedTotal <= 0 && haveWait)
             {
                 //fin de tour
-                haveShoot = false;
-                haveWait = false;
-                RemoveAutority();
-                RemovePlayerTurn();
-                mousControl.haveShoot = false;
-                GetComponent<TrajectoryRenderer>().ResetLandingZone();
+                TurnFinish();
             }
         }
     }
@@ -174,8 +170,22 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
     }
 
+    void TurnFinish()
+    {
+        UIManager.Instance.SetSpecCam();
+
+        haveShoot = false;
+        haveWait = false;
+        RemoveAutority();
+        RemovePlayerTurn();
+        mousControl.haveShoot = false;
+        GetComponent<TrajectoryRenderer>().ResetLandingZone();
+    }
+
     public void YourTurnToPlay()
     {
+        UIManager.Instance.SetMainCam();
+
         currentTimer = startTimer;
         doTimer = true;
         myTimerInfo.gameObject.SetActive(true);
@@ -254,6 +264,4 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
     {
         ChatManager.Instance.OnChatMessage(_text);
     }
-
-
 }

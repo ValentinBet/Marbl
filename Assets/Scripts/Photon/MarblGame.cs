@@ -64,8 +64,7 @@ public class MarblGame
     {
         Void,
         Targeted,
-        TeamCentered,
-        MapCentered,
-        Free
+        SpecMode,
+        Top
     }
 }

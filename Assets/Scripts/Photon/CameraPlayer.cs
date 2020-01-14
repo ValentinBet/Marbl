@@ -13,15 +13,17 @@ public class CameraPlayer : MonoBehaviour
     private AudioSource audioSource;
     private float orbitalAngle;
     private Quaternion initialRotation;
-    private static CameraMode actualMode = CameraMode.Void;
+    private static CameraMode actualMode = CameraMode.SpecMode;
     private Camera myCamera;
-    private CinemachineVirtualCamera[] cameras;
+    public CinemachineVirtualCamera[] cameras;
     private Transform mapPivot;
-    private Transform followBall;
+    public Transform followBall;
     private Transform targetedTransform; //FollowedMarbletransform;
     private PUNMouseControl myMouseControl;
     private LocalPlayerManager myLocalPlayerManager;
     private bool isScreenShaking = false;
+
+    Transform camSpec;
 
     #endregion
 
@@ -29,16 +31,14 @@ public class CameraPlayer : MonoBehaviour
     {
         myMouseControl.OnBallClicked += OnClickOnBall;
         UIManager.Instance.OnTopCam += SetCameraMode;
-        UIManager.Instance.OnTeamCam += SetCameraMode;
-        UIManager.Instance.OnFreeCam += SetCameraMode;
+        UIManager.Instance.OnSpecCam += SetCameraMode;
     }
 
     private void OnDisable()
     {
         myMouseControl.OnBallClicked -= OnClickOnBall;
         UIManager.Instance.OnTopCam -= SetCameraMode;
-        UIManager.Instance.OnTeamCam -= SetCameraMode;
-        UIManager.Instance.OnFreeCam -= SetCameraMode;
+        UIManager.Instance.OnSpecCam -= SetCameraMode;
     }
 
     void OnClickOnBall(GameObject ball)
@@ -47,6 +47,11 @@ public class CameraPlayer : MonoBehaviour
         //initialRotation = ball.transform.rotation;
         //orbitalAngle = 0;
         SetCameraMode(CameraMode.Targeted);
+    }
+
+    public void SetFollowBall(Transform newBall)
+    {
+        followBall = newBall;
     }
 
     #region Initialisation
@@ -73,35 +78,48 @@ public class CameraPlayer : MonoBehaviour
 
     public void InitCam()
     {
-        SetCameraMode(CameraMode.MapCentered);
+        SetCameraMode(CameraMode.Top);
     }
 
     private void InitializeCameras()
     {
-        cameras = new CinemachineVirtualCamera[4];
+        cameras = new CinemachineVirtualCamera[3];
 
         cameras[0] = CameraManager.Instance.CineMain;
         cameras[1] = CameraManager.Instance.CineTop;
-        cameras[2] = CameraManager.Instance.CineTeam;
-        cameras[3] = CameraManager.Instance.CineFree;
+        cameras[2] = CameraManager.Instance.CineSpec;
     }
     #endregion
 
     void Update()
     {
-        if (actualMode == CameraMode.Targeted)
+        ballModeCalculation();
+
+        if (camSpec == null)
         {
-            ballModeCalculation();
+            camSpec = CameraManager.Instance.CameraSpec;
+            return;
         }
 
-        if (actualMode == CameraMode.Free)
+        if (GameModeManager.Instance.localPlayerTurn)
         {
-            CameraManager.Instance.CameraFree.GetComponent<FreeCam>().onFreeCam = true;
+            switch (actualMode)
+            {
+                case CameraMode.Top:
+                    camSpec.localPosition = cameras[1].transform.localPosition;
+                    camSpec.localRotation = cameras[1].transform.localRotation;
+                    break;
+
+                default:
+                    camSpec.localPosition = cameras[0].transform.localPosition;
+                    camSpec.localRotation = cameras[0].transform.localRotation;
+                    break;
+            }
         }
-        else
-        {
-            CameraManager.Instance.CameraFree.GetComponent<FreeCam>().onFreeCam = false;
-        }
+
+        cameras[2].transform.position = camSpec.position;
+        cameras[2].transform.rotation = camSpec.rotation;
+
     }
 
     #region CameraManipulation
@@ -124,50 +142,27 @@ public class CameraPlayer : MonoBehaviour
 
         switch (actualMode)
         {
-            case CameraMode.MapCentered:
+            case CameraMode.Top:
                 myLocalPlayerManager.SetBlock(true);
 
                 myCamera.transform.position = mapPivot.position;
                 cameras[0].Priority = 0;
                 cameras[1].Priority = 100;
                 cameras[2].Priority = 0;
-                cameras[3].Priority = 0;
-                break;
-
-            case CameraMode.TeamCentered:
-                myLocalPlayerManager.SetBlock(true);
-                Vector3 _averagePos = Vector3.zero;
-
-                myLocalPlayerManager.GetMyBalls();
-
-                foreach (GameObject ball in myLocalPlayerManager.teamBalls)
-                {
-                    _averagePos += ball.transform.position;
-                }
-
-                _averagePos /= myLocalPlayerManager.teamBalls.Count;
-                myCamera.transform.position = new Vector3(_averagePos.x, 0, _averagePos.z);
-                cameras[0].Priority = 0;
-                cameras[1].Priority = 0;
-                cameras[2].Priority = 100;
-                cameras[3].Priority = 0;
                 break;
 
             case CameraMode.Targeted:
                 myLocalPlayerManager.SetBlock(false);
-                cameras[2].Priority = 8;
                 cameras[0].Priority = 100;
                 cameras[1].Priority = 0;
                 cameras[2].Priority = 0;
-                cameras[3].Priority = 0;
                 break;
 
-            case CameraMode.Free:
-                myLocalPlayerManager.SetBlock(true);
+            case CameraMode.SpecMode:
+                myLocalPlayerManager.SetBlock(false);
                 cameras[0].Priority = 0;
                 cameras[1].Priority = 0;
-                cameras[2].Priority = 0;
-                cameras[3].Priority = 100;
+                cameras[2].Priority = 100;
                 break;
         }
     }
@@ -181,14 +176,14 @@ public class CameraPlayer : MonoBehaviour
     //AutoSet To Map View
     public void ManualSet()
     {
-        SetCameraMode(CameraMode.MapCentered);
+        SetCameraMode(CameraMode.Top);
     }
 
     private void ballModeCalculation()
     {
         if (targetedTransform == null)
         {
-            SetCameraMode(CameraMode.MapCentered);
+            SetCameraMode(CameraMode.Top);
             return;
         }
 

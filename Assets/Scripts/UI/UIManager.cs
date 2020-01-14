@@ -22,10 +22,10 @@ public class UIManager : MonoBehaviourPunCallbacks
     public string quitScene;
     public string settingsScene;
 
+    public GameObject MainCamButton;
     public GameObject TopCamButton;
-    public GameObject TeamCamButton;
-    public GameObject FreeCamButton;
-    public GameObject PingCamButton;
+    public GameObject SpecCamButton;
+
 
     public Text pingText;
 
@@ -35,8 +35,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     public TextMeshProUGUI round;
 
     public Action<CameraMode> OnTopCam;
-    public Action<CameraMode> OnTeamCam;
-    public Action<CameraMode> OnFreeCam;
+    public Action<CameraMode> OnSpecCam;
 
     public GameObject FreeCamTooltip;
     public GameObject ChatTooltip;
@@ -106,6 +105,8 @@ public class UIManager : MonoBehaviourPunCallbacks
         {
             FollowMarbl();
         }
+
+        SpecCamButton.SetActive(!GameModeManager.Instance.localPlayerTurn);
     }
 
     public void DisplayEscapeMenu()
@@ -147,13 +148,16 @@ public class UIManager : MonoBehaviourPunCallbacks
             actualCommand = commandShoot;
             actualCommand.SetActive(true);
         }
-        //TeamCamButton.SetActive(value);
-        FreeCamButton.SetActive(value);
     }
 
-    public void SetFreeCam()
+    public void SetSpecCam()
     {
         ResetButton();
+
+        SpecCamButton.GetComponent<Image>().color = Color.white;
+        SpecCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
+
+
         if (actualCommand != commandFocus)
         {
             if (actualCommand != null)
@@ -161,26 +165,10 @@ public class UIManager : MonoBehaviourPunCallbacks
             actualCommand = commandFocus;
             actualCommand.SetActive(true);
         }
-        OnFreeCam(CameraMode.Free);
-        FreeCamButton.GetComponent<Image>().color = Color.white;
-        FreeCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
 
+        OnSpecCam(CameraMode.SpecMode);
     }
 
-    public void SetTeamCam()
-    {
-        ResetButton();
-        if (actualCommand != commandFocus)
-        {
-            if (actualCommand != null)
-                actualCommand.SetActive(false);
-            actualCommand = commandFocus;
-            actualCommand.SetActive(true);
-        }
-        OnTeamCam(CameraMode.TeamCentered);
-        TeamCamButton.GetComponent<Image>().color = Color.white;
-        TeamCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
-    }
 
     public void SetTopCam()
     {
@@ -192,21 +180,40 @@ public class UIManager : MonoBehaviourPunCallbacks
             actualCommand = commandFocus;
             actualCommand.SetActive(true);
         }
-        OnTopCam(CameraMode.MapCentered);
+        OnTopCam(CameraMode.Top);
         TopCamButton.GetComponent<Image>().color = Color.white;
         TopCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
     }
 
+    public void SetMainCam()
+    {
+        ResetButton();
+
+        MainCamButton.GetComponent<Image>().color = Color.white;
+        MainCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
+
+
+        if (actualCommand != commandFocus)
+        {
+            if (actualCommand != null)
+                actualCommand.SetActive(false);
+            actualCommand = commandFocus;
+            actualCommand.SetActive(true);
+        }
+
+        OnSpecCam(CameraMode.Targeted);
+    }
+
     public void ResetButton()
     {
-        FreeCamButton.GetComponent<Image>().color = new Color(0.109f, 0.109f, 0.109f);
-        FreeCamButton.transform.GetChild(0).GetComponent<Text>().color = Color.white;
-
-        TeamCamButton.GetComponent<Image>().color = new Color(0.109f, 0.109f, 0.109f);
-        TeamCamButton.transform.GetChild(0).GetComponent<Text>().color = Color.white;
-
         TopCamButton.GetComponent<Image>().color = new Color(0.109f, 0.109f, 0.109f);
         TopCamButton.transform.GetChild(0).GetComponent<Text>().color = Color.white;
+
+        SpecCamButton.GetComponent<Image>().color = new Color(0.109f, 0.109f, 0.109f);
+        SpecCamButton.transform.GetChild(0).GetComponent<Text>().color = Color.white;
+
+        MainCamButton.GetComponent<Image>().color = new Color(0.109f, 0.109f, 0.109f);
+        MainCamButton.transform.GetChild(0).GetComponent<Text>().color = Color.white;
     }
 
     public void SetPingMap()
@@ -224,9 +231,6 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public void DisablePing()
     {
-        PingCamButton.GetComponent<Image>().color = new Color(0.109f, 0.109f, 0.109f); ;
-        PingCamButton.transform.GetChild(0).GetComponent<Text>().color = Color.white;
-
         GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
 
         foreach (GameObject ball in _Balls)
@@ -245,9 +249,6 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void EnablePing()
     {
         listOfPing.Clear();
-
-        PingCamButton.GetComponent<Image>().color = Color.white;
-        PingCamButton.transform.GetChild(0).GetComponent<Text>().color = new Color(0.109f, 0.109f, 0.109f);
 
         GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
 
