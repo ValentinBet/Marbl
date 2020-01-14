@@ -31,7 +31,7 @@ public class PUNBallMovement : MonoBehaviour
     public AudioSource myAudioSource;
 
     public AudioClip hitMarbl;
-    public AudioClip hitWood;
+    public AudioClip hitWoodSurface;
     public AudioClip hitGround;
     public AudioClip shootSound;
     public AudioClip hueCaptureSound;
@@ -92,21 +92,35 @@ public class PUNBallMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ball" && collision.relativeVelocity.sqrMagnitude > 64)
+        if (collision.relativeVelocity.sqrMagnitude > 64)
         {
-            GameObject impact = Instantiate(impactPrefab[Random.Range(0, impactPrefab.Count)], collision.contacts[0].point, Quaternion.identity);
-            float size = collision.relativeVelocity.sqrMagnitude / 400;
-            size = Mathf.Clamp(size, 0, 3);
-            impact.transform.localScale = new Vector3(size, size, size);
-            Destroy(impact, 2);
-
-            float screenShakeDistance = Vector3.Distance(Camera.main.transform.position, this.gameObject.transform.position);
-            float screenShakePower = Mathf.Clamp(collision.relativeVelocity.sqrMagnitude / 300 - screenShakeDistance / 30, 0, 20);
-
-            if (screenShakePower > 0)
+            if (collision.gameObject.tag == "Ball")
             {
-                cameraPlayer.InitShakeScreen(screenShakePower, 0.10f);
+                GameObject impact = Instantiate(impactPrefab[Random.Range(0, impactPrefab.Count)], collision.contacts[0].point, Quaternion.identity);
+                float size = collision.relativeVelocity.sqrMagnitude / 400;
+                size = Mathf.Clamp(size, 0, 3);
+                impact.transform.localScale = new Vector3(size, size, size);
+                Destroy(impact, 2);
+
+                float screenShakeDistance = Vector3.Distance(Camera.main.transform.position, this.gameObject.transform.position);
+                float screenShakePower = Mathf.Clamp(collision.relativeVelocity.sqrMagnitude / 300 - screenShakeDistance / 30, 0, 20);
+
+                if (screenShakePower > 0)
+                {
+                    cameraPlayer.InitShakeScreen(screenShakePower, 0.10f);
+                }
+
+                if (hitMarbl != null)
+                {
+                    myAudioSource.PlayOneShot(hitMarbl);
+                }
             }
+
+            if (photonView.IsMine && collision.gameObject.layer == 14 && collision.collider.CompareTag("Wood")) //Layer Obstacle
+            {
+                myAudioSource.PlayOneShot(hitWoodSurface);
+            }
+
         }
 
         if (collision.gameObject.tag == "Ball" && photonView.IsMine)
@@ -115,22 +129,19 @@ public class PUNBallMovement : MonoBehaviour
             BallSettings ballSettingReciever = collision.gameObject.GetComponent<BallSettings>();
 
             if (ballSettingReciever.currentSpeed < ballSettingGiver.currentSpeed)
-            {
-                //print(ballSettingGiver.myteam + " - " + ballSettingGiver.currentSpeed + " --> " + ballSettingReciever.myteam + " - " + ballSettingReciever.currentSpeed);
-
+            {   
                 if (PhotonNetwork.CurrentRoom.GetHue() && ballSettingReciever.myteam != ballSettingGiver.myteam)
                 {
                     ballSettingReciever.ChangeTeam(ballSettingGiver.myteam);
                     PhotonNetwork.LocalPlayer.AddPlayerScore(1);
-                }
 
-                if (hueCaptureSound != null)
-                {
-                    myAudioSource.PlayOneShot(hueCaptureSound);
-                }
+                    if (hueCaptureSound != null)
+                    {
+                        myAudioSource.PlayOneShot(hueCaptureSound);
+                    }
 
+                }
                 amplify = CollideStates.Giver;
-
             }
             else
             {
@@ -139,6 +150,7 @@ public class PUNBallMovement : MonoBehaviour
 
             QuickScoreboard.Instance.Refresh();
         }
+
 
 
 

@@ -16,6 +16,7 @@ public class BumperBlock : MonoBehaviour
     public Animator myAnimator;
 
     public GameObject fxPrefab;
+    public float fxWidth = 1;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -23,7 +24,9 @@ public class BumperBlock : MonoBehaviour
         {
             myAnimator.SetTrigger("Boom");
 
-            Destroy(Instantiate(fxPrefab, collision.contacts[0].point, Random.rotation), 2);
+            GameObject _fx = Instantiate(fxPrefab, collision.transform.position, Random.rotation);
+            _fx.transform.localScale = new Vector3(fxWidth, fxWidth, fxWidth);
+            Destroy(_fx, 2);
 
             GameObject _ball = collision.collider.gameObject;
 

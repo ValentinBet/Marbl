@@ -88,7 +88,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
         try
         {
-            if(!canShoot && (bool)PhotonNetwork.LocalPlayer.CustomProperties["playerTurn"])
+            if (!canShoot && (bool)PhotonNetwork.LocalPlayer.CustomProperties["playerTurn"])
             {
                 YourTurnToPlay();
             }
@@ -254,4 +254,6 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
     {
         ChatManager.Instance.OnChatMessage(_text);
     }
+
+
 }
