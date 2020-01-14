@@ -68,6 +68,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
+
+        StartGame();
     }
 
     private void StartGame()

@@ -340,6 +340,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         RoomSettings.Instance.SaveSettings();
 
+        multiplayerScene = PhotonNetwork.CurrentRoom.GetMap();
+
         PhotonNetwork.LoadLevel(multiplayerScene);
     }
 
