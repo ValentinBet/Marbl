@@ -103,6 +103,7 @@ public class CameraPlayer : MonoBehaviour
 
         if (GameModeManager.Instance.localPlayerTurn)
         {
+            print("my turn");
             switch (actualMode)
             {
                 case CameraMode.Top:
