@@ -106,13 +106,13 @@ public class CameraPlayer : MonoBehaviour
             switch (actualMode)
             {
                 case CameraMode.Top:
-                    camSpec.position = cameras[1].transform.localPosition;
-                    camSpec.rotation = cameras[1].transform.localRotation;
+                    camSpec.position = cameras[1].transform.position;
+                    camSpec.rotation = cameras[1].transform.rotation;
                     break;
 
                 default:
-                    camSpec.position = cameras[0].transform.localPosition;
-                    camSpec.rotation = cameras[0].transform.localRotation;
+                    camSpec.position = cameras[0].transform.position;
+                    camSpec.rotation = cameras[0].transform.rotation;
                     break;
             }
         }
