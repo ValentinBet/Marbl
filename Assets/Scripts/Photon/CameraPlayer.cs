@@ -163,23 +163,11 @@ public class CameraPlayer : MonoBehaviour
         }
     }
 
-    //For UI mainly;
-    public void ManualSet(CameraMode _newMode)
-    {
-        SetCameraMode(_newMode);
-    }
-
-    //AutoSet To Map View
-    public void ManualSet()
-    {
-        SetCameraMode(CameraMode.Top);
-    }
-
     private void ballModeCalculation()
     {
         if (targetedTransform == null)
         {
-            SetCameraMode(CameraMode.Top);
+            SetCameraMode(CameraMode.SpecMode);
             return;
         }
 
