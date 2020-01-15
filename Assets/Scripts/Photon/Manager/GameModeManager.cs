@@ -36,8 +36,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     int roundNumber = 0;
     int currentRound = 1;
 
-    bool allHaveLoadMap = false;
-
     public GameObject localPlayerObj;
     public Team localPlayerTeam;
     public bool localPlayerTurn = false;
@@ -238,6 +236,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     {
         if (gameFinish) { return; }
 
+        print("new turn");
+
         indexTeamPlaying++;
         if (indexTeamPlaying == presentTeam.Count)
         {
@@ -350,24 +350,15 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         if (!PhotonNetwork.IsMasterClient) { return; }
 
-        if (_target.GetPlayerTurnState() == true && _target == playerplayed && !turnStart && allHaveLoadMap)
+        if (_target.GetPlayerTurnState() == true && _target == playerplayed && !turnStart)
         {
             turnStart = true;
         }
 
-        if (_target.GetPlayerTurnState() == false && _target == playerplayed && turnStart && allHaveLoadMap)
+        if (_target.GetPlayerTurnState() == false && _target == playerplayed && turnStart)
         {
             CallEndTurnMode();
             NextTurn();
-        }
-
-        if (!allHaveLoadMap)
-        {
-            if (CheckAllHaveLoadMap())
-            {
-                allHaveLoadMap = true;
-                StartCoroutine(WaitToStart());
-            }
         }
     }
 
