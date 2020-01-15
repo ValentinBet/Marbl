@@ -126,36 +126,48 @@ public class PUNBallMovement : MonoBehaviour
 
         }
 
-        if (collision.gameObject.tag == "Ball" && photonView.IsMine)
+        if (collision.gameObject.tag == "Ball")
         {
             BallSettings ballSettingGiver = GetComponent<BallSettings>();
             BallSettings ballSettingReciever = collision.gameObject.GetComponent<BallSettings>();
 
+            if (photonView.IsMine)
+            {
+                if (ballSettingReciever.currentSpeed < ballSettingGiver.currentSpeed)
+                {
+                    if (PhotonNetwork.CurrentRoom.GetHue() && ballSettingReciever.myteam != ballSettingGiver.myteam)
+                    {
+                        ballSettingReciever.ChangeTeam(ballSettingGiver.myteam);
+                        PhotonNetwork.LocalPlayer.AddPlayerScore(1);
+
+                        if (hueCaptureSound != null)
+                        {
+                            myAudioSource.PlayOneShot(hueCaptureSound);
+                        }
+
+                    }
+                    amplify = CollideStates.Giver;
+                }
+                else
+                {
+                    amplify = CollideStates.Reciever;
+                }
+            }
+
             if (ballSettingReciever.currentSpeed < ballSettingGiver.currentSpeed)
-            {   
+            {
                 if (PhotonNetwork.CurrentRoom.GetHue() && ballSettingReciever.myteam != ballSettingGiver.myteam)
                 {
-                    ballSettingReciever.ChangeTeam(ballSettingGiver.myteam);
-                    PhotonNetwork.LocalPlayer.AddPlayerScore(1);
-
                     if (hueCaptureSound != null)
                     {
+
                         myAudioSource.PlayOneShot(hueCaptureSound);
                     }
-
                 }
-                amplify = CollideStates.Giver;
-            }
-            else
-            {
-                amplify = CollideStates.Reciever;
             }
 
             QuickScoreboard.Instance.Refresh();
         }
-
-
-
 
     }
 

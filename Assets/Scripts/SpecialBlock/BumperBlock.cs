@@ -45,6 +45,20 @@ public class BumperBlock : MonoBehaviour
 
     }
 
+    private void OnCollisionExit(Collision collision)
+    {
+        GameObject _ball = collision.collider.gameObject;
+
+        if (collision.collider.CompareTag("Ball"))
+        {
+            if (_ball.GetComponent<PhotonView>().IsMine)
+            {
+                Rigidbody _rb = _ball.GetComponent<Rigidbody>();
+                _rb.velocity = new Vector3(_rb.velocity.x, 0, _rb.velocity.z);
+            }
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
