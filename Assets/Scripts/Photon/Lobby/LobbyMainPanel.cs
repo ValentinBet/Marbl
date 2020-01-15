@@ -264,6 +264,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public void OnBackButtonClicked()
     {
+        PlayMenuSound();
         if (PhotonNetwork.InLobby)
         {
             PhotonNetwork.LeaveLobby();
@@ -273,6 +274,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public void OnCreateRoomButtonClicked()
     {
+        PlayMenuSound();
         string roomName = RoomNameInputField.text;
         roomName = (roomName.Equals(string.Empty)) ? "Room " + Random.Range(1, 1000) : roomName;
 
@@ -287,11 +289,13 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public void OnCreateLobbyButtonClicked()
     {
+        PlayMenuSound();
         SetActivePanel(CreateRoomPanel.name);
     }
 
     public void OnJoinRandomRoomButtonClicked()
     {
+        PlayMenuSound();
         SetActivePanel(JoinRandomRoomPanel.name);
 
         PhotonNetwork.JoinRandomRoom();
@@ -299,6 +303,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public void OnLeaveGameButtonClicked()
     {
+        PlayMenuSound();
         PhotonNetwork.LeaveRoom();
     }
 
@@ -320,6 +325,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public void OnRoomListButtonClicked()
     {
+        PlayMenuSound();
+
         if (!PhotonNetwork.InLobby)
         {
             PhotonNetwork.JoinLobby();
@@ -330,6 +337,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public void OnStartGameButtonClicked()
     {
+        PlayMenuSound();
+
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;
 
@@ -457,5 +466,10 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
             roomListEntries.Add(info.Name, entry);
         }
+    }
+
+    private void PlayMenuSound()
+    {
+        AudioManager.Instance.PlayThisSound(AudioManager.Instance.menuSong,1);
     }
 }

@@ -6,9 +6,11 @@ public class AudioManager : MonoBehaviour
 {
     AudioSource myAudioSource;
     public AudioClip ballDeath;
+    public AudioClip menuSong;
 
     public AudioSource backSong;
     public AudioSource playingSong;
+
 
     bool playBack = true;
     bool playPlaying = false;
@@ -41,9 +43,9 @@ public class AudioManager : MonoBehaviour
         myAudioSource = GetComponent<AudioSource>();
     }
 
-    public void PlayThisSound(AudioClip _audio)
+    public void PlayThisSound(AudioClip _audio,float volume = 0.5f)
     {
-        myAudioSource.PlayOneShot(_audio);
+        myAudioSource.PlayOneShot(_audio, volume);
     }
 
     public void PlaySoundAtPoint(AudioClip _audio, Vector3 position)
