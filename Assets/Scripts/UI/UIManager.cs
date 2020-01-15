@@ -36,6 +36,7 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public Action<CameraMode> OnTopCam;
     public Action<CameraMode> OnSpecCam;
+    public Action<CameraMode> OnMainCam;
 
     public GameObject FreeCamTooltip;
     public GameObject ChatTooltip;
@@ -201,7 +202,7 @@ public class UIManager : MonoBehaviourPunCallbacks
             actualCommand.SetActive(true);
         }
 
-        OnSpecCam(CameraMode.Targeted);
+        OnMainCam(CameraMode.Targeted);
     }
 
     public void ResetButton()

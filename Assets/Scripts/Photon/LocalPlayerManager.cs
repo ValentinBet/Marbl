@@ -27,6 +27,8 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
     TimerInfo myTimerInfo;
     bool doTimer = false;
 
+    CameraPlayer myPlayerCam;
+
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
@@ -36,7 +38,8 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
             canShoot = false;
             mousControl = GetComponent<PUNMouseControl>();
             mousControl.enabled = true;
-            GetComponent<CameraPlayer>().enabled = true;
+            myPlayerCam = GetComponent<CameraPlayer>();
+            myPlayerCam.enabled = true;
         }
         else
         {
@@ -179,7 +182,10 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
     public void YourTurnToPlay()
     {
-        UIManager.Instance.SetMainCam();
+        if(myPlayerCam.GetCurrentMode() == MarblGame.CameraMode.SpecMode)
+        {
+            UIManager.Instance.SetMainCam();
+        }
 
         currentTimer = startTimer;
         doTimer = true;

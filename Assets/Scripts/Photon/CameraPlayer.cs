@@ -14,7 +14,10 @@ public class CameraPlayer : MonoBehaviour
     private AudioSource audioSource;
     private float orbitalAngle;
     private Quaternion initialRotation;
-    public CameraMode actualMode = CameraMode.SpecMode;
+
+    [SerializeField]
+    private CameraMode actualMode = CameraMode.Top;
+
     private Camera myCamera;
     public CinemachineVirtualCamera[] cameras;
     private Transform mapPivot;
@@ -33,6 +36,7 @@ public class CameraPlayer : MonoBehaviour
         myMouseControl.OnBallClicked += OnClickOnBall;
         UIManager.Instance.OnTopCam += SetCameraMode;
         UIManager.Instance.OnSpecCam += SetCameraMode;
+        UIManager.Instance.OnMainCam += SetCameraMode;
     }
 
     private void OnDisable()
@@ -40,6 +44,7 @@ public class CameraPlayer : MonoBehaviour
         myMouseControl.OnBallClicked -= OnClickOnBall;
         UIManager.Instance.OnTopCam -= SetCameraMode;
         UIManager.Instance.OnSpecCam -= SetCameraMode;
+        UIManager.Instance.OnMainCam -= SetCameraMode;
     }
 
     void OnClickOnBall(GameObject ball)
@@ -97,7 +102,6 @@ public class CameraPlayer : MonoBehaviour
 
         if (GameModeManager.Instance.localPlayerTurn)
         {
-            print(camSpec.gameObject.GetPhotonView().IsMine);
             switch (actualMode)
             {
                 case CameraMode.Top:
@@ -122,6 +126,8 @@ public class CameraPlayer : MonoBehaviour
 
     public void SetCameraMode(CameraMode _newMode)
     {
+        print("test");
+
         myCamera.transform.rotation = Quaternion.identity;
 
         if (actualMode != _newMode)  // SI --> la caméra précédente est différente de la nouvelle caméra
@@ -167,7 +173,8 @@ public class CameraPlayer : MonoBehaviour
     {
         if (targetedTransform == null)
         {
-            SetCameraMode(CameraMode.SpecMode);
+            GameObject[] Balls = GameObject.FindGameObjectsWithTag("Ball");
+            targetedTransform = Balls[Random.Range(0, Balls.Length)].transform;
             return;
         }
 
@@ -206,6 +213,11 @@ public class CameraPlayer : MonoBehaviour
             //camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = intensity;
             //camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = intensity;
         }
+    }
+
+    public CameraMode GetCurrentMode()
+    {
+        return actualMode;
     }
 
     #endregion
