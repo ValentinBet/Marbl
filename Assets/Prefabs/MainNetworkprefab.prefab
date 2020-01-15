@@ -4257,7 +4257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -1.6, y: -0.00003819781}
+  m_AnchoredPosition: {x: -1.6, y: -0.000038146973}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3905829296844365262
@@ -9658,7 +9658,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37854316b86da76499c5fe3ee9ab1a06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fx_MarblDie: {fileID: 0}
+  fx_MarblDie: {fileID: 1722726733478836, guid: c1c88308ebb5d2541a282905b854ee4c,
+    type: 3}
   fxDieWidth: 1
 --- !u!1 &3905829297987459048
 GameObject:
@@ -11019,11 +11020,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2831410392093624965, guid: 85395ed4b6732f44bb92a1a4e66994a8,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.009208679
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85395ed4b6732f44bb92a1a4e66994a8, type: 3}
 --- !u!224 &1260862542562951082 stripped
@@ -11148,11 +11144,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8780375262233721181, guid: 4885c2217befbec4e9ca1edb8e4677a8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4885c2217befbec4e9ca1edb8e4677a8, type: 3}
@@ -11307,11 +11298,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831410392093624965, guid: 85395ed4b6732f44bb92a1a4e66994a8,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.009208679
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85395ed4b6732f44bb92a1a4e66994a8, type: 3}
@@ -11594,11 +11580,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2831410392093624965, guid: 85395ed4b6732f44bb92a1a4e66994a8,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.009208679
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85395ed4b6732f44bb92a1a4e66994a8, type: 3}
 --- !u!224 &1260862541138533168 stripped
@@ -11728,11 +11709,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831410392093624965, guid: 85395ed4b6732f44bb92a1a4e66994a8,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.009208679
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85395ed4b6732f44bb92a1a4e66994a8, type: 3}
