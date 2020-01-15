@@ -114,13 +114,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
             if (currentTimer < 0)
             {
-                RemovePlayerTurn();
-                haveShoot = true;
-                doTimer = false;
-                UIManager.Instance.OnEndTurn();
-                haveShoot = false;
-                haveWait = false;
-                mousControl.haveShoot = false;
+                TurnFinish();
             }
         }
         else
@@ -172,10 +166,15 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
     void TurnFinish()
     {
+        print("turn finish");
         UIManager.Instance.SetSpecCam();
 
+        haveShoot = true;
+        doTimer = false;
+        UIManager.Instance.OnEndTurn();
         haveShoot = false;
         haveWait = false;
+
         RemoveAutority();
         RemovePlayerTurn();
         mousControl.haveShoot = false;

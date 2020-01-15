@@ -945,6 +945,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Idol 04
       objectReference: {fileID: 0}
+    - target: {fileID: 1033043304431944, guid: 4adbdf1d368501746a65d10b0559bc68, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
     - target: {fileID: 4274761788118300, guid: 4adbdf1d368501746a65d10b0559bc68, type: 3}
       propertyPath: m_LocalPosition.x
       value: 56.61
@@ -988,14 +992,6 @@ PrefabInstance:
     - target: {fileID: 4274761788118300, guid: 4adbdf1d368501746a65d10b0559bc68, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274761788118300, guid: 4adbdf1d368501746a65d10b0559bc68, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 6.1118994
-      objectReference: {fileID: 0}
-    - target: {fileID: 4274761788118300, guid: 4adbdf1d368501746a65d10b0559bc68, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 6.1118994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4adbdf1d368501746a65d10b0559bc68, type: 3}
@@ -1301,7 +1297,7 @@ Transform:
   - {fileID: 1158873074}
   - {fileID: 378726138}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &142160731
 PrefabInstance:
@@ -2003,18 +1999,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.7517922
-      objectReference: {fileID: 0}
-    - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4.5017796
-      objectReference: {fileID: 0}
-    - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4.5017805
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
 --- !u!4 &245160995 stripped
@@ -2605,7 +2589,7 @@ Transform:
   - {fileID: 514935278}
   - {fileID: 212444300}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &355710855
 PrefabInstance:
@@ -2896,7 +2880,7 @@ Transform:
   - {fileID: 357143638}
   - {fileID: 1366274089}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &369383647
 PrefabInstance:
@@ -3881,7 +3865,7 @@ Transform:
   - {fileID: 830933141}
   - {fileID: 1672112639}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &539458029
 PrefabInstance:
@@ -6049,7 +6033,7 @@ GameObject:
   - component: {fileID: 895856381}
   - component: {fileID: 895856380}
   - component: {fileID: 895856379}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Temple Stone 02 (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6100,7 +6084,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0ab343a0e7e302249872f0d627dc1260, type: 2}
+  - {fileID: 2100000, guid: 0a74c4de7c9462e41b2ee6f432cf2638, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6224,7 +6208,7 @@ Transform:
   - {fileID: 1321996362}
   - {fileID: 1371732912}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &906609576
 PrefabInstance:
@@ -8035,7 +8019,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1.94
+  m_Intensity: 1.9
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -9595,7 +9579,7 @@ PrefabInstance:
     - target: {fileID: 3905829297231473324, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3905829297231473324, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
         type: 3}
@@ -9620,7 +9604,7 @@ PrefabInstance:
     - target: {fileID: 3905829296844365258, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00003968024
+      value: -0.000038146973
       objectReference: {fileID: 0}
     - target: {fileID: 3905829297533797402, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
         type: 3}
@@ -9788,7 +9772,18 @@ PrefabInstance:
       propertyPath: viewIdField
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 3905829296242829250, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 41.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905829296242829250, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 18.8
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3905829297647493986, guid: 7568d2c0f9dfe754e91bb48fe89f61ae, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7568d2c0f9dfe754e91bb48fe89f61ae, type: 3}
 --- !u!1 &1321996361
 GameObject:
@@ -10822,7 +10817,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1ef7017588443db41aea8c321d2ab7f3, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1ef7017588443db41aea8c321d2ab7f3, type: 3}
       propertyPath: m_LocalScale.x
@@ -11174,7 +11169,7 @@ Transform:
   - {fileID: 1495980456}
   - {fileID: 2147183563}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1499707064
 PrefabInstance:
@@ -13359,7 +13354,7 @@ GameObject:
   - component: {fileID: 1722989040}
   - component: {fileID: 1722989039}
   - component: {fileID: 1722989038}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Temple Stone 02 (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13410,7 +13405,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0ab343a0e7e302249872f0d627dc1260, type: 2}
+  - {fileID: 2100000, guid: 0a74c4de7c9462e41b2ee6f432cf2638, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14510,18 +14505,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4394257277235772, guid: f51ac2002dda12e458f39719e846cb06, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 7.7562037
-      objectReference: {fileID: 0}
-    - target: {fileID: 4394257277235772, guid: f51ac2002dda12e458f39719e846cb06, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 7.7562
-      objectReference: {fileID: 0}
-    - target: {fileID: 4394257277235772, guid: f51ac2002dda12e458f39719e846cb06, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 7.7562037
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f51ac2002dda12e458f39719e846cb06, type: 3}
 --- !u!4 &1876081894 stripped
@@ -14833,7 +14816,7 @@ GameObject:
   - component: {fileID: 1955529788}
   - component: {fileID: 1955529787}
   - component: {fileID: 1955529786}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Temple Stone 02 (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14884,7 +14867,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0ab343a0e7e302249872f0d627dc1260, type: 2}
+  - {fileID: 2100000, guid: 0a74c4de7c9462e41b2ee6f432cf2638, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15800,75 +15783,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2024493308}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2024734108
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2024734110}
-  - component: {fileID: 2024734109}
-  m_Layer: 0
-  m_Name: Directional Light (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
---- !u!108 &2024734109
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024734108}
-  m_Enabled: 1
-  serializedVersion: 8
-  m_Type: 1
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.12
-  m_Range: 10
-  m_SpotAngle: 30
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 1
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0
-    m_NormalBias: 0
-    m_NearPlane: 0.1
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &2024734110
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024734108}
-  m_LocalRotation: {x: 0.3842634, y: -0.2063815, z: -0.004661295, w: 0.8998481}
-  m_LocalPosition: {x: 14.42, y: 28.36, z: -19}
-  m_LocalScale: {x: 0.7052122, y: 0.7052122, z: 0.7052122}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 43.601, y: -31.188002, z: -13.333}
 --- !u!1001 &2027118052
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16395,7 +16309,7 @@ Transform:
   m_LocalScale: {x: 46.518497, y: 46.518497, z: 46.518497}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2103642111
 GameObject:
@@ -16409,7 +16323,7 @@ GameObject:
   - component: {fileID: 2103642115}
   - component: {fileID: 2103642114}
   - component: {fileID: 2103642113}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Temple Stone 02 (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16460,7 +16374,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0ab343a0e7e302249872f0d627dc1260, type: 2}
+  - {fileID: 2100000, guid: 0a74c4de7c9462e41b2ee6f432cf2638, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
