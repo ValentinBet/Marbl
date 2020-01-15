@@ -36,6 +36,8 @@ public class PUNBallMovement : MonoBehaviour
     public AudioClip shootSound;
     public AudioClip hueCaptureSound;
 
+    public GameObject fx_hitWoodSurface;
+
     private void Awake()
     {
         photonView = GetComponent<PhotonView>();
@@ -119,6 +121,7 @@ public class PUNBallMovement : MonoBehaviour
             if (photonView.IsMine && collision.gameObject.layer == 14 && collision.collider.CompareTag("Wood")) //Layer Obstacle
             {
                 myAudioSource.PlayOneShot(hitWoodSurface);
+                Destroy(Instantiate(fx_hitWoodSurface, this.transform.position, Random.rotation), 2);
             }
 
         }
