@@ -236,8 +236,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     {
         if (gameFinish) { return; }
 
-        print("new turn");
-
         indexTeamPlaying++;
         if (indexTeamPlaying == presentTeam.Count)
         {

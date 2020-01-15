@@ -166,7 +166,6 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
     void TurnFinish()
     {
-        print("turn finish");
         UIManager.Instance.SetSpecCam();
 
         haveShoot = true;

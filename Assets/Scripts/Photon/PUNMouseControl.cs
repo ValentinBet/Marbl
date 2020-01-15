@@ -85,13 +85,10 @@ public class PUNMouseControl : MonoBehaviour
         {
             if (Physics.Raycast(ray, out hit, 1000, layerClickBall))
             {
-                if (GameModeManager.Instance.localPlayerTurn)
-                {
-                    StopShoot();
-                    actualSelectedBall = null;
-                    ClickOnBall(hit.collider.transform.parent.gameObject);
-                    UIManager.Instance.ResetButton();
-                }
+                StopShoot();
+                actualSelectedBall = null;
+                ClickOnBall(hit.collider.transform.parent.gameObject);
+                UIManager.Instance.ResetButton();
             }
         }
     }
