@@ -116,10 +116,11 @@ public class CameraPlayer : MonoBehaviour
                     break;
             }
         }
-
-        cameras[2].transform.position = camSpec.position;
-        cameras[2].transform.rotation = camSpec.rotation;
-
+        else
+        {
+            cameras[2].transform.position = camSpec.position;
+            cameras[2].transform.rotation = camSpec.rotation;
+        }
     }
 
     #region CameraManipulation
