@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using static MarblGame;
+using Photon.Pun;
 
 public class CameraPlayer : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class CameraPlayer : MonoBehaviour
     private AudioSource audioSource;
     private float orbitalAngle;
     private Quaternion initialRotation;
-    private static CameraMode actualMode = CameraMode.SpecMode;
+    public CameraMode actualMode = CameraMode.SpecMode;
     private Camera myCamera;
     public CinemachineVirtualCamera[] cameras;
     private Transform mapPivot;
@@ -64,8 +65,6 @@ public class CameraPlayer : MonoBehaviour
 
         mapPivot = GameObject.Find("MapPivot").transform;
         InitializeCameras();
-
-        InitCam();
     }
 
     private void Start()
@@ -74,11 +73,6 @@ public class CameraPlayer : MonoBehaviour
         {
             audioSource = GetComponent<AudioSource>();
         }
-    }
-
-    public void InitCam()
-    {
-        SetCameraMode(CameraMode.Top);
     }
 
     private void InitializeCameras()
@@ -103,7 +97,7 @@ public class CameraPlayer : MonoBehaviour
 
         if (GameModeManager.Instance.localPlayerTurn)
         {
-            print("my turn");
+            print(camSpec.gameObject.GetPhotonView().IsMine);
             switch (actualMode)
             {
                 case CameraMode.Top:
@@ -221,8 +215,8 @@ public class CameraPlayer : MonoBehaviour
     {
         foreach (CinemachineVirtualCamera camera in cameras)
         {
-            camera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = intensity;
-            camera.GetCinemachineComponent<Cinemachine.CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = intensity;
+            //camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = intensity;
+            //camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = intensity;
         }
     }
 
