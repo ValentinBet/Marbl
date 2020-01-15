@@ -25,15 +25,16 @@ public class SpecCamScript : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (!pv.IsMine)
         {
-            transform.position = Vector3.MoveTowards(transform.position, networkPosition, Time.fixedDeltaTime);
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, networkRotation, Time.fixedDeltaTime * 100.0f);
+            Debug.Log(networkPosition + " - POS ");
+            Debug.Log(networkRotation + " - Rot ");
+            transform.position = networkPosition;
+            transform.rotation = networkRotation;
         }
     }
     public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
         if (stream.IsWriting)
         {
-
             stream.SendNext(this.transform.position);
             stream.SendNext(this.transform.rotation);
         }
