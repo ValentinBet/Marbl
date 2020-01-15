@@ -59,9 +59,6 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
         myTimerInfo.myImg.color = myColorTeam;
         myTimerInfo.mytext.color = myColorTeam;
-
-        AudioManager.Instance.SetBackSong(true);
-        UIManager.Instance.SetSpecCam();
     }
 
     private void OnEnable()
