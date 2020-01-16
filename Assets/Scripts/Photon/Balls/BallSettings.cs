@@ -28,7 +28,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     private void Start()
     {
         SetColor();
-        myTrail.startColor = MarblGame.GetColor((int)myteam);
 
         lastTeam = myteam;
     }
@@ -77,12 +76,14 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     }
     public void SetColor()
     {
+        //color ball
         Material[] _mats = this.GetComponent<Renderer>().materials;
         _mats[0] = GameModeManager.Instance.colorsMat[(int)myteam];
         this.GetComponent<Renderer>().materials = _mats;
 
-        myTrail.startColor = MarblGame.GetColor((int)myteam);
 
+        //color trail
+        myTrail.startColor = MarblGame.GetColor((int)myteam);
     }
 
     public void SpawnOverchargedFx()
