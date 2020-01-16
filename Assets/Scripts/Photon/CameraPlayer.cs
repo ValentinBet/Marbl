@@ -126,8 +126,6 @@ public class CameraPlayer : MonoBehaviour
 
     public void SetCameraMode(CameraMode _newMode)
     {
-        print("test");
-
         myCamera.transform.rotation = Quaternion.identity;
 
         if (actualMode != _newMode)  // SI --> la caméra précédente est différente de la nouvelle caméra

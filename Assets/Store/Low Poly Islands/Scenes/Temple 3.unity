@@ -33,7 +33,7 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 1024
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
@@ -88,7 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ShowResolutionOverlay: 1
-  m_LightingDataAsset: {fileID: 112000002, guid: 65d3e3c2b65934f45ba2b2a88eddc451,
+  m_LightingDataAsset: {fileID: 112000000, guid: 65d3e3c2b65934f45ba2b2a88eddc451,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -123,6 +123,10 @@ PrefabInstance:
     - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 04 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -236,6 +240,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Stone 02 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4532041829128354, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.03
@@ -304,6 +312,10 @@ PrefabInstance:
     - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 02 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -407,6 +419,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Tree 02 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.17
@@ -473,6 +489,10 @@ PrefabInstance:
     - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 04 (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -542,6 +562,10 @@ PrefabInstance:
     - target: {fileID: 1807865729595628, guid: dcc37f69b25387a4593b1c8fb2773541, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 03 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807865729595628, guid: dcc37f69b25387a4593b1c8fb2773541, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4203498552850194, guid: dcc37f69b25387a4593b1c8fb2773541, type: 3}
       propertyPath: m_LocalPosition.x
@@ -616,6 +640,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 04 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.807
@@ -674,6 +702,10 @@ PrefabInstance:
     - target: {fileID: 1473785847064352, guid: 125831db95df954439d24e33825b1b05, type: 3}
       propertyPath: m_Name
       value: Bridge (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473785847064352, guid: 125831db95df954439d24e33825b1b05, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4112014722065442, guid: 125831db95df954439d24e33825b1b05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -737,6 +769,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -813,6 +849,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Stone 01 (26)
       objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.164
@@ -875,6 +915,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -943,6 +987,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Tree 02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.889
@@ -1003,6 +1051,10 @@ PrefabInstance:
     - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 02 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1071,6 +1123,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 01 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1440755279260140, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4803628697245076, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.90681
@@ -1133,6 +1189,10 @@ PrefabInstance:
     - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 02 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1197,6 +1257,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 696839389}
     m_Modifications:
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.8300552
@@ -1259,6 +1323,10 @@ PrefabInstance:
     - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_Name
       value: Temple Stone 02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4532041829128354, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1323,6 +1391,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 06 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1243238568096044, guid: 95f3d4c15433a7a469eb9cc4e9f92853, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4052750626328256, guid: 95f3d4c15433a7a469eb9cc4e9f92853, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.966
@@ -1381,6 +1453,10 @@ PrefabInstance:
     - target: {fileID: 1807865729595628, guid: dcc37f69b25387a4593b1c8fb2773541, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 03 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807865729595628, guid: dcc37f69b25387a4593b1c8fb2773541, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4203498552850194, guid: dcc37f69b25387a4593b1c8fb2773541, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1448,6 +1524,10 @@ PrefabInstance:
     - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 02 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1522,6 +1602,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 04 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.55320066
@@ -1581,6 +1665,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 04 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.603
@@ -1629,53 +1717,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 369243112}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &381662279
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 914587483}
-    m_Modifications:
-    - target: {fileID: 4473198735497400, guid: fc05f8813815b3446b7c8d47f7712ce8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.770493
-      objectReference: {fileID: 0}
-    - target: {fileID: 4473198735497400, guid: fc05f8813815b3446b7c8d47f7712ce8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.14
-      objectReference: {fileID: 0}
-    - target: {fileID: 4473198735497400, guid: fc05f8813815b3446b7c8d47f7712ce8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -7.341112
-      objectReference: {fileID: 0}
-    - target: {fileID: 4473198735497400, guid: fc05f8813815b3446b7c8d47f7712ce8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.0000018099951
-      objectReference: {fileID: 0}
-    - target: {fileID: 4473198735497400, guid: fc05f8813815b3446b7c8d47f7712ce8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4473198735497400, guid: fc05f8813815b3446b7c8d47f7712ce8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4473198735497400, guid: fc05f8813815b3446b7c8d47f7712ce8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4473198735497400, guid: fc05f8813815b3446b7c8d47f7712ce8, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: fc05f8813815b3446b7c8d47f7712ce8, type: 3}
---- !u!4 &381662280 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4473198735497400, guid: fc05f8813815b3446b7c8d47f7712ce8,
-    type: 3}
-  m_PrefabInstance: {fileID: 381662279}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &387620717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1686,6 +1727,10 @@ PrefabInstance:
     - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_Name
       value: Temple Stone 02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4532041829128354, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1747,6 +1792,10 @@ PrefabInstance:
     - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_Name
       value: Temple Tree 02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1879,6 +1928,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 06 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1243238568096044, guid: 95f3d4c15433a7a469eb9cc4e9f92853, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4052750626328256, guid: 95f3d4c15433a7a469eb9cc4e9f92853, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.344
@@ -1937,6 +1990,10 @@ PrefabInstance:
     - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_Name
       value: Temple Stone 02 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4532041829128354, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2019,6 +2076,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1440755279260140, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4803628697245076, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.007
@@ -2081,6 +2142,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2149,6 +2214,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 04 (22)
       objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.438
@@ -2211,6 +2280,10 @@ PrefabInstance:
     - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 02 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2279,6 +2352,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1440755279260140, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4803628697245076, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.6668
@@ -2345,6 +2422,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2422,6 +2503,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 02 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.883
@@ -2482,6 +2567,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2583,6 +2672,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 04 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.419
@@ -2657,6 +2750,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2734,6 +2831,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Stone 02 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4532041829128354, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.451
@@ -2802,6 +2903,10 @@ PrefabInstance:
     - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_Name
       value: Temple Stone 02 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4532041829128354, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2872,6 +2977,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Stone 01 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.54
@@ -2938,6 +3047,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3070,6 +3183,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Stone 01 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
@@ -3138,6 +3255,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3217,7 +3338,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &738011681
 Transform:
@@ -3298,7 +3419,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &738447279
 Transform:
@@ -3372,6 +3493,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3475,6 +3600,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1296114897}
     m_Modifications:
+    - target: {fileID: 1547239080519464, guid: d6ca140664d203c41927f91fce2dd17c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4078583409124316, guid: d6ca140664d203c41927f91fce2dd17c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -3529,6 +3658,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3595,6 +3728,10 @@ PrefabInstance:
     - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_Name
       value: Temple Tree 02 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3663,6 +3800,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Ground Block Rounded (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1594505379110968, guid: 5e68e129473fc4e46b833e5136f0d8a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4565163996653370, guid: 5e68e129473fc4e46b833e5136f0d8a9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3722,6 +3863,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1043213752}
     m_Modifications:
+    - target: {fileID: 1473785847064352, guid: 125831db95df954439d24e33825b1b05, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4112014722065442, guid: 125831db95df954439d24e33825b1b05, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.31
@@ -3785,6 +3930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 01 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1440755279260140, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4803628697245076, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.004588377
@@ -3841,6 +3990,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3909,6 +4062,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bridge 01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1473785847064352, guid: 125831db95df954439d24e33825b1b05, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4112014722065442, guid: 125831db95df954439d24e33825b1b05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.76
@@ -3971,6 +4128,10 @@ PrefabInstance:
     - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 04 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4036,6 +4197,10 @@ PrefabInstance:
     - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 04 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4186,7 +4351,6 @@ Transform:
   m_Children:
   - {fileID: 1380875745}
   - {fileID: 1117329569}
-  - {fileID: 381662280}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4197,6 +4361,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2047350809}
     m_Modifications:
+    - target: {fileID: 1271041218120788, guid: c2ff8703f9f302d4abd1906184cb3a46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4679006606956552, guid: c2ff8703f9f302d4abd1906184cb3a46, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.809189
@@ -4252,6 +4420,10 @@ PrefabInstance:
     - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 04 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4318,6 +4490,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 06 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1243238568096044, guid: 95f3d4c15433a7a469eb9cc4e9f92853, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4052750626328256, guid: 95f3d4c15433a7a469eb9cc4e9f92853, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.309
@@ -4376,6 +4552,10 @@ PrefabInstance:
     - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 04 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4532,6 +4712,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 04 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.2
@@ -4590,6 +4774,10 @@ PrefabInstance:
     - target: {fileID: 1440755279260140, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440755279260140, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4803628697245076, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4656,6 +4844,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1535809208}
     m_Modifications:
+    - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.02
@@ -4723,7 +4915,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &1016985833
 Transform:
@@ -4898,6 +5090,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bridge (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1473785847064352, guid: 125831db95df954439d24e33825b1b05, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4112014722065442, guid: 125831db95df954439d24e33825b1b05, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.41
@@ -4961,6 +5157,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 01 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1440755279260140, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4803628697245076, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.55
@@ -5020,6 +5220,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1535809208}
     m_Modifications:
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5067,6 +5271,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1535809208}
     m_Modifications:
+    - target: {fileID: 1440755279260140, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4803628697245076, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.98
@@ -5155,6 +5363,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Tree 02 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.71
@@ -5226,7 +5438,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!108 &1068132623
 Light:
@@ -5239,7 +5451,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 0.43
+  m_Intensity: 1.66
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -5290,6 +5502,10 @@ PrefabInstance:
     - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 04 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5354,6 +5570,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 04 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.297
@@ -5415,6 +5635,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1535809208}
     m_Modifications:
+    - target: {fileID: 1807865729595628, guid: dcc37f69b25387a4593b1c8fb2773541, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4203498552850194, guid: dcc37f69b25387a4593b1c8fb2773541, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.0077
@@ -5478,6 +5702,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 04 (17)
       objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.297
@@ -5536,6 +5764,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5613,6 +5845,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Log (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1275988652055102, guid: fc05f8813815b3446b7c8d47f7712ce8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4473198735497400, guid: fc05f8813815b3446b7c8d47f7712ce8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.42265633
@@ -5688,6 +5924,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Stone 01 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.15
@@ -5755,6 +5995,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Tree 02 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.44
@@ -5821,6 +6065,10 @@ PrefabInstance:
     - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_Name
       value: Temple Stone 02 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4532041829128354, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5969,6 +6217,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 02 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.173
@@ -6030,6 +6282,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 04 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.58
@@ -6088,6 +6344,10 @@ PrefabInstance:
     - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_Name
       value: Temple Tree 02 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6156,6 +6416,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 02 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.603
@@ -6223,6 +6487,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bridge 01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1473785847064352, guid: 125831db95df954439d24e33825b1b05, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4112014722065442, guid: 125831db95df954439d24e33825b1b05, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.76
@@ -6285,6 +6553,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6349,6 +6621,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2047350809}
     m_Modifications:
+    - target: {fileID: 1661867606836428, guid: 5a6738e1be43ebe4f9ec1b616b8ea0b7, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4786707370758604, guid: 5a6738e1be43ebe4f9ec1b616b8ea0b7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.63730127
@@ -6403,6 +6679,10 @@ PrefabInstance:
     - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6469,6 +6749,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 01 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1440755279260140, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4803628697245076, guid: 67053a7644f86504595ceb5654e05a35, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.42
@@ -6528,6 +6812,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1535809208}
     m_Modifications:
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.362
@@ -6586,6 +6874,10 @@ PrefabInstance:
     - target: {fileID: 1275988652055102, guid: fc05f8813815b3446b7c8d47f7712ce8, type: 3}
       propertyPath: m_Name
       value: Log (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1275988652055102, guid: fc05f8813815b3446b7c8d47f7712ce8, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4473198735497400, guid: fc05f8813815b3446b7c8d47f7712ce8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6656,7 +6948,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!23 &1381027455
 MeshRenderer:
@@ -6742,7 +7034,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &1406509666
 Transform:
@@ -6817,6 +7109,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Tree 02 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.17
@@ -6884,6 +7180,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 04 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.55320066
@@ -6942,6 +7242,10 @@ PrefabInstance:
     - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7010,6 +7314,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1594505379110968, guid: 5e68e129473fc4e46b833e5136f0d8a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4565163996653370, guid: 5e68e129473fc4e46b833e5136f0d8a9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7069,6 +7377,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 696839389}
     m_Modifications:
+    - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4532041829128354, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.137002
@@ -7125,6 +7437,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7201,6 +7517,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Stone 01 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.85
@@ -7276,6 +7596,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Stone 02 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4532041829128354, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.451
@@ -7345,6 +7669,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 02 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.47
@@ -7407,6 +7735,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7479,6 +7811,10 @@ PrefabInstance:
     - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 04 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7647,6 +7983,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Stone 01 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.94
@@ -7715,6 +8055,10 @@ PrefabInstance:
     - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 04 (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7785,6 +8129,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1535809208}
     m_Modifications:
+    - target: {fileID: 1243238568096044, guid: 95f3d4c15433a7a469eb9cc4e9f92853, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4052750626328256, guid: 95f3d4c15433a7a469eb9cc4e9f92853, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.6830828
@@ -7835,6 +8183,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7917,6 +8269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 04 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.61
@@ -7980,6 +8336,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 02 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8034,6 +8394,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8110,6 +8474,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 02 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.914
@@ -8176,6 +8544,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (18)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8251,6 +8623,10 @@ PrefabInstance:
     - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_Name
       value: Temple Stone 01 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8330,6 +8706,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Stone 01 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 1108812797084716, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4093623897808376, guid: 78cd733fc2050b440bd164ea4036799e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.81
@@ -8405,6 +8785,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 02 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.0338
@@ -8471,6 +8855,10 @@ PrefabInstance:
     - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_Name
       value: Temple Tree 02 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8539,6 +8927,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Tree 02 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.36
@@ -8606,6 +8998,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 04 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.929
@@ -8664,6 +9060,10 @@ PrefabInstance:
     - target: {fileID: 1473785847064352, guid: 125831db95df954439d24e33825b1b05, type: 3}
       propertyPath: m_Name
       value: Bridge 01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473785847064352, guid: 125831db95df954439d24e33825b1b05, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4112014722065442, guid: 125831db95df954439d24e33825b1b05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8728,6 +9128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Stone 02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4532041829128354, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.36
@@ -8788,6 +9192,10 @@ PrefabInstance:
     - target: {fileID: 1473785847064352, guid: 125831db95df954439d24e33825b1b05, type: 3}
       propertyPath: m_Name
       value: Bridge (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1473785847064352, guid: 125831db95df954439d24e33825b1b05, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4112014722065442, guid: 125831db95df954439d24e33825b1b05, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8936,6 +9344,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Pilar 01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1271041218120788, guid: c2ff8703f9f302d4abd1906184cb3a46, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4679006606956552, guid: c2ff8703f9f302d4abd1906184cb3a46, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.809189
@@ -9016,6 +9428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Tree 02 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.72
@@ -9083,6 +9499,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 06 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1243238568096044, guid: 95f3d4c15433a7a469eb9cc4e9f92853, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4052750626328256, guid: 95f3d4c15433a7a469eb9cc4e9f92853, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.687
@@ -9137,6 +9557,10 @@ PrefabInstance:
     - target: {fileID: 1594505379110968, guid: 5e68e129473fc4e46b833e5136f0d8a9, type: 3}
       propertyPath: m_Name
       value: Temple Ground Block Rounded (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1594505379110968, guid: 5e68e129473fc4e46b833e5136f0d8a9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4565163996653370, guid: 5e68e129473fc4e46b833e5136f0d8a9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9197,6 +9621,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1535809208}
     m_Modifications:
+    - target: {fileID: 1273845302574602, guid: ea5d15bfb5393724db4526ba71144470, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4495006477131446, guid: ea5d15bfb5393724db4526ba71144470, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.2724473
@@ -9247,6 +9675,10 @@ PrefabInstance:
     - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_Name
       value: Temple Tree 02 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9354,6 +9786,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Tree 02 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 1006312488372462, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4356482926654468, guid: f77b5423789124a4f8a2d5fbadc4bf83, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.74
@@ -9421,6 +9857,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Temple Vegetation 04 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 1876232690210576, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 4789241466255768, guid: 920f9d0dc86d79043ab661f5a5dd410a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.799
@@ -9479,6 +9919,10 @@ PrefabInstance:
     - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_Name
       value: Temple Stone 02 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940960200323254, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4532041829128354, guid: 03c5424dfc8400246949af8de48b6e99, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9545,6 +9989,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 759564269}
     m_Modifications:
+    - target: {fileID: 1319861903575832, guid: fb74ff221c8b5ae40a2a7d654e66ade9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4566553756314496, guid: fb74ff221c8b5ae40a2a7d654e66ade9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.264497
@@ -9605,6 +10053,10 @@ PrefabInstance:
     - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9668,6 +10120,10 @@ PrefabInstance:
     - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_Name
       value: Temple Vegetation 02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1561601168405224, guid: e19921e159021e44e816895391ee09b9, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4845570122882894, guid: e19921e159021e44e816895391ee09b9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9742,7 +10198,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &2131374624
 Transform:
