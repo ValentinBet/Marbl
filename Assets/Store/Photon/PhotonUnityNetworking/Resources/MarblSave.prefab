@@ -216,11 +216,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 070dadd1008933942aac4bcf1396e9c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 11.25
-  torqueForce: 0.25
-  ImpactGivingCoef: 0.45
-  ImpactRecievingCoef: 0.3
-  MinimalImpactForce: 1
+  MaxSpeed: 45
+  torqueForce: 1
+  ImpactGivingCoef: 1.8
+  ImpactRecievingCoef: 1.2
+  MinimalImpactForce: 4
   controllable: 1
   impactPrefab:
   - {fileID: 1782691672786992, guid: 4fe6b9df8812dfe48a34a95b48fa7d71, type: 3}

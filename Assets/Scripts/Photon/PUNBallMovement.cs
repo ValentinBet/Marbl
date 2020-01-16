@@ -121,7 +121,9 @@ public class PUNBallMovement : MonoBehaviour
             if (photonView.IsMine && collision.gameObject.layer == 14 && collision.collider.CompareTag("Wood")) //Layer Obstacle
             {
                 myAudioSource.PlayOneShot(hitWoodSurface);
-                Destroy(Instantiate(fx_hitWoodSurface, this.transform.position, Random.rotation), 2);
+                GameObject _fxWallHitWood = Instantiate(fx_hitWoodSurface, collision.contacts[0].point, Random.rotation);
+                _fxWallHitWood.transform.LookAt(collision.gameObject.transform);
+                Destroy(_fxWallHitWood, 2);
             }
 
         }
@@ -139,12 +141,6 @@ public class PUNBallMovement : MonoBehaviour
                     {
                         ballSettingReciever.ChangeTeam(ballSettingGiver.myteam);
                         PhotonNetwork.LocalPlayer.AddPlayerScore(1);
-
-                        if (hueCaptureSound != null)
-                        {
-                            myAudioSource.PlayOneShot(hueCaptureSound);
-                        }
-
                     }
                     amplify = CollideStates.Giver;
                 }
@@ -160,7 +156,6 @@ public class PUNBallMovement : MonoBehaviour
                 {
                     if (hueCaptureSound != null)
                     {
-
                         myAudioSource.PlayOneShot(hueCaptureSound);
                     }
                 }

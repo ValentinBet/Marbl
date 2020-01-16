@@ -183,7 +183,7 @@ Transform:
   m_GameObject: {fileID: 8112947325564118533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.0396657, y: 0.6810915, z: 14.177793}
-  m_LocalScale: {x: 7.9228835, y: 5.2819266, z: 7.92289}
+  m_LocalScale: {x: 1.980721, y: 1.3204818, z: 1.9807225}
   m_Children:
   - {fileID: 8112947325564090919}
   - {fileID: 8112947325564090913}
@@ -407,9 +407,9 @@ MonoBehaviour:
   explosion: {fileID: 8300000, guid: a205de405705f7044b967ff537245a09, type: 3}
   bip: {fileID: 8300000, guid: b5c9ea8e472e27e44bc2e2305adf0630, type: 3}
   detonationTime: 0.5
-  radius: 1.09
-  upForce: 1
-  power: 1.5
+  radius: 1
+  upForce: 0.25
+  power: 0.375
   baseScreenShakePower: 50
   screenShakeDuration: 0.2
   animator: {fileID: 516391482121159254}

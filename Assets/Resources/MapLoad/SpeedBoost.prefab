@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1610469514797103831}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.000000014901, z: 2.27e-13}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 5459340551539155773}
   - {fileID: 2028098736919366714}
@@ -265,7 +265,7 @@ MonoBehaviour:
   fx_ElectricGround: {fileID: 2028098736918941720}
   audioSource: {fileID: 8036827666450755666}
   electricSound: {fileID: 8300000, guid: 65d00369c9e07314a84086695912172b, type: 3}
-  speedBoostPower: 70
+  speedBoostPower: 18
   addPowerAtHighSpeed: 1.2
 --- !u!1001 &2028098736918976184
 PrefabInstance:
