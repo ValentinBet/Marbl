@@ -217,10 +217,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxSpeed: 11.25
-  torqueForce: 0.25
-  ImpactGivingCoef: 0.45
-  ImpactRecievingCoef: 0.3
-  MinimalImpactForce: 1
+  torqueForce: 1
+  ImpactGivingCoef: 1.8
+  ImpactRecievingCoef: 1.2
+  MinimalImpactForce: 4
   controllable: 1
   impactPrefab:
   - {fileID: 1782691672786992, guid: 4fe6b9df8812dfe48a34a95b48fa7d71, type: 3}
@@ -241,7 +241,8 @@ MonoBehaviour:
   hitGround: {fileID: 8300000, guid: da9127462d54b974e882210956d3f5d2, type: 3}
   shootSound: {fileID: 8300000, guid: b599413697af7384ea63608c589a1af1, type: 3}
   hueCaptureSound: {fileID: 8300000, guid: a10afb99c216e25458b6ede195486efc, type: 3}
-  fx_hitWoodSurface: {fileID: 100002, guid: 5d0554b4b6133a0428cbdab0f15661e6, type: 3}
+  fx_hitWoodSurface: {fileID: 5267383525042929903, guid: 3543ba8fe07ed4248a0b2488a8aba2e5,
+    type: 3}
 --- !u!114 &7495604838127120502
 MonoBehaviour:
   m_ObjectHideFlags: 0
