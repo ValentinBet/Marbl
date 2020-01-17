@@ -300,51 +300,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
     }
 
-    public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
-    {
-        foreach (Player p in PhotonNetwork.PlayerList)
-        {
-            try
-            {
-                if (p.GetPlayerTurnState())
-                {
-                    playerTurnText.text = p.NickName + "'s turn !";
-                    Team currentTeam = (Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
-                    playerTurnText.color = MarblGame.GetColor((int)currentTeam);
-
-                    if(p.UserId == PhotonNetwork.LocalPlayer.UserId)
-                    {
-                        playerTurnText.text = "Your turn !";
-                    }
-
-                    return;
-                }
-            }
-            catch { }
-        }
-    }
-
     public override void OnPlayerPropertiesUpdate(Player _target, Hashtable changedProps)
     {
-        foreach (Player p in PhotonNetwork.PlayerList)
-        {
-            try
-            {
-                if (p.GetPlayerTurnState())
-                {
-                    playerTurnText.text = p.NickName + "'s turn !";
-                    Team currentTeam = (Team)PhotonNetwork.CurrentRoom.CustomProperties["turn"];
-                    playerTurnText.color = MarblGame.GetColor((int)currentTeam);
-
-                    if (p.UserId == PhotonNetwork.LocalPlayer.UserId)
-                    {
-                        playerTurnText.text = "Your turn !";
-                    }
-                    break;
-                }
-            }
-            catch { }
-        }
 
         if (!PhotonNetwork.IsMasterClient) { return; }
 
