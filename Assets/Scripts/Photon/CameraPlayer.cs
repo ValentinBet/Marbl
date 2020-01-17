@@ -18,6 +18,8 @@ public class CameraPlayer : MonoBehaviour
     [SerializeField]
     private CameraMode actualMode = CameraMode.Top;
 
+    private CameraMode saveMode = CameraMode.Top;
+
     private Camera myCamera;
     public CinemachineVirtualCamera[] cameras;
     private Transform mapPivot;
@@ -37,6 +39,7 @@ public class CameraPlayer : MonoBehaviour
         UIManager.Instance.OnTopCam += SetCameraMode;
         UIManager.Instance.OnSpecCam += SetCameraMode;
         UIManager.Instance.OnMainCam += SetCameraMode;
+        UIManager.Instance.OnSetSavedCam += SetPrefedMode;
     }
 
     private void OnDisable()
@@ -45,6 +48,7 @@ public class CameraPlayer : MonoBehaviour
         UIManager.Instance.OnTopCam -= SetCameraMode;
         UIManager.Instance.OnSpecCam -= SetCameraMode;
         UIManager.Instance.OnMainCam -= SetCameraMode;
+        UIManager.Instance.OnSetSavedCam -= SetPrefedMode;
     }
 
     void OnClickOnBall(GameObject ball)
@@ -122,7 +126,10 @@ public class CameraPlayer : MonoBehaviour
         }
     }
 
-    #region CameraManipulation
+    public void SetPrefedMode()
+    {
+        SetCameraMode(saveMode);
+    }
 
     public void SetCameraMode(CameraMode _newMode)
     {
@@ -149,6 +156,7 @@ public class CameraPlayer : MonoBehaviour
                 cameras[0].Priority = 0;
                 cameras[1].Priority = 100;
                 cameras[2].Priority = 0;
+                saveMode = actualMode;
                 break;
 
             case CameraMode.Targeted:
@@ -156,6 +164,7 @@ public class CameraPlayer : MonoBehaviour
                 cameras[0].Priority = 100;
                 cameras[1].Priority = 0;
                 cameras[2].Priority = 0;
+                saveMode = actualMode;
                 break;
 
             case CameraMode.SpecMode:
@@ -208,8 +217,8 @@ public class CameraPlayer : MonoBehaviour
     {
         foreach (CinemachineVirtualCamera camera in cameras)
         {
-            //camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = intensity;
-            //camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = intensity;
+            camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = intensity;
+            camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = intensity;
         }
     }
 
@@ -217,6 +226,4 @@ public class CameraPlayer : MonoBehaviour
     {
         return actualMode;
     }
-
-    #endregion
 }

@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     public Action<CameraMode> OnTopCam;
     public Action<CameraMode> OnSpecCam;
     public Action<CameraMode> OnMainCam;
+    public Action OnSetSavedCam;
 
     public GameObject FreeCamTooltip;
     public GameObject ChatTooltip;
@@ -150,6 +151,11 @@ public class UIManager : MonoBehaviourPunCallbacks
             actualCommand = commandShoot;
             actualCommand.SetActive(true);
         }
+    }
+
+    public void SetSavedCam()
+    {
+        OnSetSavedCam();
     }
 
     public void SetSpecCam()
