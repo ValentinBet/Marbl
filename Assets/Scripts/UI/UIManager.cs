@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     public Action<CameraMode> OnTopCam;
     public Action<CameraMode> OnSpecCam;
     public Action<CameraMode> OnMainCam;
+    public Action OnSetSavedCam;
 
     public GameObject FreeCamTooltip;
     public GameObject ChatTooltip;
@@ -46,6 +47,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject chat;
     public bl_ChatUI chatUI;
     public InfoTurnSettings infoTurnSettings;
+    public Text infoTurnText;
 
     public bool isShooting = false;
 
@@ -149,6 +151,11 @@ public class UIManager : MonoBehaviourPunCallbacks
             actualCommand = commandShoot;
             actualCommand.SetActive(true);
         }
+    }
+
+    public void SetSavedCam()
+    {
+        OnSetSavedCam();
     }
 
     public void SetSpecCam()
@@ -403,18 +410,24 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public void DisplayInfoTurn(string playerName, int playerTeam)
     {
+        string result = "<color=" + MarblGame.GetColorUI(playerTeam) + ">";
+
         if (PhotonNetwork.LocalPlayer.GetPlayerTurnState())
         {
-            infoTurnSettings.text.text = "Your turn";
+            infoTurnSettings.text.text = "You turn to play";
             DisplayChatTooltip(false);
             DisplayPingTooltip(false);
+            result += "You play ...";
         }
         else
         {
-            infoTurnSettings.text.text = playerName + "'s Turn";
+            infoTurnSettings.text.text = playerName + " playing";
             DisplayChatTooltip(true);
             DisplayPingTooltip(true);
+            result += playerName + " playing";
         }
+
+        infoTurnText.text = result + "</color>";
 
         infoTurnSettings.MainBackground.GetComponent<Image>().color = MarblGame.GetColor(playerTeam);
         infoTurnSettings.BackgroundGo.GetComponent<Animator>().SetTrigger("Display");

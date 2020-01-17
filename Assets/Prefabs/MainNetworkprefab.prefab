@@ -547,7 +547,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 57.116547, y: 20}
+  m_AnchoredPosition: {x: 57.116455, y: 20}
   m_SizeDelta: {x: 960, y: 124.4}
   m_Pivot: {x: 0.059496414, y: 0.9999998}
 --- !u!222 &3905829296106226540
@@ -2200,7 +2200,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.1838871}
   m_AnchorMax: {x: 0, y: 0.1838871}
-  m_AnchoredPosition: {x: 1092, y: -15.000122}
+  m_AnchoredPosition: {x: 1092, y: -15.000244}
   m_SizeDelta: {x: 168.69995, y: 38.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3905829296469604398
@@ -4257,7 +4257,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -1.6, y: -0.000038146973}
+  m_AnchoredPosition: {x: -1.6, y: -0.000030517578}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3905829296844365262
@@ -4358,8 +4358,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3905829296853172143}
-  m_LocalRotation: {x: -0, y: 0.973249, z: -0.22975294, w: 0}
-  m_LocalPosition: {x: 0, y: 2.5, z: -2.35}
+  m_LocalRotation: {x: -0.052835852, y: 0.9470126, z: -0.21539105, w: -0.2323407}
+  m_LocalPosition: {x: 15.980999, y: 25.8741, z: 33.028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3905829296134215364}
@@ -4390,7 +4390,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 5000
-  field of view: 60
+  field of view: 40
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -7216,7 +7216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0036621094, y: -0.0017089844}
+  m_AnchoredPosition: {x: -0.0034179688, y: -0.0017089844}
   m_SizeDelta: {x: 3026.3, y: 1702.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3905829297399695871
@@ -7994,6 +7994,7 @@ MonoBehaviour:
   chat: {fileID: 3905829297533797403}
   chatUI: {fileID: 3905829296393622548}
   infoTurnSettings: {fileID: 3905829297139930070}
+  infoTurnText: {fileID: 3905829296998505244}
   isShooting: 0
   pingPrefab: {fileID: 6164614165935605980, guid: bfa1d62b32c93cb4890aff321752c393,
     type: 3}
@@ -8037,7 +8038,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.48999786, y: -0.32999992}
+  m_AnchoredPosition: {x: 0.4900055, y: -0.32999992}
   m_SizeDelta: {x: 983.12, y: 80.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3905829297600033135

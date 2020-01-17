@@ -184,7 +184,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
     {
         if(myPlayerCam.GetCurrentMode() == MarblGame.CameraMode.SpecMode)
         {
-            UIManager.Instance.SetMainCam();
+            UIManager.Instance.SetSavedCam();
         }
 
         currentTimer = startTimer;
