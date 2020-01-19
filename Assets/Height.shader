@@ -5,16 +5,18 @@
 			_Scale("Pattern Size", Range(0,10)) = 1
 			_EvenColor("Checker Color 1", Color) = (0,0,0,1)
 			_OddColor("Checker Color 2", Color) = (1,1,1,1)
-			_Col1("Color 1", Color) = (1,0,0,1)
-			_Col2("Color 2", Color) = (0,1,0,1)
+			_Col1("Color 1", Color) = (1,0,0,0)
+			_Col2("Color 2", Color) = (0,1,0,0)
 			_Minimal1Height("_Color1Height",Float) = 3
 			_Minimal2Height("_Color2Height",Float) = 1
 		}
 
 			SubShader{
 			//the material is completely non-transparent and is rendered at the same time as the other opaque geometry
-			Tags{ "RenderType" = "Opaque" "Queue" = "Geometry"}
+			Tags{ "RenderType" = "Transparent" "Queue" = "Transparent"}
 
+			Zwrite Off
+			Blend SrcAlpha OneMinusSrcAlpha
 
 			Pass{
 				CGPROGRAM
