@@ -11,7 +11,6 @@ public class TrajectoryRenderer : MonoBehaviour
 
     private LineRenderer lr;
     private float velocity = 8.86f;
-    public float angleMod;
     [SerializeField] private float angle = 40.06f;
     [SerializeField] private int resolution = 20;
     [SerializeField] private Gradient heightValues;
@@ -108,7 +107,7 @@ public class TrajectoryRenderer : MonoBehaviour
     {
         float z = percent * maxDist;
 
-        float y = ((((angle+angleMod) / force) ) / 360.0f) * (-g * z * z + multiplier * force * z)/2.0f; //9.2f == base multiplier
+        float y = (((angle / force) ) / 360.0f) * (-g * z * z + multiplier * force * z)/2.0f; //9.2f == base multiplier
         if (y < 0)
         {
             y = 0;

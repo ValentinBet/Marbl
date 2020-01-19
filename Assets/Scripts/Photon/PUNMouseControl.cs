@@ -181,6 +181,7 @@ public class PUNMouseControl : MonoBehaviour
                     direction = mainCamera.transform.forward;
                     DisplayLineRenderer();
                     DisplayDragForce();
+                    Debug.DrawRay(transform.position, transform.position+new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * elevation), ((45 - elevation) / 45.0f + PhotonNetwork.CurrentRoom.GetLaunchPower() * 7.0f) * Mathf.Sin(Mathf.Deg2Rad * elevation) / (PhotonNetwork.CurrentRoom.GetLaunchPower() * 2.0f), direction.z * Mathf.Cos(Mathf.Deg2Rad * elevation)), Color.red,1.0f) ;
                 }
                 else if (Input.GetKeyUp(InputManager.Instance.Inputs.inputs.MainButton2) && isHoldingShoot)  // SI DERNIER CLICK
                 {

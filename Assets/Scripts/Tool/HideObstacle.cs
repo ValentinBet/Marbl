@@ -47,16 +47,23 @@ public class HideObstacle : MonoBehaviour
 
         if(objHide != null)
         {
-            float currentAlpha = Mathf.Lerp(objHide.material.GetFloat("_Alpha"), 0f, 3 * Time.deltaTime);
-            objHide.material.SetFloat("_Alpha", currentAlpha);
+            foreach (Material mat in objHide.materials)
+            {
+                float currentAlpha = Mathf.Lerp(mat.GetFloat("_Alpha"), 0.4f, 3 * Time.deltaTime);
+                mat.SetFloat("_Alpha", currentAlpha);
+            }
         }
 
 
         List<Renderer> removeThis = new List<Renderer>();
         foreach(Renderer element in oldObs)
         {
-            float currentAlpha = Mathf.Lerp(element.material.GetFloat("_Alpha"), 1f, 3 * Time.deltaTime);
-            element.material.SetFloat("_Alpha", currentAlpha);
+            float currentAlpha = 0;
+            foreach (Material mat in element.materials)
+            {
+                currentAlpha = Mathf.Lerp(mat.GetFloat("_Alpha"), 1f, 3 * Time.deltaTime);
+                mat.SetFloat("_Alpha", currentAlpha);
+            }
 
             if(currentAlpha > 0.99f)
             {

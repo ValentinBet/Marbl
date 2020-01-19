@@ -22,13 +22,15 @@ public class SpeedBoostBlock : MonoBehaviour
             if (other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsMine)
             {
                 Rigidbody rb = other.GetComponent<Rigidbody>();
-                Vector3 _temp = rb.velocity.normalized;
-                if (rb.velocity.sqrMagnitude > ((_temp * speedBoostPower).sqrMagnitude))
+                Vector3 _newVel = rb.velocity.normalized;
+                _newVel = new Vector3(_newVel.x, 0, _newVel.z);
+
+                if (rb.velocity.sqrMagnitude > ((_newVel * speedBoostPower).sqrMagnitude))
                 {
                     rb.velocity *= addPowerAtHighSpeed;
                 } else
                 {
-                    rb.velocity = _temp * speedBoostPower;
+                    rb.velocity = _newVel * speedBoostPower;
                 }
                 
             }
