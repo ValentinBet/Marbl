@@ -3834,6 +3834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreboardPanel: {fileID: 3905829297726692920}
+  gamemodeText: {fileID: 3905829297279436859}
   teamScore: {fileID: 4872619686189019006, guid: 1e38f9da04f25e74e825e6023b98640d,
     type: 3}
   playerScore: {fileID: 8962740411192931624, guid: 1b3ac49fa8abf6a42832c2124c7639a7,
@@ -4285,8 +4286,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3905829296853172143}
-  m_LocalRotation: {x: -0, y: 0.973249, z: -0.22975294, w: 0}
-  m_LocalPosition: {x: 0, y: 2.5, z: -2.35}
+  m_LocalRotation: {x: -0, y: 0.9720642, z: -0.23471534, w: 0}
+  m_LocalPosition: {x: 0, y: 10.5, z: 13.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3905829296134215364}
@@ -7990,10 +7991,10 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 0
-  m_StandbyUpdate: 2
-  m_LookAt: {fileID: 3905829296493495332}
-  m_Follow: {fileID: 3905829296493495332}
+  m_Priority: 100
+  m_StandbyUpdate: 1
+  m_LookAt: {fileID: 0}
+  m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60
     OrthographicSize: 10
