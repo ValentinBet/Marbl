@@ -217,8 +217,12 @@ public class CameraPlayer : MonoBehaviour
     {
         foreach (CinemachineVirtualCamera camera in cameras)
         {
-            //camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = intensity;
-            //camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = intensity;
+            if (camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>() != null)
+            {
+
+            }
+            camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_AmplitudeGain = intensity;
+            camera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>().m_FrequencyGain = intensity;
         }
     }
 

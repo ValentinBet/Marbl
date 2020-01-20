@@ -94,18 +94,18 @@ public class PUNBallMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.relativeVelocity.sqrMagnitude > 64)
+        if (collision.relativeVelocity.sqrMagnitude > 34)
         {
             if (collision.gameObject.tag == "Ball")
             {
                 GameObject impact = Instantiate(impactPrefab[Random.Range(0, impactPrefab.Count)], collision.contacts[0].point, Quaternion.identity);
-                float size = collision.relativeVelocity.sqrMagnitude / 400;
+                float size = collision.relativeVelocity.sqrMagnitude / 200;
                 size = Mathf.Clamp(size, 0, 3);
                 impact.transform.localScale = new Vector3(size, size, size);
                 Destroy(impact, 2);
 
                 float screenShakeDistance = Vector3.Distance(Camera.main.transform.position, this.gameObject.transform.position);
-                float screenShakePower = Mathf.Clamp(collision.relativeVelocity.sqrMagnitude / 300 - screenShakeDistance / 30, 0, 20);
+                float screenShakePower = Mathf.Clamp(collision.relativeVelocity.sqrMagnitude / 40 - screenShakeDistance / 30, 0, 20);
 
                 if (screenShakePower > 0)
                 {

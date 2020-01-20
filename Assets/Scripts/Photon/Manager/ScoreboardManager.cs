@@ -18,6 +18,7 @@ public class ScoreboardManager : MonoBehaviourPunCallbacks
 
     public Dictionary<int, PlayerScoreUI> playerScoreDict = new Dictionary<int, PlayerScoreUI>();
     public GameObject scoreboardPanel;
+    public Text gamemodeText;
     public GameObject teamScore;
     public GameObject playerScore;
     public GameObject teamScores;
@@ -65,8 +66,62 @@ public class ScoreboardManager : MonoBehaviourPunCallbacks
     
             }
         }
+
+        gamemodeText.text = GetGameMode();
     }
 
+    private string GetGameMode()
+    {
+        string result = "";
+
+        if (PhotonNetwork.CurrentRoom.GetHue())
+        {
+            result = isFirstGameMode(result);
+            result += "Hue";
+        }
+        if (PhotonNetwork.CurrentRoom.GetHill())
+        {
+            result = isFirstGameMode(result);
+            result += "Hill";
+
+            int hillMode = PhotonNetwork.CurrentRoom.GetHillMode();
+
+            switch (hillMode)
+            {
+                case 0:
+                    result += " (One for One)";
+                    break;
+
+                case 1:
+                    result += " (Contest)";
+                    break;
+
+                case 2:
+                    result += " (Domination)";
+                    break;
+            }
+
+        }
+
+        if (PhotonNetwork.CurrentRoom.GetDeathmatch())
+        {
+            result = isFirstGameMode(result);
+            result += "DeathMatch";
+        }
+
+        return result;
+    }
+
+    private string isFirstGameMode(string value)
+    {
+        if (value != "")
+        {
+            return value += " <color=red>x</color> ";
+        } else
+        {
+            return value;
+        }
+    }
     private void DisplayScoreboard()
     {
         if (scoreboardPanel != null)
