@@ -52,18 +52,8 @@ public class JsonMapLoader : MonoBehaviour
         {
             mapName = PhotonNetwork.CurrentRoom.GetMap();
 
-            string path = "";
-            switch (PhotonNetwork.CurrentRoom.GetCustomMap())
-            {
-                case true:
-                    path = "/MapsCustom/";
-                    break;
+            string path = "/Maps/";
 
-                case false:
-                    path = "/Maps/";
-                    break;
-            } 
-            
             WWW data = new WWW(Application.streamingAssetsPath + path + mapName);
 
             jsonMap = data.text;

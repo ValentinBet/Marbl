@@ -277,6 +277,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         
         myPV.RPC("RpcInfoTurn", RpcTarget.AllViaServer, playerplayed.NickName, (int)teamPlayed);
         specCamPV.TransferOwnership(playerplayed);
+
+        DetectEndGame();
     }
 
     //Return un joueur qui n'a pas jouer ou redémare le tour des joueurs

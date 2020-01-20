@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,12 +11,12 @@ public class MapElement : MonoBehaviour
     public Text NameMap;
     public Image myOutline;
 
-    public bool isCustom = true;
-
     public void SetMap()
     {
-        RoomScripts.Instance.SetMap(nameMap);
-        RoomScripts.Instance.SetMapCustom(isCustom);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            RoomScripts.Instance.SetMap(nameMap);
+        }
 
         GameObject[] allMap = GameObject.FindGameObjectsWithTag("Map");
 

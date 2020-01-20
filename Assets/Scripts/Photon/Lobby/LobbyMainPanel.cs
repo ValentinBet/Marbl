@@ -47,6 +47,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     [Header("Other")]
     public Button StartGameButton;
     public GameObject hostPanel;
+    public GameObject clientPanel;
     public GameObject settingsPanel;
     public GameObject PlayerListEntryPrefab;
     public Animator MainMenuAnim;
@@ -179,10 +180,12 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             hostPanel.SetActive(true);
+            clientPanel.SetActive(false);
         }
         else
         {
             hostPanel.SetActive(false);
+            clientPanel.SetActive(true);
             settingsPanel.SetActive(false);
         }
     }
