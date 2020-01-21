@@ -25,5 +25,7 @@ public class GamemodeElement : MonoBehaviour
         RoomScripts.Instance.fileModeName = fileName;
 
         RoomScripts.Instance.SetMode(imgOutline);
+
+        RoomSettings.Instance.SetMode(fileName, isCustom);
     }
 }

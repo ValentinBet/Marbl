@@ -23303,7 +23303,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774267923}
-  m_LocalRotation: {x: -0.052835844, y: 0.9470126, z: -0.21539105, w: -0.23234068}
+  m_LocalRotation: {x: -0.052835852, y: 0.9470126, z: -0.21539108, w: -0.23234068}
   m_LocalPosition: {x: 15.980999, y: 25.8741, z: 33.028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -50147,7 +50147,7 @@ Transform:
   m_GameObject: {fileID: 1605708842}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.6, y: -9.1886, z: -6.3}
-  m_LocalScale: {x: 35.041573, y: 35.041573, z: 35.041573}
+  m_LocalScale: {x: 85.71869, y: 85.71869, z: 85.71869}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -55774,15 +55774,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1ef7017588443db41aea8c321d2ab7f3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 171.75247
+      value: 420.14087
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1ef7017588443db41aea8c321d2ab7f3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 171.75249
+      value: 420.14093
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 1ef7017588443db41aea8c321d2ab7f3, type: 3}
       propertyPath: m_LocalScale.z
-      value: 171.75249
+      value: 420.14093
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 1ef7017588443db41aea8c321d2ab7f3, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -63686,7 +63686,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101710303}
-  m_LocalRotation: {x: -0.052835844, y: 0.9470126, z: -0.21539105, w: -0.23234068}
+  m_LocalRotation: {x: -0.052835852, y: 0.9470126, z: -0.21539108, w: -0.23234068}
   m_LocalPosition: {x: 15.980999, y: 25.8741, z: 33.028}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -64060,7 +64060,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 1.9
+  m_Intensity: 1.6
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -64805,7 +64805,15 @@ MonoBehaviour:
   deathMatch: {fileID: 1907991339}
   koth: {fileID: 1746269068}
   hue: {fileID: 463882782}
-  allMaps: []
+  allMaps:
+  - {fileID: 1655210729}
+  - {fileID: 205909739}
+  - {fileID: 763425961}
+  - {fileID: 445374286}
+  - {fileID: 1033434411}
+  - {fileID: 754546559}
+  - {fileID: 1157996173}
+  - {fileID: 1524460384}
   currentChoice: {fileID: 170893093}
   currentText: {fileID: 170893096}
   line: {fileID: 1295551223}

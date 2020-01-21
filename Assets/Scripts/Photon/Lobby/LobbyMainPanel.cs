@@ -347,7 +347,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         if (!RoomScripts.Instance.customMode)
         {
-            RoomSettings.Instance.SetMode(RoomScripts.Instance.fileModeName);
+            RoomSettings.Instance.SetMode(RoomScripts.Instance.fileModeName, RoomScripts.Instance.customModeSave);
         }
 
         RoomSettings.Instance.SaveSettings();
