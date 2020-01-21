@@ -66,6 +66,7 @@ public class HillManager : MonoBehaviour
 
     public void EndTurn()
     {
+        print(currentMode);
         switch (currentMode)
         {
             case 0:
@@ -118,6 +119,7 @@ public class HillManager : MonoBehaviour
 
     void Domination()
     {
+        print("test");
         foreach (HillObj _hill in allHills)
         {
             Dictionary<Team, int> teamValue = new Dictionary<Team, int>() { { Team.red, 0 }, { Team.green, 0 }, { Team.blue, 0 }, { Team.yellow, 0 } };
@@ -136,6 +138,7 @@ public class HillManager : MonoBehaviour
 
             foreach (KeyValuePair<Team, int> _element in teamValue)
             {
+                print(_element.Key + " : " + _element.Value);
                 if (_element.Key != keyOfMaxValue && _element.Value == teamValue[keyOfMaxValue])
                 {
                     return;

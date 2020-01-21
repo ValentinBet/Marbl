@@ -27,6 +27,12 @@ public class ClientPanel : MonoBehaviourPunCallbacks
         line.position = currentChoice.position;
     }
 
+    private void OnEnable()
+    {
+        RefreshGamemode();
+        RefreshMaps();
+    }
+
     void RefreshMaps()
     {
         foreach(MapElement _map in allMaps)
