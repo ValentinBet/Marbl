@@ -152,11 +152,11 @@ public class RoomSettings : MonoBehaviour
         hueNutralBall.mySlider.value = modeSettings.hueNutralBall;
     }
 
-    public void SetMode(string nameFile)
+    public void SetMode(string nameFile, bool isCustom)
     {
         string path = "";
 
-        switch (RoomScripts.Instance.customModeSave)
+        switch (isCustom)
         {
             case true:
                 path = "/GameModesCustom/";
