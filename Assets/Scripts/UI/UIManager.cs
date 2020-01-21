@@ -90,7 +90,7 @@ public class UIManager : MonoBehaviourPunCallbacks
         {
             DisplayEscapeMenu();
         }
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(InputManager.Instance.Inputs.inputs.Chat))
         {
             DisplayChat();
         }

@@ -118,14 +118,21 @@ public class PUNBallMovement : MonoBehaviour
                 }
             }
 
-            if (photonView.IsMine && collision.gameObject.layer == 14 && collision.collider.CompareTag("Wood")) //Layer Obstacle
+            if (collision.gameObject.layer == 14 && collision.collider.CompareTag("Wood")) //Layer Obstacle
             {
                 myAudioSource.PlayOneShot(hitWoodSurface);
                 GameObject _fxWallHitWood = Instantiate(fx_hitWoodSurface, collision.contacts[0].point, Random.rotation);
                 _fxWallHitWood.transform.LookAt(collision.gameObject.transform);
                 Destroy(_fxWallHitWood, 2);
-            }
 
+                float screenShakeDistance = Vector3.Distance(Camera.main.transform.position, this.gameObject.transform.position);
+                float screenShakePower = Mathf.Clamp(collision.relativeVelocity.sqrMagnitude / 60 - screenShakeDistance / 30, 0, 20);
+
+                if (screenShakePower > 0)
+                {
+                    cameraPlayer.InitShakeScreen(screenShakePower, 0.10f);
+                }
+            }
         }
 
         if (collision.gameObject.tag == "Ball")
@@ -165,6 +172,7 @@ public class PUNBallMovement : MonoBehaviour
         }
 
     }
+
 
     private void OnCollisionExit(Collision collision)
     {

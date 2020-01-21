@@ -28,6 +28,10 @@ public class InputManager : MonoBehaviour
         InitInputs();
     }
 
+    private void Start()
+    {
+        AudioListener.volume = Inputs.inputs.GeneralVolume;
+    }
     private void InitInputs()
     {
         if (!Inputs.init)
