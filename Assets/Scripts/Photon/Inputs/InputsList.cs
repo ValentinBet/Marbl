@@ -16,6 +16,7 @@ public struct Inputs
     public KeyCode MainButton2;
     public KeyCode Learderboard;
     public KeyCode Ping;
+    public KeyCode Chat;
     public KeyCode CameraForward;
     public KeyCode CameraBackward;
     public KeyCode CameraLeft;
@@ -23,4 +24,5 @@ public struct Inputs
     public KeyCode CameraSpeed;
 
     public float MouseSensitivity;
+    public float GeneralVolume;
 }

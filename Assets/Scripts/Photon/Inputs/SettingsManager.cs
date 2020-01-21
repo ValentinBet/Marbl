@@ -153,6 +153,7 @@ public class SettingsManager : MonoBehaviour
         // <<
 
         InputManager.Instance.Inputs.inputs.MouseSensitivity = mouseSensitivitySlider.value;
+        InputManager.Instance.Inputs.inputs.GeneralVolume = generalVolumeSlider.value / 100;
 
         foreach (KeyButtonParameters keyButtonParameters in keyButtonList)
         {
@@ -224,7 +225,7 @@ public class SettingsManager : MonoBehaviour
 
     public void OnGeneralVolumeSliderUpdate()
     {
-        generalVolumeInputField.text = (generalVolumeSlider.value).ToString();
+        generalVolumeInputField.text = (generalVolumeSlider.value).ToString();       
     }
 
     public void OnGeneralVolumeInputFieldUpdated()
@@ -237,6 +238,7 @@ public class SettingsManager : MonoBehaviour
         {
             generalVolumeInputField.text = "0";
         }
+
         generalVolumeSlider.value = float.Parse(generalVolumeInputField.text);
     }
 
@@ -268,8 +270,7 @@ public class SettingsManager : MonoBehaviour
         {
             mouseSensitivityInputField.text = "0";
         }
-        mouseSensitivitySlider.value = float.Parse(mouseSensitivityInputField.text);
-        InputManager.Instance.Inputs.inputs.MouseSensitivity = mouseSensitivitySlider.value;
+        mouseSensitivitySlider.value = float.Parse(mouseSensitivityInputField.text);      
     }
 
     public void InitKeyVisuals()
@@ -293,6 +294,10 @@ public class SettingsManager : MonoBehaviour
                 case "Ping":
                     keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.Ping.ToString();
                     keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.Ping;
+                    break;
+                case "Chat":
+                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.Chat.ToString();
+                    keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.Chat;
                     break;
                 case "Forward":
                     keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.CameraForward.ToString();
@@ -368,6 +373,10 @@ public class SettingsManager : MonoBehaviour
                     keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.Ping.ToString();
                     keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.Ping;
                     break;
+                case "Chat":
+                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.Chat.ToString();
+                    keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.Chat;
+                    break;
                 case "Forward":
                     keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.CameraForward.ToString();
                     keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.CameraForward;
@@ -409,6 +418,9 @@ public class SettingsManager : MonoBehaviour
                 break;
             case "Ping":
                 InputManager.Instance.Inputs.inputs.Ping = keyButtonParameters.Key;
+                break;
+            case "Chat":
+                InputManager.Instance.Inputs.inputs.Chat = keyButtonParameters.Key;
                 break;
             case "Forward":
                 InputManager.Instance.Inputs.inputs.CameraForward = keyButtonParameters.Key;
