@@ -170,6 +170,9 @@ public class ClientPanel : MonoBehaviourPunCallbacks
     public GameObject GameMode;
     public GameObject Map;
 
+    [SerializeField] private Color selectedColor;
+    [SerializeField] private Color normalColor;
+
     // Update is called once per frame
     void Update()
     {
@@ -178,9 +181,9 @@ public class ClientPanel : MonoBehaviourPunCallbacks
         removeTexts.Clear();
         foreach (Text oldText in oldTexts)
         {
-            oldText.color = Color.Lerp(oldText.color, Color.white, Mathf.PingPong(Time.time, 3));
+            oldText.color = Color.Lerp(oldText.color, normalColor, Mathf.PingPong(Time.time, 3));
 
-            if (oldText.color == Color.white)
+            if (oldText.color == normalColor)
             {
                 removeTexts.Add(oldText);
             }
@@ -191,7 +194,7 @@ public class ClientPanel : MonoBehaviourPunCallbacks
             oldTexts.Remove(text);
         }
 
-        currentText.color = Color.Lerp(currentText.color, new Color(1, 0.1986281f, 0), Mathf.PingPong(Time.time, 3));
+        currentText.color = Color.Lerp(currentText.color, selectedColor, Mathf.PingPong(Time.time, 3));
     }
 
     public void SetChoice(RectTransform element)
