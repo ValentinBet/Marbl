@@ -23,7 +23,7 @@ public class InputManager : MonoBehaviour
             _instance = this;
         }
 
-        DontDestroyOnLoad(this);
+        DontDestroyOnLoad(this.gameObject);
 
         InitInputs();
     }
