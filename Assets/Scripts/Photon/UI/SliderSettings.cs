@@ -40,6 +40,8 @@ public class SliderSettings : MonoBehaviour
         {
             myInputfield.text = Math.Round(mySlider.value, 3).ToString();
         }
+
+        RoomSettings.Instance.SaveSettings();
     }
 
     public void SetSlider()

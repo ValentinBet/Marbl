@@ -21,6 +21,7 @@ public class DropdownSettings : MonoBehaviour
     public void SetValue(int value)
     {
         myDropdown.value = value;
+        RoomSettings.Instance.SaveSettings();
     }
 
     public void ResetValue()

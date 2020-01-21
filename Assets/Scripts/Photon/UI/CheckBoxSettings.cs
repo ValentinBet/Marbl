@@ -34,6 +34,7 @@ public class CheckBoxSettings : MonoBehaviour
         }
 
         RoomSettings.Instance.Refresh();
+        RoomSettings.Instance.SaveSettings();
     }
 
     public void ResetValue()

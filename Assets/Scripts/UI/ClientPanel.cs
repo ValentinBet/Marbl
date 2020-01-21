@@ -43,8 +43,16 @@ public class ClientPanel : MonoBehaviourPunCallbacks
     void RefreshGamemode()
     {
         //General
-        generalInfo.text = "Turn time : " + PhotonNetwork.CurrentRoom.GetTurnLimit() + "s" + "\n" +
-            "TRound number : " + PhotonNetwork.CurrentRoom.GetRoundProp();
+        generalInfo.text = "Turn time : " + PhotonNetwork.CurrentRoom.GetTurnLimit() + "s" + "\n";
+
+        if(PhotonNetwork.CurrentRoom.GetRoundProp() == 21)
+        {
+            generalInfo.text += "Round number : ∞";
+        }
+        else
+        {
+            generalInfo.text += "Round number : " + PhotonNetwork.CurrentRoom.GetRoundProp();
+        }
 
 
         //Ball settings
