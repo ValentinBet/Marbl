@@ -118,7 +118,7 @@ public class PUNBallMovement : MonoBehaviour
                 }
             }
 
-            if (photonView.IsMine && collision.gameObject.layer == 14 && collision.collider.CompareTag("Wood")) //Layer Obstacle
+            if (collision.gameObject.layer == 14 && collision.collider.CompareTag("Wood")) //Layer Obstacle
             {
                 myAudioSource.PlayOneShot(hitWoodSurface);
                 GameObject _fxWallHitWood = Instantiate(fx_hitWoodSurface, collision.contacts[0].point, Random.rotation);
@@ -132,9 +132,7 @@ public class PUNBallMovement : MonoBehaviour
                 {
                     cameraPlayer.InitShakeScreen(screenShakePower, 0.10f);
                 }
-
             }
-
         }
 
         if (collision.gameObject.tag == "Ball")
