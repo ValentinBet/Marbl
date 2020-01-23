@@ -223,7 +223,14 @@ public class RoomSettings : MonoBehaviour
 
         string toj = JsonUtility.ToJson(modeSettings);
 
-        File.WriteAllText(Application.streamingAssetsPath + "/GameModesCustom/" + saveSettingsText.text + ".json", toj);
+        string nameFile = saveSettingsText.text;
+
+        if(string.IsNullOrEmpty(nameFile))
+        {
+            nameFile = "CustomMode" + Random.Range(100, 999);
+        }
+
+        File.WriteAllText(Application.streamingAssetsPath + "/GameModesCustom/" + nameFile + ".json", toj);
         Refresh();
 
         RoomScripts.Instance.Refresh();
