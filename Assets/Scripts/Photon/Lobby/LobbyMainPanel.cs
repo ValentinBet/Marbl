@@ -351,7 +351,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     {
         PlayMenuSound();
 
-        LobbyChat.Instance.DestroyThis();
+        PhotonNetwork.DestroyAll();
 
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;
