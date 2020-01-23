@@ -13,6 +13,7 @@ public class bl_ChatUI : MonoBehaviour {
     private ChatManager Chat;
 
     public InputField myInputField;
+    public GameObject InputFieldGroup;
 
     bool isShow = false;
 
