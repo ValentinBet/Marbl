@@ -435,11 +435,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5667429776553265489}
     m_Modifications:
-    - target: {fileID: 4385810675540141165, guid: a138c0df53e25d743a21fd50d6fa8ab3,
-        type: 3}
-      propertyPath: m_Name
-      value: Trail_Fx
-      objectReference: {fileID: 0}
     - target: {fileID: 4385810675540141164, guid: a138c0df53e25d743a21fd50d6fa8ab3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -530,6 +525,11 @@ PrefabInstance:
       propertyPath: ShapeModule.radiusThickness
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4385810675540141165, guid: a138c0df53e25d743a21fd50d6fa8ab3,
+        type: 3}
+      propertyPath: m_Name
+      value: Trail_Fx
+      objectReference: {fileID: 0}
     - target: {fileID: 3277185668182101285, guid: a138c0df53e25d743a21fd50d6fa8ab3,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -556,14 +556,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5667429776553265489}
     m_Modifications:
-    - target: {fileID: 1397402549733478, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c, type: 3}
-      propertyPath: m_Name
-      value: Charge
-      objectReference: {fileID: 0}
-    - target: {fileID: 1397402549733478, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 198868976632778894, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -631,6 +623,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4200883865063198, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397402549733478, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c, type: 3}
+      propertyPath: m_Name
+      value: Charge
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397402549733478, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

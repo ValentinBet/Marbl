@@ -264,7 +264,7 @@ public class UIManager : MonoBehaviourPunCallbacks
         {
             GameObject newPing = Instantiate(pingPrefab);
             newPing.transform.position = ball.transform.position;
-            newPing.transform.position += new Vector3(0, -0.4f, 0);
+            newPing.transform.position += new Vector3(0, -0.09f, 0);
             PingElement myElement = newPing.GetComponent<PingElement>();
             BallSettings myBallSettings = ball.GetComponent<BallSettings>();
 
@@ -373,7 +373,7 @@ public class UIManager : MonoBehaviourPunCallbacks
             }
 
             element.Value.transform.position = element.Key.transform.position;
-            element.Value.transform.position += new Vector3(0, -0.4f, 0);
+            element.Value.transform.position += new Vector3(0, -0.09f, 0);
             element.Value.SetColor(MarblGame.GetColor((int)element.Key.myteam));
         }
 
