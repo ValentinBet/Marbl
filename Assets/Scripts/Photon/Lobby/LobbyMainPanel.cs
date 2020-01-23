@@ -116,6 +116,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         CreateLobbyButton.interactable = true;
         JoinLobbyButton.interactable = true;
         PhotonNetwork.LocalPlayer.SetTeam(MarblFactory.GetRandomTeam());
+
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -149,7 +150,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         string roomName = "Room " + Random.Range(1000, 10000);
 
-        RoomOptions options = new RoomOptions { MaxPlayers = 8 };
+        RoomOptions options = new RoomOptions { MaxPlayers = 8};
 
         PhotonNetwork.CreateRoom(roomName, options, null);
     }

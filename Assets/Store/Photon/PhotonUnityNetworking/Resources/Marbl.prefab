@@ -500,6 +500,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3277185668182101285, guid: a138c0df53e25d743a21fd50d6fa8ab3,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 819f7a2a21c74124bbabe2efc6f89303, type: 2}
     - target: {fileID: 3895908275236787809, guid: a138c0df53e25d743a21fd50d6fa8ab3,
         type: 3}
       propertyPath: ShapeModule.type
@@ -530,11 +535,6 @@ PrefabInstance:
       propertyPath: ShapeModule.radiusThickness
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3277185668182101285, guid: a138c0df53e25d743a21fd50d6fa8ab3,
-        type: 3}
-      propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: 819f7a2a21c74124bbabe2efc6f89303, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a138c0df53e25d743a21fd50d6fa8ab3, type: 3}
 --- !u!4 &2867180853553007456 stripped
