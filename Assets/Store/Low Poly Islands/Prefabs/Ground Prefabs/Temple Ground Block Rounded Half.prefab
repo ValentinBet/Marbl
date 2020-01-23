@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33806254173006168}
   - component: {fileID: 23687412663483314}
   - component: {fileID: 828948642}
+  - component: {fileID: 1033513672}
   m_Layer: 10
   m_Name: Temple Ground Block Rounded Half
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1022161953477808}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1.414343, y: 1.6064903, z: 1.5093285}
+  m_LocalScale: {x: 4.823252, y: 5.478521, z: 5.147176}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -92,3 +93,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 9e8361ab1b6120b409f47d9af1035521, type: 3}
+--- !u!114 &1033513672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1022161953477808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18728935f6dcaff4c94ab68674dfe4c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newMat: {fileID: 2100000, guid: 105e51f5bfe35784ab0f759e3aee2226, type: 2}
