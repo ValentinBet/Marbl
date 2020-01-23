@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Collections.Generic;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 
 public class ChatManager : MonoBehaviour
 {
@@ -80,7 +81,7 @@ public class ChatManager : MonoBehaviour
 
         } else
         {
-            text = PhotonNetwork.LocalPlayer.NickName + " : " + text;
+            text = "<color=" + MarblGame.GetColorUI((int)PhotonNetwork.LocalPlayer.GetTeam()) + ">" + PhotonNetwork.LocalPlayer.NickName + "</color> : " + text;
             lobbyPlayerChat.SendMessageString(text);
 
         }

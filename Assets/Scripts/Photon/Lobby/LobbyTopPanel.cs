@@ -25,6 +25,14 @@ public class LobbyTopPanel : MonoBehaviourPunCallbacks
         Region.text = "Region : " + PhotonNetwork.CloudRegion.ToUpper();
     }
 
+    private void Start()
+    {
+        if (InputManager.Instance.Inputs != null)
+        {
+            AudioListener.volume = InputManager.Instance.Inputs.inputs.GeneralVolume;
+        }
+    }
+
     #endregion
 
     public void DisplaySettings()
