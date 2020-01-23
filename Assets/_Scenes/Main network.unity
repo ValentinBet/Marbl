@@ -320,6 +320,31 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: -0.050034
       objectReference: {fileID: 0}
+    - target: {fileID: 3905829296069654658, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905829296069654658, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+        type: 3}
+      propertyPath: m_Name
+      value: ChatToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905829297494618449, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905829297494618449, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+        type: 3}
+      propertyPath: m_Name
+      value: PingToolTip
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905829296754967219, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+        type: 3}
+      propertyPath: gamemodeText
+      value: 
+      objectReference: {fileID: 3905829296887457142}
     - target: {fileID: 3905829297399695865, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -330,15 +355,20 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -0.001953125
       objectReference: {fileID: 0}
-    - target: {fileID: 3905829297533797403, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+    - target: {fileID: 3905829297563235178, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
         type: 3}
-      propertyPath: m_Name
-      value: Input
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905829297600033134, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+      propertyPath: PingTooltip
+      value: 
+      objectReference: {fileID: 3905829296887457141}
+    - target: {fileID: 3905829297563235178, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.48999023
+      propertyPath: ChatTooltip
+      value: 
+      objectReference: {fileID: 3905829296887457140}
+    - target: {fileID: 3905829297726692920, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3905829297279436859, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
         type: 3}
@@ -370,50 +400,20 @@ PrefabInstance:
       propertyPath: m_Text
       value: GameMode
       objectReference: {fileID: 0}
-    - target: {fileID: 3905829297726692920, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905829297563235178, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
-        type: 3}
-      propertyPath: PingTooltip
-      value: 
-      objectReference: {fileID: 3905829296887457141}
-    - target: {fileID: 3905829297563235178, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
-        type: 3}
-      propertyPath: ChatTooltip
-      value: 
-      objectReference: {fileID: 3905829296887457140}
-    - target: {fileID: 3905829296754967219, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
-        type: 3}
-      propertyPath: gamemodeText
-      value: 
-      objectReference: {fileID: 3905829296887457142}
-    - target: {fileID: 3905829296069654658, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905829296069654658, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+    - target: {fileID: 3905829297533797403, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
         type: 3}
       propertyPath: m_Name
-      value: ChatToolTip
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905829297494618449, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3905829297494618449, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
-        type: 3}
-      propertyPath: m_Name
-      value: PingToolTip
+      value: Input
       objectReference: {fileID: 0}
     - target: {fileID: 3905829296106226542, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 57.116455
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905829297600033134, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.48999023
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7568d2c0f9dfe754e91bb48fe89f61ae, type: 3}

@@ -9,17 +9,23 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 {
     public Team myteam;
     public ParticleSystem myTrail;
+    public GameObject chargeFx;
+    public ParticleSystem chargeFxChildPS;
     public ParticleSystem fx_Overcharged;
     public bool isVisible = true;
     public Rigidbody myRigid;
     public bool isOnPipe = false;
     public float currentSpeed = 0;
+    public float fxStartSpeed = -5.5f;
 
     private Team lastTeam;
 
     private Vector3 networkPosition;
     private Quaternion networkRotation;
     private PhotonView pv;
+    private Color fxColor;
+    private float fxChargePower;
+
 
     private void Awake()
     {
@@ -28,7 +34,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     private void Start()
     {
         SetColor();
-
         lastTeam = myteam;
     }
 
@@ -47,6 +52,28 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
             myRigid.rotation = Quaternion.RotateTowards(myRigid.rotation, networkRotation, Time.fixedDeltaTime * 100.0f);
         }
     }
+
+    public void InitChargeFx()
+    {
+        chargeFx.transform.localScale = Vector3.zero;
+        chargeFx.SetActive(true);
+    }
+
+    public void UpdateChargeFx(float dragForce, float dragForceMaxValue)
+    {
+        if (chargeFx != null)
+        {
+            float dragPowerPrctg = ((dragForce * 100) / dragForceMaxValue) / 100;
+
+            fxChargePower = Mathf.Lerp(fxChargePower, dragPowerPrctg, Time.deltaTime * 4);
+            chargeFx.transform.localScale = new Vector3(fxChargePower, fxChargePower, fxChargePower);
+            fxColor = new Color(0 + dragPowerPrctg, 1 - dragPowerPrctg, 0);
+            chargeFxChildPS.startColor = fxColor;
+            chargeFxChildPS.startSpeed = fxStartSpeed - (dragPowerPrctg * 2);
+        }
+    }
+
+
     private void OnBecameVisible()
     {
         isVisible = true;

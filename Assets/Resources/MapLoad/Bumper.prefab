@@ -247,9 +247,7 @@ GameObject:
   - component: {fileID: 3954891620918473069}
   - component: {fileID: 1600588735740463834}
   - component: {fileID: 3731845107963493015}
-  - component: {fileID: 2708226702780471332}
   - component: {fileID: 4375051656565993102}
-  - component: {fileID: 4497810246741910855}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -271,6 +269,7 @@ Transform:
   - {fileID: 5838902019095738057}
   - {fileID: 3627435202900227417}
   - {fileID: 3215619715482467827}
+  - {fileID: 2217096149906720399}
   m_Father: {fileID: 1268568310075324413}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -319,20 +318,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &2708226702780471332
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3670820257572401839}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5353102
-  m_Height: 3.388517
-  m_Direction: 1
-  m_Center: {x: 0.000000048364694, y: 0, z: -0.0015439987}
 --- !u!82 &4375051656565993102
 AudioSource:
   m_ObjectHideFlags: 0
@@ -429,27 +414,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4497810246741910855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3670820257572401839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abe62a4f888bc61458129626c335e065, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 0.5
-  upForce: 0
-  power: 0.75
-  ExplosionOffset: {x: 0, y: 0, z: 0}
-  audioSource: {fileID: 4375051656565993102}
-  ballHit: {fileID: 8300000, guid: ae94e876a0fff6e4fae81861c7b25939, type: 3}
-  myAnimator: {fileID: 6103935346117817998}
-  fxPrefab: {fileID: 100000, guid: 3d84922c38d7c444782fb1a791d97b21, type: 3}
-  fxWidth: 2
 --- !u!1 &5650362946471929268
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,3 +491,79 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &6579778643837053930
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2217096149906720399}
+  - component: {fileID: 8905549184001883631}
+  - component: {fileID: 7894477657408253660}
+  - component: {fileID: 6612199764506727189}
+  m_Layer: 0
+  m_Name: Cylinder (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2217096149906720399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579778643837053930}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1560854, y: 1.2280569, z: 1.404223}
+  m_Children: []
+  m_Father: {fileID: 3954891620918473069}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8905549184001883631
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579778643837053930}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &7894477657408253660
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579778643837053930}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &6612199764506727189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579778643837053930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe62a4f888bc61458129626c335e065, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 0.5
+  upForce: 0
+  power: 0.75
+  ExplosionOffset: {x: 0, y: 0, z: 0}
+  audioSource: {fileID: 4375051656565993102}
+  ballHit: {fileID: 8300000, guid: ae94e876a0fff6e4fae81861c7b25939, type: 3}
+  myAnimator: {fileID: 6103935346117817998}
+  fxPrefab: {fileID: 100000, guid: 3d84922c38d7c444782fb1a791d97b21, type: 3}
+  fxWidth: 2

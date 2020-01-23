@@ -17,6 +17,7 @@ public class PUNMouseControl : MonoBehaviour
 
     public UnityAction OnShooted;
     public GameObject actualSelectedBall = null;
+    public BallSettings actualSelectedBallSettings;
     public bool haveShoot = false;
     public float scrollSensivity = 0.1f;
     public float[] possibleAngles;
@@ -131,6 +132,9 @@ public class PUNMouseControl : MonoBehaviour
         UIManager.Instance.OnClickOnBall(ball);
 
         actualSelectedBall = ball;
+        actualSelectedBallSettings = actualSelectedBall.GetComponent<BallSettings>();
+        actualSelectedBallSettings.InitChargeFx(); 
+
 
         if (GetComponent<LineRenderer>() != null)
         {
@@ -180,7 +184,9 @@ public class PUNMouseControl : MonoBehaviour
                     direction = mainCamera.transform.forward;
                     DisplayLineRenderer();
                     DisplayDragForce();
-                   // Debug.DrawRay(transform.position, transform.position+new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * elevation), ((45 - elevation) / 45.0f + PhotonNetwork.CurrentRoom.GetLaunchPower() * 7.0f) * Mathf.Sin(Mathf.Deg2Rad * elevation) / (PhotonNetwork.CurrentRoom.GetLaunchPower() * 2.0f), direction.z * Mathf.Cos(Mathf.Deg2Rad * elevation)), Color.red,1.0f) ;
+                    actualSelectedBallSettings.UpdateChargeFx(dragForce, dragForceMaxValue);
+
+                    // Debug.DrawRay(transform.position, transform.position+new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * elevation), ((45 - elevation) / 45.0f + PhotonNetwork.CurrentRoom.GetLaunchPower() * 7.0f) * Mathf.Sin(Mathf.Deg2Rad * elevation) / (PhotonNetwork.CurrentRoom.GetLaunchPower() * 2.0f), direction.z * Mathf.Cos(Mathf.Deg2Rad * elevation)), Color.red,1.0f) ;
                 }
                 else if (Input.GetKeyUp(InputManager.Instance.Inputs.inputs.MainButton2) && isHoldingShoot)  // SI DERNIER CLICK
                 {
@@ -211,6 +217,11 @@ public class PUNMouseControl : MonoBehaviour
 
     private void StopShoot()
     {
+        if (actualSelectedBallSettings != null)
+        {
+            actualSelectedBallSettings.chargeFx.SetActive(false);
+        }
+
         isHoldingShoot = false;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -238,6 +249,7 @@ public class PUNMouseControl : MonoBehaviour
     {
         dragForceBar.fillAmount = ((dragForce * 100) / dragForceMaxValue) / 100; // Génère un pourcentage 
     }
+
 
     public void DisableShootInTime()
     {

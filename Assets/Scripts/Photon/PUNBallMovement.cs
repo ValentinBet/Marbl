@@ -94,7 +94,7 @@ public class PUNBallMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.relativeVelocity.sqrMagnitude > 34)
+        if (collision.relativeVelocity.sqrMagnitude > 16)
         {
             if (collision.gameObject.tag == "Ball")
             {
