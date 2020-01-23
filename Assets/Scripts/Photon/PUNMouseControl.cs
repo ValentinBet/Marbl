@@ -130,12 +130,8 @@ public class PUNMouseControl : MonoBehaviour
     {
         UIManager.Instance.OnEndTurn();
         UIManager.Instance.OnClickOnBall(ball);
-
         actualSelectedBall = ball;
         actualSelectedBallSettings = actualSelectedBall.GetComponent<BallSettings>();
-        actualSelectedBallSettings.InitChargeFx(); 
-
-
         if (GetComponent<LineRenderer>() != null)
         {
             actualBallLineRenderer = GetComponent<LineRenderer>();
@@ -169,6 +165,7 @@ public class PUNMouseControl : MonoBehaviour
             {
                 if (Input.GetKeyDown(InputManager.Instance.Inputs.inputs.MainButton2) && !isHoldingShoot) // Si PREMIER CLICK
                 {
+                    actualSelectedBallSettings.InitChargeFx();
                     isHoldingShoot = true;
                     UIManager.Instance.isShooting = true;
                     dragForce = 0;
