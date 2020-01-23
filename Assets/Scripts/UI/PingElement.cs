@@ -5,12 +5,16 @@ using UnityEngine.UI;
 
 public class PingElement : MonoBehaviour
 {
-    public SpriteRenderer Socle;
+    public List<SpriteRenderer> Socles = new List<SpriteRenderer>();
     public LineRenderer Trail;
 
     public void SetColor(Color newColor)
     {
-        Socle.color = newColor;
+        foreach (SpriteRenderer socle in Socles)
+        {
+            socle.color = newColor;
+        }
+
         Gradient grd = Trail.colorGradient;
         GradientColorKey[] ck = grd.colorKeys;
         ck[0].color = newColor;
