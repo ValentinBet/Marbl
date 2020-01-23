@@ -12,6 +12,7 @@ public class SettingsManager : MonoBehaviour
     public GameObject videoPanel;
     public GameObject audioPanel;
     public GameObject controlsPanel;
+    public Animator thisSceneAnim;
 
     [Header("Video")]
     public Dropdown windowedDropdown;
@@ -172,6 +173,10 @@ public class SettingsManager : MonoBehaviour
     }
 
     public void QuitSettingsScene()
+    {
+        thisSceneAnim.Play("Settings Close");
+    }
+    public void QuitScene()
     {
         SceneManager.UnloadSceneAsync("Settings");
     }
