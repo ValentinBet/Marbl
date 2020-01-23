@@ -452,9 +452,5 @@ public class UIManager : MonoBehaviourPunCallbacks
             chat.SetActive(true);
             chatUI.OnChatDisplay();
         }
-        else
-        {
-            chat.SetActive(false);
-        }
     }
 }

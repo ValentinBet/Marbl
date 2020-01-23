@@ -44,6 +44,9 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     public GameObject InsideRoomPanel;
     public Transform parentPlayerList;
 
+    [Header("Chat")]
+    public GameObject ChatPlayerObject;
+
     [Header("Other")]
     public Button StartGameButton;
     public GameObject hostPanel;
@@ -116,6 +119,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         CreateLobbyButton.interactable = true;
         JoinLobbyButton.interactable = true;
         PhotonNetwork.LocalPlayer.SetTeam(MarblFactory.GetRandomTeam());
+
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
@@ -149,7 +153,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         string roomName = "Room " + Random.Range(1000, 10000);
 
-        RoomOptions options = new RoomOptions { MaxPlayers = 8 };
+        RoomOptions options = new RoomOptions { MaxPlayers = 8};
 
         PhotonNetwork.CreateRoom(roomName, options, null);
     }
@@ -157,6 +161,10 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         SetActivePanel(InsideRoomPanel.name);
+
+        GameObject playerChat = PhotonNetwork.Instantiate("PlayerChat", Vector3.zero, Quaternion.identity);
+
+        ChatManager.Instance.lobbyPlayerChat = playerChat.GetComponent<LobbyChat>();
 
         PhotonNetwork.LocalPlayer.SetPlayerReadyState(false);
         PhotonNetwork.LocalPlayer.SetScore(0);
@@ -173,6 +181,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
             entry.GetComponent<PlayerListEntry>().SetPlayerReady(p.GetPlayerReadyState());
 
             playerListEntries.Add(p, entry);
+
         }
 
         StartGameButton.gameObject.SetActive(CheckPlayersReady());
@@ -198,6 +207,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         {
             Destroy(entry.gameObject);
         }
+
+        ChatManager.Instance.lobbyPlayerChat.DestroyThis();
 
         playerListEntries.Clear();
         playerListEntries = null;
@@ -340,6 +351,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public void OnStartGameButtonClicked()
     {
+        PhotonNetwork.DestroyAll();
+
         PlayMenuSound();
 
         PhotonNetwork.CurrentRoom.IsOpen = false;

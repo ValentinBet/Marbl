@@ -405,6 +405,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Input
       objectReference: {fileID: 0}
+    - target: {fileID: 3905829296393622548, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+        type: 3}
+      propertyPath: InputFieldGroup
+      value: 
+      objectReference: {fileID: 3905829296887457143}
     - target: {fileID: 3905829296106226542, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -441,3 +446,9 @@ MonoBehaviour:
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &3905829296887457143 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3905829297533797403, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 3905829296887457139}
+  m_PrefabAsset: {fileID: 0}

@@ -19,6 +19,8 @@ public class ChatManagerEditor : Editor {
         ChatManager myTarget = (ChatManager)target;
 
         EditorGUILayout.BeginVertical(EditorStyles.helpBox);
+        myTarget.isLobbyChat = EditorGUILayout.Toggle("Is a lobby chat ?", myTarget.isLobbyChat);
+
         EditorGUILayout.LabelField("Groups Settings",EditorStyles.boldLabel);
         myTarget.GroupID = EditorGUILayout.Popup("My Group:",myTarget.GroupID, myTarget.GetGroupArray);
         EditorGUILayout.EndVertical();

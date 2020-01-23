@@ -1,6 +1,7 @@
-﻿using Photon.Pun;
+﻿using ExitGames.Client.Photon;
+using Photon.Pun;
 using Photon.Pun.UtilityScripts;
-using System.Collections;
+using Photon.Realtime;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -35,9 +36,9 @@ public class ClientPanel : MonoBehaviourPunCallbacks
 
     void RefreshMaps()
     {
-        foreach(MapElement _map in allMaps)
+        foreach (MapElement _map in allMaps)
         {
-            if(_map.nameMap == PhotonNetwork.CurrentRoom.GetMap())
+            if (_map.nameMap == PhotonNetwork.CurrentRoom.GetMap())
             {
                 _map.SetMap();
                 return;
@@ -51,7 +52,7 @@ public class ClientPanel : MonoBehaviourPunCallbacks
         //General
         generalInfo.text = "Turn time : " + PhotonNetwork.CurrentRoom.GetTurnLimit() + "s" + "\n";
 
-        if(PhotonNetwork.CurrentRoom.GetRoundProp() == 21)
+        if (PhotonNetwork.CurrentRoom.GetRoundProp() == 21)
         {
             generalInfo.text += "Round number : ∞";
         }
@@ -150,12 +151,6 @@ public class ClientPanel : MonoBehaviourPunCallbacks
     }
 
 
-    public override void OnRoomPropertiesUpdate(ExitGames.Client.Photon.Hashtable propertiesThatChanged)
-    {
-        RefreshGamemode();
-        RefreshMaps();
-    }
-
     //--------------------------Gestion label--------------------
     [Header("Top")]
     public RectTransform currentChoice;
@@ -195,6 +190,10 @@ public class ClientPanel : MonoBehaviourPunCallbacks
         }
 
         currentText.color = Color.Lerp(currentText.color, selectedColor, Mathf.PingPong(Time.time, 3));
+
+
+        RefreshGamemode();
+        RefreshMaps();
     }
 
     public void SetChoice(RectTransform element)

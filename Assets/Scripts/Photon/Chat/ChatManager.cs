@@ -7,6 +7,7 @@ using Photon.Pun;
 
 public class ChatManager : MonoBehaviour
 {
+
     [Header("Settings")]
     [HideInInspector]
     public int GroupID = 0;
@@ -25,9 +26,10 @@ public class ChatManager : MonoBehaviour
     public bool FadeMessage = true;
     public float FadeMessageIn = 7;
     public float FadeMessageSpeed = 2;
-
+    public bool isLobbyChat;
     private bl_ChatUI ChatUI = null;
 
+    public LobbyChat lobbyPlayerChat;
     private static ChatManager _instance;
     public static ChatManager Instance { get { return _instance; } }
 
@@ -69,11 +71,21 @@ public class ChatManager : MonoBehaviour
             text = text.Substring(0, 300);
         }
 
-        text = "<color=" + MarblGame.GetColorUI((int)GameModeManager.Instance.localPlayerTeam) + ">" + PhotonNetwork.LocalPlayer.NickName + "</color> : " + text;
+        if (!isLobbyChat)
+        {
+            text = "<color=" + MarblGame.GetColorUI((int)GameModeManager.Instance.localPlayerTeam) + ">" + PhotonNetwork.LocalPlayer.NickName + "</color> : " + text;
 
-        GameModeManager.Instance.localPlayerObj.GetComponent<LocalPlayerManager>().SendMessageString(text);
+            GameModeManager.Instance.localPlayerObj.GetComponent<LocalPlayerManager>().SendMessageString(text);
+            ChatUI.InputFieldGroup.SetActive(false);
 
+        } else
+        {
+            text = PhotonNetwork.LocalPlayer.NickName + " : " + text;
+            lobbyPlayerChat.SendMessageString(text);
+
+        }
         field.text = string.Empty;
+
     }
 
     

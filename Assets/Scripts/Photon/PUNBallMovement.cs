@@ -126,7 +126,7 @@ public class PUNBallMovement : MonoBehaviour
                 Destroy(_fxWallHitWood, 2);
 
                 float screenShakeDistance = Vector3.Distance(Camera.main.transform.position, this.gameObject.transform.position);
-                float screenShakePower = Mathf.Clamp(collision.relativeVelocity.sqrMagnitude / 60 - screenShakeDistance / 30, 0, 20);
+                float screenShakePower = Mathf.Clamp(collision.relativeVelocity.sqrMagnitude / 80 - screenShakeDistance / 30, 0, 20);
 
                 if (screenShakePower > 0)
                 {

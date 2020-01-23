@@ -55,11 +55,6 @@ namespace Photon.Realtime
             get { return this.actorNumber; }
         }
 
-        public void SetCustomProperties(System.Collections.Hashtable turnPlayer)
-        {
-            throw new NotImplementedException();
-        }
-
 
         /// <summary>Only one player is controlled by each client. Others are not local.</summary>
         public readonly bool IsLocal;
