@@ -44,6 +44,9 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     public GameObject InsideRoomPanel;
     public Transform parentPlayerList;
 
+    [Header("Chat")]
+    public GameObject ChatPlayerObject;
+
     [Header("Other")]
     public Button StartGameButton;
     public GameObject hostPanel;
@@ -174,6 +177,9 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
             entry.GetComponent<PlayerListEntry>().SetPlayerReady(p.GetPlayerReadyState());
 
             playerListEntries.Add(p, entry);
+
+            GameObject playerChat = Instantiate(ChatPlayerObject);
+
         }
 
         StartGameButton.gameObject.SetActive(CheckPlayersReady());
