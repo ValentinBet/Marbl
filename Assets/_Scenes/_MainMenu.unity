@@ -3625,7 +3625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &127923314
 RectTransform:
   m_ObjectHideFlags: 0
@@ -44795,7 +44795,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0.23721704, y: 0.2601235}
-  m_AnchoredPosition: {x: 732.4666, y: 425.62546}
+  m_AnchoredPosition: {x: 732.46, y: 433.24}
   m_SizeDelta: {x: 344.51306, y: 221.50974}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1402561546
@@ -44826,6 +44826,7 @@ MonoBehaviour:
   FadeMessageIn: 7
   FadeMessageSpeed: 2
   isLobbyChat: 1
+  lobbyPlayerChat: {fileID: 0}
 --- !u!114 &1402561547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44842,6 +44843,7 @@ MonoBehaviour:
   ChatPanel: {fileID: 1877250596}
   MaxMessages: 10
   myInputField: {fileID: 1567404944}
+  InputFieldGroup: {fileID: 0}
 --- !u!225 &1402561548
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -59682,8 +59684,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -1.6, y: 0.000038146973}
-  m_SizeDelta: {x: 0, y: 2}
+  m_AnchoredPosition: {x: -1.6, y: 0.00004477708}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1877250597
 MonoBehaviour:
