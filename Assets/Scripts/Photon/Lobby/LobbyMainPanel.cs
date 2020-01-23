@@ -162,6 +162,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     {
         SetActivePanel(InsideRoomPanel.name);
 
+        GameObject playerChat = PhotonNetwork.Instantiate("PlayerChat", Vector3.zero, Quaternion.identity);
+
         PhotonNetwork.LocalPlayer.SetPlayerReadyState(false);
         PhotonNetwork.LocalPlayer.SetScore(0);
 
@@ -177,8 +179,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
             entry.GetComponent<PlayerListEntry>().SetPlayerReady(p.GetPlayerReadyState());
 
             playerListEntries.Add(p, entry);
-
-            GameObject playerChat = Instantiate(ChatPlayerObject);
 
         }
 
@@ -205,6 +205,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         {
             Destroy(entry.gameObject);
         }
+
+        LobbyChat.Instance.DestroyThis();
 
         playerListEntries.Clear();
         playerListEntries = null;
@@ -348,6 +350,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     public void OnStartGameButtonClicked()
     {
         PlayMenuSound();
+
+        LobbyChat.Instance.DestroyThis();
 
         PhotonNetwork.CurrentRoom.IsOpen = false;
         PhotonNetwork.CurrentRoom.IsVisible = false;

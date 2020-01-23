@@ -77,7 +77,9 @@ public class ChatManager : MonoBehaviour
             GameModeManager.Instance.localPlayerObj.GetComponent<LocalPlayerManager>().SendMessageString(text);
         } else
         {
-            
+            text = PhotonNetwork.LocalPlayer.NickName + " : " + text;
+            LobbyChat.Instance.SendMessageString(text);
+
         }
 
 
