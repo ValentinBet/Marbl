@@ -66,6 +66,10 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        AudioManager.Instance.SetPlayingSong(true);
+        AudioManager.Instance.SetBackSong(false);
+        AudioManager.Instance.playingSong.Play();
+
         PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
 
         StartGame();
