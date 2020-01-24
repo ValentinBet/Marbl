@@ -190,7 +190,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
         if(camSpec == null)
         {
-            camSpec = CameraManager.Instance.CameraSpec;
+            camSpec = CameraManager.Instance.CamSpecNetwork;
         }
 
         currentTimer = startTimer;

@@ -100,12 +100,13 @@ public class CameraPlayer : MonoBehaviour
 
         if (camSpec == null)
         {
-            camSpec = CameraManager.Instance.CameraSpec;
+            camSpec = CameraManager.Instance.CamSpecNetwork;
             return;
         }
 
         if (GameModeManager.Instance.localPlayerTurn)
         {
+            print("My turn");
             switch (actualMode)
             {
                 case CameraMode.Top:
@@ -121,6 +122,7 @@ public class CameraPlayer : MonoBehaviour
         }
         else
         {
+            print("Val turn");
             cameras[2].transform.position = camSpec.position;
             cameras[2].transform.rotation = camSpec.rotation;
         }

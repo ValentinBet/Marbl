@@ -18,30 +18,6 @@ public class SpecCamScript : MonoBehaviourPunCallbacks/*, IPunObservable*/
     // Start is called before the first frame update
     void Start()
     {
-        CameraManager.Instance.CameraSpec = transform;
+        CameraManager.Instance.CamSpecNetwork = transform;
     }
-
-    //public void FixedUpdate()
-    //{
-    //    if (!pv.IsMine)
-    //    {
-    //        Debug.Log(networkPosition + " - POS ");
-    //        Debug.Log(networkRotation + " - Rot ");
-    //        transform.position = networkPosition;
-    //        transform.rotation = networkRotation;
-    //    }
-    //}
-    //public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    //{
-    //    if (stream.IsWriting)
-    //    {
-    //        stream.SendNext(this.transform.position);
-    //        stream.SendNext(this.transform.rotation);
-    //    }
-    //    else
-    //    {
-    //        networkPosition = (Vector3)stream.ReceiveNext();
-    //        networkRotation = (Quaternion)stream.ReceiveNext();
-    //    }
-    //}
 }
