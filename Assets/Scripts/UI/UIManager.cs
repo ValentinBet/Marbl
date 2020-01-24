@@ -125,6 +125,7 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
+        GameModeManager.Instance.SendMessageString("<color=" + MarblGame.GetColorUI((int) PhotonNetwork.LocalPlayer.GetTeam()) + ">" + PhotonNetwork.LocalPlayer.NickName + "</color> disconnected !");
         StartCoroutine(LoadScene());
     }
 
