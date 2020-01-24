@@ -9,6 +9,7 @@ using UnityEngine.UI;
 using Photon.Pun.UtilityScripts;
 using static MarblGame;
 using static Photon.Pun.UtilityScripts.PunTeams;
+using Photon.Realtime;
 
 public class UIManager : MonoBehaviourPunCallbacks
 {
@@ -125,10 +126,12 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        LocalPlayerManager pM = GameModeManager.Instance.localPlayerObj.GetComponent<LocalPlayerManager>();
-
-        pM.SendMessageString("<color=" + MarblGame.GetColorUI((int) PhotonNetwork.LocalPlayer.GetTeam()) + ">" + PhotonNetwork.LocalPlayer.NickName + "</color> disconnected !");
         StartCoroutine(LoadScene());
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        ChatManager.Instance.OnChatMessage("<color=" + MarblGame.GetColorUI((int) otherPlayer.GetTeam()) + ">" + otherPlayer.NickName + "</color> has been disconnected !");
     }
 
     IEnumerator LoadScene()
