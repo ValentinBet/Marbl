@@ -41,6 +41,8 @@ public class CustomMode : MonoBehaviour
         }
 
         RoomSettings.Instance.deathmatch = DMBool;
+
+        RoomSettings.Instance.SaveSettings();
     }
 
     public void SetHill(GameObject image)
@@ -63,6 +65,8 @@ public class CustomMode : MonoBehaviour
             image.transform.parent.GetComponent<Image>().color = Color.white;
         }
         RoomSettings.Instance.hill = HillBool;
+
+        RoomSettings.Instance.SaveSettings();
     }
 
     public void SetHue(GameObject image)
@@ -82,6 +86,8 @@ public class CustomMode : MonoBehaviour
             image.transform.parent.GetComponent<Image>().color = Color.white;
         }
         RoomSettings.Instance.hue = HueBool;
+
+        RoomSettings.Instance.SaveSettings();
     }
 
     public void SetCoins(GameObject image)
@@ -101,5 +107,7 @@ public class CustomMode : MonoBehaviour
             image.transform.parent.GetComponent<Image>().color = Color.white;
         }
         RoomSettings.Instance.coins = CoinsBool;
+
+        RoomSettings.Instance.SaveSettings();
     }
 }

@@ -418,10 +418,10 @@ public class UIManager : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.LocalPlayer.GetPlayerTurnState())
         {
-            infoTurnSettings.text.text = "You turn to play";
+            infoTurnSettings.text.text = "Your turn to play";
             DisplayChatTooltip(false);
             DisplayPingTooltip(false);
-            result += "You play ...";
+            result += "Your turn ...";
         }
         else
         {
