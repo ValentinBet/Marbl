@@ -163,6 +163,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         SetActivePanel(InsideRoomPanel.name);
 
         PhotonNetwork.CurrentRoom.SetMap(RoomScripts.Instance.map);
+        RoomSettings.Instance.SaveSettings();
+
 
         GameObject playerChat = PhotonNetwork.Instantiate("PlayerChat", Vector3.zero, Quaternion.identity);
 
