@@ -30,6 +30,11 @@ public class LobbyTopPanel : MonoBehaviourPunCallbacks
         if (InputManager.Instance.Inputs != null)
         {
             AudioListener.volume = InputManager.Instance.Inputs.inputs.GeneralVolume;
+
+            AudioManager.Instance.SetPlayingSong(false);
+            AudioManager.Instance.SetBackSong(true);
+            AudioManager.Instance.backSong.Play();
+
         }
     }
 

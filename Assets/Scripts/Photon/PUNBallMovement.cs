@@ -87,7 +87,12 @@ public class PUNBallMovement : MonoBehaviour
         this.GetComponent<Rigidbody>().AddForceAtPosition(_impulse, transform.position, ForceMode.Impulse);
         this.GetComponent<Rigidbody>().AddTorque(Vector3.Cross(direction, Vector3.up) * -torqueForce, ForceMode.Force);
 
-        photonView.RPC("OnPlayerShoot", RpcTarget.AllViaServer);
+        if (shootSound != null)
+        {
+            myAudioSource.PlayOneShot(shootSound);
+        }
+
+        photonView.RPC("OnPlayerShoot", RpcTarget.Others);
     }
 
     private void OnCollisionEnter(Collision collision)

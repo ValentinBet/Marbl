@@ -11,14 +11,12 @@ public class AudioManager : MonoBehaviour
     public AudioSource backSong;
     public AudioSource playingSong;
 
-
+    
     bool playBack = true;
     bool playPlaying = false;
 
-    float currentVolume = 0.2f;
-
-    float timeToTransit = 30;
-
+    float timeToTransit = 0.75f;
+    float musicVolume;
 
     private static AudioManager _instance;
     public static AudioManager Instance { get { return _instance; } }
@@ -55,9 +53,10 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
+        musicVolume = Mathf.Clamp(InputManager.Instance.Inputs.inputs.GeneralVolume, 0f, 0.6f);
         if (playBack)
         {
-            backSong.volume = Mathf.Lerp(backSong.volume, currentVolume, timeToTransit * Time.deltaTime);
+            backSong.volume = Mathf.Lerp(backSong.volume, musicVolume, timeToTransit * Time.deltaTime);
         }
         else
         {
@@ -66,7 +65,7 @@ public class AudioManager : MonoBehaviour
 
         if (playPlaying)
         {
-            playingSong.volume = Mathf.Lerp(playingSong.volume, currentVolume, timeToTransit * Time.deltaTime);
+            playingSong.volume = Mathf.Lerp(playingSong.volume, musicVolume, timeToTransit * Time.deltaTime);
         }
         else
         {
