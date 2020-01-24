@@ -40,4 +40,9 @@ public class LobbyTopPanel : MonoBehaviourPunCallbacks
     {
         SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
     }
+
+
+    public void QuitGame() {
+        Application.Quit();
+    }
 }
