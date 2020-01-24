@@ -90,13 +90,9 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
         try
         {
-            print((bool)PhotonNetwork.LocalPlayer.CustomProperties["playerTurn"]);
-
             if (!canShoot && (bool)PhotonNetwork.LocalPlayer.CustomProperties["playerTurn"])
             {
-                print("passage");
                 YourTurnToPlay();
-                print("passage2");
             }
 
             canShoot = (bool)PhotonNetwork.LocalPlayer.CustomProperties["playerTurn"];
@@ -104,7 +100,6 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
         }
         catch
         {
-            print("fail");
             canShoot = false;
         }
 
