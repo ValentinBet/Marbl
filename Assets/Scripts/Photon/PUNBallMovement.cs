@@ -38,6 +38,7 @@ public class PUNBallMovement : MonoBehaviour
 
     public GameObject fx_hitWoodSurface;
 
+    
     private void Awake()
     {
         photonView = GetComponent<PhotonView>();
@@ -86,10 +87,7 @@ public class PUNBallMovement : MonoBehaviour
         this.GetComponent<Rigidbody>().AddForceAtPosition(_impulse, transform.position, ForceMode.Impulse);
         this.GetComponent<Rigidbody>().AddTorque(Vector3.Cross(direction, Vector3.up) * -torqueForce, ForceMode.Force);
 
-        if (shootSound != null)
-        {
-            myAudioSource.PlayOneShot(shootSound);
-        }
+        photonView.RPC("OnPlayerShoot", RpcTarget.AllViaServer);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -98,6 +96,11 @@ public class PUNBallMovement : MonoBehaviour
         {
             if (collision.gameObject.tag == "Ball")
             {
+                if (hitMarbl != null)
+                {
+                    myAudioSource.PlayOneShot(hitMarbl);
+                }
+
                 GameObject impact = Instantiate(impactPrefab[Random.Range(0, impactPrefab.Count)], collision.contacts[0].point, Quaternion.identity);
                 float size = collision.relativeVelocity.sqrMagnitude / 200;
                 size = Mathf.Clamp(size, 0, 3);
@@ -111,16 +114,15 @@ public class PUNBallMovement : MonoBehaviour
                 {
                     cameraPlayer.InitShakeScreen(screenShakePower, 0.10f);
                 }
-
-                if (hitMarbl != null)
-                {
-                    myAudioSource.PlayOneShot(hitMarbl);
-                }
             }
 
             if (collision.gameObject.layer == 14 && collision.collider.CompareTag("Wood")) //Layer Obstacle
             {
-                myAudioSource.PlayOneShot(hitWoodSurface);
+                if (hitWoodSurface != null)
+                {
+                    myAudioSource.PlayOneShot(hitWoodSurface);
+                }
+
                 GameObject _fxWallHitWood = Instantiate(fx_hitWoodSurface, collision.contacts[0].point, Random.rotation);
                 _fxWallHitWood.transform.LookAt(collision.gameObject.transform);
                 Destroy(_fxWallHitWood, 2);
@@ -209,7 +211,19 @@ public class PUNBallMovement : MonoBehaviour
 
     //    this.GetComponent<Rigidbody>().AddForce(_impulse, ForceMode.Impulse);
     //}
+
+    [PunRPC]
+    public void OnPlayerShoot()
+    {
+        if (shootSound != null)
+        {
+            myAudioSource.PlayOneShot(shootSound);
+        }
+    }
 }
+
+
+
 
 public enum CollideStates
 {

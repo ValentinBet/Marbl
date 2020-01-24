@@ -65,4 +65,5 @@ public class bl_ChatUI : MonoBehaviour {
         myInputField.Select();
         myInputField.ActivateInputField();
     }
+
 }

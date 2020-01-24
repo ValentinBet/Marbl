@@ -29,6 +29,7 @@ public class LobbyTopPanel : MonoBehaviourPunCallbacks
     {
         if (InputManager.Instance.Inputs != null)
         {
+            print(InputManager.Instance.Inputs.inputs.GeneralVolume);
             AudioListener.volume = InputManager.Instance.Inputs.inputs.GeneralVolume;
         }
     }
@@ -38,5 +39,10 @@ public class LobbyTopPanel : MonoBehaviourPunCallbacks
     public void DisplaySettings()
     {
         SceneManager.LoadScene("Settings", LoadSceneMode.Additive);
+    }
+
+
+    public void QuitGame() {
+        Application.Quit();
     }
 }

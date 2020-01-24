@@ -30,7 +30,7 @@ public class PingControl : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(InputManager.Instance.Inputs.inputs.Ping) && !isActive)
+        if (Input.GetKeyDown(InputManager.Instance.Inputs.inputs.Ping) && !isActive && !ChatManager.Instance.ChatUI.myInputField.isFocused)
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
