@@ -241,6 +241,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     {
         if (gameFinish) { return; }
 
+        localPlayerObj.GetComponent<PUNMouseControl>().StopShoot();
+
         indexTeamPlaying++;
         if (indexTeamPlaying == presentTeam.Count)
         {
