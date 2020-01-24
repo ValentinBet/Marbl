@@ -19,6 +19,8 @@ public class PlayerListEntry : MonoBehaviour
 
     public Dropdown dropTeam;
 
+    public Text winNumber;
+
     Player myPlayer;
 
     public void Initialize(Player player, Team team, string playerName)
@@ -45,6 +47,10 @@ public class PlayerListEntry : MonoBehaviour
                 PlayerReadyButton.gameObject.SetActive(false);
             }
         }
+
+
+        //-------------------POUR VAL ------------------
+        //winNumber.text = player.GetNumberWin().ToString();
 
         PlayerColorImage.color = MarblGame.GetColor((int) team);
         PlayerNameText.text = playerName;
