@@ -90,10 +90,7 @@ public class UIManager : MonoBehaviourPunCallbacks
         {
             DisplayEscapeMenu();
         }
-        if (Input.GetKeyDown(InputManager.Instance.Inputs.inputs.Chat))
-        {
-            DisplayChat();
-        }
+
 
         if (isShooting)
         {
@@ -122,7 +119,7 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public void QuitGame()
     {
-        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.Disconnect();
     }
 
     public override void OnLeftRoom()
@@ -442,15 +439,6 @@ public class UIManager : MonoBehaviourPunCallbacks
                 element.Value.Trail.enabled = false;
                 continue;
             }
-        }
-    }
-
-    public void DisplayChat()
-    {
-        if (!chat.activeInHierarchy)
-        {
-            chat.SetActive(true);
-            chatUI.OnChatDisplay();
         }
     }
 }

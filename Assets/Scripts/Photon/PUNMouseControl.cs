@@ -9,7 +9,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using Photon.Pun.UtilityScripts;
 
-public class PUNMouseControl : MonoBehaviour
+public class PUNMouseControl : MonoBehaviourPunCallbacks
 {
     public UnityAction<GameObject> OnBallClicked;
     public float dragForce;
@@ -107,23 +107,23 @@ public class PUNMouseControl : MonoBehaviour
 
     public void ClickOnBall(GameObject target)
     {
-        
-            OnBallClicked?.Invoke(target);
 
-            if (target.GetComponent<BallSettings>().myteam == PhotonNetwork.LocalPlayer.GetTeam())
+        OnBallClicked?.Invoke(target);
+
+        if (target.GetComponent<BallSettings>().myteam == PhotonNetwork.LocalPlayer.GetTeam())
+        {
+            if (target != null)
             {
-                if (target != null)
-                {
-                    NewBallSelected(target);
-                }
-                else
-                {
-                    lastSelected = null;
-                    actualBallLineRenderer = null;
-                }
+                NewBallSelected(target);
             }
+            else
+            {
+                lastSelected = null;
+                actualBallLineRenderer = null;
+            }
+        }
 
-        
+
     }
 
     public void NewBallSelected(GameObject ball)
@@ -264,4 +264,10 @@ public class PUNMouseControl : MonoBehaviour
         canShoot = true;
         isStoppingShoot = false;
     }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        StopShoot();
+    }
+
 }
