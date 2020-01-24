@@ -12,12 +12,12 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 {
     public List<GameObject> allBalls = new List<GameObject>();
     public List<GameObject> teamBalls = new List<GameObject>();
-    bool canShoot;
+    public bool canShoot;
     PhotonView PV;
     PUNMouseControl mousControl;
     Team myTeam;
     Color myColorTeam;
-    bool haveShoot = false;
+    public bool haveShoot = false;
     bool haveWait = false;
     bool endCoroutine = true;
     bool blockShoot = false;
@@ -25,15 +25,16 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
     int startTimer;
     float currentTimer = 0;
     TimerInfo myTimerInfo;
-    bool doTimer = false;
+    public bool doTimer = false;
 
     CameraPlayer myPlayerCam;
+    Transform camSpec;
 
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
 
-        if (PhotonNetwork.LocalPlayer.ActorNumber == PV.ControllerActorNr)
+        if (PV.IsMine)
         {
             canShoot = false;
             mousControl = GetComponent<PUNMouseControl>();
@@ -66,7 +67,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
     private void OnEnable()
     {
-        if (PhotonNetwork.LocalPlayer.ActorNumber == PV.ControllerActorNr)
+        if (PV.IsMine)
         {
             mousControl.OnShooted += PlayerShooted;
         }
@@ -74,7 +75,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
     private void OnDisable()
     {
-        if (PhotonNetwork.LocalPlayer.ActorNumber == PV.ControllerActorNr)
+        if (PV.IsMine)
         {
             mousControl.OnShooted -= PlayerShooted;
         }
@@ -82,16 +83,20 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (!(PhotonNetwork.LocalPlayer.ActorNumber == PV.ControllerActorNr))
+        if (!PV.IsMine)
         {
             return;
         }
 
         try
         {
+            print((bool)PhotonNetwork.LocalPlayer.CustomProperties["playerTurn"]);
+
             if (!canShoot && (bool)PhotonNetwork.LocalPlayer.CustomProperties["playerTurn"])
             {
+                print("passage");
                 YourTurnToPlay();
+                print("passage2");
             }
 
             canShoot = (bool)PhotonNetwork.LocalPlayer.CustomProperties["playerTurn"];
@@ -99,6 +104,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
         }
         catch
         {
+            print("fail");
             canShoot = false;
         }
 
@@ -186,6 +192,13 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
         {
             UIManager.Instance.SetSavedCam();
         }
+
+        if(camSpec == null)
+        {
+            camSpec = CameraManager.Instance.CameraSpec;
+        }
+
+        camSpec.GetComponent<PhotonView>().RequestOwnership();
 
         currentTimer = startTimer;
         doTimer = true;
