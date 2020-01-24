@@ -100,7 +100,7 @@ public class CameraPlayer : MonoBehaviour
 
         if (camSpec == null)
         {
-            camSpec = CameraManager.Instance.CameraSpec;
+            camSpec = CameraManager.Instance.CamSpecNetwork;
             return;
         }
 
@@ -181,7 +181,11 @@ public class CameraPlayer : MonoBehaviour
         if (targetedTransform == null)
         {
             GameObject[] Balls = GameObject.FindGameObjectsWithTag("Ball");
-            targetedTransform = Balls[Random.Range(0, Balls.Length)].transform;
+
+            if(Balls.Length > 0)
+            {
+                targetedTransform = Balls[Random.Range(0, Balls.Length)].transform;
+            }
             return;
         }
 

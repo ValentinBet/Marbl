@@ -8,6 +8,7 @@ using ExitGames.Client.Photon;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using UnityEngine.UI;
 using static Photon.Pun.UtilityScripts.PunTeams;
+using System.Linq;
 
 public class GameModeManager : MonoBehaviourPunCallbacks
 {
@@ -65,6 +66,10 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        AudioManager.Instance.SetPlayingSong(true);
+        AudioManager.Instance.SetBackSong(false);
+        AudioManager.Instance.playingSong.Play();
+
         PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
 
         StartGame();
@@ -236,6 +241,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     {
         if (gameFinish) { return; }
 
+        localPlayerObj.GetComponent<PUNMouseControl>().StopShoot();
+
         indexTeamPlaying++;
         if (indexTeamPlaying == presentTeam.Count)
         {
@@ -372,9 +379,10 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    void RpcDisplayScoreBoard()
+    void RpcDisplayScoreBoard(Team winner)
     {
         ScoreboardManager.Instance.isScoreboardDisplayed = true;
+        UIManager.Instance.EndGame(winner);
     }
 
     [PunRPC]
@@ -411,10 +419,16 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public void EndMode()
     {
         if (gameFinish) { return; }
-        
+
         // Hue GameMode End
 
-        myPV.RPC("RpcDisplayScoreBoard", RpcTarget.AllViaServer);
+
+        myPV.RPC("RpcDisplayScoreBoard", RpcTarget.AllViaServer, GetWinnerTeam());
+        foreach (Player p in GetPlayerOfOneTeam(GetWinnerTeam()))
+        {
+            p.AddPlayerPersistantScore(1);
+        } 
+
         gameFinish = true;
         StartCoroutine(WaitToRestartGame());
     }
@@ -465,5 +479,11 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public void SendMessageString(string value)
     {
         myPV.RPC("RpcDisplayMessage", RpcTarget.AllViaServer, value);
+    }
+
+    public Team GetWinnerTeam()
+    {
+       Dictionary<Team, int> _temp = ScoreboardManager.Instance.GetTeamListSortedByPoints();
+        return _temp.First().Key;
     }
 }

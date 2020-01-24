@@ -48,9 +48,7 @@ public class PlayerListEntry : MonoBehaviour
             }
         }
 
-
-        //-------------------POUR VAL ------------------
-        //winNumber.text = player.GetNumberWin().ToString();
+        winNumber.text = player.GetPlayerPersistantScore().ToString();
 
         PlayerColorImage.color = MarblGame.GetColor((int) team);
         PlayerNameText.text = playerName;

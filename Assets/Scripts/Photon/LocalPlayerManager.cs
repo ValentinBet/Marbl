@@ -12,12 +12,12 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 {
     public List<GameObject> allBalls = new List<GameObject>();
     public List<GameObject> teamBalls = new List<GameObject>();
-    bool canShoot;
+    public bool canShoot;
     PhotonView PV;
     PUNMouseControl mousControl;
     Team myTeam;
     Color myColorTeam;
-    bool haveShoot = false;
+    public bool haveShoot = false;
     bool haveWait = false;
     bool endCoroutine = true;
     bool blockShoot = false;
@@ -25,15 +25,16 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
     int startTimer;
     float currentTimer = 0;
     TimerInfo myTimerInfo;
-    bool doTimer = false;
+    public bool doTimer = false;
 
     CameraPlayer myPlayerCam;
+    Transform camSpec;
 
     private void Awake()
     {
         PV = GetComponent<PhotonView>();
 
-        if (PhotonNetwork.LocalPlayer.ActorNumber == PV.ControllerActorNr)
+        if (PV.IsMine)
         {
             canShoot = false;
             mousControl = GetComponent<PUNMouseControl>();
@@ -66,7 +67,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
     private void OnEnable()
     {
-        if (PhotonNetwork.LocalPlayer.ActorNumber == PV.ControllerActorNr)
+        if (PV.IsMine)
         {
             mousControl.OnShooted += PlayerShooted;
         }
@@ -74,7 +75,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
     private void OnDisable()
     {
-        if (PhotonNetwork.LocalPlayer.ActorNumber == PV.ControllerActorNr)
+        if (PV.IsMine)
         {
             mousControl.OnShooted -= PlayerShooted;
         }
@@ -82,7 +83,7 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (!(PhotonNetwork.LocalPlayer.ActorNumber == PV.ControllerActorNr))
+        if (!PV.IsMine)
         {
             return;
         }
@@ -187,14 +188,17 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
             UIManager.Instance.SetSavedCam();
         }
 
+        if(camSpec == null)
+        {
+            camSpec = CameraManager.Instance.CamSpecNetwork;
+        }
+
         currentTimer = startTimer;
         doTimer = true;
         myTimerInfo.gameObject.SetActive(true);
         GetMyBalls();
 
         this.GetComponent<PUNMouseControl>().DisableShootInTime();
-
-        AudioManager.Instance.SetPlayingSong(true);
     }
 
     public void GetMyBalls()
@@ -251,8 +255,6 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
         _turnPlayer["playerTurn"] = false;
         PhotonNetwork.LocalPlayer.SetCustomProperties(_turnPlayer);
         DeathMatchManager.Instance.NewTrun();
-
-        AudioManager.Instance.SetPlayingSong(false);
     }
 
     public void SendMessageString(string value)

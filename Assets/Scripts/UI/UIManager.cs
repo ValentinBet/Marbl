@@ -44,6 +44,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject PingTooltip;
 
     public GameObject LoadingPanel;
+    public GameObject WinPanel;
     public GameObject chat;
     public bl_ChatUI chatUI;
     public InfoTurnSettings infoTurnSettings;
@@ -124,12 +125,15 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
+        LocalPlayerManager pM = GameModeManager.Instance.localPlayerObj.GetComponent<LocalPlayerManager>();
+
+        pM.SendMessageString("<color=" + MarblGame.GetColorUI((int) PhotonNetwork.LocalPlayer.GetTeam()) + ">" + PhotonNetwork.LocalPlayer.NickName + "</color> disconnected !");
         StartCoroutine(LoadScene());
     }
 
     IEnumerator LoadScene()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(quitScene, LoadSceneMode.Single);
     }
 
@@ -440,5 +444,21 @@ public class UIManager : MonoBehaviourPunCallbacks
                 continue;
             }
         }
+    }
+
+    public void EndGame(Team winner)
+    {
+        WinPanel.SetActive(true);
+
+        if (WinPanel.GetComponent<Image>() != null)
+        {
+            WinPanel.GetComponent<Image>().color = MarblGame.GetColor((int)winner);
+        }
+
+        if (WinPanel.GetComponentInChildren<Text>() != null)
+        {
+            WinPanel.GetComponentInChildren<Text>().text = winner + " Team WIN";
+        }
+       
     }
 }

@@ -122,8 +122,6 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
                 actualBallLineRenderer = null;
             }
         }
-
-
     }
 
     public void NewBallSelected(GameObject ball)
@@ -212,7 +210,7 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
         }
     }
 
-    private void StopShoot()
+    public void StopShoot()
     {
         if (actualSelectedBallSettings != null)
         {

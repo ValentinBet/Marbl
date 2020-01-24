@@ -8,8 +8,9 @@ public class CameraManager : MonoBehaviour
 
     public GameObject CameraMain;
     public GameObject CameraTop;
+    public GameObject CameraSpec;
 
-    public Transform CameraSpec;
+    public Transform CamSpecNetwork;
 
     public CinemachineVirtualCamera CineMain;
     public CinemachineVirtualCamera CineTop;
