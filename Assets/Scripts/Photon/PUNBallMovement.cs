@@ -37,7 +37,9 @@ public class PUNBallMovement : MonoBehaviour
     public AudioClip hueCaptureSound;
 
     public GameObject fx_hitWoodSurface;
-
+    public List<Vector3> v3Record;
+    public Vector3 firstvector;
+    public bool startRecord = false;
     
     private void Awake()
     {
@@ -76,11 +78,35 @@ public class PUNBallMovement : MonoBehaviour
         {
             gameObject.layer = 12;
         }
-
+        if (startRecord == true)
+        {
+            v3Record.Add(transform.position-firstvector);
+        }
     }
 
     public void MoveBall(Vector3 direction, float angle, float dragForce)
     {
+        direction = new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * angle), ((45 - angle) / 45.0f + MovementSpeed * 2.0f) * Mathf.Sin(Mathf.Deg2Rad * angle) / (MovementSpeed * 2.0f), direction.z * Mathf.Cos(Mathf.Deg2Rad * angle));
+        Vector3 _impulse = direction * (dragForce * rigidbody.mass * MovementSpeed * 2.0f);
+
+        this.GetComponent<Rigidbody>().AddForceAtPosition(_impulse, transform.position, ForceMode.Impulse);
+        this.GetComponent<Rigidbody>().AddTorque(Vector3.Cross(direction, Vector3.up) * -torqueForce, ForceMode.Force);
+
+        if (shootSound != null)
+        {
+            myAudioSource.PlayOneShot(shootSound);
+        }
+
+        photonView.RPC("OnPlayerShoot", RpcTarget.Others);
+    }
+
+    public void MoveBall()
+    {
+        startRecord = true;
+        firstvector = transform.position;
+        Vector3 direction = Vector3.forward;
+        float angle = 45;
+        float dragForce = 6.0f;
         direction = new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * angle), ((45 - angle) / 45.0f + MovementSpeed * 2.0f) * Mathf.Sin(Mathf.Deg2Rad * angle) / (MovementSpeed * 2.0f), direction.z * Mathf.Cos(Mathf.Deg2Rad * angle));
         Vector3 _impulse = direction * (dragForce * rigidbody.mass * MovementSpeed * 2.0f);
 
