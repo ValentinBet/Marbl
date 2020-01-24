@@ -23,6 +23,9 @@ public class PlayerListEntry : MonoBehaviour
 
     Player myPlayer;
 
+    public ColorBlock normalColor;
+    public ColorBlock lockedColor;
+
     public void Initialize(Player player, Team team, string playerName)
     {
         myPlayer = player;
@@ -62,6 +65,7 @@ public class PlayerListEntry : MonoBehaviour
     public void SetPlayerReady(bool playerReady)
     {
         PlayerReadyButton.GetComponentInChildren<Text>().text = playerReady ? "Ready!" : "Ready?";
+        PlayerReadyButton.colors = playerReady ? lockedColor : normalColor;
         PlayerReadyImage.enabled = playerReady;
     }
 

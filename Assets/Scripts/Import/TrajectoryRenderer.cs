@@ -59,6 +59,10 @@ public class TrajectoryRenderer : MonoBehaviour
         {
             RenderArc();
             UpdateCurveMaterial();
+        } else
+        if (angle == 0)
+        {
+            ResetLandingZone();
         }
     }
 

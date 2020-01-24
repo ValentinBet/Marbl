@@ -222,6 +222,7 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
         Cursor.lockState = CursorLockMode.None;
         if (actualBallLineRenderer != null)
             actualBallLineRenderer.enabled = false;
+        angleIndex = 0;
         elevation = 0;
         dragForce = 0;
         DisplayDragForce();
