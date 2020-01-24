@@ -58,6 +58,10 @@ public class SettingsManager : MonoBehaviour
         {
             ChangeKey(buttonParameters);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            QuitSettingsScene();
+        }
 
     }
 

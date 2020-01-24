@@ -6,6 +6,8 @@ public class quickSettings : MonoBehaviour
 {
     public SettingsManager SM;
 
+
+    
     public void CloseAnim()
     {
         SM.QuitScene();
