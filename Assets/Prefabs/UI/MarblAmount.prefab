@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 665588691797225559}
   - component: {fileID: 665588691797225556}
   m_Layer: 5
-  m_Name: MarblAmount - Red
+  m_Name: MarblAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,8 +159,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 12
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 531e5514feadd3d438da7da7d2b966fc, type: 2}
-  m_sharedMaterial: {fileID: 21946661783110808, guid: 531e5514feadd3d438da7da7d2b966fc,
+  m_fontAsset: {fileID: 11400000, guid: e4954f9fafe156d43aa02c66dd45f0f2, type: 2}
+  m_sharedMaterial: {fileID: 21626359929187474, guid: e4954f9fafe156d43aa02c66dd45f0f2,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 72
+  m_fontSize: 0
   m_fontSizeBase: 70
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
+  m_firstOverflowCharacterIndex: 0
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0

@@ -107,7 +107,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 162.6, y: -4.7}
+  m_AnchoredPosition: {x: 168.2, y: -0.5}
   m_SizeDelta: {x: 1915.25, y: 287.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &77234391989388489
@@ -137,19 +137,19 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 495c9e2a934bcc640a8d7427b13cb680, type: 3}
+    m_Font: {fileID: 12800000, guid: a9f4f523ce444884dadf8a84c144ebe8, type: 3}
     m_FontSize: 104
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 126
+    m_MaxSize: 150
     m_Alignment: 3
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Death match
+  m_Text: Deathmatch
 --- !u!1 &77234392063490203
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,6 +467,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkedImg: {fileID: 77234392939947235}
   statut: 0
+  defaultValue: 0
+  OnActive:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDisable:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &77234392939947245
 GameObject:
   m_ObjectHideFlags: 0
