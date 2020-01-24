@@ -198,16 +198,12 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
             camSpec = CameraManager.Instance.CameraSpec;
         }
 
-        camSpec.GetComponent<PhotonView>().RequestOwnership();
-
         currentTimer = startTimer;
         doTimer = true;
         myTimerInfo.gameObject.SetActive(true);
         GetMyBalls();
 
         this.GetComponent<PUNMouseControl>().DisableShootInTime();
-
-        AudioManager.Instance.SetPlayingSong(true);
     }
 
     public void GetMyBalls()
@@ -264,8 +260,6 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
         _turnPlayer["playerTurn"] = false;
         PhotonNetwork.LocalPlayer.SetCustomProperties(_turnPlayer);
         DeathMatchManager.Instance.NewTrun();
-
-        AudioManager.Instance.SetPlayingSong(false);
     }
 
     public void SendMessageString(string value)
