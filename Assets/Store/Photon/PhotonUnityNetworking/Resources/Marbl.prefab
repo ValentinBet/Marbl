@@ -435,6 +435,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5667429776553265489}
     m_Modifications:
+    - target: {fileID: 4385810675540141165, guid: a138c0df53e25d743a21fd50d6fa8ab3,
+        type: 3}
+      propertyPath: m_Name
+      value: Trail_Fx
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895908275236787809, guid: a138c0df53e25d743a21fd50d6fa8ab3,
+        type: 3}
+      propertyPath: ShapeModule.type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895908275236787809, guid: a138c0df53e25d743a21fd50d6fa8ab3,
+        type: 3}
+      propertyPath: ShapeModule.radius.value
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895908275236787809, guid: a138c0df53e25d743a21fd50d6fa8ab3,
+        type: 3}
+      propertyPath: InitialModule.startSize.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895908275236787809, guid: a138c0df53e25d743a21fd50d6fa8ab3,
+        type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895908275236787809, guid: a138c0df53e25d743a21fd50d6fa8ab3,
+        type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3895908275236787809, guid: a138c0df53e25d743a21fd50d6fa8ab3,
+        type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4385810675540141164, guid: a138c0df53e25d743a21fd50d6fa8ab3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -494,41 +529,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3895908275236787809, guid: a138c0df53e25d743a21fd50d6fa8ab3,
-        type: 3}
-      propertyPath: ShapeModule.type
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3895908275236787809, guid: a138c0df53e25d743a21fd50d6fa8ab3,
-        type: 3}
-      propertyPath: ShapeModule.radius.value
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 3895908275236787809, guid: a138c0df53e25d743a21fd50d6fa8ab3,
-        type: 3}
-      propertyPath: InitialModule.startSize.minMaxState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3895908275236787809, guid: a138c0df53e25d743a21fd50d6fa8ab3,
-        type: 3}
-      propertyPath: InitialModule.startSizeY.minMaxState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3895908275236787809, guid: a138c0df53e25d743a21fd50d6fa8ab3,
-        type: 3}
-      propertyPath: InitialModule.startSizeZ.minMaxState
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3895908275236787809, guid: a138c0df53e25d743a21fd50d6fa8ab3,
-        type: 3}
-      propertyPath: ShapeModule.radiusThickness
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4385810675540141165, guid: a138c0df53e25d743a21fd50d6fa8ab3,
-        type: 3}
-      propertyPath: m_Name
-      value: Trail_Fx
       objectReference: {fileID: 0}
     - target: {fileID: 3277185668182101285, guid: a138c0df53e25d743a21fd50d6fa8ab3,
         type: 3}
