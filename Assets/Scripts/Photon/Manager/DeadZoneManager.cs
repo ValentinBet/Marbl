@@ -29,21 +29,8 @@ public class DeadZoneManager : MonoBehaviour
             _fx.transform.localScale = new Vector3(fxDieWidth, fxDieWidth, fxDieWidth);
             Destroy(_fx, 2);
 
-            if (DMactif)
-            {
-                DeathMatchManager.Instance.OnMarblDie(other.gameObject);
-            }
-            else
-            {
-                if (PhotonNetwork.IsMasterClient)
-                {
-                    PhotonView ballPV = other.gameObject.GetPhotonView();
-                    ballPV.TransferOwnership(PhotonNetwork.LocalPlayer);
-                    PhotonNetwork.Destroy(ballPV); 
-                }
+            DeathMatchManager.Instance.OnMarblDie(other.gameObject);
 
-                GameModeManager.Instance.DetectEndGame();
-            }
             QuickScoreboard.Instance.Refresh(); 
         }
     }
