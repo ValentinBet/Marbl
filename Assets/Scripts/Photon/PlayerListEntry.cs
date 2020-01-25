@@ -75,11 +75,17 @@ public class PlayerListEntry : MonoBehaviour
         {
             PhotonNetwork.LocalPlayer.SetPlayerReadyState(false);
             SetPlayerReady(false);
+
+            if (!PhotonNetwork.IsMasterClient)
+            {
+                dropTeam.gameObject.SetActive(true);
+            }
         }
         else
         {
             PhotonNetwork.LocalPlayer.SetPlayerReadyState(true);
             SetPlayerReady(true);
+            dropTeam.gameObject.SetActive(false);
         }
     }
 
