@@ -216,6 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainSprite: {fileID: 6485425533979384267}
   pingSprite: {fileID: 4376039192118185785}
+  audioSource: {fileID: 6090808467344724767}
 --- !u!82 &6090808467344724767
 AudioSource:
   m_ObjectHideFlags: 0
@@ -234,7 +235,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 150
   DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500

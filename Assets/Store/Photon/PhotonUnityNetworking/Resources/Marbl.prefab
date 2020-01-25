@@ -247,6 +247,9 @@ MonoBehaviour:
   hueCaptureSound: {fileID: 8300000, guid: a10afb99c216e25458b6ede195486efc, type: 3}
   fx_hitWoodSurface: {fileID: 5267383525042929903, guid: 3543ba8fe07ed4248a0b2488a8aba2e5,
     type: 3}
+  v3Record: []
+  firstvector: {x: 0, y: 0, z: 0}
+  startRecord: 0
 --- !u!114 &7495604838127120502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,7 +293,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 78
   DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 70
