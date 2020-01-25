@@ -28,7 +28,7 @@ public class MenuAnim : MonoBehaviour
         if (timerB > 20.0f)
             timerB = timerB - 20;
         rotateMarbl.transform.localRotation = Quaternion.Euler(0, 0, -timer * 360.0f - additionalRotation);
-        cot.m_Heading.m_Bias = -180.0f + timerB * 18.0f;
+        cot.m_Heading.m_Bias = -180.0f + timerB * 9.0f;
         if(Input.anyKeyDown)
         {
             GetComponent<Animator>().SetTrigger("Clicked");
