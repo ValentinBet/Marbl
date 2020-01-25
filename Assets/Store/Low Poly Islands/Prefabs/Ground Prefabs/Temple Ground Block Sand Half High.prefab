@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4278309280541968}
   - component: {fileID: 33932374921684990}
   - component: {fileID: 23466023483478544}
-  - component: {fileID: 65944983783908150}
-  - component: {fileID: 65094859151631054}
+  - component: {fileID: 1913890197}
+  - component: {fileID: 1913890198}
   m_Layer: 0
   m_Name: Temple Ground Block Sand Half High
   m_TagString: Untagged
@@ -60,7 +60,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 0ab343a0e7e302249872f0d627dc1260, type: 2}
-  - {fileID: 2100000, guid: 2830d93f8ef73634dbe9f5d387ace409, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,8 +79,8 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &65944983783908150
-BoxCollider:
+--- !u!64 &1913890197
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -90,19 +89,20 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 1.600007, z: 2.0000055}
-  m_Center: {x: 0, y: -0.20000002, z: 0.000000834465}
---- !u!65 &65094859151631054
-BoxCollider:
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 4300000, guid: 9ac07091fd20437448cf2fd557ded3d5, type: 3}
+--- !u!114 &1913890198
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1924076854883330}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 1.600007, z: 2.0000055}
-  m_Center: {x: 0, y: -0.20000002, z: 0.000000834465}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18728935f6dcaff4c94ab68674dfe4c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newMat: {fileID: 2100000, guid: 105e51f5bfe35784ab0f759e3aee2226, type: 2}
