@@ -81,7 +81,24 @@ public class PUNBallMovement : MonoBehaviour
         if (startRecord == true)
         {
             v3Record.Add(transform.position-firstvector);
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                for(int i = 1; i < v3Record.Count;i++)
+                {
+                    Debug.DrawLine(v3Record[i - 1], v3Record[i], Color.red, 5.0f);
+                    
+                    Debug.DrawLine(getPos(i - 1), getPos(i), Color.blue, 5.0f);
+                }
+                startRecord = false;
+            }
         }
+    }
+
+    private Vector3 getPos(int _i)
+    {
+        float z = (_i / (float)v3Record.Count) * 6.0f * (18.4f / Mathf.Abs(Physics2D.gravity.y));
+        float y = (((45.0f / 6.0f)) / 360.0f) * (-Mathf.Abs(Physics2D.gravity.y) * z * z + 18.4f * 6.0f * z) / 2.0f;
+        return new Vector3(0, y, z);
     }
 
     public void MoveBall(Vector3 direction, float angle, float dragForce)
