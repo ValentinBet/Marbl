@@ -96,9 +96,9 @@ public class PUNBallMovement : MonoBehaviour
 
     private Vector3 getPos(int _i)
     {
-        float z = (_i / (float)v3Record.Count) * 6.0f * (18.4f / Mathf.Abs(Physics2D.gravity.y));
-        float y = (((45.0f / 6.0f)) / 360.0f) * (-Mathf.Abs(Physics2D.gravity.y) * z * z + 18.4f * 6.0f * z) / 2.0f;
-        return new Vector3(0, y, z);
+        float z = (_i / (float)v3Record.Count) * 4.0f * (18.4f / Mathf.Abs(Physics2D.gravity.y)) + (_i * 0.075f);
+        float y = (((45.0f / 4.0f)) / 360.0f) * (-Mathf.Abs(Physics2D.gravity.y) * z * z + 18.4f * 4.0f * z) / 2.0f;
+        return new Vector3(0, y, z-(_i*0.075f)); //0.015f-8 //0.035f-6 //0.025 - 7 //0.055 -5 //0.085 - 4
     }
 
     public void MoveBall(Vector3 direction, float angle, float dragForce)
@@ -123,7 +123,7 @@ public class PUNBallMovement : MonoBehaviour
         firstvector = transform.position;
         Vector3 direction = Vector3.forward;
         float angle = 45;
-        float dragForce = 6.0f;
+        float dragForce = 4.0f;
         direction = new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * angle), ((45 - angle) / 45.0f + MovementSpeed * 2.0f) * Mathf.Sin(Mathf.Deg2Rad * angle) / (MovementSpeed * 2.0f), direction.z * Mathf.Cos(Mathf.Deg2Rad * angle));
         Vector3 _impulse = direction * (dragForce * rigidbody.mass * MovementSpeed * 2.0f);
 
