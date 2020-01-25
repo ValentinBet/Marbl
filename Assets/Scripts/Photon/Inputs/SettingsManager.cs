@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -40,10 +41,13 @@ public class SettingsManager : MonoBehaviour
     [Header("Settings data")]
     public SettingsList settingsList;
 
+    private string filename;
 
 
     private void Start()
     {
+        filename = Application.persistentDataPath + "Settings" + ".json";
+
         InitSettingsList();
 
         InitResDropdown();
@@ -164,7 +168,7 @@ public class SettingsManager : MonoBehaviour
         {
             ApplyKeyChange(keyButtonParameters);
         }
-
+        SaveAsJson();
         MakeChanges();
         InitSettingsList();
     }
@@ -173,7 +177,13 @@ public class SettingsManager : MonoBehaviour
     {
         Screen.SetResolution(ResolutionsList[resDropdown.value].x, ResolutionsList[resDropdown.value].y, Windowmodes[settingsList.settings.Windowmode]);
         QualitySettings.SetQualityLevel(settingsList.settings.Quality);
-        AudioListener.volume = settingsList.settings.GeneralVolume / 100;
+    }
+    public void SaveAsJson()
+    {
+        SettingsSaves settingsSaves = new SettingsSaves();
+        settingsSaves.GeneralVolume = generalVolumeSlider.value / 100;
+        string json = JsonUtility.ToJson(settingsSaves);
+        File.WriteAllText(filename, json);
     }
 
     public void QuitSettingsScene()
