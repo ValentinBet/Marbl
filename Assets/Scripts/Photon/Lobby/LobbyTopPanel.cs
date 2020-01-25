@@ -34,7 +34,6 @@ public class LobbyTopPanel : MonoBehaviourPunCallbacks
             AudioManager.Instance.SetPlayingSong(false);
             AudioManager.Instance.SetBackSong(true);
             AudioManager.Instance.backSong.Play();
-
         }
     }
 
