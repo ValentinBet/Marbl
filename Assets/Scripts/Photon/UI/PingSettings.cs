@@ -13,7 +13,7 @@ public class PingSettings : MonoBehaviour
     {
         if (audioSource != null)
         {
-            audioSource.volume = Mathf.Clamp(audioSource.volume, 0, 0.55f);
+            audioSource.volume = Mathf.Clamp(audioSource.volume, 0, 0.50f);
         }
     }
 }

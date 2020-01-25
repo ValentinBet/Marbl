@@ -41,6 +41,7 @@ public class SettingsManager : MonoBehaviour
     [Header("Settings data")]
     public SettingsList settingsList;
 
+    private SettingsSaves settingsSaves = new SettingsSaves();
     private string filename;
 
 
@@ -238,8 +239,16 @@ public class SettingsManager : MonoBehaviour
 
     public void InitAudioVisuals()
     {
-        generalVolumeInputField.text = (AudioListener.volume * 100).ToString();
-        generalVolumeSlider.value = AudioListener.volume * 100;
+        using (StreamReader r = new StreamReader(Application.persistentDataPath + "Settings" + ".json"))
+        {
+            var dataAsJson = r.ReadToEnd();
+            settingsSaves = JsonUtility.FromJson<SettingsSaves>(dataAsJson);
+        }
+
+
+
+        generalVolumeInputField.text = (settingsSaves.GeneralVolume * 100).ToString();
+        generalVolumeSlider.value = settingsSaves.GeneralVolume * 100;
     }
 
     public void OnGeneralVolumeSliderUpdate()
