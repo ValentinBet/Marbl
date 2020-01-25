@@ -44,7 +44,6 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject ChatTooltip;
     public GameObject PingTooltip;
 
-    public GameObject LoadingPanel;
     public GameObject WinPanel;
     public GameObject chat;
     public bl_ChatUI chatUI;
@@ -77,8 +76,6 @@ public class UIManager : MonoBehaviourPunCallbacks
         {
             _instance = this;
         }
-
-        LoadingPanel.SetActive(true);
     }
 
     private void Update()
