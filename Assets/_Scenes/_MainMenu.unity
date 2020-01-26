@@ -48,7 +48,7 @@ LightmapSettings:
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
-    m_IndirectOutputScale: 1
+    m_IndirectOutputScale: 0.79
     m_AlbedoBoost: 1
     m_EnvironmentLightingMode: 0
     m_EnableBakedLightmaps: 1
@@ -56,22 +56,22 @@ LightmapSettings:
   m_LightmapEditorSettings:
     serializedVersion: 10
     m_Resolution: 2
-    m_BakeResolution: 40
+    m_BakeResolution: 20
     m_AtlasSize: 1024
-    m_AO: 0
-    m_AOMaxDistance: 1
-    m_CompAOExponent: 1
+    m_AO: 1
+    m_AOMaxDistance: 0.5
+    m_CompAOExponent: 10
     m_CompAOExponentDirect: 0
     m_Padding: 2
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
+    m_FinalGather: 1
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
-    m_BakeBackend: 1
+    m_BakeBackend: 0
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 500
@@ -2624,7 +2624,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66d4e8dfe28a4c6498c1bfc4cd8dada9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2704b34ff1b0cc84ea19d7cc89c7a950, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4440,7 +4440,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66d4e8dfe28a4c6498c1bfc4cd8dada9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87d34221817c6e14ab36f96284ad8cf7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13453,7 +13453,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66d4e8dfe28a4c6498c1bfc4cd8dada9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f6f35639dd3af0e499bc71b3666031f8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15513,11 +15513,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1914697213529584187, guid: a24b9076a84753b4eb83ed432c1eab7f,
-        type: 3}
-      propertyPath: m_SelectedEditorRenderState
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1914697213529584184, guid: a24b9076a84753b4eb83ed432c1eab7f,
         type: 3}
       propertyPath: m_Mesh
@@ -15552,6 +15547,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914697213529584187, guid: a24b9076a84753b4eb83ed432c1eab7f,
+        type: 3}
+      propertyPath: m_SelectedEditorRenderState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24b9076a84753b4eb83ed432c1eab7f, type: 3}
@@ -17000,7 +17000,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66d4e8dfe28a4c6498c1bfc4cd8dada9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 976721717bce66a46a3ca5f926da46c5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17221,7 +17221,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66d4e8dfe28a4c6498c1bfc4cd8dada9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3dacd03ae9ff0654ea7216980fc2c807, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -17444,7 +17444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66d4e8dfe28a4c6498c1bfc4cd8dada9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f6f35639dd3af0e499bc71b3666031f8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19219,7 +19219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 49f1b57b2645d0a428f4721d9ec0bcde, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6c262b0a5f75f174295e74e80fd84fec, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -23712,7 +23712,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774267923}
-  m_LocalRotation: {x: -0.05284031, y: 0.94700783, z: -0.21538997, w: -0.23236006}
+  m_LocalRotation: {x: -0.05283591, y: 0.9470126, z: -0.21539105, w: -0.23234072}
   m_LocalPosition: {x: 23.96, y: 25.8741, z: 38.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -28063,26 +28063,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bumper (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 1268568310075324413, guid: a24b9076a84753b4eb83ed432c1eab7f,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1268568310075324413, guid: a24b9076a84753b4eb83ed432c1eab7f,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1268568310075324413, guid: a24b9076a84753b4eb83ed432c1eab7f,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1268568310075324413, guid: a24b9076a84753b4eb83ed432c1eab7f,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1914697213529584189, guid: a24b9076a84753b4eb83ed432c1eab7f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -28158,11 +28138,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1914697213529584187, guid: a24b9076a84753b4eb83ed432c1eab7f,
-        type: 3}
-      propertyPath: m_SelectedEditorRenderState
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1914697213529584184, guid: a24b9076a84753b4eb83ed432c1eab7f,
         type: 3}
       propertyPath: m_Mesh
@@ -28197,6 +28172,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914697213529584187, guid: a24b9076a84753b4eb83ed432c1eab7f,
+        type: 3}
+      propertyPath: m_SelectedEditorRenderState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268568310075324413, guid: a24b9076a84753b4eb83ed432c1eab7f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268568310075324413, guid: a24b9076a84753b4eb83ed432c1eab7f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268568310075324413, guid: a24b9076a84753b4eb83ed432c1eab7f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1268568310075324413, guid: a24b9076a84753b4eb83ed432c1eab7f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24b9076a84753b4eb83ed432c1eab7f, type: 3}
@@ -36188,7 +36188,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66d4e8dfe28a4c6498c1bfc4cd8dada9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 976721717bce66a46a3ca5f926da46c5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -36371,7 +36371,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66d4e8dfe28a4c6498c1bfc4cd8dada9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c41ac6c99873ba847bd4869003d47422, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -37662,7 +37662,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66d4e8dfe28a4c6498c1bfc4cd8dada9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87d34221817c6e14ab36f96284ad8cf7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -38806,7 +38806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66d4e8dfe28a4c6498c1bfc4cd8dada9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c41ac6c99873ba847bd4869003d47422, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -48373,7 +48373,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66d4e8dfe28a4c6498c1bfc4cd8dada9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3dacd03ae9ff0654ea7216980fc2c807, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -50132,11 +50132,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1914697213529584187, guid: a24b9076a84753b4eb83ed432c1eab7f,
-        type: 3}
-      propertyPath: m_SelectedEditorRenderState
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1914697213529584184, guid: a24b9076a84753b4eb83ed432c1eab7f,
         type: 3}
       propertyPath: m_Mesh
@@ -50171,6 +50166,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914697213529584187, guid: a24b9076a84753b4eb83ed432c1eab7f,
+        type: 3}
+      propertyPath: m_SelectedEditorRenderState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24b9076a84753b4eb83ed432c1eab7f, type: 3}
@@ -50627,7 +50627,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 49f1b57b2645d0a428f4721d9ec0bcde, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6c262b0a5f75f174295e74e80fd84fec, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -52308,11 +52308,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 1914697213529584187, guid: a24b9076a84753b4eb83ed432c1eab7f,
-        type: 3}
-      propertyPath: m_SelectedEditorRenderState
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1914697213529584184, guid: a24b9076a84753b4eb83ed432c1eab7f,
         type: 3}
       propertyPath: m_Mesh
@@ -52347,6 +52342,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1914697213529584187, guid: a24b9076a84753b4eb83ed432c1eab7f,
+        type: 3}
+      propertyPath: m_SelectedEditorRenderState
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a24b9076a84753b4eb83ed432c1eab7f, type: 3}
@@ -54202,7 +54202,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66d4e8dfe28a4c6498c1bfc4cd8dada9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2704b34ff1b0cc84ea19d7cc89c7a950, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -65969,7 +65969,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101710303}
-  m_LocalRotation: {x: -0.05284031, y: 0.94700783, z: -0.21538997, w: -0.23236006}
+  m_LocalRotation: {x: -0.05283591, y: 0.9470126, z: -0.21539105, w: -0.23234072}
   m_LocalPosition: {x: 23.96, y: 25.8741, z: 38.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
