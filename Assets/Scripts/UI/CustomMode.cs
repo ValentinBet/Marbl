@@ -103,8 +103,8 @@ public class CustomMode : MonoBehaviour
         }
         else
         {
-            image.GetComponent<Image>().color = Color.white;
-            image.transform.parent.GetComponent<Image>().color = Color.white;
+            image.GetComponent<Image>().color = new Color(0.3058824f, 0.3254902f, 0.345098f);
+            image.transform.parent.GetComponent<Image>().color = new Color(0.3058824f, 0.3254902f, 0.345098f);
         }
         RoomSettings.Instance.coins = CoinsBool;
 
