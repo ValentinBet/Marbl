@@ -33,7 +33,7 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 1024
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
@@ -56,15 +56,15 @@ LightmapSettings:
   m_LightmapEditorSettings:
     serializedVersion: 10
     m_Resolution: 2
-    m_BakeResolution: 15
-    m_AtlasSize: 128
+    m_BakeResolution: 20
+    m_AtlasSize: 1024
     m_AO: 1
-    m_AOMaxDistance: 1
-    m_CompAOExponent: 1
+    m_AOMaxDistance: 0.5
+    m_CompAOExponent: 10
     m_CompAOExponentDirect: 0
-    m_Padding: 8
+    m_Padding: 2
     m_LightmapParameters: {fileID: 0}
-    m_LightmapsBakeMode: 1
+    m_LightmapsBakeMode: 0
     m_TextureCompression: 1
     m_FinalGather: 1
     m_FinalGatherFiltering: 1
@@ -13134,6 +13134,16 @@ PrefabInstance:
       propertyPath: m_StandbyUpdate
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3905829297480623316, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000015258789
+      objectReference: {fileID: 0}
+    - target: {fileID: 3905829297480623316, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.0000038146973
+      objectReference: {fileID: 0}
     - target: {fileID: 8360887916484655226, guid: 7568d2c0f9dfe754e91bb48fe89f61ae,
         type: 3}
       propertyPath: volumeLayer.m_Bits
@@ -21176,6 +21186,36 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.4212723
       objectReference: {fileID: 0}
+    - target: {fileID: 65662581821241844, guid: e48f3f783c0989d4c8d790f1a4dc4d45,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65381605760217726, guid: e48f3f783c0989d4c8d790f1a4dc4d45,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65308741617125002, guid: e48f3f783c0989d4c8d790f1a4dc4d45,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65210019444313382, guid: e48f3f783c0989d4c8d790f1a4dc4d45,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65184771920943362, guid: e48f3f783c0989d4c8d790f1a4dc4d45,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65610813696826312, guid: e48f3f783c0989d4c8d790f1a4dc4d45,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4190501503749452, guid: e48f3f783c0989d4c8d790f1a4dc4d45, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.1844004
@@ -21223,36 +21263,6 @@ PrefabInstance:
     - target: {fileID: 4287113779005746, guid: e48f3f783c0989d4c8d790f1a4dc4d45, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.0031091808
-      objectReference: {fileID: 0}
-    - target: {fileID: 65381605760217726, guid: e48f3f783c0989d4c8d790f1a4dc4d45,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65184771920943362, guid: e48f3f783c0989d4c8d790f1a4dc4d45,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65210019444313382, guid: e48f3f783c0989d4c8d790f1a4dc4d45,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65308741617125002, guid: e48f3f783c0989d4c8d790f1a4dc4d45,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65610813696826312, guid: e48f3f783c0989d4c8d790f1a4dc4d45,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65662581821241844, guid: e48f3f783c0989d4c8d790f1a4dc4d45,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e48f3f783c0989d4c8d790f1a4dc4d45, type: 3}
