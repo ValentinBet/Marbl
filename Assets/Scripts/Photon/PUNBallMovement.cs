@@ -83,7 +83,7 @@ public class PUNBallMovement : MonoBehaviour
             v3Record.Add(transform.position-firstvector);
             if(Input.GetKeyDown(KeyCode.Space))
             {
-                for(int i = 1; i < v3Record.Count;i++)
+                for (int i = 1; i < v3Record.Count;i++)
                 {
                     Debug.DrawLine(v3Record[i - 1], v3Record[i], Color.red, 5.0f);
                     
@@ -96,9 +96,9 @@ public class PUNBallMovement : MonoBehaviour
 
     private Vector3 getPos(int _i)
     {
-        float z = (_i / (float)v3Record.Count) * 4.0f * (18.4f / Mathf.Abs(Physics2D.gravity.y)) + (_i * 0.075f);
-        float y = (((45.0f / 4.0f)) / 360.0f) * (-Mathf.Abs(Physics2D.gravity.y) * z * z + 18.4f * 4.0f * z) / 2.0f;
-        return new Vector3(0, y, z-(_i*0.075f)); //0.015f-8 //0.035f-6 //0.025 - 7 //0.055 -5 //0.085 - 4
+        float z = (_i / (float)v3Record.Count) *8.0f * (18.4f / Mathf.Abs(Physics2D.gravity.y)) + ((_i / (float)v3Record.Count) * 1.2f);//(((1.0f / (7.0f * 1.9f)) - 1.0f / 19.62f)) / (((45.0f - 25.0f) / 10.0f) * 0.923f + 1));
+        float y = (((22.0f / 8.0f)) / 360.0f) * (-Mathf.Abs(Physics2D.gravity.y) * z * z + 18.4f * 8.0f * z) / 2.0f; //22 --> 3.8f --> 2.3f
+        return new Vector3(0, y, z - ((_i / (float)v3Record.Count)*1.2f)); //0.015f-8 //0.035f-6 //0.025 - 7 //0.055 -5 //0.08 - 4 //0.115 - 3
     }
 
     public void MoveBall(Vector3 direction, float angle, float dragForce)
@@ -122,8 +122,8 @@ public class PUNBallMovement : MonoBehaviour
         startRecord = true;
         firstvector = transform.position;
         Vector3 direction = Vector3.forward;
-        float angle = 45;
-        float dragForce = 4.0f;
+        float angle = 22.0f;
+        float dragForce = 8.0f;
         direction = new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * angle), ((45 - angle) / 45.0f + MovementSpeed * 2.0f) * Mathf.Sin(Mathf.Deg2Rad * angle) / (MovementSpeed * 2.0f), direction.z * Mathf.Cos(Mathf.Deg2Rad * angle));
         Vector3 _impulse = direction * (dragForce * rigidbody.mass * MovementSpeed * 2.0f);
 

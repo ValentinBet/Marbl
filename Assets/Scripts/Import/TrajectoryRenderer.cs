@@ -75,7 +75,7 @@ public class TrajectoryRenderer : MonoBehaviour
         lr.colorGradient = DefineGradient(lrP);
         if (angle != 0)
         {
-            if (!PlaceLandingZone(lrP, lrP.Length / 2))
+            if (!PlaceLandingZone(lrP, 9))
                 ResetLandingZone();
         }
         else if (landingZone.transform.position != Vector3.down * 100)
@@ -97,6 +97,7 @@ public class TrajectoryRenderer : MonoBehaviour
         velocity = Mathf.Sqrt(maxDist * g / Mathf.Sin(radianAngle * 2));
 
         direction = new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
+        Debug.Log(direction);
         for (int i = 0; i <= resolution; i++)
         {
             float percent = (float)i / (float)resolution;
@@ -109,7 +110,7 @@ public class TrajectoryRenderer : MonoBehaviour
 
     private Vector3 CalculateArcPoint(float percent, float maxDist)
     {
-        float z = percent * maxDist;
+        float z = percent * maxDist + percent * (-1.13f*force+10.2f);
 
         float y = (((angle / force) ) / 360.0f) * (-g * z * z + multiplier * force * z)/2.0f; //9.2f == base multiplier
         if (y < 0)
@@ -117,7 +118,7 @@ public class TrajectoryRenderer : MonoBehaviour
             y = 0;
         }
 
-        return new Vector3(direction.x * z, y, direction.z * z);
+        return new Vector3(direction.x * (z- percent * (-1.13f * force + 10.2f)), y, direction.z * (z- percent * (-1.13f * force + 10.2f)));
     }
 
     private Gradient DefineGradient(Vector3[] positions)
@@ -146,20 +147,17 @@ public class TrajectoryRenderer : MonoBehaviour
             Vector3 CheckPos = positions[i] + transform.position;
             //Debug.DrawRay(position, Vector3.down);
 
-            if (Physics.Raycast(CheckPos, Vector3.down*0.1f, out raycastHit))
+            if (Physics.Raycast(CheckPos, Vector3.down, out raycastHit,0.4f))
             {
                 storedHit = raycastHit;
-                lastFound = true;
-                if (i == positions.Length-1)
-                {
-                    landingZone.transform.position = storedHit.point + Vector3.up * 0.1f;
-                    landingZone.transform.LookAt(storedHit.point + storedHit.normal);
-                    landingZone.transform.localScale = Vector3.one * maxDist * landingGrowthRate;
-                    return true;
-                }
+                landingZone.transform.position = storedHit.point + Vector3.up * 0.1f;
+                landingZone.transform.LookAt(storedHit.point + storedHit.normal);
+                landingZone.transform.localScale = Vector3.one * maxDist * landingGrowthRate;
+                return true;
             }
             else if (lastFound)
             {
+                Debug.Log("FirstFound");
                 landingZone.transform.position = storedHit.point + Vector3.up * 0.1f;
                 landingZone.transform.LookAt(storedHit.point + storedHit.normal);
                 landingZone.transform.localScale = Vector3.one * maxDist * landingGrowthRate;
