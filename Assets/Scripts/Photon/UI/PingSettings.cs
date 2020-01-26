@@ -11,9 +11,9 @@ public class PingSettings : MonoBehaviour
 
     private void Update()
     {
-        if (audioSource != null)
+        if (audioSource != null && InputManager.Instance != null)
         {
-            audioSource.volume = Mathf.Clamp(audioSource.volume, 0, 0.50f);
+            audioSource.volume = InputManager.Instance.Inputs.inputs.GeneralVolume / 2;
         }
     }
 }

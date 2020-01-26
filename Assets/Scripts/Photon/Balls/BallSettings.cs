@@ -26,6 +26,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     private Color fxColor;
     private float fxChargePower;
 
+    private Material[] _mats;
 
     private void Awake()
     {
@@ -40,7 +41,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     private void Update()
     {
         CheckTeam();
-        SetColor();
         currentSpeed = Mathf.Lerp(currentSpeed, myRigid.velocity.sqrMagnitude, 1 * Time.deltaTime);
     }
 
@@ -104,7 +104,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     public void SetColor()
     {
         //color ball
-        Material[] _mats = this.GetComponent<Renderer>().materials;
+        _mats = this.GetComponent<Renderer>().materials;
         _mats[0] = GameModeManager.Instance.colorsMat[(int)myteam];
         this.GetComponent<Renderer>().materials = _mats;
 
