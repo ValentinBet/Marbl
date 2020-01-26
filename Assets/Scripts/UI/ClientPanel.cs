@@ -54,26 +54,26 @@ public class ClientPanel : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.CurrentRoom.GetRoundProp() == 21)
         {
-            generalInfo.text += "Round number : ∞";
+            generalInfo.text += "Round amount : ∞";
         }
         else
         {
-            generalInfo.text += "Round number : " + PhotonNetwork.CurrentRoom.GetRoundProp();
+            generalInfo.text += "Round amount : " + PhotonNetwork.CurrentRoom.GetRoundProp();
         }
 
 
         //Ball settings
-        ballInfo.text = "Ball number by team : " + PhotonNetwork.CurrentRoom.GetNbrbBallProp() + "\n" +
+        ballInfo.text = "Marbl amount per team : " + PhotonNetwork.CurrentRoom.GetNbrbBallProp() + "\n" +
             "Spawn mode : ";
 
         switch (PhotonNetwork.CurrentRoom.GetSpawnMode())
         {
             case 0:
-                ballInfo.text += "team";
+                ballInfo.text += "Team positions";
                 break;
 
             case 1:
-                ballInfo.text += "random";
+                ballInfo.text += "Random positions";
                 break;
         }
 
@@ -112,8 +112,8 @@ public class ClientPanel : MonoBehaviourPunCallbacks
         {
             koth.SetActive(true);
 
-            kothInfo.text = "Number of area : " + PhotonNetwork.CurrentRoom.GetNbrHill() + "\n" +
-             "Gamemode : ";
+            kothInfo.text = "Hill amount : " + PhotonNetwork.CurrentRoom.GetNbrHill() + "\n" +
+             "Capture Modes : ";
 
             switch (PhotonNetwork.CurrentRoom.GetHillMode())
             {
@@ -130,7 +130,7 @@ public class ClientPanel : MonoBehaviourPunCallbacks
                     break;
             }
 
-            kothInfo.text += "\n" + "Points in area : " + PhotonNetwork.CurrentRoom.GetHillPoint();
+            kothInfo.text += "\n" + "Capture Points : " + PhotonNetwork.CurrentRoom.GetHillPoint();
         }
         else
         {
@@ -142,7 +142,7 @@ public class ClientPanel : MonoBehaviourPunCallbacks
         {
             hue.SetActive(true);
 
-            hueInfo.text = "Number of neutral balls : " + PhotonNetwork.CurrentRoom.GetHueNutralBall();
+            hueInfo.text = "Neutral Marbl amount : " + PhotonNetwork.CurrentRoom.GetHueNutralBall();
         }
         else
         {
