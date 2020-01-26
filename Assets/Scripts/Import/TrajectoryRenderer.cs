@@ -97,7 +97,7 @@ public class TrajectoryRenderer : MonoBehaviour
         velocity = Mathf.Sqrt(maxDist * g / Mathf.Sin(radianAngle * 2));
 
         direction = new Vector3(Camera.main.transform.forward.x, 0, Camera.main.transform.forward.z);
-        Debug.Log(direction);
+        //Debug.Log(direction);
         for (int i = 0; i <= resolution; i++)
         {
             float percent = (float)i / (float)resolution;
