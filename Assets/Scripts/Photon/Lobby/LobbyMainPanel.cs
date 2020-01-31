@@ -54,6 +54,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     public GameObject settingsPanel;
     public GameObject PlayerListEntryPrefab;
     public Animator MainMenuAnim;
+    public Animator CreditsAnim;
 
     private bool locked = false;
     private bool restartedGame = false;
@@ -326,6 +327,16 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     {
         PlayMenuSound();
         PhotonNetwork.LeaveRoom();
+    }
+
+    public void OnCreditsButtonClicked()
+    {
+        CreditsAnim.Play("Open");
+    }
+
+    public void OnCreditsLeave()
+    {
+        CreditsAnim.Play("Close");
     }
 
     public void ChangeName()
