@@ -14,8 +14,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     [Header("Multiplayer Scene")]
     public string multiplayerScene;
 
-    public InputField PlayerNameInput;
-
     [Header("Selection Panel")]
     public GameObject SelectionPanel;
 
@@ -75,13 +73,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
             PhotonNetwork.ConnectUsingSettings();
         }
 
-        if (!PlayerPrefs.HasKey("Name"))
-        {
-            PlayerPrefs.SetString("Name", "Player" + Random.Range(100, 999));
-        }
-
-        PlayerNameInput.text = PlayerPrefs.GetString("Name");
-
         ReconnectButton.SetActive(false);
 
         PhotonNetwork.SendRate = 100;
@@ -116,8 +107,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         this.SetActivePanel(SelectionPanel.name);
-
-        PhotonNetwork.LocalPlayer.NickName = PlayerNameInput.text;
         //On Connection
         QuickGameButton.interactable = true;
         CreateLobbyButton.interactable = true;
@@ -337,22 +326,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     public void OnCreditsLeave()
     {
         CreditsAnim.Play("Close");
-    }
-
-    public void ChangeName()
-    {
-        string playerName = PlayerNameInput.text;
-
-        if (!playerName.Equals(""))
-        {
-            PhotonNetwork.LocalPlayer.NickName = playerName;
-            PlayerPrefs.SetString("Name", playerName);
-            PopupManager.Instance.DisplayPopup(popUpType.Confirmation, "Name changed");
-        }
-        else
-        {
-            PopupManager.Instance.DisplayPopup(popUpType.Forbident, "Failed to change name");
-        }
     }
 
     public void OnRoomListButtonClicked()
