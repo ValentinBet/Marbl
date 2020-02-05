@@ -50,6 +50,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     public GameObject hostPanel;
     public GameObject clientPanel;
     public GameObject settingsPanel;
+    public GameObject modesPanel;
     public GameObject PlayerListEntryPrefab;
     public Animator MainMenuAnim;
     public Animator CreditsAnim;
@@ -157,8 +158,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         PhotonNetwork.CurrentRoom.SetMap(RoomScripts.Instance.map);
         RoomSettings.Instance.SaveSettings();
-
-
         GameObject playerChat = PhotonNetwork.Instantiate("PlayerChat", Vector3.zero, Quaternion.identity);
 
         ChatManager.Instance.lobbyPlayerChat = playerChat.GetComponent<LobbyChat>();
@@ -185,8 +184,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsMasterClient)
         {
-            hostPanel.SetActive(true);
-            clientPanel.SetActive(false);
+            modesPanel.SetActive(true);
+            parentPlayerList.gameObject.SetActive(false);
         }
         else
         {
@@ -478,6 +477,29 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     private void PlayMenuSound()
     {
         AudioManager.Instance.PlayThisSound(AudioManager.Instance.menuSong,1);
+    }
+
+    public void OnGameModeChoose(string gamemode)
+    {
+        if (gamemode == "Custom")
+        {
+            LoadLobbyForCustom();
+        } else
+        {
+            RoomScripts.Instance.OnGameModeChoose(gamemode);
+        }
+        LoadLobbyForCustom();
+        parentPlayerList.gameObject.SetActive(true);
+        modesPanel.SetActive(false);
+    }
+
+    private void LoadLobbyForCustom()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            hostPanel.SetActive(true);
+            clientPanel.SetActive(false);
+        }
     }
 
 }

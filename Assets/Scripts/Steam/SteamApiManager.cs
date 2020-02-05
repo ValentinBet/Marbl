@@ -12,22 +12,17 @@ public class SteamApiManager : MonoBehaviour
     public TextMeshProUGUI userName;
 
     void Start()
-    {
+    {      
         bool m_bInitialized = SteamAPI.Init();
-        if (!m_bInitialized)
+        if (!m_bInitialized && SteamManager.Initialized)
         {
             Debug.LogError("[Steamworks.NET] SteamAPI_Init() failed. Refer to Valve's documentation or the comment above this line for more information.", this);
 
             return;
         }
-
-        print("test");
-
         userName.text = SteamFriends.GetPersonaName();
         avatarPlayer.sprite = GetSteamImageAsTexture2D(SteamFriends.GetLargeFriendAvatar(SteamUser.GetSteamID()));
     }
-
-
 
     public static Sprite GetSteamImageAsTexture2D(int iImage)
     {

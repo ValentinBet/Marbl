@@ -16,7 +16,7 @@ public class RoomScripts : MonoBehaviour
     [Header("Mode")]
     public Image OutlinedMode;
 
-    public string map = "Close.json";
+    public string map = "VKing";
 
     public bool customMode = false;
     public bool customModeSave = false;
@@ -26,6 +26,10 @@ public class RoomScripts : MonoBehaviour
     public GameObject customGamemodePrefab;
     public Transform gamemodeParent;
 
+    public List<MapElement> allMaps = new List<MapElement>();
+
+    public MapPool mapPool;
+    private List<string> mapPoolChoose = new List<string>();
     private static RoomScripts _instance;
     public static RoomScripts Instance { get { return _instance; } }
 
@@ -49,9 +53,6 @@ public class RoomScripts : MonoBehaviour
 
         Refresh();
     }
-
-
-
 
     public void SetMode(Image img)
     {
@@ -127,7 +128,7 @@ public class RoomScripts : MonoBehaviour
 
         if (modeSettings.hill)
         {
-            if(infoMode != "")
+            if (infoMode != "")
             {
                 infoMode += "<color=red> X </color>";
             }
@@ -163,5 +164,51 @@ public class RoomScripts : MonoBehaviour
         }
 
         return infoMode;
+    }
+
+
+    public void OnGameModeChoose(string gamemode)
+    {
+        switch (gamemode)
+        {
+            case "Deathmatch":
+                mapPoolChoose = mapPool.DeathmatchPool;
+                fileModeName = "DeathMatch.json";
+                break;
+            case "Hue":
+                mapPoolChoose = mapPool.HuePool;
+                fileModeName = "HUE.json";
+                break;
+            case "Koth":
+                mapPoolChoose = mapPool.KothPool;
+                fileModeName = "King of the hill - One for One.json";
+                break;
+            default:
+                print("error");
+                break;
+        }
+
+        Refresh();
+        RefreshMaps();
+        chooseMapRandomly();
+    }
+
+    private void chooseMapRandomly()
+    {
+        int x = Random.Range(0, mapPoolChoose.Count);
+        map = mapPoolChoose[x];
+        PhotonNetwork.CurrentRoom.SetMap(map);
+    }
+
+    private void RefreshMaps()
+    {
+        foreach (MapElement _map in allMaps)
+        {
+            if (_map.nameMap == PhotonNetwork.CurrentRoom.GetMap())
+            {
+                _map.SetMap();
+                return;
+            }
+        }
     }
 }
