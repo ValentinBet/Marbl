@@ -60,6 +60,7 @@ public class RoomScripts : MonoBehaviour
         }
     }
 
+
     public void SetMode(Image img)
     {
 
