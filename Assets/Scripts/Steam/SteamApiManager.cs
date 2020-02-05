@@ -11,17 +11,44 @@ public class SteamApiManager : MonoBehaviour
     public Image avatarPlayer;
     public TextMeshProUGUI userName;
 
+    public Transform parentFriendList;
+    public GameObject prefabFriend;
+
     void Start()
-    {      
+    {
         bool m_bInitialized = SteamAPI.Init();
-        if (!m_bInitialized && SteamManager.Initialized)
+        if (!m_bInitialized)
         {
             Debug.LogError("[Steamworks.NET] SteamAPI_Init() failed. Refer to Valve's documentation or the comment above this line for more information.", this);
 
             return;
         }
+
         userName.text = SteamFriends.GetPersonaName();
+        PhotonNetwork.NickName = SteamFriends.GetPersonaName();
         avatarPlayer.sprite = GetSteamImageAsTexture2D(SteamFriends.GetLargeFriendAvatar(SteamUser.GetSteamID()));
+
+        DisplayFriend();
+    }
+
+    void DisplayFriend()
+    {
+        int friendCount = SteamFriends.GetFriendCount(EFriendFlags.k_EFriendFlagImmediate);
+        //Debug.Log("[STEAM-FRIENDS] Listing " + friendCount + " Friends.");
+
+        for (int i = 0; i < friendCount; ++i)
+        {
+            CSteamID friendSteamId = SteamFriends.GetFriendByIndex(i, EFriendFlags.k_EFriendFlagImmediate);
+            string friendName = SteamFriends.GetFriendPersonaName(friendSteamId);
+            EPersonaState friendState = SteamFriends.GetFriendPersonaState(friendSteamId);
+
+            if(friendState == EPersonaState.k_EPersonaStateOnline)
+            {
+                GameObject newFriend = Instantiate(prefabFriend, parentFriendList);
+
+                newFriend.GetComponent<FriendElement>().InitValue(GetSteamImageAsTexture2D(SteamFriends.GetLargeFriendAvatar(friendSteamId)) ,friendName, friendSteamId);
+            }
+        }
     }
 
     public static Sprite GetSteamImageAsTexture2D(int iImage)
