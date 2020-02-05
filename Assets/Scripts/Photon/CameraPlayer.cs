@@ -4,6 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using static MarblGame;
 using Photon.Pun;
+using Photon.Pun.UtilityScripts;
 
 public class CameraPlayer : MonoBehaviour
 {
@@ -86,16 +87,22 @@ public class CameraPlayer : MonoBehaviour
 
     private void InitializeCameras()
     {
-        cameras = new CinemachineVirtualCamera[3];
+        cameras = new CinemachineVirtualCamera[4];
 
         cameras[0] = CameraManager.Instance.CineMain;
         cameras[1] = CameraManager.Instance.CineTop;
         cameras[2] = CameraManager.Instance.CineSpec;
+        cameras[3] = CameraManager.Instance.CineForce;
     }
     #endregion
 
     void Update()
     {
+        if (PhotonNetwork.CurrentRoom.GetForceCam() && actualMode != CameraMode.Force)
+        {
+            SetCameraMode(CameraMode.Force);
+        }
+
         ballModeCalculation();
 
         if (camSpec == null)
@@ -156,6 +163,7 @@ public class CameraPlayer : MonoBehaviour
                 cameras[0].Priority = 0;
                 cameras[1].Priority = 100;
                 cameras[2].Priority = 0;
+                cameras[3].Priority = 0;
                 saveMode = actualMode;
                 break;
 
@@ -164,6 +172,7 @@ public class CameraPlayer : MonoBehaviour
                 cameras[0].Priority = 100;
                 cameras[1].Priority = 0;
                 cameras[2].Priority = 0;
+                cameras[3].Priority = 0;
                 saveMode = actualMode;
                 break;
 
@@ -172,6 +181,15 @@ public class CameraPlayer : MonoBehaviour
                 cameras[0].Priority = 0;
                 cameras[1].Priority = 0;
                 cameras[2].Priority = 100;
+                cameras[3].Priority = 0;
+                break;
+
+            case CameraMode.Force:
+                myLocalPlayerManager.SetBlock(false);
+                cameras[0].Priority = 0;
+                cameras[1].Priority = 0;
+                cameras[2].Priority = 0;
+                cameras[3].Priority = 100;
                 break;
         }
     }

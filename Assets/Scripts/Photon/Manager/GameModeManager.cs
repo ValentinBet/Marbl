@@ -104,6 +104,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
                 _indexList.Add(index);
             }
         }
+
         int numbrBallByTeam = PhotonNetwork.CurrentRoom.GetNbrbBallProp();
 
         if (PhotonNetwork.CurrentRoom.GetSpawnMode() == 0)
@@ -179,6 +180,10 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         DeathMatchManager.Instance.ActiveThisMode(modeDM);
         HillManager.Instance.ActiveThisMode(modeHill);
         HueManager.Instance.ActiveThisMode(modeHue);
+
+        EventManager.Instance.EndTurn();
+
+
     }
 
     void CreateTeamList()

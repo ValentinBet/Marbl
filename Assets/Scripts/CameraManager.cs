@@ -9,12 +9,14 @@ public class CameraManager : MonoBehaviour
     public GameObject CameraMain;
     public GameObject CameraTop;
     public GameObject CameraSpec;
+    public GameObject CameraForce;
 
     public Transform CamSpecNetwork;
 
     public CinemachineVirtualCamera CineMain;
     public CinemachineVirtualCamera CineTop;
     public CinemachineVirtualCamera CineSpec;
+    public CinemachineVirtualCamera CineForce;
 
     private static CameraManager _instance;
     public static CameraManager Instance { get { return _instance; } }

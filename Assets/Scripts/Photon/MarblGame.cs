@@ -65,7 +65,8 @@ public class MarblGame
         Void,
         Targeted,
         SpecMode,
-        Top
+        Top,
+        Force
     }
 
 }
