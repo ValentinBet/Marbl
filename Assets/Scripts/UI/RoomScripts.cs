@@ -28,6 +28,7 @@ public class RoomScripts : MonoBehaviour
 
     public List<MapElement> allMaps = new List<MapElement>();
 
+    public HostPanel hostPanel;
     public MapPool mapPool;
     private List<string> mapPoolChoose = new List<string>();
     private static RoomScripts _instance;
@@ -189,8 +190,9 @@ public class RoomScripts : MonoBehaviour
         }
 
         Refresh();
-        RefreshMaps();
         chooseMapRandomly();
+        RefreshMaps();
+        hostPanel.topPanel.SetActive(false);
     }
 
     private void chooseMapRandomly()

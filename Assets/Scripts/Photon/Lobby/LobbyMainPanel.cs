@@ -488,7 +488,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         {
             RoomScripts.Instance.OnGameModeChoose(gamemode);
         }
-        LoadLobbyForCustom();
         parentPlayerList.gameObject.SetActive(true);
         modesPanel.SetActive(false);
     }
@@ -497,6 +496,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
+            RoomScripts.Instance.hostPanel.topPanel.SetActive(true);
             hostPanel.SetActive(true);
             clientPanel.SetActive(false);
         }

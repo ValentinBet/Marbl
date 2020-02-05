@@ -72,7 +72,8 @@ public class SteamApiManager : MonoBehaviour
             }
         }
 
-        mySprite = Sprite.Create(ret, new Rect(0.0f, 0.0f, ret.width, ret.height), new Vector2(0.5f, 0.5f), 100.0f); ;
+            mySprite = Sprite.Create(ret, new Rect(0.0f, 0.0f, ret.width, ret.height), new Vector2(0.5f, 0.5f), 100.0f);
+
 
         return mySprite;
     }

@@ -20,7 +20,7 @@ public class HostPanel : MonoBehaviourPunCallbacks
     public GameObject GameMode;
     public GameObject Map;
     public GameObject Custom;
-
+    public GameObject topPanel;
     [SerializeField] private Color selectedColor;
     [SerializeField] private Color normalColor;
 
