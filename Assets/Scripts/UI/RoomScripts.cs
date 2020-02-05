@@ -45,14 +45,19 @@ public class RoomScripts : MonoBehaviour
             _instance = this;
         }
     }
-
+    private void Update()
+    {
+        Debug.Log(PhotonNetwork.CurrentRoom.GetMap());
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        PhotonNetwork.CurrentRoom.SetMap(map);
-
-        Refresh();
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.CurrentRoom.SetMap(map);
+            Refresh();
+        }
     }
 
     public void SetMode(Image img)
@@ -199,7 +204,7 @@ public class RoomScripts : MonoBehaviour
     {
         int x = Random.Range(0, mapPoolChoose.Count);
         map = mapPoolChoose[x];
-        PhotonNetwork.CurrentRoom.SetMap(map);
+        SetMap(map);
     }
 
     private void RefreshMaps()

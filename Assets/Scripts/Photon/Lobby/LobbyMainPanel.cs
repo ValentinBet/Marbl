@@ -185,12 +185,14 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         if (PhotonNetwork.IsMasterClient)
         {
             parentPlayerList.gameObject.SetActive(false);
+            modesPanel.SetActive(true);
         }
         else
         {
             hostPanel.SetActive(false);
             clientPanel.SetActive(true);
             settingsPanel.SetActive(false);
+            modesPanel.SetActive(false);
         }
     }
 
@@ -281,10 +283,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         SetActivePanel(SelectionPanel.name);
     }
 
-    public override void OnCreatedRoom()
-    {
-        modesPanel.SetActive(true);
-    }
     public void OnCreateRoomButtonClicked()
     {
         PlayMenuSound();
