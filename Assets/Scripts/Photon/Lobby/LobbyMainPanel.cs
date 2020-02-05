@@ -184,7 +184,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsMasterClient)
         {
-            modesPanel.SetActive(true);
             parentPlayerList.gameObject.SetActive(false);
         }
         else
@@ -282,6 +281,10 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         SetActivePanel(SelectionPanel.name);
     }
 
+    public override void OnCreatedRoom()
+    {
+        modesPanel.SetActive(true);
+    }
     public void OnCreateRoomButtonClicked()
     {
         PlayMenuSound();
