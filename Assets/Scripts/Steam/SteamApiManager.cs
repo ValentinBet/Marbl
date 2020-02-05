@@ -14,15 +14,25 @@ public class SteamApiManager : MonoBehaviour
     public Transform parentFriendList;
     public GameObject prefabFriend;
 
+    public GameObject panelSteam;
+
     void Start()
     {
+        TryConnect();
+    }
+
+    public void TryConnect() {
         bool m_bInitialized = SteamAPI.Init();
+
         if (!m_bInitialized)
         {
-            Debug.LogError("[Steamworks.NET] SteamAPI_Init() failed. Refer to Valve's documentation or the comment above this line for more information.", this);
+
+            PopupManager.Instance.DisplayPopup(PopupManager.popUpType.Exclamation, "Steam can't be found");
 
             return;
         }
+
+        panelSteam.SetActive(false);
 
         userName.text = SteamFriends.GetPersonaName();
         PhotonNetwork.NickName = SteamFriends.GetPersonaName();
@@ -72,8 +82,13 @@ public class SteamApiManager : MonoBehaviour
             }
         }
 
+        try
+        {
             mySprite = Sprite.Create(ret, new Rect(0.0f, 0.0f, ret.width, ret.height), new Vector2(0.5f, 0.5f), 100.0f);
-
+        }
+        catch {
+            return null;
+        }
 
         return mySprite;
     }
