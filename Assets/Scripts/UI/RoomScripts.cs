@@ -45,10 +45,6 @@ public class RoomScripts : MonoBehaviour
             _instance = this;
         }
     }
-    private void Update()
-    {
-        Debug.Log(PhotonNetwork.CurrentRoom.GetMap());
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -63,7 +59,6 @@ public class RoomScripts : MonoBehaviour
 
     public void SetMode(Image img)
     {
-
         OutlinedMode.color = Color.white;
         OutlinedMode = img;
         OutlinedMode.color = new Color(1, 0.1986281f, 0);
