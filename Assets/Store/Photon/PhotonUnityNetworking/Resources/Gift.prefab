@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 9198104094436205603}
   - component: {fileID: 3545935545977028279}
   - component: {fileID: 7426264058398150052}
+  - component: {fileID: 114739808282993038}
   m_Layer: 16
   m_Name: Gift
   m_TagString: Gift
@@ -83,9 +84,10 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 2
+  OwnershipTransfer: 1
   ObservedComponents:
   - {fileID: 3545935545977028279}
+  - {fileID: 114739808282993038}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -119,6 +121,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabParticule: {fileID: 1901858458647210, guid: 0426e3d6996937045b977f3a66e95ee4,
     type: 3}
+--- !u!114 &114739808282993038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010238139128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 1
+  m_SynchronizeScale: 0
 --- !u!1 &1000011116579472
 GameObject:
   m_ObjectHideFlags: 0

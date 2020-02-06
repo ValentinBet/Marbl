@@ -48,7 +48,7 @@ public class EventManager : MonoBehaviour
 
     public void EndTurn()
     {
-        StartCoroutine(SpawnGift(300));
+        StartCoroutine(SpawnGift(3));
     }
 
     public void EndRound()
