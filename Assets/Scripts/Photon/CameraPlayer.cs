@@ -103,6 +103,18 @@ public class CameraPlayer : MonoBehaviour
             SetCameraMode(CameraMode.Force);
         }
 
+        if (PhotonNetwork.CurrentRoom.GetForceCam() == false && actualMode == CameraMode.Force)
+        {
+            if (GameModeManager.Instance.localPlayerTurn)
+            {
+                SetCameraMode(saveMode);
+            }
+            else
+            {
+                SetCameraMode(CameraMode.SpecMode);
+            }
+        }
+
         ballModeCalculation();
 
         if (camSpec == null)

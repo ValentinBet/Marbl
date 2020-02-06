@@ -81,6 +81,11 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
         }
     }
 
+    private void Start()
+    {
+        PhotonNetwork.LocalPlayer.SetPlayerMapState(true);
+    }
+
     private void Update()
     {
         if (!PV.IsMine)
@@ -110,7 +115,11 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
 
         if (canShoot && !haveShoot && doTimer)
         {
-            currentTimer -= Time.deltaTime;
+            if (!PhotonNetwork.CurrentRoom.GetForceCam())
+            {
+                currentTimer -= Time.deltaTime;
+            }
+
             myTimerInfo.SetTime(Mathf.RoundToInt(currentTimer));
 
             if (currentTimer < 0)

@@ -33,5 +33,23 @@ public class DeadZoneManager : MonoBehaviour
 
             QuickScoreboard.Instance.Refresh(); 
         }
+
+        if(other.tag == "Gift")
+        {
+            AudioManager.Instance.PlayThisSound(AudioManager.Instance.ballDeath);
+
+            GameObject _fx = Instantiate(fx_MarblDie, other.transform.position, Random.rotation);
+            _fx.transform.localScale = new Vector3(fxDieWidth, fxDieWidth, fxDieWidth);
+            Destroy(_fx, 2);
+
+
+            if (GameModeManager.Instance.localPlayerTurn)
+            {
+                PhotonView pv = other.GetComponent<PhotonView>();
+
+                pv.RequestOwnership();
+                PhotonNetwork.Destroy(pv);
+            }
+        }
     }
 }

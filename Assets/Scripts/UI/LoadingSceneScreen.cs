@@ -34,6 +34,8 @@ public class LoadingSceneScreen : MonoBehaviourPunCallbacks
     //None
     public GameObject None;
 
+    bool gameStart = false;
+
     private void Awake()
     {
         gameObject.SetActive(true);
@@ -105,14 +107,27 @@ public class LoadingSceneScreen : MonoBehaviourPunCallbacks
 
     public override void OnPlayerPropertiesUpdate(Player target, ExitGames.Client.Photon.Hashtable changedProps)
     {
+        int numberPlayerReady = 0;
         foreach (PlayerListElement _p in allPlayerElement)
         {
             if (target.GetPlayerMapState())
             {
                 _p.statutText.text = "Ready";
                 _p.statutText.color = Color.green;
+                numberPlayerReady++;
             }
         }
 
+        if(PhotonNetwork.IsMasterClient && numberPlayerReady == PhotonNetwork.PlayerList.Length && !gameStart)
+        {
+            gameStart = true;
+            StartCoroutine(WaitToStart());
+        }
+    }
+
+    IEnumerator WaitToStart()
+    {
+        yield return new WaitForSeconds(2);
+        GameModeManager.Instance.StartGameForAll();
     }
 }
