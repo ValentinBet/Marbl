@@ -66,6 +66,9 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject commandFocus;
     public GameObject commandShoot;
 
+    [Header("Ui panel")]
+    public GameObject loadingPanel;
+
     private void Awake()
     {
         if (_instance != null && _instance != this)

@@ -71,14 +71,15 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         AudioManager.Instance.playingSong.Play();
 
         PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
+    }
 
+    public void StartGameForAll()
+    {
         StartGame();
     }
 
     private void StartGame()
     {
-        if (!PhotonNetwork.IsMasterClient) { return; }
-
         //CameraSpec
         GameObject camSpec = PhotonNetwork.Instantiate("CamSpec", Vector3.zero, Quaternion.identity);
 
@@ -173,6 +174,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         myPV.RPC("RpcStartGame", RpcTarget.All);
 
+        myPV.RPC("RpcHideLoadingPanel", RpcTarget.All);
+
         specCamPV.TransferOwnership(playerplayed);
 
         //-----------------------------ACTIVATION DES MODES ACTIF-------------------------------------
@@ -182,8 +185,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         HueManager.Instance.ActiveThisMode(modeHue);
 
         EventManager.Instance.EndTurn();
-
-
     }
 
     void CreateTeamList()
@@ -388,6 +389,12 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     {
         ScoreboardManager.Instance.isScoreboardDisplayed = true;
         UIManager.Instance.EndGame(winner);
+    }
+
+    [PunRPC]
+    void RpcHideLoadingPanel()
+    {
+        UIManager.Instance.loadingPanel.SetActive(false);
     }
 
     [PunRPC]
