@@ -21,7 +21,7 @@ public class GiftScript : MonoBehaviour
             {
                 PhotonView pv = GetComponent<PhotonView>();
 
-                //pv.RequestOwnership();
+                pv.RequestOwnership();
 
                 Destroy(Instantiate(prefabParticule, transform.position, Random.rotation), 1);
 

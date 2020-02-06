@@ -61,7 +61,11 @@ public class EventManager : MonoBehaviour
         PhotonNetwork.CurrentRoom.SetForceMap(true);
         for (int i = 0; i < number; i++)
         {
-            GameObject newGift = PhotonNetwork.Instantiate("Gift", GetPosition(), Quaternion.identity);
+            GameObject newGift = PhotonNetwork.Instantiate("Gift", GetPosition(), Quaternion.Euler(0, Random.Range(0, 360), 0));
+
+            Rigidbody myBody = newGift.GetComponent<Rigidbody>();
+
+            //myBody.AddTorque(newGift.transform.position / 1000, ForceMode.Impulse);
 
             yield return new WaitForSeconds(1f);
 
