@@ -185,13 +185,30 @@ public class RoomScripts : MonoBehaviour
                 mapPoolChoose = mapPool.KothPool;
                 fileModeName = "King of the hill - One for One.json";
                 break;
+            case "Bomb":
+                mapPoolChoose = mapPool.DeathmatchPool;
+                fileModeName = "DeathMatch.json";
+                break;
+            case "Custom":
+                hostPanel.mapTop.SetActive(true);
+                fileModeName = "DeathMatch.json";
+                break;
             default:
                 print("error");
                 break;
         }
 
         Refresh();
-        chooseMapRandomly();
+
+        if (gamemode == "Custom")
+        {
+            chooseMapRandomly();
+        }
+        else
+        {
+            hostPanel.mapTop.SetActive(false);
+        }
+
         RefreshMaps();
         hostPanel.topPanel.SetActive(false);
     }

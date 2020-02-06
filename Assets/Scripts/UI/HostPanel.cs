@@ -10,6 +10,7 @@ public class HostPanel : MonoBehaviourPunCallbacks
     [Header("Top")]
     public RectTransform currentChoice;
     public Text currentText;
+    public GameObject mapTop;
     List<Text> oldTexts = new List<Text>();
     List<Text> removeTexts = new List<Text>();
 
@@ -21,6 +22,7 @@ public class HostPanel : MonoBehaviourPunCallbacks
     public GameObject Map;
     public GameObject Custom;
     public GameObject topPanel;
+    public GameObject PlayerHostPanel;
     [SerializeField] private Color selectedColor;
     [SerializeField] private Color normalColor;
 
@@ -63,7 +65,7 @@ public class HostPanel : MonoBehaviourPunCallbacks
             oldTexts.Add(currentText);
             currentChoice = element;
             currentText = newtext;
-
+            PlayerHostPanel.SetActive(true);
             switch (newtext.text)
             {
                 case "Players":
@@ -71,6 +73,7 @@ public class HostPanel : MonoBehaviourPunCallbacks
                     GameMode.SetActive(false);
                     Map.SetActive(false);
                     Custom.SetActive(false);
+                    if (PhotonNetwork.IsMasterClient) PlayerHostPanel.SetActive(true);
                     break;
 
                 case "Gamemode":
@@ -78,6 +81,7 @@ public class HostPanel : MonoBehaviourPunCallbacks
                     GameMode.SetActive(true);
                     Map.SetActive(false);
                     Custom.SetActive(false);
+                    PlayerHostPanel.SetActive(false);
                     break;
 
                 case "Map":
@@ -85,6 +89,7 @@ public class HostPanel : MonoBehaviourPunCallbacks
                     GameMode.SetActive(false);
                     Map.SetActive(true);
                     Custom.SetActive(false);
+                    PlayerHostPanel.SetActive(false);
                     break;
 
                 case "Custom":
@@ -92,6 +97,7 @@ public class HostPanel : MonoBehaviourPunCallbacks
                     GameMode.SetActive(false);
                     Map.SetActive(false);
                     Custom.SetActive(true);
+                    PlayerHostPanel.SetActive(false);
                     break;
             }
         }
