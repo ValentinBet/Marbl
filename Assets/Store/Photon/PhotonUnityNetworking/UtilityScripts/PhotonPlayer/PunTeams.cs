@@ -44,6 +44,7 @@ namespace Photon.Pun.UtilityScripts
         public const string TeamPlayerProp = "team";
 
         public const string PlayerReady = "Ready";
+        public const string PlayerGift = "Gift";
 
 
         #region Events by Unity and Photon
@@ -168,6 +169,29 @@ namespace Photon.Pun.UtilityScripts
             if (player.CustomProperties.TryGetValue(PunTeams.PlayerReady, out _mapLoaded))
             {
                 return (bool)_mapLoaded;
+            }
+            return false;
+        }
+    }
+
+    public static class GiftExtensions
+    {
+        public static void SetPlayerGetGift(this Player player, bool gift)
+        {
+            Hashtable _gift = new Hashtable();
+            _gift[PunTeams.PlayerGift] = gift;
+
+            player.SetCustomProperties(_gift);
+        }
+
+
+        public static bool GetPlayerGift(this Player player)
+        {
+            object _gift;
+
+            if (player.CustomProperties.TryGetValue(PunTeams.PlayerGift, out _gift))
+            {
+                return (bool)_gift;
             }
             return false;
         }
