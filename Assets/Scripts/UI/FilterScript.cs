@@ -15,8 +15,8 @@ public class FilterScript : MonoBehaviour
     public List<GameObject> CustomList;
 
     bool DMBool = true;
-    bool HillBool = false;
-    bool HueBool = false;
+    bool HillBool = true;
+    bool HueBool = true;
     bool CustomBool = false;
 
     public void SetDeathMatch(GameObject image)

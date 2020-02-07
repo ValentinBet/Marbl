@@ -20,6 +20,7 @@ public class RoomScripts : MonoBehaviour
 
     public bool customMode = false;
     public bool customModeSave = false;
+    public bool isCustom = false;
     public string fileModeName;
 
     List<GameObject> allCustomMode = new List<GameObject>();
@@ -27,11 +28,11 @@ public class RoomScripts : MonoBehaviour
     public Transform gamemodeParent;
 
     public List<MapElement> allMaps = new List<MapElement>();
+    public List<GamemodeElement> allGameMode = new List<GamemodeElement>();
 
     [Header("QuickMode")]
     public HostPanel hostPanel;
     public MapPool mapPool;
-    public Text gamemodeReminderText;
 
     private List<string> mapPoolChoose = new List<string>();
 
@@ -69,7 +70,6 @@ public class RoomScripts : MonoBehaviour
 
         CustomLabel.SetActive(false);
 
-        gamemodeReminderText.text = GetActualMode();
     }
 
     public void SetCustom(Image img)
@@ -82,15 +82,12 @@ public class RoomScripts : MonoBehaviour
         customModeSave = false;
         CustomLabel.SetActive(true);
 
-        gamemodeReminderText.text = GetActualMode();
     }
 
     public void SetMap(string value)
     {
         map = value;
         PhotonNetwork.CurrentRoom.SetMap(value);
-
-        gamemodeReminderText.text = GetActualMode();
     }
 
     public void Refresh()
@@ -126,10 +123,8 @@ public class RoomScripts : MonoBehaviour
             gModeElement.fileName = file.Name;
         }
 
-        gamemodeReminderText.text = GetActualMode();
-
+        RefreshGameMode();
     }
-
 
     string CheckInfoMode(GameModeSettings modeSettings, GamemodeElement gModeElement)
     {
@@ -137,7 +132,7 @@ public class RoomScripts : MonoBehaviour
 
         if (modeSettings.deathmatch)
         {
-            infoMode += "DeathMatch";
+            infoMode += "Deathmatch";
             gModeElement.Deathmatch = true;
         }
 
@@ -181,9 +176,9 @@ public class RoomScripts : MonoBehaviour
         return infoMode;
     }
 
-    private string GetActualMode()
+    public string GetActualMode()
     {
-        return "Mode : " + fileModeName.Replace(".json", "");
+        return fileModeName.Replace(".json", "");
     }
 
     public void OnGameModeChoose(string gamemode)
@@ -191,20 +186,28 @@ public class RoomScripts : MonoBehaviour
         switch (gamemode)
         {
             case "Deathmatch":
-                ModeChoose("DeathMatch.json", mapPool.DeathmatchPool);
+                ModeChoose("Deathmatch.json", mapPool.DeathmatchPool);
                 break;
             case "Hue":
-                ModeChoose("HUE.json", mapPool.HuePool);
+                ModeChoose("Hue.json", mapPool.HuePool);
                 break;
             case "Koth":
                 ModeChoose("King of the hill - One for One.json", mapPool.KothPool);
                 break;
             case "Bomb":
-                ModeChoose("DeathMatch.json", mapPool.DeathmatchPool);
+                ModeChoose("Deathmatch.json", mapPool.DeathmatchPool);
                 break;
             case "Custom":
-                hostPanel.topPanel.SetActive(true);
-                fileModeName = "DeathMatch.json";
+                if (isCustom)
+                {
+                    hostPanel.topPanel.SetActive(false);
+                    isCustom = false;
+                }
+                else
+                {
+                    hostPanel.topPanel.SetActive(true);
+                    isCustom = true;
+                }
                 break;
             default:
                 print("error");
@@ -220,16 +223,16 @@ public class RoomScripts : MonoBehaviour
         mapPoolChoose = mapPool;
         fileModeName = ModeFileName;
         hostPanel.topPanel.SetActive(false);
-        chooseMapRandomly();
-    }
-    private void chooseMapRandomly()
-    {
-        int x = Random.Range(0, mapPoolChoose.Count);
-        map = mapPoolChoose[x];
-        SetMap(map);
+        ChooseMapRandomly();
     }
 
-    private void RefreshMaps()
+    private void ChooseMapRandomly()
+    {
+        int x = Random.Range(0, mapPoolChoose.Count);
+        SetMap(mapPoolChoose[x]);
+    }
+
+    public void RefreshMaps()
     {
         foreach (MapElement _map in allMaps)
         {
@@ -238,6 +241,14 @@ public class RoomScripts : MonoBehaviour
                 _map.SetMap();
                 return;
             }
+        }
+    }
+
+    public void RefreshGameMode()
+    {
+        foreach (GamemodeElement gm in allGameMode)
+        {
+                gm.Refresh();
         }
     }
 }

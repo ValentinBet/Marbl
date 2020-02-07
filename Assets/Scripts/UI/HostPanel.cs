@@ -90,6 +90,9 @@ public class HostPanel : MonoBehaviourPunCallbacks
                     Map.SetActive(true);
                     Custom.SetActive(false);
                     PlayerHostPanel.SetActive(false);
+
+                    RoomScripts.Instance.Refresh();
+                    RoomScripts.Instance.RefreshMaps();
                     break;
 
                 case "Custom":

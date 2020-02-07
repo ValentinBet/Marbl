@@ -28,4 +28,13 @@ public class GamemodeElement : MonoBehaviour
 
         RoomSettings.Instance.SetMode(fileName, isCustom);
     }
+
+    public void Refresh()
+    {
+        if (RoomScripts.Instance.fileModeName == fileName)
+        {
+            print(fileName);
+            OnClick();
+        }
+    }
 }
