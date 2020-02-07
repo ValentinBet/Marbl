@@ -28,9 +28,13 @@ public class RoomScripts : MonoBehaviour
 
     public List<MapElement> allMaps = new List<MapElement>();
 
+    [Header("QuickMode")]
     public HostPanel hostPanel;
     public MapPool mapPool;
+    public Text gamemodeReminderText;
+
     private List<string> mapPoolChoose = new List<string>();
+
     private static RoomScripts _instance;
     public static RoomScripts Instance { get { return _instance; } }
 
@@ -64,6 +68,8 @@ public class RoomScripts : MonoBehaviour
         OutlinedMode.color = new Color(1, 0.1986281f, 0);
 
         CustomLabel.SetActive(false);
+
+        gamemodeReminderText.text = GetActualMode();
     }
 
     public void SetCustom(Image img)
@@ -75,12 +81,16 @@ public class RoomScripts : MonoBehaviour
         customMode = true;
         customModeSave = false;
         CustomLabel.SetActive(true);
+
+        gamemodeReminderText.text = GetActualMode();
     }
 
     public void SetMap(string value)
     {
         map = value;
         PhotonNetwork.CurrentRoom.SetMap(value);
+
+        gamemodeReminderText.text = GetActualMode();
     }
 
     public void Refresh()
@@ -111,10 +121,13 @@ public class RoomScripts : MonoBehaviour
             modeSettings = JsonUtility.FromJson<GameModeSettings>(data.text);
 
             string infoMode = CheckInfoMode(modeSettings, gModeElement);
-            gModeElement.Description.text = infoMode;
 
+            gModeElement.Description.text = infoMode;
             gModeElement.fileName = file.Name;
         }
+
+        gamemodeReminderText.text = GetActualMode();
+
     }
 
 
@@ -168,29 +181,29 @@ public class RoomScripts : MonoBehaviour
         return infoMode;
     }
 
+    private string GetActualMode()
+    {
+        return "Mode : " + fileModeName.Replace(".json", "");
+    }
 
     public void OnGameModeChoose(string gamemode)
     {
         switch (gamemode)
         {
             case "Deathmatch":
-                mapPoolChoose = mapPool.DeathmatchPool;
-                fileModeName = "DeathMatch.json";
+                ModeChoose("DeathMatch.json", mapPool.DeathmatchPool);
                 break;
             case "Hue":
-                mapPoolChoose = mapPool.HuePool;
-                fileModeName = "HUE.json";
+                ModeChoose("HUE.json", mapPool.HuePool);
                 break;
             case "Koth":
-                mapPoolChoose = mapPool.KothPool;
-                fileModeName = "King of the hill - One for One.json";
+                ModeChoose("King of the hill - One for One.json", mapPool.KothPool);
                 break;
             case "Bomb":
-                mapPoolChoose = mapPool.DeathmatchPool;
-                fileModeName = "DeathMatch.json";
+                ModeChoose("DeathMatch.json", mapPool.DeathmatchPool);
                 break;
             case "Custom":
-                hostPanel.mapTop.SetActive(true);
+                hostPanel.topPanel.SetActive(true);
                 fileModeName = "DeathMatch.json";
                 break;
             default:
@@ -199,20 +212,16 @@ public class RoomScripts : MonoBehaviour
         }
 
         Refresh();
-
-        if (gamemode == "Custom")
-        {
-            chooseMapRandomly();
-        }
-        else
-        {
-            hostPanel.mapTop.SetActive(false);
-        }
-
         RefreshMaps();
-        hostPanel.topPanel.SetActive(false);
     }
 
+    private void ModeChoose(string ModeFileName, List<string> mapPool)
+    {
+        mapPoolChoose = mapPool;
+        fileModeName = ModeFileName;
+        hostPanel.topPanel.SetActive(false);
+        chooseMapRandomly();
+    }
     private void chooseMapRandomly()
     {
         int x = Random.Range(0, mapPoolChoose.Count);

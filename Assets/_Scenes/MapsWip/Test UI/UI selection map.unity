@@ -41379,6 +41379,7 @@ MonoBehaviour:
   allMaps: []
   hostPanel: {fileID: 0}
   mapPool: {fileID: 0}
+  gamemodeReminderText: {fileID: 0}
 --- !u!114 &1348687356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48481,12 +48482,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentChoice: {fileID: 1588525274}
   currentText: {fileID: 1588525270}
+  mapTop: {fileID: 0}
   line: {fileID: 1837844234}
   PlayersList: {fileID: 524487129}
   GameMode: {fileID: 1076891057}
   Map: {fileID: 171471915}
   Custom: {fileID: 1921991086}
   topPanel: {fileID: 0}
+  PlayerHostPanel: {fileID: 0}
   selectedColor: {r: 0.86274517, g: 0.25490198, b: 0.22352943, a: 1}
   normalColor: {r: 0.30588236, g: 0.3254902, b: 0.34509805, a: 1}
 --- !u!1 &1549240162
@@ -65649,12 +65652,12 @@ PrefabInstance:
     - target: {fileID: 4931439087731182767, guid: 1fc9093d9e7a21743b99e9b40307ff23,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -315.2085
+      value: -697
       objectReference: {fileID: 0}
     - target: {fileID: 4931439087731182767, guid: 1fc9093d9e7a21743b99e9b40307ff23,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -701.5
+      value: -678
       objectReference: {fileID: 0}
     - target: {fileID: 4931439087731182767, guid: 1fc9093d9e7a21743b99e9b40307ff23,
         type: 3}

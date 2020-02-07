@@ -183,6 +183,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.IsMasterClient)
         {
+            parentPlayerList.gameObject.SetActive(false);
             clientPanel.SetActive(false);
             modesPanel.SetActive(true);
         }
@@ -481,14 +482,13 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public void OnGameModeChoose(string gamemode)
     {
+        RoomScripts.Instance.OnGameModeChoose(gamemode);
+
         if (gamemode == "Custom")
         {
             LoadLobbyForCustom();
         }
-        else
-        {
-            RoomScripts.Instance.OnGameModeChoose(gamemode);
-        }
+
         parentPlayerList.gameObject.SetActive(true);
         modesPanel.SetActive(false);
     }
@@ -497,7 +497,6 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     {
         if (PhotonNetwork.IsMasterClient)
         {
-            RoomScripts.Instance.hostPanel.topPanel.SetActive(true);
             hostPanel.SetActive(true);
             clientPanel.SetActive(false);
         }
