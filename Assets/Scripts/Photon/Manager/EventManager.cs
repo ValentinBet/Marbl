@@ -7,7 +7,7 @@ using UnityEngine;
 public class EventManager : MonoBehaviour
 {
 
-    GameObject followObj;
+    public GameObject followObj;
     public Transform forceCam;
 
     Rigidbody currentRigidbody;
@@ -38,7 +38,7 @@ public class EventManager : MonoBehaviour
     {
         if(followObj != null)
         {
-            forceCam.position = Vector3.MoveTowards(forceCam.position, followObj.transform.position, 100 * Time.deltaTime);
+            forceCam.position = Vector3.MoveTowards(forceCam.position, followObj.transform.position, 20 * Time.deltaTime);
         }
 
         if(canDrop)

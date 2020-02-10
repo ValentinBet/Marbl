@@ -159,7 +159,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (other.gameObject.layer == 17 && myteam != Team.neutral)
         {
-            print("sfdnyused");
             Transform parentObj = other.transform.parent;
 
             if (GameModeManager.Instance.localPlayerTurn)

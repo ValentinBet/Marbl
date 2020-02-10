@@ -23,7 +23,7 @@ public class MineBlock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!isExploding && other.CompareTag("Ball") && other.GetComponent<Rigidbody>() != null)
+        if (!isExploding && other.GetComponent<Rigidbody>() != null)
         {
             Explode(other);
         }

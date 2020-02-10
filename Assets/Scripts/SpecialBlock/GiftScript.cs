@@ -6,6 +6,7 @@ using UnityEngine;
 public class GiftScript : MonoBehaviour
 {
     bool haveSpawnChicken = false;
+    public bool IsLast = true;
 
     void Start()
     {
@@ -17,7 +18,13 @@ public class GiftScript : MonoBehaviour
         if (PhotonNetwork.IsMasterClient && !haveSpawnChicken)
         {
             haveSpawnChicken = true;
-            PhotonNetwork.Instantiate("Chicken", transform.position + Vector3.up * 0.5f, Quaternion.Euler(0, Random.Range(0, 360), 0));
+            GameObject newChicken = PhotonNetwork.Instantiate("Chicken", transform.position + Vector3.up * 0.5f, Quaternion.Euler(0, Random.Range(0, 360), 0));
+
+            if (IsLast)
+            {
+                newChicken.GetComponent<ChickenIA>().IsLast = true;
+            }
+
             PhotonNetwork.Destroy(GetComponent<PhotonView>());
         }
     }

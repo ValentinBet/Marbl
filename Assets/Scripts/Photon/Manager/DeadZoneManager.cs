@@ -68,7 +68,7 @@ public class DeadZoneManager : MonoBehaviour
 
             if (GameModeManager.Instance.localPlayerTurn)
             {
-                PhotonView pv = other.transform.parent.GetComponent<PhotonView>();
+                PhotonView pv = other.GetComponent<PhotonView>();
 
                 pv.RequestOwnership();
                 PhotonNetwork.Destroy(pv);

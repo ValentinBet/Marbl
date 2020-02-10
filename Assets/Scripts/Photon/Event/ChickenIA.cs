@@ -10,6 +10,8 @@ public class ChickenIA : MonoBehaviour
 
     public GameObject EggParticule;
 
+    public bool IsLast = true;
+
     private void Start()
     {
         pv = GetComponent<PhotonView>();
@@ -34,6 +36,10 @@ public class ChickenIA : MonoBehaviour
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(1.5f);
-        EventManager.Instance.canDrop = true;
+
+        if(IsLast)
+        {
+            EventManager.Instance.canDrop = true;
+        }
     }
 }

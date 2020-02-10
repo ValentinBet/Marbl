@@ -202,10 +202,10 @@ GameObject:
   - component: {fileID: 4141040425197815987}
   - component: {fileID: 4135192779689628336}
   - component: {fileID: 4135192779689628339}
-  - component: {fileID: 4135192779689628338}
   - component: {fileID: 4135192779689628349}
+  - component: {fileID: 114283337780466938}
   m_Layer: 0
-  m_Name: SeagullDrop
+  m_Name: SeagullMEGADrop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,18 +263,6 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &4135192779689628338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4135192779689628337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c69d8db282611a4499c613d730c728a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &4135192779689628349
 Animator:
   serializedVersion: 3
@@ -294,3 +282,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114283337780466938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4135192779689628337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73fe1fb7b1939484b8f3b78ab1a28f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
