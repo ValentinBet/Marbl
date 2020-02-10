@@ -79,9 +79,8 @@ public class ObjManager : MonoBehaviourPunCallbacks
                         objPosInGame.SetActive(true);
                     }
 
-                    objPosInGame.transform.position = hit.point;
+                    objPosInGame.transform.position = hit.point + objPosInGame.transform.forward * 0.02f;
                     Quaternion rotaPoint = Quaternion.LookRotation(hit.normal);
-                    rotaPoint *= Quaternion.Euler(90, 0, 0);
                     objPosInGame.transform.rotation = rotaPoint;
 
 
@@ -91,7 +90,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
                         switch (currentObj)
                         {
                             case ObjType.Mine:
-                                if(Mine > 0)
+                                if (Mine > 0)
                                 {
                                     Mine--;
 
@@ -100,7 +99,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
 
                                     PhotonNetwork.Instantiate("Mine", hit.point, rota);
 
-                                    if(Mine == 0)
+                                    if (Mine == 0)
                                     {
                                         SetMine();
                                     }
@@ -114,6 +113,24 @@ public class ObjManager : MonoBehaviourPunCallbacks
                         }
                     }
                 }
+
+                if (Input.GetKeyDown(InputManager.Instance.Inputs.inputs.MainButton2))
+                {
+                    switch (currentObj)
+                    {
+                        case ObjType.Mine:
+                            SetMine();
+                            break;
+
+                        case ObjType.Cone:
+                            SetCone();
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                objPosInGame.SetActive(false);
             }
         }
         else

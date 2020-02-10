@@ -175,7 +175,10 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 
                 PhotonView myPv = parentObj.GetComponent<PhotonView>();
 
-                myPv.RequestOwnership();
+                if (!myPv.IsMine)
+                {
+                    myPv.RequestOwnership();
+                }
 
                 Destroy(Instantiate(prefabParticule, transform.position, Random.rotation), 1);
 

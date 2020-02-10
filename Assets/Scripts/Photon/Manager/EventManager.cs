@@ -11,9 +11,11 @@ public class EventManager : MonoBehaviour
     public Transform forceCam;
 
     Rigidbody currentRigidbody;
-    float currentVelocity = 0;
 
     PhotonView pv;
+
+    int numberOfBonus = 0;
+    public bool canDrop = true;
 
     private static EventManager _instance;
     public static EventManager Instance { get { return _instance; } }
@@ -36,19 +38,28 @@ public class EventManager : MonoBehaviour
     {
         if(followObj != null)
         {
-            currentVelocity = Mathf.Lerp(currentVelocity, currentRigidbody.velocity.magnitude, Time.deltaTime * 10);
-
             forceCam.position = Vector3.MoveTowards(forceCam.position, followObj.transform.position, 100 * Time.deltaTime);
         }
-        else
+
+        if(canDrop)
         {
-            currentVelocity = 0;
+            if(numberOfBonus > 0)
+            {
+                SpawnGift();
+            }
+            else
+            {
+                if (PhotonNetwork.CurrentRoom.GetForceCam())
+                {
+                    PhotonNetwork.CurrentRoom.SetForceMap(false);
+                }
+            }
         }
     }
 
     public void EndTurn()
     {
-        StartCoroutine(SpawnGift(3));
+        numberOfBonus = 3;
     }
 
     public void EndRound()
@@ -56,32 +67,19 @@ public class EventManager : MonoBehaviour
 
     }
 
-    IEnumerator SpawnGift(int number)
+    void SpawnGift()
     {
+        numberOfBonus--;
+        canDrop = false;
         PhotonNetwork.CurrentRoom.SetForceMap(true);
-        for (int i = 0; i < number; i++)
-        {
-            GameObject newGift = PhotonNetwork.Instantiate("Gift", GetPosition(), Quaternion.Euler(0, Random.Range(0, 360), 0));
+        GameObject newGift = PhotonNetwork.Instantiate("SeagullDrop", GetPosition(), Quaternion.Euler(0, Random.Range(0, 360), 0));
+    }
 
-            Rigidbody myBody = newGift.GetComponent<Rigidbody>();
-
-            //myBody.AddTorque(newGift.transform.position / 1000, ForceMode.Impulse);
-
-            yield return new WaitForSeconds(1f);
-
-            while (currentVelocity > 0.1f)
-            {
-                yield return new WaitForSeconds(0.1f);
-            }
-
-            yield return new WaitForSeconds(0.1f);
-        }
-
+    void EndDrop()
+    {
         PhotonNetwork.CurrentRoom.SetForceMap(false);
 
         pv.RPC("RpcSetFollowObjNull", RpcTarget.All);
-
-        yield return null;
     }
 
     Vector3 GetPosition()
