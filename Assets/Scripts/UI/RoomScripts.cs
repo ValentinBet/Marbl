@@ -214,6 +214,7 @@ public class RoomScripts : MonoBehaviour
                 break;
         }
 
+
         Refresh();
         RefreshMaps();
     }
@@ -221,9 +222,14 @@ public class RoomScripts : MonoBehaviour
     private void ModeChoose(string ModeFileName, List<string> mapPool)
     {
         mapPoolChoose = mapPool;
-        fileModeName = ModeFileName;
-        hostPanel.topPanel.SetActive(false);
+        fileModeName = ModeFileName;       
         ChooseMapRandomly();
+
+        if (!isCustom)
+        {
+            hostPanel.topPanel.SetActive(false);
+        }
+
     }
 
     private void ChooseMapRandomly()

@@ -488,7 +488,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         {
             LoadLobbyForCustom();
         }
-
+        RoomScripts.Instance.hostPanel.ResetToDefaultRoomPanel(true);
         hostPanel.SetActive(true);
         parentPlayerList.gameObject.SetActive(true);
         modesPanel.SetActive(false);

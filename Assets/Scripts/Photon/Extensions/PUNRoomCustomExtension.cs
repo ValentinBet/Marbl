@@ -13,7 +13,6 @@ namespace Photon.Pun.UtilityScripts
     public class PUNRoomCustomExtension : MonoBehaviour
     {
         public const string forceCam = "forceCam";
-
     }
 
     public static class RoomCustomExtension
