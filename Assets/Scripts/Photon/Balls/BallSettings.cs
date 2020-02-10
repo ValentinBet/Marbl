@@ -159,6 +159,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {
         if (other.gameObject.layer == 17 && myteam != Team.neutral)
         {
+            print("sfdnyused");
             Transform parentObj = other.transform.parent;
 
             if (GameModeManager.Instance.localPlayerTurn)
@@ -180,7 +181,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
                     myPv.RequestOwnership();
                 }
 
-                Destroy(Instantiate(prefabParticule, transform.position, Random.rotation), 1);
+                Destroy(Instantiate(prefabParticule, transform.position + Vector3.up * 2f, Random.rotation), 1);
 
                 myPv.RPC("RpcSpawnParticule", RpcTarget.Others, transform.position + Vector3.up * 2);
 

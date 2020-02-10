@@ -34,7 +34,7 @@ public class DeadZoneManager : MonoBehaviour
             QuickScoreboard.Instance.Refresh(); 
         }
 
-        if(other.tag == "Gift")
+        if(other.tag == "Egg")
         {
             if (PhotonNetwork.IsMasterClient)
             {
@@ -56,5 +56,24 @@ public class DeadZoneManager : MonoBehaviour
                 PhotonNetwork.Destroy(pv);
             }
         }
+
+        if (other.tag == "Gift")
+        {
+            AudioManager.Instance.PlayThisSound(AudioManager.Instance.ballDeath);
+
+            GameObject _fx = Instantiate(fx_MarblDie, other.transform.position, Random.rotation);
+            _fx.transform.localScale = new Vector3(fxDieWidth, fxDieWidth, fxDieWidth);
+            Destroy(_fx, 2);
+
+
+            if (GameModeManager.Instance.localPlayerTurn)
+            {
+                PhotonView pv = other.transform.parent.GetComponent<PhotonView>();
+
+                pv.RequestOwnership();
+                PhotonNetwork.Destroy(pv);
+            }
+        }
+
     }
 }

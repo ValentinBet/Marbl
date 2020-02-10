@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class GiftScript : MonoBehaviour
 {
-    
+    bool haveSpawnChicken = false;
+
     void Start()
     {
         EventManager.Instance.SetFollowObj(gameObject);
@@ -13,9 +14,10 @@ public class GiftScript : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (PhotonNetwork.IsMasterClient)
+        if (PhotonNetwork.IsMasterClient && !haveSpawnChicken)
         {
-            PhotonNetwork.Instantiate("Chicken", transform.position, Quaternion.Euler(0, Random.Range(0, 360), 0));
+            haveSpawnChicken = true;
+            PhotonNetwork.Instantiate("Chicken", transform.position + Vector3.up * 0.5f, Quaternion.Euler(0, Random.Range(0, 360), 0));
             PhotonNetwork.Destroy(GetComponent<PhotonView>());
         }
     }

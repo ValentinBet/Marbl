@@ -32,23 +32,20 @@ MonoBehaviour:
   - ClickRpc
   - DestroyBalls
   - DestroyRpc
+  - OnPlayerShoot
+  - RpcChat
   - RpcDisableRoundText
   - RpcDisplayMessage
   - RpcDisplayScoreBoard
+  - RpcHideLoadingPanel
   - RpcHideScoreBoard
   - RpcInfoTurn
+  - RpcLobbyChat
   - RpcSendMapToAllClient
+  - RpcSetFollowObjNull
   - RpcSetRoundText
+  - RpcSpawnParticule
   - RpcSpawnPing
   - RpcStartGame
-  - RpcChat
-  - RpcClickBall
-  - RpcLobbyChat
-  - OnPlayerShoot
-  - RpcDestroyCamera
-  - RpcHideLoadingPanel
-  - RpcSetFollowObjNull
-  - RpcSpawnParticule
-  - SpawnEggParticule
   DisableAutoOpenWizard: 1
   ShowSettings: 1
