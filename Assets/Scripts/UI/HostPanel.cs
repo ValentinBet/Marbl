@@ -15,7 +15,7 @@ public class HostPanel : MonoBehaviourPunCallbacks
     List<Text> removeTexts = new List<Text>();
 
     public RectTransform line;
-
+    public List<GameObject> ChoiceObject = new List<GameObject>();
     [Header("panel")]
     public GameObject PlayersList;
     public GameObject GameMode;
@@ -56,6 +56,29 @@ public class HostPanel : MonoBehaviourPunCallbacks
         currentText.color = Color.Lerp(currentText.color, selectedColor, Mathf.PingPong(Time.time, 3));
     }
 
+
+    public void ResetToDefaultRoomPanel(bool Init = false) //mean reset to default display
+    {
+        PlayersList.SetActive(true);
+        GameMode.SetActive(false);
+        Map.SetActive(false);
+        Custom.SetActive(false);
+
+        if (PhotonNetwork.IsMasterClient) PlayerHostPanel.SetActive(true);
+
+        if (Init) // If just joined Room
+        {
+            for (int i = 1; i < ChoiceObject.Count; i++) // excluse player choice
+            {
+                ChoiceObject[i].GetComponent<Text>().color = normalColor;
+            }
+
+            // ChoiceObject[0] == player
+            currentChoice = ChoiceObject[0].GetComponent<RectTransform>();
+            currentText = ChoiceObject[0].GetComponent<Text>();
+        }
+    }
+
     public void SetChoice(RectTransform element)
     {
         Text newtext = element.GetComponent<Text>();
@@ -69,11 +92,7 @@ public class HostPanel : MonoBehaviourPunCallbacks
             switch (newtext.text)
             {
                 case "Players":
-                    PlayersList.SetActive(true);
-                    GameMode.SetActive(false);
-                    Map.SetActive(false);
-                    Custom.SetActive(false);
-                    if (PhotonNetwork.IsMasterClient) PlayerHostPanel.SetActive(true);
+                    ResetToDefaultRoomPanel();
                     break;
 
                 case "Gamemode":

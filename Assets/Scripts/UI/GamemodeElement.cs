@@ -33,7 +33,6 @@ public class GamemodeElement : MonoBehaviour
     {
         if (RoomScripts.Instance.fileModeName == fileName)
         {
-            print(fileName);
             OnClick();
         }
     }
