@@ -21034,6 +21034,11 @@ MonoBehaviour:
   currentText: {fileID: 1321668331}
   mapTop: {fileID: 1702889403}
   line: {fileID: 1172864047}
+  ChoiceObject:
+  - {fileID: 1321668330}
+  - {fileID: 1894813503}
+  - {fileID: 1702889403}
+  - {fileID: 1020847345}
   PlayersList: {fileID: 552029285}
   GameMode: {fileID: 185173604}
   Map: {fileID: 645592682}
@@ -27999,7 +28004,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774267923}
-  m_LocalRotation: {x: -0.052835904, y: 0.9470126, z: -0.21539105, w: -0.23234072}
+  m_LocalRotation: {x: -0.05283591, y: 0.9470126, z: -0.21539108, w: -0.23234072}
   m_LocalPosition: {x: 23.96, y: 25.8741, z: 38.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -31053,6 +31058,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 823470774}
     m_Modifications:
+    - target: {fileID: 3388624319197931177, guid: d341dd916e0d0b1489c3b0367736f451,
+        type: 3}
+      propertyPath: m_Name
+      value: CircleButtonMode (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 54005534889218723, guid: d341dd916e0d0b1489c3b0367736f451,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -31087,11 +31097,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Custom
-      objectReference: {fileID: 0}
-    - target: {fileID: 3388624319197931177, guid: d341dd916e0d0b1489c3b0367736f451,
-        type: 3}
-      propertyPath: m_Name
-      value: CircleButtonMode (3)
       objectReference: {fileID: 0}
     - target: {fileID: 3388624319197931182, guid: d341dd916e0d0b1489c3b0367736f451,
         type: 3}
@@ -33296,15 +33301,15 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 32
       objectReference: {fileID: 0}
-    - target: {fileID: 4931439087733681978, guid: 1fc9093d9e7a21743b99e9b40307ff23,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8783485279226933393, guid: 1fc9093d9e7a21743b99e9b40307ff23,
         type: 3}
       propertyPath: mode
       value: Deathmatch
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931439087733681978, guid: 1fc9093d9e7a21743b99e9b40307ff23,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fc9093d9e7a21743b99e9b40307ff23, type: 3}
@@ -40453,6 +40458,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 823470774}
     m_Modifications:
+    - target: {fileID: 3388624319197931177, guid: d341dd916e0d0b1489c3b0367736f451,
+        type: 3}
+      propertyPath: m_Name
+      value: CircleButtonMode (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 54005534889218723, guid: d341dd916e0d0b1489c3b0367736f451,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -40487,11 +40497,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Hue
-      objectReference: {fileID: 0}
-    - target: {fileID: 3388624319197931177, guid: d341dd916e0d0b1489c3b0367736f451,
-        type: 3}
-      propertyPath: m_Name
-      value: CircleButtonMode (1)
       objectReference: {fileID: 0}
     - target: {fileID: 3388624319197931182, guid: d341dd916e0d0b1489c3b0367736f451,
         type: 3}
@@ -40548,11 +40553,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3388624318429333202, guid: d341dd916e0d0b1489c3b0367736f451,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -36
-      objectReference: {fileID: 0}
     - target: {fileID: 3388624318429333203, guid: d341dd916e0d0b1489c3b0367736f451,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -40585,12 +40585,6 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
-    - target: {fileID: 3388624318940060259, guid: d341dd916e0d0b1489c3b0367736f451,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5f6f289c986a3aa49bf56fcbac8ad160,
-        type: 3}
     - target: {fileID: 3388624319415386608, guid: d341dd916e0d0b1489c3b0367736f451,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -40621,6 +40615,17 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3388624318429333202, guid: d341dd916e0d0b1489c3b0367736f451,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -36
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388624318940060259, guid: d341dd916e0d0b1489c3b0367736f451,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5f6f289c986a3aa49bf56fcbac8ad160,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d341dd916e0d0b1489c3b0367736f451, type: 3}
 --- !u!4 &1074478890 stripped
@@ -76670,6 +76675,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 823470774}
     m_Modifications:
+    - target: {fileID: 3388624319197931177, guid: d341dd916e0d0b1489c3b0367736f451,
+        type: 3}
+      propertyPath: m_Name
+      value: CircleButtonMode (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 54005534889218723, guid: d341dd916e0d0b1489c3b0367736f451,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -76704,11 +76714,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Koth
-      objectReference: {fileID: 0}
-    - target: {fileID: 3388624319197931177, guid: d341dd916e0d0b1489c3b0367736f451,
-        type: 3}
-      propertyPath: m_Name
-      value: CircleButtonMode (2)
       objectReference: {fileID: 0}
     - target: {fileID: 3388624319197931182, guid: d341dd916e0d0b1489c3b0367736f451,
         type: 3}
@@ -76764,16 +76769,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3388624318429333202, guid: d341dd916e0d0b1489c3b0367736f451,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -56
-      objectReference: {fileID: 0}
-    - target: {fileID: 3388624318429333202, guid: d341dd916e0d0b1489c3b0367736f451,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -43
       objectReference: {fileID: 0}
     - target: {fileID: 3388624318429333203, guid: d341dd916e0d0b1489c3b0367736f451,
         type: 3}
@@ -76835,12 +76830,6 @@ PrefabInstance:
       propertyPath: m_fontSize
       value: 72
       objectReference: {fileID: 0}
-    - target: {fileID: 3388624318940060259, guid: d341dd916e0d0b1489c3b0367736f451,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: f31d1cddaa112c54e851a9d956f8ed9c,
-        type: 3}
     - target: {fileID: 3388624319415386608, guid: d341dd916e0d0b1489c3b0367736f451,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -76871,6 +76860,22 @@ PrefabInstance:
       propertyPath: m_text
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3388624318429333202, guid: d341dd916e0d0b1489c3b0367736f451,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -56
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388624318429333202, guid: d341dd916e0d0b1489c3b0367736f451,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -43
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388624318940060259, guid: d341dd916e0d0b1489c3b0367736f451,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f31d1cddaa112c54e851a9d956f8ed9c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d341dd916e0d0b1489c3b0367736f451, type: 3}
 --- !u!4 &2084079236 stripped
@@ -77565,7 +77570,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2101710303}
-  m_LocalRotation: {x: -0.052835904, y: 0.9470126, z: -0.21539105, w: -0.23234072}
+  m_LocalRotation: {x: -0.05283591, y: 0.9470126, z: -0.21539108, w: -0.23234072}
   m_LocalPosition: {x: 23.96, y: 25.8741, z: 38.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -80322,6 +80327,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 823470774}
     m_Modifications:
+    - target: {fileID: 3388624319197931177, guid: d341dd916e0d0b1489c3b0367736f451,
+        type: 3}
+      propertyPath: m_Name
+      value: CircleButtonMode
+      objectReference: {fileID: 0}
     - target: {fileID: 54005534889218723, guid: d341dd916e0d0b1489c3b0367736f451,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -80356,11 +80366,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: Deathmatch
-      objectReference: {fileID: 0}
-    - target: {fileID: 3388624319197931177, guid: d341dd916e0d0b1489c3b0367736f451,
-        type: 3}
-      propertyPath: m_Name
-      value: CircleButtonMode
       objectReference: {fileID: 0}
     - target: {fileID: 3388624319197931182, guid: d341dd916e0d0b1489c3b0367736f451,
         type: 3}
@@ -80417,11 +80422,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3388624318429333202, guid: d341dd916e0d0b1489c3b0367736f451,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -24
-      objectReference: {fileID: 0}
     - target: {fileID: 3388624318429333203, guid: d341dd916e0d0b1489c3b0367736f451,
         type: 3}
       propertyPath: m_text
@@ -80457,12 +80457,6 @@ PrefabInstance:
       propertyPath: m_margin.w
       value: -21.210842
       objectReference: {fileID: 0}
-    - target: {fileID: 3388624318940060259, guid: d341dd916e0d0b1489c3b0367736f451,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 5883153034827f142a5ec9e5f99ab61f,
-        type: 3}
     - target: {fileID: 3388624319415386608, guid: d341dd916e0d0b1489c3b0367736f451,
         type: 3}
       propertyPath: m_text
@@ -80493,6 +80487,17 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3388624318429333202, guid: d341dd916e0d0b1489c3b0367736f451,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3388624318940060259, guid: d341dd916e0d0b1489c3b0367736f451,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5883153034827f142a5ec9e5f99ab61f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d341dd916e0d0b1489c3b0367736f451, type: 3}
 --- !u!4 &5833505059819030583 stripped
