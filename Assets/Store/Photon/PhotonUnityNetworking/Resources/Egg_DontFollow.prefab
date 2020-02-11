@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 1950882966170823481}
   - component: {fileID: 2427744437332411085}
   m_Layer: 18
-  m_Name: Egg
+  m_Name: Egg_DontFollow
   m_TagString: Egg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8366c3c9f7b7ff94fbb3f05de7d735b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  follow: 1
+  follow: 0
 --- !u!64 &8876046917094304516
 MeshCollider:
   m_ObjectHideFlags: 0

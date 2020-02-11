@@ -41,10 +41,16 @@ public class EventManager : MonoBehaviour
             forceCam.position = Vector3.MoveTowards(forceCam.position, followObj.transform.position, 20 * Time.deltaTime);
         }
 
-        if(canDrop)
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            return;
+        }
+
+        if (canDrop)
         {
             if(numberOfBonus > 0)
             {
+                canDrop = false;
                 SpawnGift();
             }
             else
@@ -59,7 +65,7 @@ public class EventManager : MonoBehaviour
 
     public void EndTurn()
     {
-        numberOfBonus = 3;
+        numberOfBonus = 1;
     }
 
     public void EndRound()
@@ -70,9 +76,18 @@ public class EventManager : MonoBehaviour
     void SpawnGift()
     {
         numberOfBonus--;
-        canDrop = false;
         PhotonNetwork.CurrentRoom.SetForceMap(true);
-        GameObject newGift = PhotonNetwork.Instantiate("SeagullDrop", GetPosition(), Quaternion.Euler(0, Random.Range(0, 360), 0));
+
+        switch (Random.Range(0, 1))
+        {
+            case 0:
+                PhotonNetwork.Instantiate("SeagullDrop", GetPosition(), Quaternion.Euler(0, Random.Range(0, 360), 0));
+                break;
+
+            case 1:
+                PhotonNetwork.Instantiate("SeagullMEGADrop", GetPosition(), Quaternion.Euler(0, Random.Range(0, 360), 0));
+                break;
+        }
     }
 
     void EndDrop()

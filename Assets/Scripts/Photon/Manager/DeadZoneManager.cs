@@ -36,11 +36,6 @@ public class DeadZoneManager : MonoBehaviour
 
         if(other.tag == "Egg")
         {
-            if (PhotonNetwork.IsMasterClient)
-            {
-                EventManager.Instance.canDrop = true;
-            }
-
             AudioManager.Instance.PlayThisSound(AudioManager.Instance.ballDeath);
 
             GameObject _fx = Instantiate(fx_MarblDie, other.transform.position, Random.rotation);
