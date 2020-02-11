@@ -356,6 +356,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         {
             HillManager.Instance.EndTurn();
         }
+
+        EventManager.Instance.EndTurn();
     }
 
     int GetNumberBallOfTeam(Team _team)

@@ -5345,7 +5345,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -1.6, y: 0}
+  m_AnchoredPosition: {x: -1.6, y: -0.000085092455}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3905829296844365262
@@ -7957,7 +7957,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6947531fd21221142b15383b844de451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  followObj: {fileID: 0}
   forceCam: {fileID: 572318903801378683}
+  canDrop: 1
 --- !u!1 &3905829297399416349
 GameObject:
   m_ObjectHideFlags: 0
@@ -11614,7 +11616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7944526115647404155
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11646,7 +11648,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4762891087700541172}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -13379,7 +13381,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3523416345953479677
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13409,7 +13411,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7964412474455468820}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0

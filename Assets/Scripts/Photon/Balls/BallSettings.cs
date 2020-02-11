@@ -180,7 +180,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
                     myPv.RequestOwnership();
                 }
 
-                Destroy(Instantiate(prefabParticule, transform.position + Vector3.up * 2f, Random.rotation), 1);
+                Destroy(Instantiate(prefabParticule, transform.position + Vector3.up * 0.9f, Random.rotation), 1);
 
                 myPv.RPC("RpcSpawnParticule", RpcTarget.Others, transform.position + Vector3.up * 2);
 

@@ -65,7 +65,7 @@ public class EventManager : MonoBehaviour
 
     public void EndTurn()
     {
-        numberOfBonus = 1;
+        numberOfBonus = 3;
     }
 
     public void EndRound()
@@ -78,7 +78,7 @@ public class EventManager : MonoBehaviour
         numberOfBonus--;
         PhotonNetwork.CurrentRoom.SetForceMap(true);
 
-        switch (Random.Range(0, 1))
+        switch (Random.Range(0, 2))
         {
             case 0:
                 PhotonNetwork.Instantiate("SeagullDrop", GetPosition(), Quaternion.Euler(0, Random.Range(0, 360), 0));
