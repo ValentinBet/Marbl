@@ -41,7 +41,12 @@ public class EventManager : MonoBehaviour
             forceCam.position = Vector3.MoveTowards(forceCam.position, followObj.transform.position, 20 * Time.deltaTime);
         }
 
-        if(canDrop)
+        if (!PhotonNetwork.IsMasterClient)
+        {
+            return;
+        }
+
+        if (canDrop)
         {
             if(numberOfBonus > 0)
             {
