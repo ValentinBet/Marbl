@@ -95,33 +95,39 @@ public class PingControl : MonoBehaviour
 
     private void InitSpawnPing(int ping)
     {
-        SpawnPingLocal(ping, hit.point, PhotonNetwork.LocalPlayer.GetTeam()); // Spawn le ping en local
+        Quaternion rota = Quaternion.LookRotation(hit.normal);
+        //rota *= Quaternion.Euler(0, 0, 0);
 
-        pv.RPC("RpcSpawnPing", RpcTarget.Others, ping, hit.point, PhotonNetwork.LocalPlayer.GetTeam()); // Spawn le ping sur les autres joueurs
+        SpawnPingLocal(ping, hit.point, rota, PhotonNetwork.LocalPlayer.GetTeam()); // Spawn le ping en local
+
+        pv.RPC("RpcSpawnPing", RpcTarget.Others, ping, hit.point, rota, PhotonNetwork.LocalPlayer.GetTeam()); // Spawn le ping sur les autres joueurs
     }
 
     [PunRPC]
-    private void RpcSpawnPing(int ping, Vector3 pos, Team team)
+    private void RpcSpawnPing(int ping, Vector3 pos, Quaternion rota, Team team)
     {
-        SpawnPingLocal(ping, pos, team);
+        SpawnPingLocal(ping, pos, rota, team);
     }
 
-    private void SpawnPingLocal(int ping, Vector3 pos, Team team)
+    private void SpawnPingLocal(int ping, Vector3 pos, Quaternion rota, Team team)
     {
         GameObject _ping = null;
 
         switch (ping)
         {
             case 0:
-                _ping = Instantiate(BasicPing, pos + new Vector3(0, 0.1f, 0), Quaternion.identity);
+                _ping = Instantiate(BasicPing, pos, rota);
                 break;
             case 1:
-                _ping = Instantiate(QuestionMarkPing, pos + new Vector3(0, 0.1f, 0), Quaternion.identity);
+                _ping = Instantiate(QuestionMarkPing, pos, rota);
                 break;
             default:
                 Debug.Log("Erreur, Ping non reconnu");
                 return;
         }
+
+        //Pour le sortir du sol
+        _ping.transform.position += _ping.transform.forward * 0.1f;
 
         if (_ping.GetComponent<PingSettings>() != null)
         {

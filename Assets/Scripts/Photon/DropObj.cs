@@ -27,6 +27,8 @@ public class DropObj : MonoBehaviour
 
         yield return new WaitForSeconds(3);
 
+        EventManager.Instance.canDrop = true;
+
         PhotonNetwork.Destroy(gameObject.GetPhotonView());
     }
 }

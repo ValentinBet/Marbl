@@ -6,11 +6,15 @@ using UnityEngine;
 public class GiftScript : MonoBehaviour
 {
     bool haveSpawnChicken = false;
-    public bool IsLast = true;
+
+    public bool follow = true;
 
     void Start()
     {
-        EventManager.Instance.SetFollowObj(gameObject);
+        if (follow)
+        {
+            EventManager.Instance.SetFollowObj(gameObject);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -19,11 +23,6 @@ public class GiftScript : MonoBehaviour
         {
             haveSpawnChicken = true;
             GameObject newChicken = PhotonNetwork.Instantiate("Chicken", transform.position + Vector3.up * 0.5f, Quaternion.Euler(0, Random.Range(0, 360), 0));
-
-            if (IsLast)
-            {
-                newChicken.GetComponent<ChickenIA>().IsLast = true;
-            }
 
             PhotonNetwork.Destroy(GetComponent<PhotonView>());
         }
