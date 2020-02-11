@@ -54,6 +54,7 @@ public class AudioManager : MonoBehaviour
     private void Update()
     {
         musicVolume = Mathf.Clamp(InputManager.Instance.Inputs.inputs.GeneralVolume, 0f, 0.6f);
+
         if (playBack)
         {
             backSong.volume = Mathf.Lerp(backSong.volume, musicVolume, timeToTransit * Time.deltaTime);

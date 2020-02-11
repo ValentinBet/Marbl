@@ -178,6 +178,7 @@ public class SettingsManager : MonoBehaviour
     {
         Screen.SetResolution(ResolutionsList[resDropdown.value].x, ResolutionsList[resDropdown.value].y, Windowmodes[settingsList.settings.Windowmode]);
         QualitySettings.SetQualityLevel(settingsList.settings.Quality);
+        AudioListener.volume = InputManager.Instance.Inputs.inputs.GeneralVolume;
     }
     public void SaveAsJson()
     {
@@ -244,8 +245,6 @@ public class SettingsManager : MonoBehaviour
             var dataAsJson = r.ReadToEnd();
             settingsSaves = JsonUtility.FromJson<SettingsSaves>(dataAsJson);
         }
-
-
 
         generalVolumeInputField.text = (settingsSaves.GeneralVolume * 100).ToString();
         generalVolumeSlider.value = settingsSaves.GeneralVolume * 100;
