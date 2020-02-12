@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ModesPanelControl : MonoBehaviour
 {
@@ -17,7 +18,6 @@ public class ModesPanelControl : MonoBehaviour
 
     private void Start()
     {
-        print(PlayerPrefs.GetInt("HavePlayedHue"));
         if (PlayerPrefs.GetInt("HavePlayedHue") == 1)
         {
             UnlockGamemodes();
@@ -29,6 +29,8 @@ public class ModesPanelControl : MonoBehaviour
         foreach (GameObject item in ListPadlock)
         {
             item.SetActive(false);
+            dmCircle.GetComponentInChildren<Button>().interactable = true;
+            kothCircle.GetComponentInChildren<Button>().interactable = true;
         }
     }
 }

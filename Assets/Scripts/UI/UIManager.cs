@@ -413,7 +413,7 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void DisplayInfoTurn(string playerName, int playerTeam, Player actualP)
+    public void DisplayInfoTurn(string playerName, int playerTeam)
     {
         string result = "<color=" + MarblGame.GetColorUI(playerTeam) + ">";
 
@@ -475,6 +475,6 @@ public class UIManager : MonoBehaviourPunCallbacks
         wp.teamText.color = MarblGame.GetColor(playerTeam);
         wp.nicknameText.text = playerName;
         wp.nicknameText.color = MarblGame.GetColor(playerTeam);
-
+        wp.ballNumberText.text = QuickScoreboard.Instance.CountBallOfThisTeam((Team)playerTeam).ToString();
     }
 }

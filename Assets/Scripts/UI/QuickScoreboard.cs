@@ -81,7 +81,7 @@ public class QuickScoreboard : MonoBehaviour
     }
 
 
-    int CountBallOfThisTeam(Team myTeam)
+    public int CountBallOfThisTeam(Team myTeam)
     {
         int number = 0;
 
