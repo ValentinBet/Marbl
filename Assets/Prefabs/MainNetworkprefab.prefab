@@ -13402,6 +13402,7 @@ MonoBehaviour:
   ShockButton: {fileID: 7874154929715008431}
   Mine: 3
   Holo: 3
+  Shockwave: 0
   prefabPosObj: {fileID: 6485425533979384264, guid: d357d14d42e529f4aaefd4c9dfb87706,
     type: 3}
 --- !u!1 &6813543595390884260
@@ -13737,7 +13738,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3995744623383154986}
-        m_MethodName: SetCone
+        m_MethodName: SetHolo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
