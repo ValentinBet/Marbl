@@ -16,10 +16,11 @@ public class ObjManager : MonoBehaviourPunCallbacks
     public Animator myAnimator;
 
     public ButtonObj MineButton;
-    public ButtonObj ConeButton;
+    public ButtonObj HoloButton;
+    public ButtonObj ShockButton;
 
     public int Mine = 0;
-    public int Cone = 0;
+    public int Holo = 0;
 
     public GameObject prefabPosObj;
     GameObject objPosInGame;
@@ -165,8 +166,8 @@ public class ObjManager : MonoBehaviourPunCallbacks
                 break;
 
             case ObjType.Cone:
-                Cone += Cone;
-                myAnimator.SetTrigger("Cone");
+                Holo += Holo;
+                myAnimator.SetTrigger("Holo");
                 break;
         }
 
@@ -186,14 +187,14 @@ public class ObjManager : MonoBehaviourPunCallbacks
             MineButton.gameObject.SetActive(false);
         }
 
-        if (Cone > 0)
+        if (Holo > 0)
         {
-            ConeButton.SetValue(Cone);
-            ConeButton.gameObject.SetActive(true);
+            HoloButton.SetValue(Holo);
+            HoloButton.gameObject.SetActive(true);
         }
         else
         {
-            ConeButton.gameObject.SetActive(false);
+            HoloButton.gameObject.SetActive(false);
         }
     }
 
@@ -237,13 +238,13 @@ public class ObjManager : MonoBehaviourPunCallbacks
         {
             IsPossing = true;
             currentObj = ObjType.Cone;
-            ConeButton.GetComponent<Image>().color = Color.red;
+            HoloButton.GetComponent<Image>().color = Color.red;
         }
     }
 
     void SetColorWhite()
     {
         MineButton.GetComponent<Image>().color = Color.white;
-        ConeButton.GetComponent<Image>().color = Color.white;
+        HoloButton.GetComponent<Image>().color = Color.white;
     }
 }

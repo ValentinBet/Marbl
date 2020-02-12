@@ -10,11 +10,13 @@ public class HoloBall : MonoBehaviour
     private void Start()
     {
         myRenderer = GetComponent<Renderer>();
+        transform.rotation = Random.rotation;
     }
 
     private void OnTriggerEnter(Collider other)
     {
         myAnimator.SetBool("Blink", true);
+
         if (other.tag != "Ball")
         {
             
