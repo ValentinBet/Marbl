@@ -1,6 +1,7 @@
 ﻿Shader "DissolverShader/DissolveShader" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
+		_ColorEmission("ColorEmission", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_NormalMap ("Normal Map", 2D) = "bump" {}
 		_NormalStrenght ("Normal Strength", Range(0, 1.5)) = 0.5
@@ -11,6 +12,7 @@
 		_DissolveWidth ("DissolveWidth", Range(0,0.1)) = 0.05
 		_Glossiness ("Smoothness", Range(0,1)) = 0.5
 		_Metallic ("Metallic", Range(0,1)) = 0.0
+		_PowerEmission("PowerEmission", Range(0,1)) = 0.0
 	}
 	SubShader {
 		Tags { "RenderType"="Opaque" }
@@ -36,7 +38,9 @@
 		half _Metallic;
 		half _DissolveEmission;
 		half _DissolveWidth;
+		half _PowerEmission;
 		fixed4 _Color;
+		fixed4 _ColorEmission;
 		fixed4 _DissolveColor;
 
 		void surf (Input IN, inout SurfaceOutputStandard o) {
@@ -58,6 +62,10 @@
 			o.Smoothness = _Glossiness;
 			o.Alpha = c.a;
 			o.Normal = UnpackScaleNormal(tex2D(_NormalMap, IN.uv_NormalMap), _NormalStrenght);
+
+			//o.Albedo.rgb = _ColorEmission;
+			//o.Albedo.rgb *= _RingColorIntensity;
+			o.Emission.rgb = _ColorEmission;
 		}
 		ENDCG
 	}

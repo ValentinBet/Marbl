@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class ObjManager : MonoBehaviourPunCallbacks
 {
@@ -16,10 +17,12 @@ public class ObjManager : MonoBehaviourPunCallbacks
     public Animator myAnimator;
 
     public ButtonObj MineButton;
-    public ButtonObj ConeButton;
+    public ButtonObj HoloButton;
+    public ButtonObj ShockButton;
 
     public int Mine = 0;
-    public int Cone = 0;
+    public int Holo = 0;
+    public int Shockwave = 0;
 
     public GameObject prefabPosObj;
     GameObject objPosInGame;
@@ -27,7 +30,8 @@ public class ObjManager : MonoBehaviourPunCallbacks
     public enum ObjType
     {
         Mine,
-        Cone
+        Holo,
+        Shock
     }
 
     private static ObjManager _instance;
@@ -110,6 +114,45 @@ public class ObjManager : MonoBehaviourPunCallbacks
                                 }
                                 Refresh();
                                 break;
+
+                            case ObjType.Holo:
+                                if (Holo > 0)
+                                {
+                                    Holo--;
+
+                                    Quaternion rota = Quaternion.LookRotation(hit.normal);
+                                    rota *= Quaternion.Euler(90, 0, 0);
+
+                                    switch (GameModeManager.Instance.localPlayerTeam)
+                                    {
+                                        case Team.blue:
+                                            PhotonNetwork.Instantiate("Holo", hit.point, rota);
+                                            break;
+
+                                        case Team.green:
+                                            PhotonNetwork.Instantiate("Holo", hit.point, rota);
+                                            break;
+
+                                        case Team.red:
+                                            PhotonNetwork.Instantiate("Holo", hit.point, rota);
+                                            break;
+
+                                        case Team.yellow:
+                                            PhotonNetwork.Instantiate("Holo", hit.point, rota);
+                                            break;
+                                    }
+
+                                    if (Holo == 0)
+                                    {
+                                        SetMine();
+                                    }
+                                }
+                                else
+                                {
+                                    IsPossing = false;
+                                }
+                                Refresh();
+                                break;
                         }
                     }
                 }
@@ -122,8 +165,8 @@ public class ObjManager : MonoBehaviourPunCallbacks
                             SetMine();
                             break;
 
-                        case ObjType.Cone:
-                            SetCone();
+                        case ObjType.Holo:
+                            SetHolo();
                             break;
                     }
                 }
@@ -141,7 +184,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
 
     public void GiveRandomObj()
     {
-        int rand = Random.Range(0, 2);
+        int rand = Random.Range(0, 3);
 
         switch (rand)
         {
@@ -150,7 +193,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
                 break;
 
             case 1:
-                AddObj(ObjType.Cone, 1);
+                AddObj(ObjType.Holo, 1);
                 break;
         }
     }
@@ -164,9 +207,9 @@ public class ObjManager : MonoBehaviourPunCallbacks
                 myAnimator.SetTrigger("Mine");
                 break;
 
-            case ObjType.Cone:
-                Cone += Cone;
-                myAnimator.SetTrigger("Cone");
+            case ObjType.Holo:
+                Holo += Holo;
+                myAnimator.SetTrigger("Holo");
                 break;
         }
 
@@ -186,14 +229,14 @@ public class ObjManager : MonoBehaviourPunCallbacks
             MineButton.gameObject.SetActive(false);
         }
 
-        if (Cone > 0)
+        if (Holo > 0)
         {
-            ConeButton.SetValue(Cone);
-            ConeButton.gameObject.SetActive(true);
+            HoloButton.SetValue(Holo);
+            HoloButton.gameObject.SetActive(true);
         }
         else
         {
-            ConeButton.gameObject.SetActive(false);
+            HoloButton.gameObject.SetActive(false);
         }
     }
 
@@ -225,7 +268,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void SetCone()
+    public void SetHolo()
     {
         SetColorWhite();
         if (IsPossing)
@@ -236,14 +279,31 @@ public class ObjManager : MonoBehaviourPunCallbacks
         else
         {
             IsPossing = true;
-            currentObj = ObjType.Cone;
-            ConeButton.GetComponent<Image>().color = Color.red;
+            currentObj = ObjType.Holo;
+            HoloButton.GetComponent<Image>().color = Color.red;
+        }
+    }
+
+    public void SetShock()
+    {
+        SetColorWhite();
+        if (IsPossing)
+        {
+            IsPossing = false;
+            return;
+        }
+        else
+        {
+            IsPossing = true;
+            currentObj = ObjType.Shock;
+            ShockButton.GetComponent<Image>().color = Color.red;
         }
     }
 
     void SetColorWhite()
     {
         MineButton.GetComponent<Image>().color = Color.white;
-        ConeButton.GetComponent<Image>().color = Color.white;
+        HoloButton.GetComponent<Image>().color = Color.white;
+        ShockButton.GetComponent<Image>().color = Color.white;
     }
 }
