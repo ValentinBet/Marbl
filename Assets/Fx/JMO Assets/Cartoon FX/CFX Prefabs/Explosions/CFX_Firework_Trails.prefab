@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4271929177690006}
   - component: {fileID: 198706918190050108}
   - component: {fileID: 199735215620805078}
-  - component: {fileID: 114672348668105304}
   m_Layer: 0
   m_Name: CFX_Firework_Trails
   m_TagString: Untagged
@@ -4478,16 +4477,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &114672348668105304
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1521203146947076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6fd2e8874f60266498a388d7229a1bac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  OnlyDeactivate: 0
