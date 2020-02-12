@@ -65,6 +65,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject commandAim;
     public GameObject commandFocus;
     public GameObject commandShoot;
+    public GameObject watchingPanel;
 
     [Header("Ui panel")]
     public GameObject loadingPanel;
@@ -412,12 +413,13 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
     }
 
-    public void DisplayInfoTurn(string playerName, int playerTeam)
+    public void DisplayInfoTurn(string playerName, int playerTeam, Player actualP)
     {
         string result = "<color=" + MarblGame.GetColorUI(playerTeam) + ">";
 
         if (PhotonNetwork.LocalPlayer.GetPlayerTurnState())
         {
+            watchingPanel.SetActive(false);
             infoTurnSettings.text.text = "Your turn to play";
             DisplayChatTooltip(false);
             DisplayPingTooltip(false);
@@ -425,6 +427,8 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
         else
         {
+            SetWatchingPanel(playerName, playerTeam);
+            watchingPanel.SetActive(true);
             infoTurnSettings.text.text = playerName + " playing";
             DisplayChatTooltip(true);
             DisplayPingTooltip(true);
@@ -461,7 +465,16 @@ public class UIManager : MonoBehaviourPunCallbacks
         if (WinPanel.GetComponentInChildren<Text>() != null)
         {
             WinPanel.GetComponentInChildren<Text>().text = winner + " Team WIN";
-        }
-       
+        }    
+    }
+
+    public void SetWatchingPanel(string playerName, int playerTeam)
+    {
+        WatchingPanel wp = watchingPanel.GetComponent<WatchingPanel>();
+        wp.teamText.text = "Team : " + MarblGame.GetColor(playerTeam).ToString();
+        wp.teamText.color = MarblGame.GetColor(playerTeam);
+        wp.nicknameText.text = playerName;
+        wp.nicknameText.color = MarblGame.GetColor(playerTeam);
+
     }
 }

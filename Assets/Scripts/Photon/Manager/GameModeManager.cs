@@ -288,7 +288,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         playerAlreadyPlay.Add(playerplayed);
         
-        myPV.RPC("RpcInfoTurn", RpcTarget.AllViaServer, playerplayed.NickName, (int)teamPlayed);
+        myPV.RPC("RpcInfoTurn", RpcTarget.AllViaServer, playerplayed.NickName, (int)teamPlayed, playerplayed);
         specCamPV.TransferOwnership(playerplayed);
 
         DetectEndGame();
@@ -418,9 +418,9 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    void RpcInfoTurn(string playerName, int playerTeam)
+    void RpcInfoTurn(string playerName, int playerTeam, Player actualPlayerPlaying)
     {
-        UIManager.Instance.DisplayInfoTurn(playerName, playerTeam);
+        UIManager.Instance.DisplayInfoTurn(playerName, playerTeam, actualPlayerPlaying);
     }
 
     [PunRPC]
