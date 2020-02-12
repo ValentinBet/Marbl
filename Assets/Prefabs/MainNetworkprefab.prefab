@@ -3267,7 +3267,7 @@ RectTransform:
   - {fileID: 3905829297139930066}
   - {fileID: 3905829297821109599}
   - {fileID: 5759650696322958583}
-  - {fileID: 8445830677138624107}
+  - {fileID: 3905829297213735359}
   - {fileID: 1498661188285942659}
   - {fileID: 2492239444089430382}
   m_Father: {fileID: 3905829297563235182}
@@ -6298,7 +6298,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -1.6, y: -0.000020609306}
+  m_AnchoredPosition: {x: -1.6, y: -0.000015258789}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3905829296844365262
@@ -8931,7 +8931,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3905829297399416321
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9674,7 +9674,7 @@ MonoBehaviour:
   isShooting: 0
   pingPrefab: {fileID: 6164614165935605980, guid: bfa1d62b32c93cb4890aff321752c393,
     type: 3}
-  PingChoice: {fileID: 8445830677138624106}
+  PingChoice: {fileID: 3905829297213735661}
   currentClickedBall: {fileID: 0}
   commandNoButtons: {fileID: 5759650696314432425}
   commandAim: {fileID: 5759650695127337615}
@@ -12558,7 +12558,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00024414062, y: -4.6749268}
+  m_AnchoredPosition: {x: 0, y: -4.6748047}
   m_SizeDelta: {x: 0, y: 9.100098}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3558629056836757996
@@ -15957,13 +15957,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e60bc4f48e17f004d9b9dcf8fb592ec7, type: 3}
---- !u!224 &8445830677138624107 stripped
+--- !u!224 &3905829297213735359 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4828374806406417800, guid: e60bc4f48e17f004d9b9dcf8fb592ec7,
     type: 3}
   m_PrefabInstance: {fileID: 3905829297213735907}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8445830677138624106 stripped
+--- !u!1 &3905829297213735661 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4828374806406417801, guid: e60bc4f48e17f004d9b9dcf8fb592ec7,
     type: 3}
