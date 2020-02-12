@@ -65,7 +65,7 @@ public class EventManager : MonoBehaviour
 
     public void EndTurn()
     {
-        numberOfBonus = 3;
+        numberOfBonus = 1;
     }
 
     public void EndRound()

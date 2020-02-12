@@ -126,25 +126,25 @@ public class ObjManager : MonoBehaviourPunCallbacks
                                     switch (GameModeManager.Instance.localPlayerTeam)
                                     {
                                         case Team.blue:
-                                            PhotonNetwork.Instantiate("Holo", hit.point, rota);
+                                            PhotonNetwork.Instantiate("HoloBlue", hit.point + Vector3.up * 0.09f, rota);
                                             break;
 
                                         case Team.green:
-                                            PhotonNetwork.Instantiate("Holo", hit.point, rota);
+                                            PhotonNetwork.Instantiate("HoloGreen", hit.point + Vector3.up * 0.09f, rota);
                                             break;
 
                                         case Team.red:
-                                            PhotonNetwork.Instantiate("Holo", hit.point, rota);
+                                            PhotonNetwork.Instantiate("HoloRed", hit.point + Vector3.up * 0.09f, rota);
                                             break;
 
                                         case Team.yellow:
-                                            PhotonNetwork.Instantiate("Holo", hit.point, rota);
+                                            PhotonNetwork.Instantiate("HoloYellow", hit.point + Vector3.up * 0.09f, rota);
                                             break;
                                     }
 
                                     if (Holo == 0)
                                     {
-                                        SetMine();
+                                        SetHolo();
                                     }
                                 }
                                 else
