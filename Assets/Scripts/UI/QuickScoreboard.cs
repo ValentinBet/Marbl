@@ -73,15 +73,15 @@ public class QuickScoreboard : MonoBehaviour
         int i = 0;
         foreach(KeyValuePair<Team, int> element in listTeams)
         {
-            int ballNumber = CountBallOfThisTeam(element.Key);
+            int ballNumber = CountTeam(element.Key);
             teamObj[i].GetComponent<TeamListElement>().SetElements(element.Key, element.Value, ballNumber);
             teamAndBall[element.Key] = ballNumber;
             i++;
         }
     }
+    
 
-
-    public int CountBallOfThisTeam(Team myTeam)
+    int CountTeam(Team myTeam)
     {
         int number = 0;
 
@@ -129,5 +129,22 @@ public class QuickScoreboard : MonoBehaviour
         }
 
         return presentTeam;
+    }
+
+    public int CountBallOfThisTeam(Team myTeam)
+    {
+        int number = 0;
+
+        Balls = GameObject.FindGameObjectsWithTag("Ball");
+
+        foreach (GameObject ball in Balls)
+        {
+            if (ball.GetComponent<BallSettings>().myteam == myTeam)
+            {
+                number++;
+            }
+        }
+
+        return number;
     }
 }
