@@ -27,7 +27,7 @@ RectTransform:
   m_GameObject: {fileID: 2919153472490989506}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 2.875}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0033633, y: 1.0033633, z: 1.0033633}
   m_Children:
   - {fileID: 1199346991494663952}
   m_Father: {fileID: 3388624319197931182}
@@ -60,7 +60,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.6509804}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -278,13 +278,13 @@ MonoBehaviour:
   m_margin: {x: -92.14551, y: 0, z: -109.176254, w: -21.210842}
   m_textInfo:
     textComponent: {fileID: 3388624318429333203}
-    characterCount: 0
+    characterCount: 10
     spriteCount: 0
     spaceCount: 0
-    wordCount: 0
+    wordCount: 1
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -666,13 +666,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 3388624319415386608}
-    characterCount: 0
+    characterCount: 18
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 3
+    wordCount: 4
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 2
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
