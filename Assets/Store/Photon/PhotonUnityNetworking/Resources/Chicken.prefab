@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4000011253730322}
   - component: {fileID: 9198104094436205603}
   - component: {fileID: 114739808282993038}
-  - component: {fileID: 5558114569433182881}
   - component: {fileID: 8246468985071380508}
   - component: {fileID: 8261978027223257818}
   - component: {fileID: 4844984227253515196}
@@ -79,20 +78,6 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
---- !u!114 &5558114569433182881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010238139128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf977b5fae0bc77438d9f85aefc0fb82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  myAnimator: {fileID: 0}
-  EggParticule: {fileID: 100004, guid: 08854e5c4921b2748b706b4dd28cbb56, type: 3}
 --- !u!33 &8246468985071380508
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -310,8 +295,9 @@ GameObject:
   - component: {fileID: 5306624510883354410}
   - component: {fileID: 6393368697173437451}
   - component: {fileID: 7599735965443255375}
+  - component: {fileID: 7444392803554884586}
   m_Layer: 17
-  m_Name: Chicken
+  m_Name: ChickenChild
   m_TagString: Gift
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -361,3 +347,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &7444392803554884586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539018222611521875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf977b5fae0bc77438d9f85aefc0fb82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myAnimator: {fileID: 3180865641529189891}
+  EggParticule: {fileID: 100004, guid: 08854e5c4921b2748b706b4dd28cbb56, type: 3}
+  prefabParticule: {fileID: 100004, guid: 08854e5c4921b2748b706b4dd28cbb56, type: 3}

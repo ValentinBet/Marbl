@@ -22,12 +22,7 @@ public class MineBlock : MonoBehaviour
     private bool isExploding = false;
 
     bool isDestroying = false;
-    PhotonView pv;
-
-    private void Start()
-    {
-        pv = GetComponent<PhotonView>();
-    }
+    public PhotonView pv;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -67,7 +62,7 @@ public class MineBlock : MonoBehaviour
 
         GameObject mark = Instantiate(prefabMark);
         mark.transform.position = posMark.position;
-        mark.transform.eulerAngles = new Vector3(90, Random.Range(0, 360), 0);
+        mark.transform.rotation = transform.parent.rotation;
 
         if (GameModeManager.Instance.localPlayerTurn && !isDestroying)
         {
