@@ -424,21 +424,18 @@ public class UIManager : MonoBehaviourPunCallbacks
             DisplayChatTooltip(false);
             DisplayPingTooltip(false);
             result += "Your turn ...";
+            infoTurnText.text = result + "</color>";
+            infoTurnSettings.MainBackground.GetComponent<Image>().color = MarblGame.GetColor(playerTeam);
+            infoTurnSettings.BackgroundGo.GetComponent<Animator>().SetTrigger("Display");
         }
         else
         {
             SetWatchingPanel(playerName, playerTeam);
             watchingPanel.SetActive(true);
-            infoTurnSettings.text.text = playerName + " playing";
             DisplayChatTooltip(true);
             DisplayPingTooltip(true);
             result += playerName + " playing";
         }
-
-        infoTurnText.text = result + "</color>";
-
-        infoTurnSettings.MainBackground.GetComponent<Image>().color = MarblGame.GetColor(playerTeam);
-        infoTurnSettings.BackgroundGo.GetComponent<Animator>().SetTrigger("Display");
     }
 
     public void DisableBecon()
@@ -471,10 +468,11 @@ public class UIManager : MonoBehaviourPunCallbacks
     public void SetWatchingPanel(string playerName, int playerTeam)
     {
         WatchingPanel wp = watchingPanel.GetComponent<WatchingPanel>();
-        wp.teamText.text = "Team : " + MarblGame.GetColor(playerTeam).ToString();
+        wp.teamText.text = MarblGame.GetTeamString(playerTeam);
         wp.teamText.color = MarblGame.GetColor(playerTeam);
         wp.nicknameText.text = playerName;
         wp.nicknameText.color = MarblGame.GetColor(playerTeam);
+        print(QuickScoreboard.Instance.CountBallOfThisTeam((Team)playerTeam).ToString());
         wp.ballNumberText.text = QuickScoreboard.Instance.CountBallOfThisTeam((Team)playerTeam).ToString();
     }
 }
