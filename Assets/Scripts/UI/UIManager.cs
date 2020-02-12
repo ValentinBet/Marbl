@@ -424,7 +424,6 @@ public class UIManager : MonoBehaviourPunCallbacks
             DisplayChatTooltip(false);
             DisplayPingTooltip(false);
             result += "Your turn ...";
-            infoTurnText.text = result + "</color>";
             infoTurnSettings.MainBackground.GetComponent<Image>().color = MarblGame.GetColor(playerTeam);
             infoTurnSettings.BackgroundGo.GetComponent<Animator>().SetTrigger("Display");
         }
@@ -436,6 +435,8 @@ public class UIManager : MonoBehaviourPunCallbacks
             DisplayPingTooltip(true);
             result += playerName + " playing";
         }
+
+        infoTurnText.text = result + "</color>";
     }
 
     public void DisableBecon()
@@ -472,7 +473,6 @@ public class UIManager : MonoBehaviourPunCallbacks
         wp.teamText.color = MarblGame.GetColor(playerTeam);
         wp.nicknameText.text = playerName;
         wp.nicknameText.color = MarblGame.GetColor(playerTeam);
-        print(QuickScoreboard.Instance.CountBallOfThisTeam((Team)playerTeam).ToString());
         wp.ballNumberText.text = QuickScoreboard.Instance.CountBallOfThisTeam((Team)playerTeam).ToString();
     }
 }
