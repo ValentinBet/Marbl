@@ -356,6 +356,11 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
             RoomSettings.Instance.SetMode(RoomScripts.Instance.fileModeName, RoomScripts.Instance.customModeSave);
         }
 
+        if (RoomScripts.Instance.fileModeName == "Hue.json")
+        {
+            PlayerPrefs.SetInt("HavePlayedHue", 1);
+        }
+
         RoomSettings.Instance.SaveSettings();
 
         multiplayerScene = PhotonNetwork.CurrentRoom.GetMap();
