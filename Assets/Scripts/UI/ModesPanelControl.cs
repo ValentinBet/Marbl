@@ -15,6 +15,7 @@ public class ModesPanelControl : MonoBehaviour
 
     [Header("Lock")]
     [SerializeField] private List<GameObject> ListPadlock = new List<GameObject>();
+    [SerializeField] private List<TextMeshProUGUI> ListText = new List<TextMeshProUGUI>();
 
     private void Start()
     {
@@ -31,6 +32,11 @@ public class ModesPanelControl : MonoBehaviour
             item.SetActive(false);
             dmCircle.GetComponentInChildren<Button>().interactable = true;
             kothCircle.GetComponentInChildren<Button>().interactable = true;
+        }
+
+        foreach (TextMeshProUGUI text in ListText)
+        {
+            text.text = "";
         }
     }
 }
