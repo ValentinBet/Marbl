@@ -53,7 +53,7 @@ public class MineBlock : MonoBehaviour
 
         foreach (Collider co in colliders)
         {
-            if (co.CompareTag("Ball") && co.GetComponent<Rigidbody>() != null)
+            if (co.GetComponent<Rigidbody>() != null)
             {
                 if (co.GetComponent<PhotonView>().IsMine)
                 {

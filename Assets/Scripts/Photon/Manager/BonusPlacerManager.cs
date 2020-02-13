@@ -12,6 +12,8 @@ public class BonusPlacerManager : MonoBehaviour
 
     public GameObject textNamePrefab;
 
+    public PhotonView pv;
+
     private static BonusPlacerManager _instance;
     public static BonusPlacerManager Instance { get { return _instance; } }
 
@@ -55,9 +57,9 @@ public class BonusPlacerManager : MonoBehaviour
         foreach (ObjToSpawn element in allObjToSpawn)
         {
             PhotonNetwork.Instantiate(element.obj, element.postion, element.rotation);
+            //pv.RPC("RpcSpawnNamePlayer", RpcTarget.All, element.playerName, element.playerTeam, element.postion);
 
-
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1.5f);
         }
 
         allObjToSpawn.Clear();
