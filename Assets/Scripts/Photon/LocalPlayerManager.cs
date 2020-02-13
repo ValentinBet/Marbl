@@ -257,7 +257,6 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
     void PlayerShooted()
     {
         haveShoot = true;
-        UIManager.Instance.DisableBecon();
     }
 
     void RemovePlayerTurn()

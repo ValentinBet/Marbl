@@ -6298,7 +6298,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -1.6, y: -0.000025770361}
+  m_AnchoredPosition: {x: -1.6, y: -0.000022888184}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3905829296844365262
@@ -8822,6 +8822,7 @@ MonoBehaviour:
   localPlayerObj: {fileID: 0}
   localPlayerTeam: 0
   localPlayerTurn: 0
+  localPhotonView: {fileID: 0}
   specCamPV: {fileID: 0}
 --- !u!114 &3905829297383660005
 MonoBehaviour:
@@ -14234,7 +14235,7 @@ Animator:
   m_GameObject: {fileID: 7149759882969875855}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce1ac8c043ec6bb45b3b1f6f2a21430f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

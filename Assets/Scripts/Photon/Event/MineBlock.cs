@@ -21,7 +21,6 @@ public class MineBlock : MonoBehaviour
 
     private bool isExploding = false;
 
-    bool isDestroying = false;
     public PhotonView pv;
 
     private void OnTriggerEnter(Collider other)
@@ -29,6 +28,11 @@ public class MineBlock : MonoBehaviour
         if (!isExploding && other.GetComponent<Rigidbody>() != null)
         {
             Explode(other);
+        }
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.Destroy(pv);
         }
     }
 
@@ -63,18 +67,6 @@ public class MineBlock : MonoBehaviour
         GameObject mark = Instantiate(prefabMark);
         mark.transform.position = posMark.position;
         mark.transform.rotation = transform.parent.rotation;
-
-        if (GameModeManager.Instance.localPlayerTurn && !isDestroying)
-        {
-            isDestroying = true;
-
-            if (!pv.IsMine)
-            {
-                pv.RequestOwnership();
-            }
-
-            PhotonNetwork.Destroy(pv);
-        }
     }
 
     private void OnDrawGizmos()

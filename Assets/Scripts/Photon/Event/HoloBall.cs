@@ -26,15 +26,9 @@ public class HoloBall : MonoBehaviour
 
         if (other.tag == "Ball")
         {
-            if (GameModeManager.Instance.localPlayerTurn && !isDestroying)
+            if (PhotonNetwork.IsMasterClient && !isDestroying)
             {
                 isDestroying = true;
-
-                if (!pv.IsMine)
-                {
-                    pv.RequestOwnership();
-                }
-
                 StartCoroutine(Wait());
             }
         }

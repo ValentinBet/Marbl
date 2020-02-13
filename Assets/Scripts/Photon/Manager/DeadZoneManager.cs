@@ -42,13 +42,9 @@ public class DeadZoneManager : MonoBehaviour
             _fx.transform.localScale = new Vector3(fxDieWidth, fxDieWidth, fxDieWidth);
             Destroy(_fx, 2);
 
-
-            if (GameModeManager.Instance.localPlayerTurn)
+            if (PhotonNetwork.IsMasterClient)
             {
-                PhotonView pv = other.GetComponent<PhotonView>();
-
-                pv.RequestOwnership();
-                PhotonNetwork.Destroy(pv);
+                PhotonNetwork.Destroy(other.GetComponent<PhotonView>());
             }
         }
 
@@ -60,13 +56,9 @@ public class DeadZoneManager : MonoBehaviour
             _fx.transform.localScale = new Vector3(fxDieWidth, fxDieWidth, fxDieWidth);
             Destroy(_fx, 2);
 
-
-            if (GameModeManager.Instance.localPlayerTurn)
+            if (PhotonNetwork.IsMasterClient)
             {
-                PhotonView pv = other.GetComponent<PhotonView>();
-
-                pv.RequestOwnership();
-                PhotonNetwork.Destroy(pv);
+                PhotonNetwork.Destroy(other.GetComponent<PhotonView>());
             }
         }
 
