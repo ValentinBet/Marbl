@@ -1,0 +1,11 @@
+diff a/Assets/Scripts/UI/HostPanel.cs b/Assets/Scripts/UI/HostPanel.cs	(rejected hunks)
+@@ -90,6 +90,9 @@
+                     Map.SetActive(true);
+                     Custom.SetActive(false);
+                     PlayerHostPanel.SetActive(false);
++
++                    RoomScripts.Instance.Refresh();
++                    RoomScripts.Instance.RefreshMaps();
+                     break;
+ 
+                 case "Custom":

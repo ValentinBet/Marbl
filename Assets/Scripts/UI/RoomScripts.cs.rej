@@ -1,0 +1,9 @@
+diff a/Assets/Scripts/UI/RoomScripts.cs b/Assets/Scripts/UI/RoomScripts.cs	(rejected hunks)
+@@ -20,6 +20,7 @@
+ 
+     public bool customMode = false;
+     public bool customModeSave = false;
++    public bool isCustom = false;
+     public string fileModeName;
+ 
+     List<GameObject> allCustomMode = new List<GameObject>();
