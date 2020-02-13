@@ -358,14 +358,18 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
         if (RoomScripts.Instance.fileModeName == "Hue.json")
         {
-            PlayerPrefs.SetInt("HavePlayedHue", 1);
+            PlayerPrefs.SetInt("HavePlayedClassic", 1);
         }
 
         RoomSettings.Instance.SaveSettings();
 
         multiplayerScene = PhotonNetwork.CurrentRoom.GetMap();
 
-        PhotonNetwork.LoadLevel(multiplayerScene);
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.LoadLevel(multiplayerScene);
+        }
+
     }
 
     private bool CheckPlayersReady()

@@ -77,7 +77,7 @@ public class ScoreboardManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.CurrentRoom.GetHue())
         {
             result = isFirstGameMode(result);
-            result += "Hue";
+            result += "Classic";
         }
         if (PhotonNetwork.CurrentRoom.GetHill())
         {

@@ -19,7 +19,7 @@ public class ModesPanelControl : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.GetInt("HavePlayedHue") == 1)
+        if (PlayerPrefs.GetInt("HavePlayedClassic") == 1)
         {
             UnlockGamemodes();
         }
