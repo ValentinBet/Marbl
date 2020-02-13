@@ -41,6 +41,8 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
             mousControl.enabled = true;
             myPlayerCam = GetComponent<CameraPlayer>();
             myPlayerCam.enabled = true;
+
+            GameModeManager.Instance.localPhotonView = PV;
         }
         else
         {

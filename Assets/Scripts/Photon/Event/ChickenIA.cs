@@ -9,7 +9,7 @@ using static Photon.Pun.UtilityScripts.PunTeams;
 public class ChickenIA : MonoBehaviour
 {
     public Animator myAnimator;
-    PhotonView pv;
+    public PhotonView pv;
 
     public GameObject EggParticule;
 
@@ -17,8 +17,6 @@ public class ChickenIA : MonoBehaviour
 
     private void Start()
     {
-        pv = GetComponent<PhotonView>();
-
         Destroy(Instantiate(EggParticule, transform.position, Random.rotation), 2);
 
         if (!PhotonNetwork.IsMasterClient)
@@ -36,10 +34,10 @@ public class ChickenIA : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("coollision");
-
-        if (other.gameObject.layer == 17)
+        if (other.gameObject.layer == 12)
         {
+            Destroy(Instantiate(prefabParticule, transform.position + Vector3.up * 0.9f, Random.rotation), 1);
+
             Transform parentObj = other.transform.parent;
 
             Team myTeam = GameModeManager.Instance.localPlayerTeam;
@@ -55,29 +53,14 @@ public class ChickenIA : MonoBehaviour
                     Player pGetGift = GetRandomPlayerOfTeam(myTeam);
                     pGetGift.SetPlayerGetGift(true);
                 }
+            }
 
-                PhotonView myPv = parentObj.GetComponent<PhotonView>();
-
-                if (!myPv.IsMine)
-                {
-                    myPv.RequestOwnership();
-                }
-
-                Destroy(Instantiate(prefabParticule, transform.position + Vector3.up * 0.9f, Random.rotation), 1);
-
-                myPv.RPC("RpcSpawnParticule", RpcTarget.Others, transform.position + Vector3.up * 0.9f);
-
-                PhotonNetwork.Destroy(myPv);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.Destroy(pv);
             }
         }
     }
-
-    [PunRPC]
-    void RpcSpawnParticule(Vector3 pos)
-    {
-        Destroy(Instantiate(prefabParticule, pos, Random.rotation), 1);
-    }
-
 
     Player GetRandomPlayerOfTeam(Team team)
     {

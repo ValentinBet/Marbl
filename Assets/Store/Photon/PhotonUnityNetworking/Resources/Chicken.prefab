@@ -56,7 +56,7 @@ MonoBehaviour:
   Group: 0
   prefixField: -1
   Synchronization: 3
-  OwnershipTransfer: 2
+  OwnershipTransfer: 1
   ObservedComponents:
   - {fileID: 114739808282993038}
   - {fileID: 1338919941571818156}
@@ -360,5 +360,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myAnimator: {fileID: 3180865641529189891}
+  pv: {fileID: 9198104094436205603}
   EggParticule: {fileID: 100004, guid: 08854e5c4921b2748b706b4dd28cbb56, type: 3}
   prefabParticule: {fileID: 100004, guid: 08854e5c4921b2748b706b4dd28cbb56, type: 3}
