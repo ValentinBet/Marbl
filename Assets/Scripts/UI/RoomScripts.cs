@@ -169,7 +169,7 @@ public class RoomScripts : MonoBehaviour
                 infoMode += "<color=red> X </color>";
             }
 
-            infoMode += "Hue";
+            infoMode += "Classic";
             gModeElement.Hue = true;
         }
 

@@ -71,6 +71,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         AudioManager.Instance.playingSong.Play();
 
         PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
+
+
     }
 
     public void StartGameForAll()
