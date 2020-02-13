@@ -7,6 +7,7 @@ using Photon.Realtime;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 using Photon.Pun.UtilityScripts;
 using static Photon.Pun.UtilityScripts.PunTeams;
+using static ObjManager;
 
 public class LocalPlayerManager : MonoBehaviourPunCallbacks
 {
@@ -276,5 +277,16 @@ public class LocalPlayerManager : MonoBehaviourPunCallbacks
     void RpcChat(string _text)
     {
         ChatManager.Instance.OnChatMessage(_text);
+    }
+
+    public void SendObj(string _name, Team _team, Vector3 _position, Quaternion _rotation, string _obj)
+    {
+        PV.RPC("RpcSpawnObj", RpcTarget.MasterClient, _name, _team, _position, _rotation, _obj);
+    }
+
+    [PunRPC]
+    void RpcSpawnObj(string _name, Team _team, Vector3 _position, Quaternion _rotation, string _obj)
+    {
+        BonusPlacerManager.Instance.AddObject(_name, _team, _position, _rotation, _obj);
     }
 }

@@ -23,6 +23,11 @@ public class MineBlock : MonoBehaviour
 
     public PhotonView pv;
 
+    private void Start()
+    {
+        EventManager.Instance.SetFollowObj(gameObject);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (!isExploding && other.GetComponent<Rigidbody>() != null)

@@ -154,7 +154,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
-        PhotonNetwork.CurrentRoom.SetForceMap(false);
+        PhotonNetwork.CurrentRoom.SetForceCam(false);
 
         SetActivePanel(InsideRoomPanel.name);
 
