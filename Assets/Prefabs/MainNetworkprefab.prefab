@@ -6297,7 +6297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -1.6, y: -0.000009023628}
+  m_AnchoredPosition: {x: -1.6, y: -0.0000153941}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &3905829296844365262
@@ -14990,7 +14990,7 @@ GameObject:
   - component: {fileID: 572318903801378683}
   m_Layer: 0
   m_Name: ForceCameraPoint
-  m_TagString: Untagged
+  m_TagString: ForceCamItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15273,16 +15273,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3905829296382904096}
     m_Modifications:
-    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
-        type: 3}
-      propertyPath: m_Name
-      value: Team element
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2831410393425176768, guid: 85395ed4b6732f44bb92a1a4e66994a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15387,6 +15377,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
+        type: 3}
+      propertyPath: m_Name
+      value: Team element
+      objectReference: {fileID: 0}
+    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85395ed4b6732f44bb92a1a4e66994a8, type: 3}
@@ -15633,16 +15633,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3905829296382904096}
     m_Modifications:
-    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
-        type: 3}
-      propertyPath: m_Name
-      value: Team element (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2831410393425176768, guid: 85395ed4b6732f44bb92a1a4e66994a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15747,6 +15737,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
+        type: 3}
+      propertyPath: m_Name
+      value: Team element (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85395ed4b6732f44bb92a1a4e66994a8, type: 3}
@@ -15914,16 +15914,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3905829296382904096}
     m_Modifications:
-    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
-        type: 3}
-      propertyPath: m_Name
-      value: Team element (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2831410393425176768, guid: 85395ed4b6732f44bb92a1a4e66994a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16029,6 +16019,16 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
+        type: 3}
+      propertyPath: m_Name
+      value: Team element (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85395ed4b6732f44bb92a1a4e66994a8, type: 3}
 --- !u!224 &1260862541138533168 stripped
@@ -16044,16 +16044,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3905829296382904096}
     m_Modifications:
-    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
-        type: 3}
-      propertyPath: m_Name
-      value: Team element (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2831410393425176768, guid: 85395ed4b6732f44bb92a1a4e66994a8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16158,6 +16148,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
+        type: 3}
+      propertyPath: m_Name
+      value: Team element (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2831410393425176771, guid: 85395ed4b6732f44bb92a1a4e66994a8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85395ed4b6732f44bb92a1a4e66994a8, type: 3}
