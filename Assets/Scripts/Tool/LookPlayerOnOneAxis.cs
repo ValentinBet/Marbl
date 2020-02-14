@@ -16,9 +16,9 @@ public class LookPlayerOnOneAxis : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var lookPos = camTrans.position - transform.position;
+        Vector3 lookPos = camTrans.position - transform.position;
         lookPos.y = 0;
-        var rotation = Quaternion.LookRotation(lookPos);
+        Quaternion rotation = Quaternion.LookRotation(lookPos);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * 20);
     }
 }
