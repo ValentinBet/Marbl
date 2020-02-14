@@ -57,7 +57,7 @@ public class BonusPlacerManager : MonoBehaviour
         foreach (ObjToSpawn element in allObjToSpawn)
         {
             PhotonNetwork.Instantiate(element.obj, element.postion, element.rotation);
-            //pv.RPC("RpcSpawnNamePlayer", RpcTarget.All, element.playerName, element.playerTeam, element.postion);
+            pv.RPC("RpcSpawnNamePlayer", RpcTarget.All, element.playerName, element.playerTeam, element.postion);
 
             yield return new WaitForSeconds(1.5f);
         }
@@ -70,7 +70,11 @@ public class BonusPlacerManager : MonoBehaviour
     [PunRPC]
     void RpcSpawnNamePlayer(string _playerName, Team _playerTeam, Vector3 _position)
     {
-        Destroy(Instantiate(textNamePrefab, _position, Quaternion.identity), 2);
+        GameObject newPlayerText = Instantiate(textNamePrefab, _position, Quaternion.identity);
+        NamePlayerIG playerTextScript = newPlayerText.GetComponent<NamePlayerIG>();
+        playerTextScript.SetPlayer(_playerName, _playerTeam);
+
+        Destroy(newPlayerText, 2);
     }
 }
 
