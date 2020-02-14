@@ -48,7 +48,6 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject chat;
     public bl_ChatUI chatUI;
     public InfoTurnSettings infoTurnSettings;
-    public Text infoTurnText;
 
     public bool isShooting = false;
 
@@ -415,8 +414,6 @@ public class UIManager : MonoBehaviourPunCallbacks
             DisplayPingTooltip(true);
             result += playerName + " playing";
         }
-
-        infoTurnText.text = result + "</color>";
     }
 
     public void EndGame(Team winner)
