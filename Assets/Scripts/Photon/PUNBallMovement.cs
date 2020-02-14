@@ -156,7 +156,7 @@ public class PUNBallMovement : MonoBehaviour
                 Destroy(impact, 2);
 
                 float screenShakeDistance = Vector3.Distance(Camera.main.transform.position, this.gameObject.transform.position);
-                float screenShakePower = Mathf.Clamp(collision.relativeVelocity.sqrMagnitude / 40 - screenShakeDistance / 30, 0, 20);
+                float screenShakePower = collision.relativeVelocity.sqrMagnitude / 40 - screenShakeDistance / 30;
 
                 if (screenShakePower > 0)
                 {
@@ -176,7 +176,7 @@ public class PUNBallMovement : MonoBehaviour
                 Destroy(_fxWallHitWood, 2);
 
                 float screenShakeDistance = Vector3.Distance(Camera.main.transform.position, this.gameObject.transform.position);
-                float screenShakePower = Mathf.Clamp(collision.relativeVelocity.sqrMagnitude / 80 - screenShakeDistance / 30, 0, 20);
+                float screenShakePower = collision.relativeVelocity.sqrMagnitude / 80 - screenShakeDistance / 30;
 
                 if (screenShakePower > 0)
                 {
@@ -235,8 +235,9 @@ public class PUNBallMovement : MonoBehaviour
                 if (amplify == CollideStates.Giver)
                 {
                     //Debug.Log("Giving Collider " + gameObject.name);
-                    float sqrSpeed = Mathf.Clamp((rigidbody.velocity * ImpactGivingCoef * impactPower * 1.3f - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1)).sqrMagnitude, 0, MaxSpeed * MaxSpeed);
+                    /*float sqrSpeed = Mathf.Clamp((rigidbody.velocity * ImpactGivingCoef * impactPower * 1.3f - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1)).sqrMagnitude, 0, MaxSpeed * MaxSpeed);
                     rigidbody.velocity = (rigidbody.velocity * ImpactGivingCoef * impactPower * 1.3f - Vector3.up * rigidbody.velocity.y * (ImpactGivingCoef - 1)).normalized * Mathf.Sqrt(sqrSpeed); ;
+                    */
                 }
                 else
                 {

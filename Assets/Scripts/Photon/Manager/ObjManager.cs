@@ -27,6 +27,8 @@ public class ObjManager : MonoBehaviourPunCallbacks
     public GameObject prefabPosObj;
     GameObject objPosInGame;
 
+    LocalPlayerManager myLocalPlayerManager;
+
     public enum ObjType
     {
         Mine,
@@ -59,7 +61,13 @@ public class ObjManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (IsPossing)
+        if (myLocalPlayerManager == null)
+        {
+            myLocalPlayerManager = GameModeManager.Instance.localPlayerObj.GetComponent<LocalPlayerManager>();
+        }
+
+
+        if (IsPossing && !PhotonNetwork.CurrentRoom.GetForceCam())
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -101,7 +109,9 @@ public class ObjManager : MonoBehaviourPunCallbacks
                                     Quaternion rota = Quaternion.LookRotation(hit.normal);
                                     rota *= Quaternion.Euler(90, 0, 0);
 
-                                    PhotonNetwork.Instantiate("Mine", hit.point, rota);
+                                    //PhotonNetwork.Instantiate("Mine", hit.point, rota);
+
+                                    myLocalPlayerManager.SendObj(PhotonNetwork.LocalPlayer.NickName, PhotonNetwork.LocalPlayer.GetTeam(), hit.point, rota, "Mine");
 
                                     if (Mine == 0)
                                     {
@@ -123,24 +133,32 @@ public class ObjManager : MonoBehaviourPunCallbacks
                                     Quaternion rota = Quaternion.LookRotation(hit.normal);
                                     rota *= Quaternion.Euler(90, 0, 0);
 
+                                    string objName = "HoloBlue";
+
                                     switch (GameModeManager.Instance.localPlayerTeam)
                                     {
                                         case Team.blue:
-                                            PhotonNetwork.Instantiate("HoloBlue", hit.point + Vector3.up * 0.09f, rota);
+                                            //PhotonNetwork.Instantiate("HoloBlue", hit.point + Vector3.up * 0.09f, rota);
+                                            objName = "HoloBlue";
                                             break;
 
                                         case Team.green:
-                                            PhotonNetwork.Instantiate("HoloGreen", hit.point + Vector3.up * 0.09f, rota);
+                                            //PhotonNetwork.Instantiate("HoloGreen", hit.point + Vector3.up * 0.09f, rota);
+                                            objName = "HoloGreen";
                                             break;
 
                                         case Team.red:
-                                            PhotonNetwork.Instantiate("HoloRed", hit.point + Vector3.up * 0.09f, rota);
+                                            //PhotonNetwork.Instantiate("HoloRed", hit.point + Vector3.up * 0.09f, rota);
+                                            objName = "HoloRed";
                                             break;
 
                                         case Team.yellow:
-                                            PhotonNetwork.Instantiate("HoloYellow", hit.point + Vector3.up * 0.09f, rota);
+                                            //PhotonNetwork.Instantiate("HoloYellow", hit.point + Vector3.up * 0.09f, rota);
+                                            objName = "HoloYellow";
                                             break;
                                     }
+
+                                    myLocalPlayerManager.SendObj(PhotonNetwork.LocalPlayer.NickName, PhotonNetwork.LocalPlayer.GetTeam(), hit.point + Vector3.up * 0.09f, rota, objName);
 
                                     if (Holo == 0)
                                     {
@@ -209,7 +227,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
 
             case ObjType.Holo:
                 Holo += Holo;
-                myAnimator.SetTrigger("Holo");
+                myAnimator.SetTrigger("Hologram");
                 break;
         }
 

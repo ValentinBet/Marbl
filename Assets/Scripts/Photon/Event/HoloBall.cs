@@ -18,6 +18,8 @@ public class HoloBall : MonoBehaviour
         transform.rotation = Random.rotation;
 
         pv = GetComponent<PhotonView>();
+
+        EventManager.Instance.SetFollowObj(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -26,15 +28,9 @@ public class HoloBall : MonoBehaviour
 
         if (other.tag == "Ball")
         {
-            if (GameModeManager.Instance.localPlayerTurn && !isDestroying)
+            if (PhotonNetwork.IsMasterClient && !isDestroying)
             {
                 isDestroying = true;
-
-                if (!pv.IsMine)
-                {
-                    pv.RequestOwnership();
-                }
-
                 StartCoroutine(Wait());
             }
         }

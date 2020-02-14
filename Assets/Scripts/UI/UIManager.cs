@@ -48,7 +48,6 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject chat;
     public bl_ChatUI chatUI;
     public InfoTurnSettings infoTurnSettings;
-    public Text infoTurnText;
 
     public bool isShooting = false;
 
@@ -279,10 +278,6 @@ public class UIManager : MonoBehaviourPunCallbacks
             {
                 myBallSettings.enabled = true;
             }
-            else
-            {
-                newPing.GetComponent<PingElement>().Hide();
-            }
 
             listOfPing.Add(myBallSettings, myElement);
         }
@@ -331,31 +326,15 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
 
         currentClickedBall = ball;
-
-        foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
-        {
-            if (element.Key == null) { continue; }
-
-            if (element.Key.gameObject == ball)
-            {
-                element.Value.Trail.enabled = false;
-            }
-        }
     }
 
     public void OnEndTurn()
     {
         if (!pingStatut) { return; }
-        if (actualCommand != null)
-            actualCommand.SetActive(false);
-        foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
-        {
-            if (element.Key == null) { continue; }
 
-            if (element.Key.myteam == GameModeManager.Instance.localPlayerTeam)
-            {
-                element.Value.Trail.enabled = true;
-            }
+        if (actualCommand != null)
+        {
+            actualCommand.SetActive(false);
         }
     }
 
@@ -434,20 +413,6 @@ public class UIManager : MonoBehaviourPunCallbacks
             DisplayChatTooltip(true);
             DisplayPingTooltip(true);
             result += playerName + " playing";
-        }
-
-        infoTurnText.text = result + "</color>";
-    }
-
-    public void DisableBecon()
-    {
-        foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
-        {
-            if (element.Key != null)
-            {
-                element.Value.Trail.enabled = false;
-                continue;
-            }
         }
     }
 

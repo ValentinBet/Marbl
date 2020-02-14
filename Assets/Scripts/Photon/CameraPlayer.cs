@@ -12,6 +12,7 @@ public class CameraPlayer : MonoBehaviour
     public float curveVariation = 1.5f;
     public AudioClip sd_cameraChange;
 
+    public float maxScreenShakeIntensity = 10;
     private AudioSource audioSource;
     private float orbitalAngle;
     private Quaternion initialRotation;
@@ -25,6 +26,7 @@ public class CameraPlayer : MonoBehaviour
     public CinemachineVirtualCamera[] cameras;
     private Transform mapPivot;
     public Transform followBall;
+    public Transform followBallForce;
     private Transform targetedTransform; //FollowedMarbletransform;
     private PUNMouseControl myMouseControl;
     private LocalPlayerManager myLocalPlayerManager;
@@ -72,6 +74,7 @@ public class CameraPlayer : MonoBehaviour
         myCamera = Camera.main;
         myMouseControl = GetComponent<PUNMouseControl>();
         followBall = GameObject.Find("Cam Follow Point").transform;
+        followBallForce = GameObject.Find("ForceCameraPoint").transform;
 
         mapPivot = GameObject.Find("MapPivot").transform;
         InitializeCameras();
@@ -202,6 +205,7 @@ public class CameraPlayer : MonoBehaviour
                 cameras[1].Priority = 0;
                 cameras[2].Priority = 0;
                 cameras[3].Priority = 100;
+                followBallForce.transform.rotation = Quaternion.identity;
                 break;
         }
     }
@@ -226,12 +230,16 @@ public class CameraPlayer : MonoBehaviour
             //orbitalAngle += Input.GetAxis("Mouse X") * 2.5f;
             //followBall.transform.rotation = Quaternion.Euler(initialRotation.eulerAngles + new Vector3(0, orbitalAngle, 0));// + myMouseControl.possibleAngles[myMouseControl.angleIndex] * curveVariation, 0));
             followBall.transform.rotation = Quaternion.Euler(followBall.transform.rotation.eulerAngles + new Vector3(0, Input.GetAxis("Mouse X") * 2.5f, 0));
+            followBallForce.transform.rotation = Quaternion.Euler(followBall.transform.rotation.eulerAngles + new Vector3(0, Input.GetAxis("Mouse X") * 2.5f, 0));
         }
     }
 
 
     public void InitShakeScreen(float intensity, float duration)
     {
+
+        intensity = Mathf.Clamp(intensity, 0, maxScreenShakeIntensity);
+
         if (!isScreenShaking)
         {
             StartCoroutine(ProcessShake(intensity, duration));

@@ -17,7 +17,7 @@ namespace Photon.Pun.UtilityScripts
 
     public static class RoomCustomExtension
     {
-        public static void SetForceMap(this Room room, bool cam)
+        public static void SetForceCam(this Room room, bool cam)
         {
             Hashtable _forceCam = new Hashtable();
             _forceCam[PUNRoomCustomExtension.forceCam] = cam;

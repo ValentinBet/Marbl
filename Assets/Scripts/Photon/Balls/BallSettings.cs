@@ -29,8 +29,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 
     private Material[] _mats;
 
-    public GameObject prefabParticule;
-
     private void Awake()
     {
         pv = this.GetComponent<PhotonView>();
@@ -153,60 +151,5 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
             networkRotation = (Quaternion)stream.ReceiveNext();
             myRigid.velocity = (Vector3)stream.ReceiveNext();
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.layer == 17 && myteam != Team.neutral)
-        {
-            Transform parentObj = other.transform.parent;
-
-            if (GameModeManager.Instance.localPlayerTurn)
-            {
-                if(GameModeManager.Instance.localPlayerTeam == myteam)
-                {
-                    ObjManager.Instance.GiveRandomObj();
-                }
-                else
-                {
-                    Player pGetGift = GetRandomPlayerOfTeam(myteam);
-                    pGetGift.SetPlayerGetGift(true);
-                }
-
-                PhotonView myPv = parentObj.GetComponent<PhotonView>();
-
-                if (!myPv.IsMine)
-                {
-                    myPv.RequestOwnership();
-                }
-
-                Destroy(Instantiate(prefabParticule, transform.position + Vector3.up * 0.9f, Random.rotation), 1);
-
-                myPv.RPC("RpcSpawnParticule", RpcTarget.Others, transform.position + Vector3.up * 2);
-
-                PhotonNetwork.Destroy(myPv);
-            }
-        }
-    }
-
-    [PunRPC]
-    void RpcSpawnParticule(Vector3 pos)
-    {
-        Destroy(Instantiate(prefabParticule, pos, Random.rotation), 1);
-    }
-
-    Player GetRandomPlayerOfTeam(Team team)
-    {
-        List<Player> playersOfThisTeam = new List<Player>();
-
-        foreach(Player p in PhotonNetwork.PlayerList)
-        {
-            if(p.GetTeam() == team)
-            {
-                playersOfThisTeam.Add(p);
-            }
-        }
-
-        return playersOfThisTeam[Random.Range(0, playersOfThisTeam.Count)];
     }
 }
