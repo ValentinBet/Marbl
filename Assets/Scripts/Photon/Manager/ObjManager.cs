@@ -227,7 +227,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
 
             case ObjType.Holo:
                 Holo += Holo;
-                myAnimator.SetTrigger("Hologram");
+                myAnimator.SetTrigger("Holo");
                 break;
         }
 

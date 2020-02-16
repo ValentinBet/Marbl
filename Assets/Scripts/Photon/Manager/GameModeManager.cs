@@ -484,7 +484,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         if (allTeamAlive.Count == 1)
         {
-            EndMode();
+            //EndMode(); cvouper pour les test
         }
         else
         {
