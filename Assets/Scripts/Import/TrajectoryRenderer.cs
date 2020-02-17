@@ -15,7 +15,7 @@ public class TrajectoryRenderer : MonoBehaviour
     [SerializeField] private int resolution = 20;
     [SerializeField] private Gradient heightValues;
     [SerializeField] private GameObject landingZone;
-    [SerializeField] private float landingGrowthRate = 0.1f;
+    [SerializeField] private float landingGrowthRate = 0.05f;
     private float g;
     private float maxDist = 0.0f;
     private Vector3 direction;
@@ -153,6 +153,7 @@ public class TrajectoryRenderer : MonoBehaviour
                 landingZone.transform.position = storedHit.point + Vector3.up * 0.1f;
                 landingZone.transform.LookAt(storedHit.point + storedHit.normal);
                 landingZone.transform.localScale = Vector3.one * maxDist * landingGrowthRate;
+                landingZone.transform.GetChild(0).localScale = Vector3.one *  100.0f / maxDist * landingGrowthRate;
                 return true;
             }
             else if (lastFound)
@@ -161,6 +162,7 @@ public class TrajectoryRenderer : MonoBehaviour
                 landingZone.transform.position = storedHit.point + Vector3.up * 0.1f;
                 landingZone.transform.LookAt(storedHit.point + storedHit.normal);
                 landingZone.transform.localScale = Vector3.one * maxDist * landingGrowthRate;
+                landingZone.transform.GetChild(0).localScale = Vector3.one * 100.0f / maxDist * landingGrowthRate;
                 return true;
             }
         }
