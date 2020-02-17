@@ -23,10 +23,28 @@ Material:
         m_Texture: {fileID: 2800000, guid: 9ebac2b059b43624dbef3a1c24271bf1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Motif:
+        m_Texture: {fileID: 2800000, guid: f5fb802589da709428b22707235cb47d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Tex2:
+        m_Texture: {fileID: 2800000, guid: fc1dfbda2ec1ca942825044266ff232b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TexMask:
+        m_Texture: {fileID: 2800000, guid: 1e5c1655d63ec0146a5aa16ff95ab7dd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Glossiness: 0.479
     - _Glossinnes: 1
     - _Metallic: 0.039
+    - _TilingMultiplier: 1
+    - _TilingMultiplierMask: 1
+    - _TilingOffset: 1
     m_Colors:
     - _Color: {r: 0.6415094, g: 0.6415094, b: 0.6415094, a: 1}
+    - _Color0: {r: 0, g: 0, b: 0, a: 1}
+    - _Color1: {r: 1, g: 0, b: 0, a: 1}
     - _Emissive: {r: 1, g: 0, b: 0, a: 0.56078434}
+    - _MarbleColor: {r: 0.6784314, g: 0.44265425, b: 0, a: 1}

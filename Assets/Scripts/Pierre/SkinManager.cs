@@ -16,8 +16,10 @@ public class SkinManager : MonoBehaviour
             Destroy(this);
     }
 
-   void UpdatePreview(Material updatedMaterial)
+   void UpdatePreview(Texture2D newText, Color colorOfTheLogo)
    {
-        marble.material = updatedMaterial;
+        Material updatedMaterial;
+        //updatedMaterial.SetColor()
+    //    marble.material = updatedMaterial;
    }
 }
