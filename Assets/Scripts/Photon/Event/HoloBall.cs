@@ -18,8 +18,6 @@ public class HoloBall : MonoBehaviour
         transform.rotation = Random.rotation;
 
         pv = GetComponent<PhotonView>();
-
-        EventManager.Instance.SetFollowObj(gameObject);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -57,6 +57,8 @@ public class BonusPlacerManager : MonoBehaviour
         foreach (ObjToSpawn element in allObjToSpawn)
         {
             PhotonNetwork.Instantiate(element.obj, element.postion, element.rotation);
+            if (element.obj.Contains("Holo")) { continue; }
+
             pv.RPC("RpcSpawnNamePlayer", RpcTarget.All, element.playerName, element.playerTeam, element.postion);
 
             yield return new WaitForSeconds(1.5f);

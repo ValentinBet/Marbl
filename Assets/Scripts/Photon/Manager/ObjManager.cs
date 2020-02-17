@@ -171,6 +171,30 @@ public class ObjManager : MonoBehaviourPunCallbacks
                                 }
                                 Refresh();
                                 break;
+
+                            case ObjType.Shock:
+                                if (Shockwave > 0)
+                                {
+                                    Shockwave--;
+
+                                    Quaternion rota = Quaternion.LookRotation(hit.normal);
+
+                                    myLocalPlayerManager.SendObj(PhotonNetwork.LocalPlayer.NickName, PhotonNetwork.LocalPlayer.GetTeam(), hit.point, rota, "ShockWave");
+
+                                    if (Shockwave == 0)
+                                    {
+                                        SetShock();
+                                    }
+
+                                    rota *= Quaternion.Euler(90, 0, 0);
+                                    SpawnCheckPing(hit.point + Vector3.up * 0.04f, rota);
+                                }
+                                else
+                                {
+                                    IsPossing = false;
+                                }
+                                Refresh();
+                                break;
                         }
                     }
                 }
@@ -185,6 +209,10 @@ public class ObjManager : MonoBehaviourPunCallbacks
 
                         case ObjType.Holo:
                             SetHolo();
+                            break;
+
+                        case ObjType.Shock:
+                            SetShock();
                             break;
                     }
                 }
@@ -208,7 +236,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
 
     public void GiveRandomObj()
     {
-        int rand = Random.Range(0, 2);
+        int rand = Random.Range(0, 3);
 
         switch (rand)
         {
@@ -218,6 +246,10 @@ public class ObjManager : MonoBehaviourPunCallbacks
 
             case 1:
                 AddObj(ObjType.Holo, 1);
+                break;
+
+            case 2:
+                AddObj(ObjType.Shock, 1);
                 break;
         }
     }
@@ -234,6 +266,11 @@ public class ObjManager : MonoBehaviourPunCallbacks
             case ObjType.Holo:
                 Holo += value;
                 myAnimator.SetTrigger("Holo");
+                break;
+
+            case ObjType.Shock:
+                Shockwave += value;
+                myAnimator.SetTrigger("Shockwave");
                 break;
         }
 
@@ -261,6 +298,16 @@ public class ObjManager : MonoBehaviourPunCallbacks
         else
         {
             HoloButton.gameObject.SetActive(false);
+        }
+
+        if (Shockwave > 0)
+        {
+            ShockButton.SetValue(Holo);
+            ShockButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            ShockButton.gameObject.SetActive(false);
         }
     }
 
