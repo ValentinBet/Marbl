@@ -96,8 +96,6 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
         }
     }
 
-
-
     public void DeselectBall()
     {
         lastSelected = null;
