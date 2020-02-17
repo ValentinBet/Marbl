@@ -24,6 +24,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
     public int Holo = 0;
     public int Shockwave = 0;
 
+    public GameObject checkPingPrefab;
     public GameObject prefabPosObj;
     GameObject objPosInGame;
 
@@ -109,14 +110,14 @@ public class ObjManager : MonoBehaviourPunCallbacks
                                     Quaternion rota = Quaternion.LookRotation(hit.normal);
                                     rota *= Quaternion.Euler(90, 0, 0);
 
-                                    //PhotonNetwork.Instantiate("Mine", hit.point, rota);
-
                                     myLocalPlayerManager.SendObj(PhotonNetwork.LocalPlayer.NickName, PhotonNetwork.LocalPlayer.GetTeam(), hit.point, rota, "Mine");
 
                                     if (Mine == 0)
                                     {
                                         SetMine();
                                     }
+
+                                    SpawnCheckPing(hit.point + Vector3.up * 0.04f, rota);
                                 }
                                 else
                                 {
@@ -138,17 +139,14 @@ public class ObjManager : MonoBehaviourPunCallbacks
                                     switch (GameModeManager.Instance.localPlayerTeam)
                                     {
                                         case Team.blue:
-                                            //PhotonNetwork.Instantiate("HoloBlue", hit.point + Vector3.up * 0.09f, rota);
                                             objName = "HoloBlue";
                                             break;
 
                                         case Team.green:
-                                            //PhotonNetwork.Instantiate("HoloGreen", hit.point + Vector3.up * 0.09f, rota);
                                             objName = "HoloGreen";
                                             break;
 
                                         case Team.red:
-                                            //PhotonNetwork.Instantiate("HoloRed", hit.point + Vector3.up * 0.09f, rota);
                                             objName = "HoloRed";
                                             break;
 
@@ -164,6 +162,8 @@ public class ObjManager : MonoBehaviourPunCallbacks
                                     {
                                         SetHolo();
                                     }
+
+                                    SpawnCheckPing(hit.point + Vector3.up * 0.04f, rota);
                                 }
                                 else
                                 {
@@ -198,6 +198,12 @@ public class ObjManager : MonoBehaviourPunCallbacks
         {
             objPosInGame.SetActive(false);
         }
+    }
+
+
+    void SpawnCheckPing(Vector3 _pos, Quaternion _direction)
+    {
+        Instantiate(checkPingPrefab, _pos, _direction);
     }
 
     public void GiveRandomObj()

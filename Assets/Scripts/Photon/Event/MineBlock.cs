@@ -32,13 +32,12 @@ public class MineBlock : MonoBehaviour
     {
         if (!isExploding && other.GetComponent<Rigidbody>() != null)
         {
-            print("explo");
             Explode(other);
-        }
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            PhotonNetwork.Destroy(pv);
+            if (PhotonNetwork.IsMasterClient)
+            {
+                PhotonNetwork.Destroy(pv);
+            }
         }
     }
 
@@ -54,10 +53,11 @@ public class MineBlock : MonoBehaviour
 
         foreach (Collider co in colliders)
         {
-            if (co.GetComponent<Rigidbody>() != null)
+            if (co.GetComponent<Rigidbody>() != null && co.GetComponent<PhotonView>() != null)
             {
                 if (co.GetComponent<PhotonView>().IsMine)
                 {
+                    print(co.gameObject);
                     co.GetComponent<Rigidbody>().AddExplosionForce(power, this.transform.position, radius, upForce, ForceMode.Impulse);
                 }
             }
