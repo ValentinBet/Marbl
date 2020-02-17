@@ -66,6 +66,9 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject commandShoot;
     public GameObject watchingPanel;
 
+    private bool isLocalPlayerTurn = false;
+    private GameModeManager gameModeManager;
+
     [Header("Ui panel")]
     public GameObject loadingPanel;
 
@@ -81,6 +84,10 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
     }
 
+    private void Start()
+    {
+        gameModeManager = GameModeManager.Instance;
+    }
     private void Update()
     {
         if (pingText != null)
@@ -108,7 +115,16 @@ public class UIManager : MonoBehaviourPunCallbacks
             FollowMarbl();
         }
 
-        SpecCamButton.SetActive(!GameModeManager.Instance.localPlayerTurn);
+        if (!isLocalPlayerTurn && !gameModeManager.isOnForceCam)
+        {
+            watchingPanel.SetActive(true);
+        }
+        else
+        {
+            watchingPanel.SetActive(false);
+        }
+
+        SpecCamButton.SetActive(!gameModeManager.localPlayerTurn);
     }
 
     public void DisplayEscapeMenu()
@@ -131,7 +147,7 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        ChatManager.Instance.OnChatMessage("<color=" + MarblGame.GetColorUI((int) otherPlayer.GetTeam()) + ">" + otherPlayer.NickName + "</color> has been disconnected !");
+        ChatManager.Instance.OnChatMessage("<color=" + MarblGame.GetColorUI((int)otherPlayer.GetTeam()) + ">" + otherPlayer.NickName + "</color> has been disconnected !");
     }
 
     IEnumerator LoadScene()
@@ -274,7 +290,7 @@ public class UIManager : MonoBehaviourPunCallbacks
 
             myElement.SetColor(MarblGame.GetColor((int)myBallSettings.myteam));
 
-            if (myBallSettings.myteam == GameModeManager.Instance.localPlayerTeam)
+            if (myBallSettings.myteam == gameModeManager.localPlayerTeam)
             {
                 myBallSettings.enabled = true;
             }
@@ -311,7 +327,7 @@ public class UIManager : MonoBehaviourPunCallbacks
         {
             if (element.Key == null) { continue; }
 
-            if (element.Key.myteam == GameModeManager.Instance.localPlayerTeam)
+            if (element.Key.myteam == gameModeManager.localPlayerTeam)
             {
                 element.Value.Trail.enabled = true;
             }
@@ -398,21 +414,21 @@ public class UIManager : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.LocalPlayer.GetPlayerTurnState())
         {
-            watchingPanel.SetActive(false);
             infoTurnSettings.text.text = "Your turn to play";
             DisplayChatTooltip(false);
             DisplayPingTooltip(false);
             result += "Your turn ...";
             infoTurnSettings.MainBackground.GetComponent<Image>().color = MarblGame.GetColor(playerTeam);
             infoTurnSettings.BackgroundGo.GetComponent<Animator>().SetTrigger("Display");
+            isLocalPlayerTurn = true;
         }
         else
         {
             SetWatchingPanel(playerName, playerTeam);
-            watchingPanel.SetActive(true);
             DisplayChatTooltip(true);
             DisplayPingTooltip(true);
             result += playerName + " playing";
+            isLocalPlayerTurn = false;
         }
     }
 
@@ -428,7 +444,7 @@ public class UIManager : MonoBehaviourPunCallbacks
         if (WinPanel.GetComponentInChildren<Text>() != null)
         {
             WinPanel.GetComponentInChildren<Text>().text = winner + " Team WIN";
-        }    
+        }
     }
 
     public void SetWatchingPanel(string playerName, int playerTeam)
