@@ -202,7 +202,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
 
     public void GiveRandomObj()
     {
-        int rand = Random.Range(0, 3);
+        int rand = Random.Range(0, 2);
 
         switch (rand)
         {
@@ -226,7 +226,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
                 break;
 
             case ObjType.Holo:
-                Holo += Holo;
+                Holo += value;
                 myAnimator.SetTrigger("Holo");
                 break;
         }

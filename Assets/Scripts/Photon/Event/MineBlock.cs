@@ -32,6 +32,7 @@ public class MineBlock : MonoBehaviour
     {
         if (!isExploding && other.GetComponent<Rigidbody>() != null)
         {
+            print("explo");
             Explode(other);
         }
 
