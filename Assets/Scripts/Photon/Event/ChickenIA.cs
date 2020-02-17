@@ -38,8 +38,6 @@ public class ChickenIA : MonoBehaviour
         {
             Destroy(Instantiate(prefabParticule, transform.position + Vector3.up * 0.9f, Random.rotation), 1);
 
-            Transform parentObj = other.transform.parent;
-
             Team myTeam = GameModeManager.Instance.localPlayerTeam;
 
             if (GameModeManager.Instance.localPlayerTurn)
