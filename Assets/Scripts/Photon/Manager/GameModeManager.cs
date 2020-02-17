@@ -41,14 +41,15 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public Team localPlayerTeam;
     public bool localPlayerTurn = false;
     public PhotonView localPhotonView;
-
     public PhotonView specCamPV;
 
+    public bool isOnForceCam;
+
     //----------------    BOOL DE CHAQUE MODE   -----------------
-    bool modeDM = false;
-    bool modeHill = false;
-    bool modeHue = false;
-    bool modeCoins = false;
+    private bool modeDM = false;
+    private bool modeHill = false;
+    private bool modeHue = false;
+    private bool modeCoins = false;
 
     private static GameModeManager _instance;
     public static GameModeManager Instance { get { return _instance; } }
@@ -333,6 +334,11 @@ public class GameModeManager : MonoBehaviourPunCallbacks
             CallEndTurnMode();
             NextTurn();
         }
+    }
+
+    public override void OnRoomPropertiesUpdate(Hashtable propertiesThatChanged)
+    {
+        isOnForceCam = PhotonNetwork.CurrentRoom.GetForceCam();
     }
 
     IEnumerator WaitToStart()
