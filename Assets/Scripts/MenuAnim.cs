@@ -25,7 +25,7 @@ public class MenuAnim : MonoBehaviour
         timerB += Time.deltaTime;
         if (timer > 1)
             timer = timer - 1;
-        if (timerB > 20.0f)
+        if (timerB > 40.0f)
             timerB = timerB - 20;
         rotateMarbl.transform.localRotation = Quaternion.Euler(0, 0, -timer * 360.0f - additionalRotation);
         cot.m_Heading.m_Bias = -180.0f + timerB * 9.0f;
