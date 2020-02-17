@@ -34,6 +34,7 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
     private PhotonView photonView;
     private GameObject lastSelected;
     private LocalPlayerManager player;
+    private GameModeManager gameModeManager;
     private Camera mainCamera;
     private Vector3 lineRendererOriginPosition;
     private Vector3 lineRendererEndPosition;
@@ -57,6 +58,7 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
     private void Start()
     {
         player = GetComponent<LocalPlayerManager>();
+        gameModeManager = GameModeManager.Instance;
         photonView = GetComponent<PhotonView>();
         mainCamera = Camera.main;
         dragForceBar = UIManager.Instance.dragForceBar;
@@ -157,40 +159,37 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
     // --->> MOUSE DRAG  --->> //
     private void MouseDrag()
     {
-        if (actualSelectedBall != null && canShoot)
+        if (actualSelectedBall != null && canShoot && !gameModeManager.isOnForceCam)
         {
-            if (!EventSystem.current.IsPointerOverGameObject())
+            if (Input.GetKeyDown(InputManager.Instance.Inputs.inputs.MainButton2) && !isHoldingShoot) // Si PREMIER CLICK
             {
-                if (Input.GetKeyDown(InputManager.Instance.Inputs.inputs.MainButton2) && !isHoldingShoot) // Si PREMIER CLICK
-                {
-                    actualSelectedBallSettings.InitChargeFx();
-                    isHoldingShoot = true;
-                    UIManager.Instance.isShooting = true;
-                    dragForce = 0;
-                    Cursor.visible = false;
-                    Cursor.lockState = CursorLockMode.Locked;
-                }
+                actualSelectedBallSettings.InitChargeFx();
+                isHoldingShoot = true;
+                UIManager.Instance.isShooting = true;
+                dragForce = 0;
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
 
-                if (Input.GetKey(InputManager.Instance.Inputs.inputs.MainButton2) && isHoldingShoot) // HOLD
-                {
-                    actualBallLineRenderer.transform.position = actualSelectedBall.transform.position;
-                    dragForce += -Input.GetAxis("Mouse Y") * (InputManager.Instance.Inputs.inputs.MouseSensitivity / 4); // generate dragForce --> la limite est dragForceMaxValue;
-                    dragForce = Mathf.Clamp(dragForce, 0, dragForceMaxValue);
-                    direction = mainCamera.transform.forward;
-                    DisplayLineRenderer();
-                    DisplayDragForce();
-                    actualSelectedBallSettings.UpdateChargeFx(dragForce, dragForceMaxValue);
+            if (Input.GetKey(InputManager.Instance.Inputs.inputs.MainButton2) && isHoldingShoot) // HOLD
+            {
+                actualBallLineRenderer.transform.position = actualSelectedBall.transform.position;
+                dragForce += -Input.GetAxis("Mouse Y") * (InputManager.Instance.Inputs.inputs.MouseSensitivity / 4); // generate dragForce --> la limite est dragForceMaxValue;
+                dragForce = Mathf.Clamp(dragForce, 0, dragForceMaxValue);
+                direction = mainCamera.transform.forward;
+                DisplayLineRenderer();
+                DisplayDragForce();
+                actualSelectedBallSettings.UpdateChargeFx(dragForce, dragForceMaxValue);
 
-                    // Debug.DrawRay(transform.position, transform.position+new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * elevation), ((45 - elevation) / 45.0f + PhotonNetwork.CurrentRoom.GetLaunchPower() * 7.0f) * Mathf.Sin(Mathf.Deg2Rad * elevation) / (PhotonNetwork.CurrentRoom.GetLaunchPower() * 2.0f), direction.z * Mathf.Cos(Mathf.Deg2Rad * elevation)), Color.red,1.0f) ;
-                }
-                else if (Input.GetKeyUp(InputManager.Instance.Inputs.inputs.MainButton2) && isHoldingShoot)  // SI DERNIER CLICK
-                {
-                    ShootBall();
-                }
-                if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(InputManager.Instance.Inputs.inputs.MainButton1)) && isHoldingShoot)
-                {
-                    StopShoot();
-                }
+                // Debug.DrawRay(transform.position, transform.position+new Vector3(direction.x * Mathf.Cos(Mathf.Deg2Rad * elevation), ((45 - elevation) / 45.0f + PhotonNetwork.CurrentRoom.GetLaunchPower() * 7.0f) * Mathf.Sin(Mathf.Deg2Rad * elevation) / (PhotonNetwork.CurrentRoom.GetLaunchPower() * 2.0f), direction.z * Mathf.Cos(Mathf.Deg2Rad * elevation)), Color.red,1.0f) ;
+            }
+            else if (Input.GetKeyUp(InputManager.Instance.Inputs.inputs.MainButton2) && isHoldingShoot)  // SI DERNIER CLICK
+            {
+                ShootBall();
+            }
+            if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(InputManager.Instance.Inputs.inputs.MainButton1)) && isHoldingShoot)
+            {
+                StopShoot();
             }
         }
     }
