@@ -24,7 +24,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public List<Team> presentTeam = new List<Team>();
 
     Team teamPlayed;
-    Player playerplayed;
+    public Player playerplayed;
 
     List<Player> playerAlreadyPlay = new List<Player>();
     int indexTeamPlaying = 0;
@@ -40,6 +40,7 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     public GameObject localPlayerObj;
     public Team localPlayerTeam;
     public bool localPlayerTurn = false;
+    public PhotonView localPhotonView;
 
     public PhotonView specCamPV;
 
@@ -71,6 +72,8 @@ public class GameModeManager : MonoBehaviourPunCallbacks
         AudioManager.Instance.playingSong.Play();
 
         PhotonNetwork.Instantiate("Player", Vector3.zero, Quaternion.identity);
+
+
     }
 
     public void StartGameForAll()

@@ -208,8 +208,6 @@ MonoBehaviour:
   isOnPipe: 0
   currentSpeed: 0
   fxStartSpeed: -5.5
-  prefabParticule: {fileID: 1901858458647210, guid: 0426e3d6996937045b977f3a66e95ee4,
-    type: 3}
 --- !u!114 &4809954099735983968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +243,7 @@ MonoBehaviour:
   hitMarbl: {fileID: 8300000, guid: 27e1728ea5f1ca443abcfc948f1b2de5, type: 3}
   hitWoodSurface: {fileID: 8300000, guid: d278b2fe20888de4d8f5349175f51398, type: 3}
   hitGround: {fileID: 8300000, guid: da9127462d54b974e882210956d3f5d2, type: 3}
-  shootSound: {fileID: 8300000, guid: b599413697af7384ea63608c589a1af1, type: 3}
+  shootSound: {fileID: 8300000, guid: dc753575b597c784fbe877e5fee80313, type: 3}
   hueCaptureSound: {fileID: 8300000, guid: a10afb99c216e25458b6ede195486efc, type: 3}
   fx_hitWoodSurface: {fileID: 5267383525042929903, guid: 3543ba8fe07ed4248a0b2488a8aba2e5,
     type: 3}
@@ -440,6 +438,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5667429776553265489}
     m_Modifications:
+    - target: {fileID: 1397402549733478, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c, type: 3}
+      propertyPath: m_Name
+      value: Charge
+      objectReference: {fileID: 0}
+    - target: {fileID: 1397402549733478, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 198868976632778894, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c,
         type: 3}
       propertyPath: InitialModule.startSpeed.scalar
@@ -507,14 +513,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4200883865063198, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1397402549733478, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c, type: 3}
-      propertyPath: m_Name
-      value: Charge
-      objectReference: {fileID: 0}
-    - target: {fileID: 1397402549733478, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

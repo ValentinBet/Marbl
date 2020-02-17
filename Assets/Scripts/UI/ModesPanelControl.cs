@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ModesPanelControl : MonoBehaviour
 {
@@ -14,11 +15,11 @@ public class ModesPanelControl : MonoBehaviour
 
     [Header("Lock")]
     [SerializeField] private List<GameObject> ListPadlock = new List<GameObject>();
+    [SerializeField] private List<TextMeshProUGUI> ListText = new List<TextMeshProUGUI>();
 
     private void Start()
     {
-        print(PlayerPrefs.GetInt("HavePlayedHue"));
-        if (PlayerPrefs.GetInt("HavePlayedHue") == 1)
+        if (PlayerPrefs.GetInt("HavePlayedClassic") == 1)
         {
             UnlockGamemodes();
         }
@@ -29,6 +30,13 @@ public class ModesPanelControl : MonoBehaviour
         foreach (GameObject item in ListPadlock)
         {
             item.SetActive(false);
+            dmCircle.GetComponentInChildren<Button>().interactable = true;
+            kothCircle.GetComponentInChildren<Button>().interactable = true;
+        }
+
+        foreach (TextMeshProUGUI text in ListText)
+        {
+            text.text = "";
         }
     }
 }

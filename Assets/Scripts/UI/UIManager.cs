@@ -65,6 +65,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject commandAim;
     public GameObject commandFocus;
     public GameObject commandShoot;
+    public GameObject watchingPanel;
 
     [Header("Ui panel")]
     public GameObject loadingPanel;
@@ -278,10 +279,6 @@ public class UIManager : MonoBehaviourPunCallbacks
             {
                 myBallSettings.enabled = true;
             }
-            else
-            {
-                newPing.GetComponent<PingElement>().Hide();
-            }
 
             listOfPing.Add(myBallSettings, myElement);
         }
@@ -330,31 +327,15 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
 
         currentClickedBall = ball;
-
-        foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
-        {
-            if (element.Key == null) { continue; }
-
-            if (element.Key.gameObject == ball)
-            {
-                element.Value.Trail.enabled = false;
-            }
-        }
     }
 
     public void OnEndTurn()
     {
         if (!pingStatut) { return; }
-        if (actualCommand != null)
-            actualCommand.SetActive(false);
-        foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
-        {
-            if (element.Key == null) { continue; }
 
-            if (element.Key.myteam == GameModeManager.Instance.localPlayerTeam)
-            {
-                element.Value.Trail.enabled = true;
-            }
+        if (actualCommand != null)
+        {
+            actualCommand.SetActive(false);
         }
     }
 
@@ -418,35 +399,24 @@ public class UIManager : MonoBehaviourPunCallbacks
 
         if (PhotonNetwork.LocalPlayer.GetPlayerTurnState())
         {
+            watchingPanel.SetActive(false);
             infoTurnSettings.text.text = "Your turn to play";
             DisplayChatTooltip(false);
             DisplayPingTooltip(false);
             result += "Your turn ...";
+            infoTurnSettings.MainBackground.GetComponent<Image>().color = MarblGame.GetColor(playerTeam);
+            infoTurnSettings.BackgroundGo.GetComponent<Animator>().SetTrigger("Display");
         }
         else
         {
-            infoTurnSettings.text.text = playerName + " playing";
+            SetWatchingPanel(playerName, playerTeam);
+            watchingPanel.SetActive(true);
             DisplayChatTooltip(true);
             DisplayPingTooltip(true);
             result += playerName + " playing";
         }
 
         infoTurnText.text = result + "</color>";
-
-        infoTurnSettings.MainBackground.GetComponent<Image>().color = MarblGame.GetColor(playerTeam);
-        infoTurnSettings.BackgroundGo.GetComponent<Animator>().SetTrigger("Display");
-    }
-
-    public void DisableBecon()
-    {
-        foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
-        {
-            if (element.Key != null)
-            {
-                element.Value.Trail.enabled = false;
-                continue;
-            }
-        }
     }
 
     public void EndGame(Team winner)
@@ -461,7 +431,16 @@ public class UIManager : MonoBehaviourPunCallbacks
         if (WinPanel.GetComponentInChildren<Text>() != null)
         {
             WinPanel.GetComponentInChildren<Text>().text = winner + " Team WIN";
-        }
-       
+        }    
+    }
+
+    public void SetWatchingPanel(string playerName, int playerTeam)
+    {
+        WatchingPanel wp = watchingPanel.GetComponent<WatchingPanel>();
+        wp.teamText.text = MarblGame.GetTeamString(playerTeam);
+        wp.teamText.color = MarblGame.GetColor(playerTeam);
+        wp.nicknameText.text = playerName;
+        wp.nicknameText.color = MarblGame.GetColor(playerTeam);
+        wp.ballNumberText.text = QuickScoreboard.Instance.CountBallOfThisTeam((Team)playerTeam).ToString();
     }
 }

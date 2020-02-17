@@ -12,6 +12,7 @@ public class CameraPlayer : MonoBehaviour
     public float curveVariation = 1.5f;
     public AudioClip sd_cameraChange;
 
+    public float maxScreenShakeIntensity = 10;
     private AudioSource audioSource;
     private float orbitalAngle;
     private Quaternion initialRotation;
@@ -232,6 +233,9 @@ public class CameraPlayer : MonoBehaviour
 
     public void InitShakeScreen(float intensity, float duration)
     {
+
+        intensity = Mathf.Clamp(intensity, 0, maxScreenShakeIntensity);
+
         if (!isScreenShaking)
         {
             StartCoroutine(ProcessShake(intensity, duration));

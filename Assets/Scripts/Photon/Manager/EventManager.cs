@@ -17,6 +17,8 @@ public class EventManager : MonoBehaviour
     int numberOfBonus = 0;
     public bool canDrop = true;
 
+    bool canDisplayBonus = false;
+
     private static EventManager _instance;
     public static EventManager Instance { get { return _instance; } }
 
@@ -55,9 +57,10 @@ public class EventManager : MonoBehaviour
             }
             else
             {
-                if (PhotonNetwork.CurrentRoom.GetForceCam())
+                if (canDisplayBonus)
                 {
-                    PhotonNetwork.CurrentRoom.SetForceMap(false);
+                    canDisplayBonus = false;
+                    BonusPlacerManager.Instance.SpawnAllObjects();
                 }
             }
         }
@@ -65,7 +68,8 @@ public class EventManager : MonoBehaviour
 
     public void EndTurn()
     {
-        numberOfBonus = 3;
+        numberOfBonus = 1;
+        canDisplayBonus = true;
     }
 
     public void EndRound()
@@ -76,7 +80,7 @@ public class EventManager : MonoBehaviour
     void SpawnGift()
     {
         numberOfBonus--;
-        PhotonNetwork.CurrentRoom.SetForceMap(true);
+        PhotonNetwork.CurrentRoom.SetForceCam(true);
 
         switch (Random.Range(0, 2))
         {
@@ -92,7 +96,7 @@ public class EventManager : MonoBehaviour
 
     void EndDrop()
     {
-        PhotonNetwork.CurrentRoom.SetForceMap(false);
+        PhotonNetwork.CurrentRoom.SetForceCam(false);
 
         pv.RPC("RpcSetFollowObjNull", RpcTarget.All);
     }
