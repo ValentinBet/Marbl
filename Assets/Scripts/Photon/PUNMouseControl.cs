@@ -55,6 +55,9 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
     private bool canShoot = true;
     private bool isStoppingShoot = false;
     private float dragPowerPrctg;
+
+    public Gradient lineGradient;
+
     private void Start()
     {
         player = GetComponent<LocalPlayerManager>();
@@ -232,7 +235,7 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
         {
             actualBallLineRenderer.enabled = true;
             dragPowerPrctg = ((dragForce * 100) / dragForceMaxValue) / 100;
-            actualBallLineRenderer.material.color = new Color(0 + dragPowerPrctg, 1 - dragPowerPrctg, 0);
+            actualBallLineRenderer.material.color = lineGradient.Evaluate(dragPowerPrctg);
         }
         else
         {

@@ -24,7 +24,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     private Vector3 networkPosition;
     private Quaternion networkRotation;
     private PhotonView pv;
-    private Color fxColor;
     private float fxChargePower;
 
     public bool isPowered = false;
@@ -32,6 +31,8 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     private Material[] _mats;
 
     public GameObject fxPowered;
+
+    public Gradient chargeColorGradient;
 
     private void Awake()
     {
@@ -72,8 +73,8 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 
             fxChargePower = Mathf.Lerp(fxChargePower, dragPowerPrctg, Time.deltaTime * 4);
             chargeFx.transform.localScale = new Vector3(fxChargePower, fxChargePower, fxChargePower);
-            fxColor = new Color(0 + dragPowerPrctg, 1 - dragPowerPrctg, 0);
-            chargeFxChildPS.startColor = fxColor;
+
+            chargeFxChildPS.startColor = chargeColorGradient.Evaluate(dragPowerPrctg);
             chargeFxChildPS.startSpeed = fxStartSpeed - (dragPowerPrctg * 2);
         }
     }
