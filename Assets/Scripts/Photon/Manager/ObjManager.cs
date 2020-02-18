@@ -16,6 +16,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
 
     public Animator myAnimator;
 
+    public Transform parentButton;
     public ButtonObj MineButton;
     public ButtonObj HoloButton;
     public ButtonObj ShockButton;
@@ -67,8 +68,12 @@ public class ObjManager : MonoBehaviourPunCallbacks
             myLocalPlayerManager = GameModeManager.Instance.localPlayerObj.GetComponent<LocalPlayerManager>();
         }
 
+        bool forceCam = PhotonNetwork.CurrentRoom.GetForceCam();
 
-        if (IsPossing && !PhotonNetwork.CurrentRoom.GetForceCam())
+        parentButton.gameObject.SetActive(!forceCam);
+
+
+        if (IsPossing && !forceCam)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -236,21 +241,24 @@ public class ObjManager : MonoBehaviourPunCallbacks
 
     public void GiveRandomObj()
     {
-        int rand = Random.Range(0, 3);
+        int rand = Random.Range(0, 21);
 
-        switch (rand)
+        if (rand < 10)
         {
-            case 0:
-                AddObj(ObjType.Mine, 3);
-                break;
+            AddObj(ObjType.Mine, 3);
+            return;
+        }
 
-            case 1:
-                AddObj(ObjType.Holo, 1);
-                break;
+        if (rand < 15)
+        {
+            AddObj(ObjType.Holo, 1);
+            return;
+        }
 
-            case 2:
-                AddObj(ObjType.Shock, 1);
-                break;
+        if (rand > 15)
+        {
+            AddObj(ObjType.Shock, 1);
+            return;
         }
     }
 

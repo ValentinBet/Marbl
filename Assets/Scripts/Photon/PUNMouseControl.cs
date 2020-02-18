@@ -188,6 +188,7 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
             {
                 ShootBall();
             }
+
             if ((Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(InputManager.Instance.Inputs.inputs.MainButton1)) && isHoldingShoot)
             {
                 StopShoot();
@@ -202,12 +203,9 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
             actualSelectedBall.GetComponent<PUNBallMovement>().MoveBall(direction, elevation, dragForce);
             OnShooted();
             haveShoot = true;
-            StopShoot();
         }
-        else
-        {
-            StopShoot();
-        }
+
+        StopShoot();
     }
 
     public void StopShoot()
@@ -218,8 +216,6 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
         }
 
         isHoldingShoot = false;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
         if (actualBallLineRenderer != null)
             actualBallLineRenderer.enabled = false;
         angleIndex = 0;
@@ -227,6 +223,9 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
         dragForce = 0;
         DisplayDragForce();
         UIManager.Instance.isShooting = false;
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void DisplayLineRenderer()
