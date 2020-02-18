@@ -72,7 +72,8 @@ public class TrajectoryRenderer : MonoBehaviour
         lr.SetPositions(CalculateArcArray());
         Vector3[]lrP = new Vector3[lr.positionCount];
         lr.GetPositions(lrP);
-        lr.colorGradient = DefineGradient(lrP);
+        //lr.colorGradient = DefineGradient(lrP);
+
         if (angle != 0)
         {
             if (!PlaceLandingZone(lrP, 9))
@@ -179,12 +180,12 @@ public class TrajectoryRenderer : MonoBehaviour
     {
         storedOffset += Time.deltaTime;
         Mathf.Repeat(storedOffset,1.0f);
-        lr.sharedMaterial.SetTextureOffset("_MainTex", Vector2.right * -storedOffset);
+        //lr.sharedMaterial.SetTextureOffset("_MainTex", Vector2.right * -storedOffset);
     }
 
     private void ResetCurveMaterial()
     {
-        lr.sharedMaterial.SetTextureOffset("_MainTex", Vector2.zero);
+        //lr.sharedMaterial.SetTextureOffset("_MainTex", Vector2.zero);
     }
 
     public void SetVelocity(float newVel)
