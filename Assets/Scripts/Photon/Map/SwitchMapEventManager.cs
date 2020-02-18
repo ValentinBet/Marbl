@@ -39,6 +39,7 @@ public class SwitchMapEventManager : MonoBehaviour, IPunObservable
         activatedSwitchCounter += value;
     }
 
+
     private void SwitchMapEvent()
     {
         print("TRIGGER MAP EVENT");

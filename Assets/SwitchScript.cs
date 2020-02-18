@@ -21,6 +21,8 @@ public class SwitchScript : BumperBlock, IPunObservable
     }
     private void OnTriggerEnter(Collider other)
     {
+        audioSource.pitch = 1 + (switchMapEvent.activatedSwitchCounter * 0.15f);
+
         if (other.CompareTag("Ball"))
         {
             if (animator.GetBool("IsOn") == false)
@@ -49,7 +51,5 @@ public class SwitchScript : BumperBlock, IPunObservable
         {
             animator.SetBool("IsOn",(bool)stream.ReceiveNext());
         }
-
-
     }
 }
