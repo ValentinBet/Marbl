@@ -27,7 +27,11 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     private Color fxColor;
     private float fxChargePower;
 
+    public bool isPowered = false;
+
     private Material[] _mats;
+
+    public GameObject fxPowered;
 
     private void Awake()
     {
@@ -141,6 +145,8 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
             stream.SendNext(this.myRigid.position);
             stream.SendNext(this.myRigid.rotation);
             stream.SendNext(this.myRigid.velocity);
+
+            stream.SendNext(this.isPowered);
         }
         else
         {
@@ -150,6 +156,11 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
             networkPosition = (Vector3)stream.ReceiveNext();
             networkRotation = (Quaternion)stream.ReceiveNext();
             myRigid.velocity = (Vector3)stream.ReceiveNext();
+
+            isPowered = (bool)stream.ReceiveNext();
         }
+
+
+        fxPowered.SetActive(isPowered);
     }
 }
