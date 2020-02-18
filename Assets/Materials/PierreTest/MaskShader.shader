@@ -62,9 +62,11 @@
 				{
 					v2f o;
 					o.vertex = UnityObjectToClipPos(v.vertex);
-
+					//half4 emission = _MarbleColor;
 					o.texoord = _TilingMultiplier * float2(v.uv.x,(1 - v.uv.y));
-					return o;
+					// o.rgb += emission.rgb;
+					 return o;
+					
 				}
 
 				float4 frag(v2f IN) : COLOR
