@@ -302,7 +302,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
 
         if (Shockwave > 0)
         {
-            ShockButton.SetValue(Holo);
+            ShockButton.SetValue(Shockwave);
             ShockButton.gameObject.SetActive(true);
         }
         else

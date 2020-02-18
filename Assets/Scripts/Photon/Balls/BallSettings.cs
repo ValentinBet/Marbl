@@ -145,8 +145,6 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
             stream.SendNext(this.myRigid.position);
             stream.SendNext(this.myRigid.rotation);
             stream.SendNext(this.myRigid.velocity);
-
-            stream.SendNext(this.isPowered);
         }
         else
         {
@@ -156,11 +154,63 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
             networkPosition = (Vector3)stream.ReceiveNext();
             networkRotation = (Quaternion)stream.ReceiveNext();
             myRigid.velocity = (Vector3)stream.ReceiveNext();
-
-            isPowered = (bool)stream.ReceiveNext();
         }
+    }
 
+    public void ChangePowered(bool value)
+    {
+        pv.RPC("RpcSetPowered", RpcTarget.All, value);
+    }
 
-        fxPowered.SetActive(isPowered);
+    [PunRPC]
+    void RpcSetPowered(bool value)
+    {
+        isPowered = value;
+        fxPowered.SetActive(value);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (isPowered && GameModeManager.Instance.localPlayerTurn)
+        {
+            isPowered = false;
+            pv.RPC("RpcSetPowered", RpcTarget.All, false);
+            ShockWave();
+        }
+    }
+
+    public GameObject shockwaveFx;
+
+    void ShockWave()
+    {
+        pv.RPC("RpcShockwaveExplo", RpcTarget.All);
+
+        Collider[] colliders = Physics.OverlapSphere(this.transform.position, 2);
+
+        foreach (Collider co in colliders)
+        {
+            if (co.GetComponent<Rigidbody>() != null && co.GetComponent<PhotonView>() != null)
+            {
+                if (co.GetComponent<PhotonView>().IsMine)
+                {
+                    if(co.gameObject != gameObject)
+                    {
+                        co.GetComponent<Rigidbody>().AddExplosionForce(0.2f, this.transform.position, 2, 0f, ForceMode.Impulse);
+
+                        if (co.gameObject.CompareTag("Ball"))
+                        {
+                            co.GetComponent<BallSettings>().ChangeTeam(myteam);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    [PunRPC]
+    void RpcShockwaveExplo()
+    {
+        GameModeManager.Instance.localPlayerObj.GetComponent<CameraPlayer>().InitShakeScreen(50 * 0.5f, 0.2f);
+        Instantiate(shockwaveFx, this.transform.position, this.transform.rotation);
     }
 }

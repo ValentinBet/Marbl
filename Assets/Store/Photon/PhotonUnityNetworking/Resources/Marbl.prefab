@@ -179,7 +179,7 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 2
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 7063088898512388730}
@@ -211,6 +211,8 @@ MonoBehaviour:
   fxStartSpeed: -5.5
   isPowered: 0
   fxPowered: {fileID: 5120626758781856721}
+  shockwaveFx: {fileID: 1000012903210382, guid: 60fd7d0991b58c2419d9122afc6e03de,
+    type: 3}
 --- !u!114 &4809954099735983968
 MonoBehaviour:
   m_ObjectHideFlags: 0
