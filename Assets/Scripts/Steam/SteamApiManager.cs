@@ -16,6 +16,8 @@ public class SteamApiManager : MonoBehaviour
 
     public GameObject panelSteam;
 
+    private string[] names = new string[] { "Peter", "Ron", "Satchmo", "Sam", "Val", "Axel" , "Pierre", "Tom", "Yoda", "Gotaga", "Diablox9", "Michou" };
+
     void Start()
     {
         TryConnect();
@@ -29,6 +31,7 @@ public class SteamApiManager : MonoBehaviour
 
             PopupManager.Instance.DisplayPopup(PopupManager.popUpType.Exclamation, "Steam can't be found");
 
+            PhotonNetwork.NickName = names[Random.Range(0, names.Length)] + Random.Range(100, 1000);
             return;
         }
 
