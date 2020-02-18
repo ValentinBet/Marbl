@@ -16,6 +16,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
 
     public Animator myAnimator;
 
+    public Transform parentButton;
     public ButtonObj MineButton;
     public ButtonObj HoloButton;
     public ButtonObj ShockButton;
@@ -69,12 +70,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
 
         bool forceCam = PhotonNetwork.CurrentRoom.GetForceCam();
 
-        HideShowButton(!forceCam);
-
-        if (forceCam)
-        {
-
-        }
+        parentButton.gameObject.SetActive(!forceCam);
 
 
         if (IsPossing && !forceCam)
@@ -245,21 +241,24 @@ public class ObjManager : MonoBehaviourPunCallbacks
 
     public void GiveRandomObj()
     {
-        int rand = Random.Range(0, 3);
+        int rand = Random.Range(0, 21);
 
-        switch (rand)
+        if (rand < 10)
         {
-            case 0:
-                AddObj(ObjType.Mine, 3);
-                break;
+            AddObj(ObjType.Mine, 3);
+            return;
+        }
 
-            case 1:
-                AddObj(ObjType.Holo, 1);
-                break;
+        if (rand < 15)
+        {
+            AddObj(ObjType.Holo, 1);
+            return;
+        }
 
-            case 2:
-                AddObj(ObjType.Shock, 1);
-                break;
+        if (rand > 15)
+        {
+            AddObj(ObjType.Shock, 1);
+            return;
         }
     }
 
@@ -385,12 +384,5 @@ public class ObjManager : MonoBehaviourPunCallbacks
         MineButton.GetComponent<Image>().color = Color.white;
         HoloButton.GetComponent<Image>().color = Color.white;
         ShockButton.GetComponent<Image>().color = Color.white;
-    }
-
-    void HideShowButton(bool value)
-    {
-        MineButton.gameObject.SetActive(value);
-        HoloButton.gameObject.SetActive(value);
-        ShockButton.gameObject.SetActive(value);
     }
 }

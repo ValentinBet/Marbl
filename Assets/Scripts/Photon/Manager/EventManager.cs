@@ -82,15 +82,11 @@ public class EventManager : MonoBehaviour
         numberOfBonus--;
         PhotonNetwork.CurrentRoom.SetForceCam(true);
 
-        switch (Random.Range(0, 2))
+        if (Random.Range(0, 11) != 10)
         {
-            case 0:
-                PhotonNetwork.Instantiate("SeagullDrop", GetPosition(), Quaternion.Euler(0, Random.Range(0, 360), 0));
-                break;
-
-            case 1:
-                PhotonNetwork.Instantiate("SeagullMEGADrop", GetPosition(), Quaternion.Euler(0, Random.Range(0, 360), 0));
-                break;
+            PhotonNetwork.Instantiate("SeagullDrop", GetPosition(), Quaternion.Euler(0, Random.Range(0, 360), 0));
+        } else {
+            PhotonNetwork.Instantiate("SeagullMEGADrop", GetPosition(), Quaternion.Euler(0, Random.Range(0, 360), 0));
         }
     }
 

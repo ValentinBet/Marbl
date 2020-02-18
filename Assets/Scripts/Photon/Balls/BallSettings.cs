@@ -198,7 +198,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
                     {
                         co.GetComponent<Rigidbody>().AddExplosionForce(0.2f, this.transform.position, 2, 0f, ForceMode.Impulse);
 
-                        if (co.gameObject.CompareTag("Ball"))
+                        if (co.gameObject.CompareTag("Ball") && PhotonNetwork.CurrentRoom.GetHue())
                         {
                             co.GetComponent<BallSettings>().ChangeTeam(myteam);
                         }
