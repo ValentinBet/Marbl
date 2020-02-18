@@ -41,7 +41,7 @@ public class ShockBlock : MonoBehaviour
 
         if (GameModeManager.Instance.localPlayerTurn)
         {
-            other.GetComponent<BallSettings>().isPowered = true;
+            other.GetComponent<BallSettings>().ChangePowered(true);
         }
     }
 
