@@ -248,7 +248,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892640998738306497}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -278,9 +278,7 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  m_Positions: []
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.125
@@ -289,54 +287,63 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.6354391
-        inSlope: -0.2952074
-        outSlope: -0.2952074
+        value: 0.43306732
+        inSlope: -0.14774118
+        outSlope: -0.14774118
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.16722408
+        outWeight: 0.19792324
       - serializedVersion: 3
-        time: 1
-        value: 0.2088623
-        inSlope: -0.36051553
-        outSlope: -0.36051553
+        time: 0.8077068
+        value: 0.24674124
+        inSlope: -0.7385278
+        outSlope: -0.7385278
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.14044952
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: -2.3149602
+        outSlope: -2.3149602
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.06462586
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 1, g: 1, b: 1, a: 0}
       key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 1, g: 1, b: 1, a: 0.59607846}
-      key3: {r: 0, g: 0, b: 0, a: 0.40392157}
-      key4: {r: 0, g: 0, b: 0, a: 0}
-      key5: {r: 0, g: 0, b: 0, a: 0}
-      key6: {r: 0, g: 0, b: 0, a: 0}
-      key7: {r: 0, g: 0, b: 0, a: 0}
+      key2: {r: 0.49363506, g: 0.96081316, b: 1, a: 1}
+      key3: {r: 0.49363506, g: 0.96081316, b: 1, a: 1}
+      key4: {r: 0.49363506, g: 0.96081316, b: 1, a: 1}
+      key5: {r: 0.49363506, g: 0.96081316, b: 1, a: 0}
+      key6: {r: 0.49363506, g: 0.96081316, b: 1, a: 0}
+      key7: {r: 0.49363506, g: 0.96081316, b: 1, a: 0}
       ctime0: 0
-      ctime1: 65535
-      ctime2: 65535
-      ctime3: 0
-      ctime4: 0
-      ctime5: 0
-      ctime6: 0
-      ctime7: 0
-      atime0: 0
-      atime1: 65535
+      ctime1: 8192
+      ctime2: 57343
+      ctime3: 57343
+      ctime4: 57343
+      ctime5: 57343
+      ctime6: 57343
+      ctime7: 57343
+      atime0: 193
+      atime1: 43369
       atime2: 65535
       atime3: 65535
-      atime4: 0
+      atime4: 65535
       atime5: 0
       atime6: 0
       atime7: 0
-      m_Mode: 1
+      m_Mode: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 3
     numCornerVertices: 3
     numCapVertices: 0
     alignment: 0

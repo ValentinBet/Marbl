@@ -67,8 +67,17 @@ public class ObjManager : MonoBehaviourPunCallbacks
             myLocalPlayerManager = GameModeManager.Instance.localPlayerObj.GetComponent<LocalPlayerManager>();
         }
 
+        bool forceCam = PhotonNetwork.CurrentRoom.GetForceCam();
 
-        if (IsPossing && !PhotonNetwork.CurrentRoom.GetForceCam())
+        HideShowButton(!forceCam);
+
+        if (forceCam)
+        {
+
+        }
+
+
+        if (IsPossing && !forceCam)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
@@ -376,5 +385,12 @@ public class ObjManager : MonoBehaviourPunCallbacks
         MineButton.GetComponent<Image>().color = Color.white;
         HoloButton.GetComponent<Image>().color = Color.white;
         ShockButton.GetComponent<Image>().color = Color.white;
+    }
+
+    void HideShowButton(bool value)
+    {
+        MineButton.gameObject.SetActive(value);
+        HoloButton.gameObject.SetActive(value);
+        ShockButton.gameObject.SetActive(value);
     }
 }
