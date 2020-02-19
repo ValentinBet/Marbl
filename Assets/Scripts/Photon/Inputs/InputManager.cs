@@ -27,35 +27,40 @@ public class InputManager : MonoBehaviour
 
         VerifySettings();
         DontDestroyOnLoad(this.gameObject);
-        InitInputs();
+    }
+
+    private void Start()
+    {
+        GetSetJsonData();
+        AudioListener.volume = Inputs.inputs.GeneralVolume;
     }
 
     private void VerifySettings()
     {
         if (!File.Exists(Application.persistentDataPath + "Settings" + ".json"))
         {
-            settingsSaves.GeneralVolume = 1;
+            settingsSaves.MainButton1 = DefaultInputs.inputs.MainButton1;
+            settingsSaves.MainButton2 = DefaultInputs.inputs.MainButton2;
+            settingsSaves.Learderboard = DefaultInputs.inputs.Learderboard;
+            settingsSaves.Ping = DefaultInputs.inputs.Ping;
+            settingsSaves.Chat = DefaultInputs.inputs.Chat;
+            settingsSaves.CameraForward = DefaultInputs.inputs.CameraForward;
+            settingsSaves.CameraBackward = DefaultInputs.inputs.CameraBackward;
+            settingsSaves.CameraLeft = DefaultInputs.inputs.CameraLeft;
+            settingsSaves.CameraRight = DefaultInputs.inputs.CameraRight;
+            settingsSaves.CameraSpeed = DefaultInputs.inputs.CameraSpeed;
+            settingsSaves.FollowCam = DefaultInputs.inputs.FollowCam;
+            settingsSaves.TopCam = DefaultInputs.inputs.TopCam;
+            settingsSaves.SpecCam = DefaultInputs.inputs.SpecCam;
+            settingsSaves.MouseSensitivity = DefaultInputs.inputs.MouseSensitivity;
+            settingsSaves.GeneralVolume = DefaultInputs.inputs.GeneralVolume;
+
             string json = JsonUtility.ToJson(settingsSaves);
             File.WriteAllText(Application.persistentDataPath + "Settings" + ".json", json);
         }
     }
-    private void InitInputs()
-    {
-        if (!Inputs.init)
-        {
-            Inputs.inputs.CameraBackward = DefaultInputs.inputs.CameraBackward;
-            Inputs.inputs.CameraForward = DefaultInputs.inputs.CameraForward;
-            Inputs.inputs.CameraLeft = DefaultInputs.inputs.CameraLeft;
-            Inputs.inputs.CameraRight = DefaultInputs.inputs.CameraRight;
-            Inputs.inputs.MouseSensitivity = DefaultInputs.inputs.MouseSensitivity;
-            Inputs.inputs.MainButton2 = DefaultInputs.inputs.MainButton2;
-            Inputs.inputs.Learderboard = DefaultInputs.inputs.Learderboard;
 
-            Inputs.init = true;
-        }
-    }
-
-    private void Start()
+    private void GetSetJsonData()
     {
         using (StreamReader r = new StreamReader(Application.persistentDataPath + "Settings" + ".json"))
         {
@@ -63,8 +68,21 @@ public class InputManager : MonoBehaviour
             settingsSaves = JsonUtility.FromJson<SettingsSaves>(dataAsJson);
         }
 
+        Inputs.inputs.MainButton1 = settingsSaves.MainButton1;
+        Inputs.inputs.MainButton2 = settingsSaves.MainButton2;
+        Inputs.inputs.Learderboard = settingsSaves.Learderboard;
+        Inputs.inputs.Ping = settingsSaves.Ping;
+        Inputs.inputs.Chat = settingsSaves.Chat;
+        Inputs.inputs.CameraForward = settingsSaves.CameraForward;
+        Inputs.inputs.CameraBackward = settingsSaves.CameraBackward;
+        Inputs.inputs.CameraLeft = settingsSaves.CameraLeft;
+        Inputs.inputs.CameraRight = settingsSaves.CameraRight;
+        Inputs.inputs.CameraSpeed = settingsSaves.CameraSpeed;
+        Inputs.inputs.FollowCam = settingsSaves.FollowCam;
+        Inputs.inputs.TopCam = settingsSaves.TopCam;
+        Inputs.inputs.SpecCam = settingsSaves.SpecCam;
+        Inputs.inputs.MouseSensitivity = settingsSaves.MouseSensitivity;
         Inputs.inputs.GeneralVolume = settingsSaves.GeneralVolume;
-        AudioListener.volume = Inputs.inputs.GeneralVolume;
     }
 
     public string GetSimplifiedKeyAsString(KeyCode key)

@@ -170,6 +170,7 @@ public class SettingsManager : MonoBehaviour
         {
             ApplyKeyChange(keyButtonParameters);
         }
+
         SaveAsJson();
         MakeChanges();
         InitSettingsList();
@@ -184,6 +185,22 @@ public class SettingsManager : MonoBehaviour
     public void SaveAsJson()
     {
         SettingsSaves settingsSaves = new SettingsSaves();
+
+        settingsSaves.MainButton1 = inputManager.Inputs.inputs.MainButton1;
+        settingsSaves.MainButton2 = inputManager.Inputs.inputs.MainButton2;
+        settingsSaves.Learderboard = inputManager.Inputs.inputs.Learderboard;
+        settingsSaves.Ping = inputManager.Inputs.inputs.Ping;
+        settingsSaves.Chat = inputManager.Inputs.inputs.Chat;
+        settingsSaves.CameraForward = inputManager.Inputs.inputs.CameraForward;
+        settingsSaves.CameraBackward = inputManager.Inputs.inputs.CameraBackward;
+        settingsSaves.CameraLeft = inputManager.Inputs.inputs.CameraLeft;
+        settingsSaves.CameraRight = inputManager.Inputs.inputs.CameraRight;
+        settingsSaves.CameraSpeed = inputManager.Inputs.inputs.CameraSpeed;
+        settingsSaves.FollowCam = inputManager.Inputs.inputs.FollowCam;
+        settingsSaves.TopCam = inputManager.Inputs.inputs.TopCam;
+        settingsSaves.SpecCam = inputManager.Inputs.inputs.SpecCam;
+        settingsSaves.MouseSensitivity = inputManager.Inputs.inputs.MouseSensitivity;
+
         settingsSaves.GeneralVolume = generalVolumeSlider.value / 100;
         string json = JsonUtility.ToJson(settingsSaves);
         File.WriteAllText(filename, json);
@@ -474,44 +491,57 @@ public class SettingsManager : MonoBehaviour
         {
             case "MainButton1":
                 inputManager.Inputs.inputs.MainButton1 = keyButtonParameters.Key;
+                settingsSaves.MainButton1 = keyButtonParameters.Key;
                 break;
             case "MainButton2":
                 inputManager.Inputs.inputs.MainButton2 = keyButtonParameters.Key;
+                settingsSaves.MainButton2 = keyButtonParameters.Key;
                 break;
             case "Leaderboard":
                 inputManager.Inputs.inputs.Learderboard = keyButtonParameters.Key;
+                settingsSaves.Learderboard = keyButtonParameters.Key;
                 break;
             case "Ping":
                 inputManager.Inputs.inputs.Ping = keyButtonParameters.Key;
+                settingsSaves.Ping = keyButtonParameters.Key;
                 break;
             case "Chat":
                 inputManager.Inputs.inputs.Chat = keyButtonParameters.Key;
+                settingsSaves.Chat = keyButtonParameters.Key;
                 break;
             case "FollowCam":
                 inputManager.Inputs.inputs.FollowCam = keyButtonParameters.Key;
+                settingsSaves.FollowCam = keyButtonParameters.Key;
                 break;
             case "TopCam":
                 inputManager.Inputs.inputs.TopCam = keyButtonParameters.Key;
+                settingsSaves.TopCam = keyButtonParameters.Key;
                 break;
             case "SpecCam":
                 inputManager.Inputs.inputs.SpecCam = keyButtonParameters.Key;
+                settingsSaves.SpecCam = keyButtonParameters.Key;
                 break;
 
             //NOT USED
             case "Forward":
                 inputManager.Inputs.inputs.CameraForward = keyButtonParameters.Key;
+                settingsSaves.CameraForward = keyButtonParameters.Key;
                 break;
             case "Backward":
                 inputManager.Inputs.inputs.CameraBackward = keyButtonParameters.Key;
+                settingsSaves.CameraBackward = keyButtonParameters.Key;
                 break;
             case "Left":
                 inputManager.Inputs.inputs.CameraLeft = keyButtonParameters.Key;
+                settingsSaves.CameraLeft = keyButtonParameters.Key;
                 break;
             case "Right":
                 inputManager.Inputs.inputs.CameraRight = keyButtonParameters.Key;
+                settingsSaves.CameraRight = keyButtonParameters.Key;
                 break;
             case "Speed":
                 inputManager.Inputs.inputs.CameraSpeed = keyButtonParameters.Key;
+                settingsSaves.CameraSpeed = keyButtonParameters.Key;
                 break;
 
             default:
