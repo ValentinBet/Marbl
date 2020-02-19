@@ -13,7 +13,7 @@ public class InputManager : MonoBehaviour
     public static InputManager Instance { get { return _instance; } }
 
     private SettingsSaves settingsSaves = new SettingsSaves();
-
+    private string SettingsFileName;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -24,7 +24,7 @@ public class InputManager : MonoBehaviour
         {
             _instance = this;
         }
-
+        SettingsFileName = Application.persistentDataPath + "Settings" + ".json";
         VerifySettings();
         DontDestroyOnLoad(this.gameObject);
     }
@@ -37,8 +37,10 @@ public class InputManager : MonoBehaviour
 
     private void VerifySettings()
     {
-        if (!File.Exists(Application.persistentDataPath + "Settings" + ".json"))
+        if (!File.Exists(SettingsFileName))
         {
+            settingsSaves.AppVersion = MarblGame.APP_VERSION;
+
             settingsSaves.MainButton1 = DefaultInputs.inputs.MainButton1;
             settingsSaves.MainButton2 = DefaultInputs.inputs.MainButton2;
             settingsSaves.Learderboard = DefaultInputs.inputs.Learderboard;
@@ -56,18 +58,50 @@ public class InputManager : MonoBehaviour
             settingsSaves.GeneralVolume = DefaultInputs.inputs.GeneralVolume;
 
             string json = JsonUtility.ToJson(settingsSaves);
-            File.WriteAllText(Application.persistentDataPath + "Settings" + ".json", json);
+            File.WriteAllText(SettingsFileName, json);
+        } else
+        {
+            using (StreamReader r = new StreamReader(SettingsFileName))
+            {
+                var dataAsJson = r.ReadToEnd();
+                settingsSaves = JsonUtility.FromJson<SettingsSaves>(dataAsJson);
+            }
+
+            if (settingsSaves.AppVersion != MarblGame.APP_VERSION)
+            {
+                UpdateJsonSettingsFile();             
+            }
         }
+    }
+
+    private void UpdateJsonSettingsFile()
+    {
+        GetSetJsonData();
+        File.Delete(SettingsFileName);
+        settingsSaves.AppVersion = MarblGame.APP_VERSION;
+
+        settingsSaves.MainButton1 = Inputs.inputs.MainButton1;
+        settingsSaves.MainButton2 = Inputs.inputs.MainButton2;
+        settingsSaves.Learderboard = Inputs.inputs.Learderboard;
+        settingsSaves.Ping = Inputs.inputs.Ping;
+        settingsSaves.Chat = Inputs.inputs.Chat;
+        settingsSaves.CameraForward = Inputs.inputs.CameraForward;
+        settingsSaves.CameraBackward = Inputs.inputs.CameraBackward;
+        settingsSaves.CameraLeft = Inputs.inputs.CameraLeft;
+        settingsSaves.CameraRight = Inputs.inputs.CameraRight;
+        settingsSaves.CameraSpeed = Inputs.inputs.CameraSpeed;
+        settingsSaves.FollowCam = Inputs.inputs.FollowCam;
+        settingsSaves.TopCam = Inputs.inputs.TopCam;
+        settingsSaves.SpecCam = Inputs.inputs.SpecCam;
+        settingsSaves.MouseSensitivity = Inputs.inputs.MouseSensitivity;
+        settingsSaves.GeneralVolume = Inputs.inputs.GeneralVolume;
+
+        string json = JsonUtility.ToJson(settingsSaves);
+        File.WriteAllText(SettingsFileName, json);
     }
 
     private void GetSetJsonData()
     {
-        using (StreamReader r = new StreamReader(Application.persistentDataPath + "Settings" + ".json"))
-        {
-            var dataAsJson = r.ReadToEnd();
-            settingsSaves = JsonUtility.FromJson<SettingsSaves>(dataAsJson);
-        }
-
         Inputs.inputs.MainButton1 = settingsSaves.MainButton1;
         Inputs.inputs.MainButton2 = settingsSaves.MainButton2;
         Inputs.inputs.Learderboard = settingsSaves.Learderboard;

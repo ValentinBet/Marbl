@@ -4,6 +4,7 @@ using static Photon.Pun.UtilityScripts.PunTeams;
 public class MarblGame
 {
     public const string PLAYER_READY = "IsPlayerReady";
+    public static string APP_VERSION = "0.01";
 
     public static Color GetColor(int colorChoice)
     {
