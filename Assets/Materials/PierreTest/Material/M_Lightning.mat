@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Lighting
+  m_Name: M_Lightning
   m_Shader: {fileID: 4800000, guid: 298557f8ffa8f8f4fa625586f7e3a3c3, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,11 +20,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 7b3859d1cfc505b40804671ff1301116, type: 3}
+        m_Texture: {fileID: 2800000, guid: a00b75d3cbb603d4888922b8d7938522, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetaRough:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 6b9b9ace03f9b1045a2343bec4415530, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Metallic:
@@ -33,6 +33,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _Motif:
         m_Texture: {fileID: 2800000, guid: 6fc99bf747e15b9458efcc2f14bdf577, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: 71020ba4252a44b4db97852e25306b0e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
