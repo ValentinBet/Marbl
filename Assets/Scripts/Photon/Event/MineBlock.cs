@@ -57,7 +57,6 @@ public class MineBlock : MonoBehaviour
             {
                 if (co.GetComponent<PhotonView>().IsMine)
                 {
-                    print(co.gameObject);
                     co.GetComponent<Rigidbody>().AddExplosionForce(power, this.transform.position, radius, upForce, ForceMode.Impulse);
                 }
             }
