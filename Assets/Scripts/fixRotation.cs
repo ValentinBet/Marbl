@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class fixRotation : MonoBehaviour
 {
-    Quaternion rotation;
-    void Awake()
-    {
-        rotation = transform.rotation;
-    }
+    public Vector3 rotation = new Vector3(0,0,0);
+
     void LateUpdate()
     {
-        transform.rotation = rotation;
+        transform.rotation = Quaternion.Euler(rotation);
     }
 }

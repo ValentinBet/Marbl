@@ -176,8 +176,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         myPV.RPC("RpcSetRoundText", RpcTarget.AllViaServer, "Round" + "\n" + "<size=180> " + currentRound + " / " + roundNumber + "</size>");
 
-        myPV.RPC("RpcStartGame", RpcTarget.All);
-
         myPV.RPC("RpcHideLoadingPanel", RpcTarget.All);
 
         specCamPV.TransferOwnership(playerplayed);
@@ -430,12 +428,6 @@ public class GameModeManager : MonoBehaviourPunCallbacks
     void RpcInfoTurn(string playerName, int playerTeam)
     {
         UIManager.Instance.DisplayInfoTurn(playerName, playerTeam);
-    }
-
-    [PunRPC]
-    void RpcStartGame()
-    {
-        UIManager.Instance.pingStatut = true;
     }
 
     public void EndMode()
