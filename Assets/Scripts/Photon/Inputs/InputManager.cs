@@ -67,6 +67,53 @@ public class InputManager : MonoBehaviour
         AudioListener.volume = Inputs.inputs.GeneralVolume;
     }
 
-
+    public string GetSimplifiedKeyAsString(KeyCode key)
+    {
+        switch (key)
+        {
+            case KeyCode.Keypad0:
+                return "0";
+            case KeyCode.Keypad1:
+                return "1";
+            case KeyCode.Keypad2:
+                return "2";
+            case KeyCode.Keypad3:
+                return "3";
+            case KeyCode.Keypad4:
+                return "4";
+            case KeyCode.Keypad5:
+                return "5";
+            case KeyCode.Keypad6:
+                return "6";
+            case KeyCode.Keypad7:
+                return "7";
+            case KeyCode.Keypad8:
+                return "8";
+            case KeyCode.Keypad9:
+                return "9";
+            case KeyCode.Alpha0:
+                return "²";
+            case KeyCode.Alpha1:
+                return "&";
+            case KeyCode.Alpha2:
+                return "é";
+            case KeyCode.Alpha3:
+                return "\"";
+            case KeyCode.Alpha4:
+                return "'";
+            case KeyCode.Alpha5:
+                return "(";
+            case KeyCode.Alpha6:
+                return "-";
+            case KeyCode.Alpha7:
+                return "è";
+            case KeyCode.Alpha8:
+                return "_";
+            case KeyCode.Alpha9:
+                return "ç";
+            default:
+                return key.ToString();
+        }
+    }
 
 }

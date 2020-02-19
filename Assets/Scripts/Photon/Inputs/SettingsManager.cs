@@ -44,11 +44,12 @@ public class SettingsManager : MonoBehaviour
     private SettingsSaves settingsSaves = new SettingsSaves();
     private string filename;
 
+    private InputManager inputManager;
 
     private void Start()
     {
         filename = Application.persistentDataPath + "Settings" + ".json";
-
+        inputManager = InputManager.Instance;
         InitSettingsList();
 
         InitResDropdown();
@@ -162,8 +163,8 @@ public class SettingsManager : MonoBehaviour
         settingsList.settings.MouseSensitivity = mouseSensitivitySlider.value;
         // <<
 
-        InputManager.Instance.Inputs.inputs.MouseSensitivity = mouseSensitivitySlider.value;
-        InputManager.Instance.Inputs.inputs.GeneralVolume = generalVolumeSlider.value / 100;
+        inputManager.Inputs.inputs.MouseSensitivity = mouseSensitivitySlider.value;
+        inputManager.Inputs.inputs.GeneralVolume = generalVolumeSlider.value / 100;
 
         foreach (KeyButtonParameters keyButtonParameters in keyButtonList)
         {
@@ -178,7 +179,7 @@ public class SettingsManager : MonoBehaviour
     {
         Screen.SetResolution(ResolutionsList[resDropdown.value].x, ResolutionsList[resDropdown.value].y, Windowmodes[settingsList.settings.Windowmode]);
         QualitySettings.SetQualityLevel(settingsList.settings.Quality);
-        AudioListener.volume = InputManager.Instance.Inputs.inputs.GeneralVolume;
+        AudioListener.volume = inputManager.Inputs.inputs.GeneralVolume;
     }
     public void SaveAsJson()
     {
@@ -240,7 +241,7 @@ public class SettingsManager : MonoBehaviour
 
     public void InitAudioVisuals()
     {
-        using (StreamReader r = new StreamReader(Application.persistentDataPath + "Settings" + ".json"))
+        using (StreamReader r = new StreamReader(filename))
         {
             var dataAsJson = r.ReadToEnd();
             settingsSaves = JsonUtility.FromJson<SettingsSaves>(dataAsJson);
@@ -252,7 +253,7 @@ public class SettingsManager : MonoBehaviour
 
     public void OnGeneralVolumeSliderUpdate()
     {
-        generalVolumeInputField.text = (generalVolumeSlider.value).ToString();       
+        generalVolumeInputField.text = (generalVolumeSlider.value).ToString();
     }
 
     public void OnGeneralVolumeInputFieldUpdated()
@@ -275,8 +276,8 @@ public class SettingsManager : MonoBehaviour
 
     public void InitControlsVisuals()
     {
-        mouseSensitivityInputField.text = InputManager.Instance.Inputs.inputs.MouseSensitivity.ToString();
-        mouseSensitivitySlider.value = InputManager.Instance.Inputs.inputs.MouseSensitivity;
+        mouseSensitivityInputField.text = inputManager.Inputs.inputs.MouseSensitivity.ToString();
+        mouseSensitivitySlider.value = inputManager.Inputs.inputs.MouseSensitivity;
 
         InitKeyVisuals();
     }
@@ -297,59 +298,78 @@ public class SettingsManager : MonoBehaviour
         {
             mouseSensitivityInputField.text = "0";
         }
-        mouseSensitivitySlider.value = float.Parse(mouseSensitivityInputField.text);      
+        mouseSensitivitySlider.value = float.Parse(mouseSensitivityInputField.text);
     }
 
     public void InitKeyVisuals()
     {
+        string _temp = "";
+
         foreach (KeyButtonParameters keyButtonParameters in keyButtonList)
         {
+
             switch (keyButtonParameters.keyName)
             {
                 case "MainButton1":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.MainButton1.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.MainButton1;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.MainButton1);
+                    keyButtonParameters.Key = inputManager.Inputs.inputs.MainButton1;
                     break;
                 case "MainButton2":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.MainButton2.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.MainButton2;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.MainButton2);
+                    keyButtonParameters.Key = inputManager.Inputs.inputs.MainButton2;
                     break;
                 case "Leaderboard":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.Learderboard.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.Learderboard;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.Learderboard);
+                    keyButtonParameters.Key = inputManager.Inputs.inputs.Learderboard;
                     break;
                 case "Ping":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.Ping.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.Ping;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.Ping);
+                    keyButtonParameters.Key = inputManager.Inputs.inputs.Ping;
                     break;
                 case "Chat":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.Chat.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.Chat;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.Chat);
+                    keyButtonParameters.Key = inputManager.Inputs.inputs.Chat;
                     break;
+                case "FollowCam":
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.FollowCam);
+                    keyButtonParameters.Key = inputManager.Inputs.inputs.FollowCam;
+                    break;
+                case "TopCam":
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.TopCam);
+                    keyButtonParameters.Key = inputManager.Inputs.inputs.TopCam;
+                    break;
+                case "SpecCam":
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.SpecCam);
+                    keyButtonParameters.Key = inputManager.Inputs.inputs.SpecCam;
+                    break;
+
+                //NOT USED
                 case "Forward":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.CameraForward.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.CameraForward;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.CameraForward);
+                    keyButtonParameters.Key = inputManager.Inputs.inputs.CameraForward;
                     break;
                 case "Backward":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.CameraBackward.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.CameraBackward;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.CameraBackward);
+                    keyButtonParameters.Key = inputManager.Inputs.inputs.CameraBackward;
                     break;
                 case "Left":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.CameraLeft.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.CameraLeft;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.CameraLeft);
+                    keyButtonParameters.Key = inputManager.Inputs.inputs.CameraLeft;
                     break;
                 case "Right":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.CameraRight.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.CameraRight;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.CameraRight);
+                    keyButtonParameters.Key = inputManager.Inputs.inputs.CameraRight;
                     break;
                 case "Speed":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.CameraSpeed.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.Inputs.inputs.CameraSpeed;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.CameraSpeed);
+                    keyButtonParameters.Key = inputManager.Inputs.inputs.CameraSpeed;
                     break;
+
                 default:
                     Debug.Log("Erreur");
                     break;
             }
+            keyButtonParameters.Button.GetComponentInChildren<Text>().text = _temp;
         }
 
     }
@@ -371,7 +391,7 @@ public class SettingsManager : MonoBehaviour
         if (lastKeyPressed != KeyCode.None && lastKeyPressed != KeyCode.Escape)
         {
             isChangingKey = false;
-            buttonParameters.Button.GetComponentInChildren<Text>().text = lastKeyPressed.ToString();
+            buttonParameters.Button.GetComponentInChildren<Text>().text = inputManager.GetSimplifiedKeyAsString(lastKeyPressed);
             buttonParameters.Key = lastKeyPressed;
 
             lastKeyPressed = KeyCode.None;
@@ -380,54 +400,72 @@ public class SettingsManager : MonoBehaviour
     }
     public void SetKeyDefault()
     {
+        string _temp = "";
+
         foreach (KeyButtonParameters keyButtonParameters in keyButtonList)
         {
             switch (keyButtonParameters.keyName)
             {
                 case "MainButton1":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.MainButton1.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.MainButton1;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.DefaultInputs.inputs.MainButton1);
+                    keyButtonParameters.Key = inputManager.DefaultInputs.inputs.MainButton1;
                     break;
                 case "MainButton2":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.MainButton2.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.MainButton2;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.DefaultInputs.inputs.MainButton2);
+                    keyButtonParameters.Key = inputManager.DefaultInputs.inputs.MainButton2;
                     break;
                 case "Leaderboard":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.Learderboard.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.Learderboard;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.DefaultInputs.inputs.Learderboard);
+                    keyButtonParameters.Key = inputManager.DefaultInputs.inputs.Learderboard;
                     break;
                 case "Ping":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.Ping.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.Ping;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.DefaultInputs.inputs.Ping);
+                    keyButtonParameters.Key = inputManager.DefaultInputs.inputs.Ping;
                     break;
                 case "Chat":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.Chat.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.Chat;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.DefaultInputs.inputs.Chat);
+                    keyButtonParameters.Key = inputManager.DefaultInputs.inputs.Chat;
                     break;
+                case "FollowCam":
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.DefaultInputs.inputs.FollowCam);
+                    keyButtonParameters.Key = inputManager.DefaultInputs.inputs.FollowCam;
+                    break;
+                case "TopCam":
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.DefaultInputs.inputs.TopCam);
+                    keyButtonParameters.Key = inputManager.DefaultInputs.inputs.TopCam;
+                    break;
+                case "SpecCam":
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.DefaultInputs.inputs.SpecCam);
+                    keyButtonParameters.Key = inputManager.DefaultInputs.inputs.SpecCam;
+                    break;
+
+                //NOT USED
                 case "Forward":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.CameraForward.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.CameraForward;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.DefaultInputs.inputs.CameraForward);
+                    keyButtonParameters.Key = inputManager.DefaultInputs.inputs.CameraForward;
                     break;
                 case "Backward":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.CameraBackward.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.CameraBackward;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.DefaultInputs.inputs.CameraBackward);
+                    keyButtonParameters.Key = inputManager.DefaultInputs.inputs.CameraBackward;
                     break;
                 case "Left":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.CameraLeft.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.CameraLeft;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.DefaultInputs.inputs.CameraLeft);
+                    keyButtonParameters.Key = inputManager.DefaultInputs.inputs.CameraLeft;
                     break;
                 case "Right":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.CameraRight.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.CameraRight;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.DefaultInputs.inputs.CameraRight);
+                    keyButtonParameters.Key = inputManager.DefaultInputs.inputs.CameraRight;
                     break;
                 case "Speed":
-                    keyButtonParameters.Button.GetComponentInChildren<Text>().text = InputManager.Instance.DefaultInputs.inputs.CameraSpeed.ToString();
-                    keyButtonParameters.Key = InputManager.Instance.DefaultInputs.inputs.CameraSpeed;
+                    _temp = inputManager.GetSimplifiedKeyAsString(inputManager.DefaultInputs.inputs.CameraSpeed);
+                    keyButtonParameters.Key = inputManager.DefaultInputs.inputs.CameraSpeed;
                     break;
+
                 default:
                     Debug.Log("Erreur");
                     break;
             }
+            keyButtonParameters.Button.GetComponentInChildren<Text>().text = _temp;
         }
     }
     public void ApplyKeyChange(KeyButtonParameters keyButtonParameters)
@@ -435,35 +473,47 @@ public class SettingsManager : MonoBehaviour
         switch (keyButtonParameters.keyName)
         {
             case "MainButton1":
-                InputManager.Instance.Inputs.inputs.MainButton1 = keyButtonParameters.Key;
+                inputManager.Inputs.inputs.MainButton1 = keyButtonParameters.Key;
                 break;
             case "MainButton2":
-                InputManager.Instance.Inputs.inputs.MainButton2 = keyButtonParameters.Key;
+                inputManager.Inputs.inputs.MainButton2 = keyButtonParameters.Key;
                 break;
             case "Leaderboard":
-                InputManager.Instance.Inputs.inputs.Learderboard = keyButtonParameters.Key;
+                inputManager.Inputs.inputs.Learderboard = keyButtonParameters.Key;
                 break;
             case "Ping":
-                InputManager.Instance.Inputs.inputs.Ping = keyButtonParameters.Key;
+                inputManager.Inputs.inputs.Ping = keyButtonParameters.Key;
                 break;
             case "Chat":
-                InputManager.Instance.Inputs.inputs.Chat = keyButtonParameters.Key;
+                inputManager.Inputs.inputs.Chat = keyButtonParameters.Key;
                 break;
+            case "FollowCam":
+                inputManager.Inputs.inputs.FollowCam = keyButtonParameters.Key;
+                break;
+            case "TopCam":
+                inputManager.Inputs.inputs.TopCam = keyButtonParameters.Key;
+                break;
+            case "SpecCam":
+                inputManager.Inputs.inputs.SpecCam = keyButtonParameters.Key;
+                break;
+
+            //NOT USED
             case "Forward":
-                InputManager.Instance.Inputs.inputs.CameraForward = keyButtonParameters.Key;
+                inputManager.Inputs.inputs.CameraForward = keyButtonParameters.Key;
                 break;
             case "Backward":
-                InputManager.Instance.Inputs.inputs.CameraBackward = keyButtonParameters.Key;
+                inputManager.Inputs.inputs.CameraBackward = keyButtonParameters.Key;
                 break;
             case "Left":
-                InputManager.Instance.Inputs.inputs.CameraLeft = keyButtonParameters.Key;
+                inputManager.Inputs.inputs.CameraLeft = keyButtonParameters.Key;
                 break;
             case "Right":
-                InputManager.Instance.Inputs.inputs.CameraRight = keyButtonParameters.Key;
+                inputManager.Inputs.inputs.CameraRight = keyButtonParameters.Key;
                 break;
             case "Speed":
-                InputManager.Instance.Inputs.inputs.CameraSpeed = keyButtonParameters.Key;
+                inputManager.Inputs.inputs.CameraSpeed = keyButtonParameters.Key;
                 break;
+
             default:
                 Debug.Log("Erreur");
                 break;

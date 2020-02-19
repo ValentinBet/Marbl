@@ -103,8 +103,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8112947325564118533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.03, y: 0.61585, z: 14.171}
-  m_LocalScale: {x: 0.4434869, y: 0.29565817, z: 0.4434872}
+  m_LocalPosition: {x: 4.0327, y: 0.61142, z: 14.173}
+  m_LocalScale: {x: 0.9316019, y: 0.6210684, z: 0.93160254}
   m_Children:
   - {fileID: 8112947325564090919}
   - {fileID: 8112947325564090913}
@@ -328,9 +328,9 @@ MonoBehaviour:
   prefabMark: {fileID: 9052477642911836747, guid: 094fe440c59673e4a873e5449d13fe59,
     type: 3}
   explosion: {fileID: 8300000, guid: a205de405705f7044b967ff537245a09, type: 3}
-  radius: 0.43
+  radius: 0.6
   upForce: 0.2
-  power: 0.1
+  power: 0.2
   baseScreenShakePower: 20
   screenShakeDuration: 0.2
   pv: {fileID: 1824014862400916015}
