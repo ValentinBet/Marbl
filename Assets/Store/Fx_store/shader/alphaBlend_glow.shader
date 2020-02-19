@@ -3,8 +3,8 @@
 Shader "EffectCore/alphaBlend_glow" {
     Properties {
         _MainTex ("MainTex", 2D) = "white" {}
-        _Glow ("Glow", Float ) = 2
         [HideInInspector]_Cutoff ("Alpha cutoff", Range(0,1)) = 0.5
+		[HDR]_Color("Main Color", Color) = (1,1,1,1)
     }
     SubShader {
         Tags {
@@ -29,7 +29,7 @@ Shader "EffectCore/alphaBlend_glow" {
             #pragma exclude_renderers d3d11_9x xbox360 xboxone ps3 ps4 psp2 
             #pragma target 3.0
             uniform sampler2D _MainTex; uniform float4 _MainTex_ST;
-            uniform float _Glow;
+			uniform float4 _Color;
 
             struct VertexInput {
                 float4 vertex : POSITION;
@@ -52,7 +52,7 @@ Shader "EffectCore/alphaBlend_glow" {
 ////// Lighting:
 ////// Emissive:
                 float4 _MainTex_var = tex2D(_MainTex,TRANSFORM_TEX(i.uv0, _MainTex));
-                float3 emissive = (_MainTex_var.rgb*i.vertexColor.rgb*_Glow);
+                float3 emissive = (_MainTex_var.rgb*_Color);
                 float3 finalColor = emissive;
                 return fixed4(finalColor,(_MainTex_var.a*i.vertexColor.a));
             }
