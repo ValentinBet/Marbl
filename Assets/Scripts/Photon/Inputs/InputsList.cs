@@ -6,7 +6,6 @@ using UnityEngine;
 public class InputsList : ScriptableObject
 {
     public Inputs inputs;
-    public bool init;
 }
 
 [System.Serializable]

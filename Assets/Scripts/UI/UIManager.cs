@@ -101,6 +101,18 @@ public class UIManager : MonoBehaviourPunCallbacks
         {
             DisplayEscapeMenu();
         }
+        if (Input.GetKeyDown(inputManager.Inputs.inputs.FollowCam))
+        {
+            SetMainCam();
+        }
+        if (Input.GetKeyDown(inputManager.Inputs.inputs.TopCam))
+        {
+            SetTopCam();
+        }
+        if (Input.GetKeyDown(inputManager.Inputs.inputs.SpecCam))
+        {
+            SetSpecCam();
+        }
 
 
         if (isShooting)
