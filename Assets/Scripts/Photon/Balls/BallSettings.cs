@@ -30,9 +30,13 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 
     private Material[] _mats;
 
-    public GameObject fxPowered;
+    public GameObject circlePowered;
 
     public Gradient chargeColorGradient;
+
+    public float radiusExplo;
+
+    public PingElement myPingElement;
 
     private void Awake()
     {
@@ -117,6 +121,9 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
 
         //color trail
         myTrail.startColor = MarblGame.GetColor((int)myteam);
+
+
+        myPingElement.SetColor(MarblGame.GetColor((int)myteam));
     }
 
     public void SpawnOverchargedFx()
@@ -167,7 +174,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     void RpcSetPowered(bool value)
     {
         isPowered = value;
-        fxPowered.SetActive(value);
+        circlePowered.SetActive(value);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -186,7 +193,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {
         pv.RPC("RpcShockwaveExplo", RpcTarget.All);
 
-        Collider[] colliders = Physics.OverlapSphere(this.transform.position, 2);
+        Collider[] colliders = Physics.OverlapSphere(this.transform.position, radiusExplo);
 
         foreach (Collider co in colliders)
         {
@@ -196,7 +203,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
                 {
                     if(co.gameObject != gameObject)
                     {
-                        co.GetComponent<Rigidbody>().AddExplosionForce(0.2f, this.transform.position, 2, 0f, ForceMode.Impulse);
+                        co.GetComponent<Rigidbody>().AddExplosionForce(0.2f, this.transform.position, radiusExplo, 0f, ForceMode.Impulse);
 
                         if (co.gameObject.CompareTag("Ball") && PhotonNetwork.CurrentRoom.GetHue())
                         {
@@ -213,5 +220,11 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {
         GameModeManager.Instance.localPlayerObj.GetComponent<CameraPlayer>().InitShakeScreen(50 * 0.5f, 0.2f);
         Instantiate(shockwaveFx, this.transform.position, this.transform.rotation);
+    }
+
+    private void OnDrawGizmos()
+    {
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawWireSphere(transform.position, radiusExplo);
     }
 }

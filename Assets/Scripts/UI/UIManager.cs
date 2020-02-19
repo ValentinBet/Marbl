@@ -30,8 +30,6 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public Text pingText;
 
-    public bool pingStatut = false;
-
     public TimerInfo timer;
     public TextMeshProUGUI round;
 
@@ -53,9 +51,6 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     private bool isEscapeMenuDisplayed = false;
 
-    Dictionary<BallSettings, PingElement> listOfPing = new Dictionary<BallSettings, PingElement>();
-
-    public GameObject pingPrefab;
     public GameObject PingChoice;
     public GameObject currentClickedBall;
 
@@ -117,10 +112,6 @@ public class UIManager : MonoBehaviourPunCallbacks
             SetCamButtonState(true);
         }
 
-        if (pingStatut)
-        {
-            FollowMarbl();
-        }
 
         if (!isLocalPlayerTurn && !gameModeManager.isOnForceCam)
         {
@@ -251,61 +242,6 @@ public class UIManager : MonoBehaviourPunCallbacks
         MainCamButton.transform.GetChild(0).GetComponent<Text>().color = Color.white;
     }
 
-    public void SetPingMap()
-    {
-        if (pingStatut)
-        {
-            DisablePing();
-        }
-        else
-        {
-            EnablePing();
-        }
-        pingStatut = !pingStatut;
-    }
-
-    public void DisablePing()
-    {
-        GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
-
-        foreach (GameObject ball in _Balls)
-        {
-            ball.GetComponent<MarbleIndicator>().enabled = false;
-        }
-
-        foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
-        {
-            Destroy(element.Value.gameObject);
-        }
-
-        listOfPing.Clear();
-    }
-
-    public void EnablePing()
-    {
-        listOfPing.Clear();
-
-        GameObject[] _Balls = GameObject.FindGameObjectsWithTag("Ball");
-
-        foreach (GameObject ball in _Balls)
-        {
-            GameObject newPing = Instantiate(pingPrefab);
-            newPing.transform.position = ball.transform.position;
-            newPing.transform.position += new Vector3(0, -0.09f, 0);
-            PingElement myElement = newPing.GetComponent<PingElement>();
-            BallSettings myBallSettings = ball.GetComponent<BallSettings>();
-
-            myElement.SetColor(MarblGame.GetColor((int)myBallSettings.myteam));
-
-            if (myBallSettings.myteam == gameModeManager.localPlayerTeam)
-            {
-                myBallSettings.enabled = true;
-            }
-
-            listOfPing.Add(myBallSettings, myElement);
-        }
-    }
-
     public void StartAim()
     {
         if (actualCommand != commandAim)
@@ -329,7 +265,6 @@ public class UIManager : MonoBehaviourPunCallbacks
     }
     public void OnClickOnBall(GameObject ball)
     {
-        if (!pingStatut) { return; }
         /*foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
         {
             if (element.Key == null) { continue; }
@@ -353,7 +288,6 @@ public class UIManager : MonoBehaviourPunCallbacks
 
     public void OnEndTurn()
     {
-        if (!pingStatut) { return; }
 
         if (actualCommand != null)
         {
@@ -361,34 +295,6 @@ public class UIManager : MonoBehaviourPunCallbacks
         }
     }
 
-    void FollowMarbl()
-    {
-        if (listOfPing.Count == 0)
-        {
-            EnablePing();
-        }
-
-        List<BallSettings> deleteBall = new List<BallSettings>();
-
-        foreach (KeyValuePair<BallSettings, PingElement> element in listOfPing)
-        {
-            if (element.Key == null)
-            {
-                element.Value.gameObject.SetActive(false);
-                deleteBall.Add(element.Key);
-                continue;
-            }
-
-            element.Value.transform.position = element.Key.transform.position;
-            element.Value.transform.position += new Vector3(0, -0.09f, 0);
-            element.Value.SetColor(MarblGame.GetColor((int)element.Key.myteam));
-        }
-
-        foreach (BallSettings element in deleteBall)
-        {
-            listOfPing.Remove(element);
-        }
-    }
     public void DisplayCamToolTip()
     {
         KeyFollowCam.text = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.FollowCam);
