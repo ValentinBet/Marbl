@@ -6,6 +6,8 @@ using UnityEngine;
 [Serializable]
 public class SettingsSaves
 {
+    public string AppVersion;
+
     public KeyCode MainButton1;
     public KeyCode MainButton2;
     public KeyCode Learderboard;
