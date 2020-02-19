@@ -335,7 +335,7 @@ Transform:
   m_GameObject: {fileID: 8112947325564118535}
   m_LocalRotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.0055964137, y: -0.0419, z: -0.0043}
-  m_LocalScale: {x: 4.485768, y: 4.485768, z: 4.485768}
+  m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 6386870907563074948}
   m_Father: {fileID: 8112947325564090917}
@@ -406,7 +406,7 @@ MonoBehaviour:
     type: 3}
   explosion: {fileID: 8300000, guid: a205de405705f7044b967ff537245a09, type: 3}
   bip: {fileID: 8300000, guid: b5c9ea8e472e27e44bc2e2305adf0630, type: 3}
-  detonationTime: 0.5
+  detonationTime: 0.15
   radius: 1
   upForce: 0.25
   power: 0.375
