@@ -66,8 +66,13 @@ public class UIManager : MonoBehaviourPunCallbacks
     public GameObject commandShoot;
     public GameObject watchingPanel;
 
+    [SerializeField] private Text KeyFollowCam;
+    [SerializeField] private Text KeyTopCam;
+    [SerializeField] private Text KeySpecCam;
+
     private bool isLocalPlayerTurn = false;
     private GameModeManager gameModeManager;
+    private InputManager inputManager;
 
     [Header("Ui panel")]
     public GameObject loadingPanel;
@@ -87,6 +92,8 @@ public class UIManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         gameModeManager = GameModeManager.Instance;
+        inputManager = InputManager.Instance;
+        DisplayCamToolTip();
     }
     private void Update()
     {
@@ -382,12 +389,18 @@ public class UIManager : MonoBehaviourPunCallbacks
             listOfPing.Remove(element);
         }
     }
+    public void DisplayCamToolTip()
+    {
+        KeyFollowCam.text = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.FollowCam);
+        KeyTopCam.text = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.TopCam);
+        KeySpecCam.text = inputManager.GetSimplifiedKeyAsString(inputManager.Inputs.inputs.SpecCam);
+    }
 
     public void DisplayFreeCamTooltip(bool value)
     {
         if (FreeCamTooltip != null)
         {
-            FreeCamTooltip.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.CameraSpeed.ToString();
+            FreeCamTooltip.GetComponentInChildren<Text>().text = inputManager.Inputs.inputs.CameraSpeed.ToString();
             FreeCamTooltip.SetActive(value);
         }
     }
@@ -403,7 +416,7 @@ public class UIManager : MonoBehaviourPunCallbacks
     {
         if (PingTooltip != null)
         {
-            PingTooltip.GetComponentInChildren<Text>().text = InputManager.Instance.Inputs.inputs.Ping.ToString();
+            PingTooltip.GetComponentInChildren<Text>().text = inputManager.Inputs.inputs.Ping.ToString();
             PingTooltip.SetActive(value);
         }
     }

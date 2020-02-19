@@ -22,6 +22,9 @@ public struct Inputs
     public KeyCode CameraLeft;
     public KeyCode CameraRight;
     public KeyCode CameraSpeed;
+    public KeyCode FollowCam;
+    public KeyCode TopCam;
+    public KeyCode SpecCam;
 
     public float MouseSensitivity;
     public float GeneralVolume;
