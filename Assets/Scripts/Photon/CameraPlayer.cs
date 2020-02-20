@@ -234,6 +234,14 @@ public class CameraPlayer : MonoBehaviour
         }
     }
 
+    public void UpdateElevation(Vector2 Coordinates)
+    {
+        if(actualMode == CameraMode.Targeted)
+        {
+            cameras[0].GetCinemachineComponent<CinemachineOrbitalTransposer>().m_FollowOffset = new Vector3(0, Coordinates.x, Coordinates.y);
+        }
+    }
+
 
     public void InitShakeScreen(float intensity, float duration)
     {
