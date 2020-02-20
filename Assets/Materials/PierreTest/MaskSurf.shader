@@ -10,6 +10,11 @@
 		 //[NoScaleOffset] _TexMask("Mask", 2D) = "black" {}
 
 		  [NoScaleOffset] _MetaRough("MetaRough", 2D) = "black"
+		  [NoScaleOffset] _Normal("Normal", 2D) = "black"
+
+
+		_TilingMultiplier("TilingMultiplier", Float) = 1
+		_TilingOffset("TilingOffset",Float) = 1
 	}
 		SubShader
 		  {
@@ -30,6 +35,9 @@
 			};
 
 			uniform sampler2D _MetaRough;
+			uniform sampler2D _Normal;
+			uniform float _TilingMultiplier;
+			uniform float _TilingOffset;
 			fixed4 _Color;
 
 			// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
@@ -41,12 +49,14 @@
 
 			void surf(Input IN, inout SurfaceOutputStandard o)
 			{
+				IN.uv_MainTex = _TilingMultiplier * float2(IN.uv_MainTex.x, (1 - IN.uv_MainTex.y)) +_TilingOffset;
 				// Albedo comes from a texture tinted by color
 				fixed4 c = tex2D(_MainTex, IN.uv_MainTex) * _Color;
 				o.Albedo = c.rgb;
 				// Metallic and smoothness come from slider variables
 				o.Metallic = tex2D(_MetaRough, IN.uv_MainTex).r;
-				o.Smoothness = 1.0f*tex2D(_MetaRough, IN.uv_MainTex).a;
+				o.Smoothness = 1.0f-tex2D(_MetaRough, IN.uv_MainTex).a;
+				//o.Normal = tex2D(_Normal, IN.uv_MainTex);
 			}
 			ENDCG
 		}

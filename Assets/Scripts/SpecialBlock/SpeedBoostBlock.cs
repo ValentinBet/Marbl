@@ -10,6 +10,7 @@ public class SpeedBoostBlock : MonoBehaviour
 
     public AudioClip electricSound;
     public int speedBoostPower;
+    public float speedBoostPowerStay = 1.3f;
     public float addPowerAtHighSpeed;
 
     private void OnTriggerEnter(Collider other)
@@ -19,32 +20,32 @@ public class SpeedBoostBlock : MonoBehaviour
             other.GetComponent<BallSettings>().SpawnOverchargedFx();
             audioSource.PlayOneShot(electricSound);
 
-            if (other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsMine)
-            {
-                Rigidbody rb = other.GetComponent<Rigidbody>();
-                Vector3 _newVel = rb.velocity.normalized;
-                _newVel = new Vector3(_newVel.x, 0, _newVel.z);
+            //if (other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsMine)
+            //{
+            //    Rigidbody rb = other.GetComponent<Rigidbody>();
+            //    Vector3 _newVel = rb.velocity.normalized;
+            //    _newVel = new Vector3(_newVel.x, 0, _newVel.z);
 
-                if (rb.velocity.sqrMagnitude > ((_newVel * speedBoostPower).sqrMagnitude))
-                {
-                    rb.velocity *= addPowerAtHighSpeed;
-                } else
-                {
-                    rb.velocity = _newVel * speedBoostPower;
-                }
+            //    if (rb.velocity.sqrMagnitude > ((_newVel * speedBoostPower).sqrMagnitude))
+            //    {
+            //        rb.velocity *= addPowerAtHighSpeed;
+            //    } else
+            //    {
+            //        rb.velocity = _newVel * speedBoostPower;
+            //    }
                 
-            }
+            //}
         }
     }
 
-    //private void OnTriggerStay(Collider other)
-    //{
-    //    if (other.CompareTag("Ball"))
-    //    {
-    //        if (other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsMine)
-    //        {
-    //            other.GetComponent<Rigidbody>().velocity *= 1.1f;
-    //        }
-    //    }
-    //}
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Ball"))
+        {
+            if (other.GetComponent<Rigidbody>() != null && other.GetComponent<PhotonView>().IsMine)
+            {
+                other.GetComponent<Rigidbody>().velocity *= speedBoostPowerStay;
+            }
+        }
+    }
 }

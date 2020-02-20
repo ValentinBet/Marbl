@@ -13,7 +13,7 @@ public class InputManager : MonoBehaviour
     public static InputManager Instance { get { return _instance; } }
 
     private SettingsSaves settingsSaves = new SettingsSaves();
-
+    private string SettingsFileName;
     private void Awake()
     {
         if (_instance != null && _instance != this)
@@ -24,47 +24,99 @@ public class InputManager : MonoBehaviour
         {
             _instance = this;
         }
-
+        SettingsFileName = Application.persistentDataPath + "Settings" + ".json";
         VerifySettings();
         DontDestroyOnLoad(this.gameObject);
-        InitInputs();
-    }
-
-    private void VerifySettings()
-    {
-        if (!File.Exists(Application.persistentDataPath + "Settings" + ".json"))
-        {
-            settingsSaves.GeneralVolume = 1;
-            string json = JsonUtility.ToJson(settingsSaves);
-            File.WriteAllText(Application.persistentDataPath + "Settings" + ".json", json);
-        }
-    }
-    private void InitInputs()
-    {
-        if (!Inputs.init)
-        {
-            Inputs.inputs.CameraBackward = DefaultInputs.inputs.CameraBackward;
-            Inputs.inputs.CameraForward = DefaultInputs.inputs.CameraForward;
-            Inputs.inputs.CameraLeft = DefaultInputs.inputs.CameraLeft;
-            Inputs.inputs.CameraRight = DefaultInputs.inputs.CameraRight;
-            Inputs.inputs.MouseSensitivity = DefaultInputs.inputs.MouseSensitivity;
-            Inputs.inputs.MainButton2 = DefaultInputs.inputs.MainButton2;
-            Inputs.inputs.Learderboard = DefaultInputs.inputs.Learderboard;
-
-            Inputs.init = true;
-        }
     }
 
     private void Start()
     {
-        using (StreamReader r = new StreamReader(Application.persistentDataPath + "Settings" + ".json"))
-        {
-            var dataAsJson = r.ReadToEnd();
-            settingsSaves = JsonUtility.FromJson<SettingsSaves>(dataAsJson);
-        }
-
-        Inputs.inputs.GeneralVolume = settingsSaves.GeneralVolume;
+        GetSetJsonData();
         AudioListener.volume = Inputs.inputs.GeneralVolume;
+    }
+
+    private void VerifySettings()
+    {
+        if (!File.Exists(SettingsFileName))
+        {
+            settingsSaves.AppVersion = MarblGame.APP_VERSION;
+
+            settingsSaves.MainButton1 = DefaultInputs.inputs.MainButton1;
+            settingsSaves.MainButton2 = DefaultInputs.inputs.MainButton2;
+            settingsSaves.Learderboard = DefaultInputs.inputs.Learderboard;
+            settingsSaves.Ping = DefaultInputs.inputs.Ping;
+            settingsSaves.Chat = DefaultInputs.inputs.Chat;
+            settingsSaves.CameraForward = DefaultInputs.inputs.CameraForward;
+            settingsSaves.CameraBackward = DefaultInputs.inputs.CameraBackward;
+            settingsSaves.CameraLeft = DefaultInputs.inputs.CameraLeft;
+            settingsSaves.CameraRight = DefaultInputs.inputs.CameraRight;
+            settingsSaves.CameraSpeed = DefaultInputs.inputs.CameraSpeed;
+            settingsSaves.FollowCam = DefaultInputs.inputs.FollowCam;
+            settingsSaves.TopCam = DefaultInputs.inputs.TopCam;
+            settingsSaves.SpecCam = DefaultInputs.inputs.SpecCam;
+            settingsSaves.MouseSensitivity = DefaultInputs.inputs.MouseSensitivity;
+            settingsSaves.GeneralVolume = DefaultInputs.inputs.GeneralVolume;
+
+            string json = JsonUtility.ToJson(settingsSaves);
+            File.WriteAllText(SettingsFileName, json);
+        } else
+        {
+            using (StreamReader r = new StreamReader(SettingsFileName))
+            {
+                var dataAsJson = r.ReadToEnd();
+                settingsSaves = JsonUtility.FromJson<SettingsSaves>(dataAsJson);
+            }
+
+            if (settingsSaves.AppVersion != MarblGame.APP_VERSION)
+            {
+                UpdateJsonSettingsFile();             
+            }
+        }
+    }
+
+    private void UpdateJsonSettingsFile()
+    {
+        GetSetJsonData();
+        File.Delete(SettingsFileName);
+        settingsSaves.AppVersion = MarblGame.APP_VERSION;
+
+        settingsSaves.MainButton1 = Inputs.inputs.MainButton1;
+        settingsSaves.MainButton2 = Inputs.inputs.MainButton2;
+        settingsSaves.Learderboard = Inputs.inputs.Learderboard;
+        settingsSaves.Ping = Inputs.inputs.Ping;
+        settingsSaves.Chat = Inputs.inputs.Chat;
+        settingsSaves.CameraForward = Inputs.inputs.CameraForward;
+        settingsSaves.CameraBackward = Inputs.inputs.CameraBackward;
+        settingsSaves.CameraLeft = Inputs.inputs.CameraLeft;
+        settingsSaves.CameraRight = Inputs.inputs.CameraRight;
+        settingsSaves.CameraSpeed = Inputs.inputs.CameraSpeed;
+        settingsSaves.FollowCam = Inputs.inputs.FollowCam;
+        settingsSaves.TopCam = Inputs.inputs.TopCam;
+        settingsSaves.SpecCam = Inputs.inputs.SpecCam;
+        settingsSaves.MouseSensitivity = Inputs.inputs.MouseSensitivity;
+        settingsSaves.GeneralVolume = Inputs.inputs.GeneralVolume;
+
+        string json = JsonUtility.ToJson(settingsSaves);
+        File.WriteAllText(SettingsFileName, json);
+    }
+
+    private void GetSetJsonData()
+    {
+        Inputs.inputs.MainButton1 = settingsSaves.MainButton1;
+        Inputs.inputs.MainButton2 = settingsSaves.MainButton2;
+        Inputs.inputs.Learderboard = settingsSaves.Learderboard;
+        Inputs.inputs.Ping = settingsSaves.Ping;
+        Inputs.inputs.Chat = settingsSaves.Chat;
+        Inputs.inputs.CameraForward = settingsSaves.CameraForward;
+        Inputs.inputs.CameraBackward = settingsSaves.CameraBackward;
+        Inputs.inputs.CameraLeft = settingsSaves.CameraLeft;
+        Inputs.inputs.CameraRight = settingsSaves.CameraRight;
+        Inputs.inputs.CameraSpeed = settingsSaves.CameraSpeed;
+        Inputs.inputs.FollowCam = settingsSaves.FollowCam;
+        Inputs.inputs.TopCam = settingsSaves.TopCam;
+        Inputs.inputs.SpecCam = settingsSaves.SpecCam;
+        Inputs.inputs.MouseSensitivity = settingsSaves.MouseSensitivity;
+        Inputs.inputs.GeneralVolume = settingsSaves.GeneralVolume;
     }
 
     public string GetSimplifiedKeyAsString(KeyCode key)
