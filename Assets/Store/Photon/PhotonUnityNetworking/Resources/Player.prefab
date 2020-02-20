@@ -110,7 +110,7 @@ MonoBehaviour:
   actualSelectedBall: {fileID: 0}
   actualSelectedBallSettings: {fileID: 0}
   haveShoot: 0
-  scrollSensivity: 0.1
+  scrollSensitivity: 0.1
   possibleAngles:
   - 0
   - 22
@@ -124,6 +124,9 @@ MonoBehaviour:
   cancelForce: 0.08
   dragForceMaxValue: 8.25
   mouseSensitivity: 1
+  camScrollSensitivity: 0.5
+  minimalValues: {x: 0.5, y: 1.8}
+  maximalValues: {x: 9, y: 8}
   angleIndex: 0
   isHoldingShoot: 0
   lineGradient:

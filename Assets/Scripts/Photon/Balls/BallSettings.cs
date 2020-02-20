@@ -37,6 +37,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     public float radiusExplo;
 
     public PingElement myPingElement;
+    public ShockwaveCircle shockWaveScript;
 
     private void Awake()
     {
@@ -46,6 +47,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {
         SetColor();
         lastTeam = myteam;
+        shockWaveScript.SetColor(myteam);
     }
 
     private void Update()
@@ -108,6 +110,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
         {
             SetColor();
             lastTeam = myteam;
+            shockWaveScript.SetColor(myteam);
         }
 
     }
