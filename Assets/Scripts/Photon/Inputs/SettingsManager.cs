@@ -186,20 +186,7 @@ public class SettingsManager : MonoBehaviour
     {
         SettingsSaves settingsSaves = new SettingsSaves();
 
-        settingsSaves.MainButton1 = inputManager.Inputs.inputs.MainButton1;
-        settingsSaves.MainButton2 = inputManager.Inputs.inputs.MainButton2;
-        settingsSaves.Learderboard = inputManager.Inputs.inputs.Learderboard;
-        settingsSaves.Ping = inputManager.Inputs.inputs.Ping;
-        settingsSaves.Chat = inputManager.Inputs.inputs.Chat;
-        settingsSaves.CameraForward = inputManager.Inputs.inputs.CameraForward;
-        settingsSaves.CameraBackward = inputManager.Inputs.inputs.CameraBackward;
-        settingsSaves.CameraLeft = inputManager.Inputs.inputs.CameraLeft;
-        settingsSaves.CameraRight = inputManager.Inputs.inputs.CameraRight;
-        settingsSaves.CameraSpeed = inputManager.Inputs.inputs.CameraSpeed;
-        settingsSaves.FollowCam = inputManager.Inputs.inputs.FollowCam;
-        settingsSaves.TopCam = inputManager.Inputs.inputs.TopCam;
-        settingsSaves.SpecCam = inputManager.Inputs.inputs.SpecCam;
-        settingsSaves.MouseSensitivity = inputManager.Inputs.inputs.MouseSensitivity;
+        settingsSaves = inputManager.UpdateJson();
 
         settingsSaves.GeneralVolume = generalVolumeSlider.value / 100;
         string json = JsonUtility.ToJson(settingsSaves);
