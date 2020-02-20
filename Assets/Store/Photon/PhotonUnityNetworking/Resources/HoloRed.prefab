@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1111321767898793538}
   - component: {fileID: 2179283536297486731}
+  - component: {fileID: 1252172300682964994}
   m_Layer: 0
   m_Name: PingBall
   m_TagString: Untagged
@@ -45,6 +46,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: {x: 90, y: 0, z: 0}
+--- !u!114 &1252172300682964994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139034429751585909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d430ed995f4e6e47a5d502099d300e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Socles:
+  - {fileID: 6291389026976256267}
+  BlackCircles:
+  - {fileID: 2058988542807274832}
 --- !u!1 &5995777738165022561
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +193,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myAnimator: {fileID: 1345186247}
+  pingObj: {fileID: 1252172300682964994}
+  myTeam: 0
 --- !u!95 &1345186247
 Animator:
   serializedVersion: 3
