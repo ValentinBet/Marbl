@@ -19,7 +19,7 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
     public GameObject actualSelectedBall = null;
     public BallSettings actualSelectedBallSettings;
     public bool haveShoot = false;
-    public float scrollSensivity = 0.1f;
+    public float scrollSensitivity = 0.1f;
     public float[] possibleAngles;
     public LayerMask layerClickBall;
     public float timeBeforeShoot = 1.5f;
@@ -47,9 +47,20 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
     private float dragForceMaxValue = 7;
     [SerializeField]
     private float mouseSensitivity = 1;
+    [SerializeField]
+    private float camScrollSensitivity = 0.1f;
 
+    [SerializeField]
+    private Vector2 minimalValues = new Vector2(0.5f, 1.8f);
+    [SerializeField]
+    private Vector2 maximalValues = new Vector2(9.0f, 8.0f);
+
+    private Vector2 cameraValues;
+    private CameraPlayer CP;
     public int angleIndex = 0;
     private float mouseScrollDelta;
+    private float camCoord=0.11f;
+    private float camAnimCoord=0.11f;
     public bool isHoldingShoot;
 
     private bool canShoot = true;
@@ -58,6 +69,7 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
 
     public Gradient lineGradient;
 
+
     private void Start()
     {
         player = GetComponent<LocalPlayerManager>();
@@ -65,6 +77,7 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
         photonView = GetComponent<PhotonView>();
         mainCamera = Camera.main;
         dragForceBar = UIManager.Instance.dragForceBar;
+        CP = GetComponent<CameraPlayer>();
     }
 
     void Update()
@@ -78,8 +91,11 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
 
         if (player.GetCanShoot() && !haveShoot)
         {
-            GetElevation();
             MouseDrag();
+        }
+        if (isHoldingShoot == false)
+        {
+            ElevateCamera();
         }
     }
 
@@ -158,18 +174,28 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
     private void GetElevation()
     {
         mouseScrollDelta -= Input.GetAxis("Mouse ScrollWheel");
-        if (mouseScrollDelta > scrollSensivity)
+        if (mouseScrollDelta > scrollSensitivity)
         {
             angleIndex = Mathf.Clamp(angleIndex + 1, 0, possibleAngles.Length - 1);
             mouseScrollDelta = 0;
-            //elevation = Mathf.Clamp(elevation + Input.GetAxis("Mouse ScrollWheel") * 10 * scrollSensivity, 0.0f, 45.0f);
+            //elevation = Mathf.Clamp(elevation + Input.GetAxis("Mouse ScrollWheel") * 10 * scrollSensitivity, 0.0f, 45.0f);
         }
-        if (mouseScrollDelta < -scrollSensivity)
+        if (mouseScrollDelta < -scrollSensitivity)
         {
             angleIndex = Mathf.Clamp(angleIndex - 1, 0, possibleAngles.Length - 1);
             mouseScrollDelta = 0;
         }
         elevation = possibleAngles[angleIndex];
+    }
+
+    private void ElevateCamera()
+    {
+        mouseScrollDelta = Input.GetAxis("Mouse ScrollWheel")*camScrollSensitivity;
+        camCoord = Mathf.Clamp(camCoord + mouseScrollDelta, 0, 1);
+        if (camAnimCoord != camCoord)
+            camAnimCoord = camAnimCoord + Mathf.Clamp(camCoord - camAnimCoord, -0.02f, 0.02f);
+        cameraValues = Vector2.Lerp(minimalValues, maximalValues, camAnimCoord);
+        CP.UpdateElevation(cameraValues);
     }
 
     // --->> MOUSE DRAG  --->> //
@@ -189,6 +215,7 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
 
             if (Input.GetKey(InputManager.Instance.Inputs.inputs.MainButton2) && isHoldingShoot) // HOLD
             {
+                GetElevation();
                 actualBallLineRenderer.transform.position = actualSelectedBall.transform.position;
                 dragForce += -Input.GetAxis("Mouse Y") * (InputManager.Instance.Inputs.inputs.MouseSensitivity / 4); // generate dragForce --> la limite est dragForceMaxValue;
                 dragForce = Mathf.Clamp(dragForce, 0, dragForceMaxValue);
