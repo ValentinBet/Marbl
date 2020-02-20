@@ -39,7 +39,10 @@ public class InputManager : MonoBehaviour
     {
         if (!File.Exists(SettingsFileName))
         {
+            Debug.Log("Creating config");
+
             settingsSaves.AppVersion = MarblGame.APP_VERSION;
+            settingsSaves.init = true;
 
             settingsSaves.MainButton1 = DefaultInputs.inputs.MainButton1;
             settingsSaves.MainButton2 = DefaultInputs.inputs.MainButton2;
@@ -69,15 +72,29 @@ public class InputManager : MonoBehaviour
 
             if (settingsSaves.AppVersion != MarblGame.APP_VERSION)
             {
-                UpdateJsonSettingsFile();             
+                if (settingsSaves.init)
+                {
+                    Debug.Log("Updating config version installed");
+                    UpdateJsonSettingsFile();
+                } else
+                {
+                    Debug.Log("Recreating config version");
+                    RecreateJsonFile();
+                }        
             }
         }
+    }
+
+    private void RecreateJsonFile()
+    {
+        File.Delete(SettingsFileName);
+        VerifySettings();
     }
 
     private void UpdateJsonSettingsFile()
     {
         GetSetJsonData();
-        File.Delete(SettingsFileName);
+
         settingsSaves.AppVersion = MarblGame.APP_VERSION;
 
         settingsSaves.MainButton1 = Inputs.inputs.MainButton1;

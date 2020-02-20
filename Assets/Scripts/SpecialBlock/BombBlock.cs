@@ -21,6 +21,8 @@ public class BombBlock : MonoBehaviour
     public float baseScreenShakePower = 50;
     public float screenShakeDuration = 0.2f;
 
+    [SerializeField] private Vector3 explosionOffset;
+
     public Animator animator;
 
     private bool isExploding = false;
@@ -58,7 +60,7 @@ public class BombBlock : MonoBehaviour
             {
                 if (co.GetComponent<PhotonView>().IsMine)
                 {
-                    co.GetComponent<Rigidbody>().AddExplosionForce(power, this.transform.position, radius, upForce, ForceMode.Impulse);
+                    co.GetComponent<Rigidbody>().AddExplosionForce(power, this.transform.position + explosionOffset, radius, upForce, ForceMode.Impulse);
                 }
             }
         }
@@ -81,7 +83,7 @@ public class BombBlock : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.DrawWireSphere(transform.position + explosionOffset, radius);
     }
 }
 

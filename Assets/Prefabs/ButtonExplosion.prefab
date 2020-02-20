@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 8112947325561190917}
   - component: {fileID: 8112947325562190021}
   - component: {fileID: 5730022702899240327}
-  - component: {fileID: 7582407377951743870}
+  - component: {fileID: 6898904141928714871}
   m_Layer: 0
   m_Name: Object001
   m_TagString: Untagged
@@ -412,9 +412,10 @@ MonoBehaviour:
   power: 0.375
   baseScreenShakePower: 50
   screenShakeDuration: 0.2
+  explosionOffset: {x: 0, y: 0.03, z: 0}
   animator: {fileID: 516391482121159254}
---- !u!64 &7582407377951743870
-MeshCollider:
+--- !u!136 &6898904141928714871
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -423,10 +424,10 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300002, guid: cd11cdd5adb54fd40ae5d81c272ae50d, type: 3}
+  m_Radius: 0.03
+  m_Height: 0.002
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8624278459381209060
 GameObject:
   m_ObjectHideFlags: 0
