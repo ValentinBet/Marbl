@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Photon.Pun.UtilityScripts.PunTeams;
 
 public class HoloBall : MonoBehaviour
 {
@@ -12,12 +13,25 @@ public class HoloBall : MonoBehaviour
 
     bool isDestroying = false;
 
+    public PingElement pingObj;
+
+    public Team myTeam;
+
     private void Start()
     {
         myRenderer = GetComponent<Renderer>();
         transform.rotation = Random.rotation;
 
         pv = GetComponent<PhotonView>();
+
+        if(GameModeManager.Instance.localPlayerTeam == myTeam)
+        {
+            pingObj.SetAlphaCircles(0.3f);
+        }
+        else
+        {
+            pingObj.SetAlphaCircles(1f);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
