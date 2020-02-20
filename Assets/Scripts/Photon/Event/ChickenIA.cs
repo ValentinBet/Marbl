@@ -29,7 +29,25 @@ public class ChickenIA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        /*
+        if (pv.IsMine)
+        {
+            Vector3 fwd = transform.parent.TransformDirection(Vector3.forward);
+            Vector3 down = transform.parent.TransformDirection(Vector3.down);
+            Debug.DrawRay(transform.parent.position, fwd * 0.5f + down * 0.5f, Color.green);
+            RaycastHit hit;
+
+            if (!Physics.Raycast(transform.position, fwd, out hit, 0.5f))
+            {
+                transform.parent.position = Vector3.MoveTowards(transform.parent.position, fwd * 0.5f + down * 0.5f, 0.3f * Time.deltaTime);
+                myAnimator.SetBool("IsMoving", true);
+            }
+            else
+            {
+                myAnimator.SetBool("IsMoving", false);
+            }
+        }
+        */
     }
 
     private void OnTriggerEnter(Collider other)

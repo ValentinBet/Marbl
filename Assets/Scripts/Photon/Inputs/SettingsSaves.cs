@@ -7,6 +7,7 @@ using UnityEngine;
 public class SettingsSaves
 {
     public string AppVersion;
+    public bool init;
 
     public KeyCode MainButton1;
     public KeyCode MainButton2;
