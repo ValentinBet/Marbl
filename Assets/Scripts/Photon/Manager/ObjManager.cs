@@ -243,7 +243,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
     {
         int rand = Random.Range(0, 21);
 
-        if (rand < 10)
+        if (rand <= 10)
         {
             AddObj(ObjType.Mine, 3);
             return;
@@ -255,7 +255,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
             return;
         }
 
-        if (rand > 15)
+        if (rand >= 15)
         {
             AddObj(ObjType.Shock, 1);
             return;
