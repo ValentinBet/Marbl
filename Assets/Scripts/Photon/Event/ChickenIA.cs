@@ -15,6 +15,9 @@ public class ChickenIA : MonoBehaviour
 
     public GameObject prefabParticule;
 
+    bool canMove = false;
+    bool canRestartCoroutine = true;
+
     private void Start()
     {
         Destroy(Instantiate(EggParticule, transform.position, Random.rotation), 2);
@@ -29,25 +32,52 @@ public class ChickenIA : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*
-        if (pv.IsMine)
+        if (pv.IsMine && canMove)
         {
             Vector3 fwd = transform.parent.TransformDirection(Vector3.forward);
             Vector3 down = transform.parent.TransformDirection(Vector3.down);
-            Debug.DrawRay(transform.parent.position, fwd * 0.5f + down * 0.5f, Color.green);
+            Debug.DrawRay(transform.parent.position, (fwd + down * 0.5f) * 0.9f, Color.green);
             RaycastHit hit;
 
-            if (!Physics.Raycast(transform.position, fwd, out hit, 0.5f))
+            if (Physics.Raycast(transform.position, (fwd + down * 0.5f), out hit, 0.9f))
             {
-                transform.parent.position = Vector3.MoveTowards(transform.parent.position, fwd * 0.5f + down * 0.5f, 0.3f * Time.deltaTime);
-                myAnimator.SetBool("IsMoving", true);
+                if(hit.collider.gameObject.layer == 10)
+                {
+                    transform.parent.Translate(transform.forward * Time.deltaTime * 0.25f, Space.World);
+                    myAnimator.SetBool("IsMoving", true);
+                }
+                else
+                {
+                    canMove = false;
+                    myAnimator.SetBool("IsMoving", false);
+                }
             }
             else
             {
+                canMove = false;
                 myAnimator.SetBool("IsMoving", false);
             }
         }
-        */
+
+        if(!canMove && canRestartCoroutine)
+        {
+            canRestartCoroutine = false;
+            StartCoroutine(Rotate());
+        }
+    }
+
+    IEnumerator Rotate()
+    {
+        float randomRota = Random.Range(0, 360);
+
+        yield return new WaitForSeconds(1f);
+
+        transform.parent.eulerAngles = new Vector3(0, randomRota, 0);
+
+        yield return new WaitForSeconds(1f);
+
+        canMove = true;
+        canRestartCoroutine = true;
     }
 
     private void OnTriggerEnter(Collider other)
