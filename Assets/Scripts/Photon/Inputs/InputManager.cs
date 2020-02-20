@@ -97,6 +97,13 @@ public class InputManager : MonoBehaviour
 
         settingsSaves.AppVersion = MarblGame.APP_VERSION;
 
+        UpdateJson();
+        string json = JsonUtility.ToJson(settingsSaves);
+        File.WriteAllText(SettingsFileName, json);
+    }
+
+    public SettingsSaves UpdateJson()
+    {
         settingsSaves.MainButton1 = Inputs.inputs.MainButton1;
         settingsSaves.MainButton2 = Inputs.inputs.MainButton2;
         settingsSaves.Learderboard = Inputs.inputs.Learderboard;
@@ -113,8 +120,7 @@ public class InputManager : MonoBehaviour
         settingsSaves.MouseSensitivity = Inputs.inputs.MouseSensitivity;
         settingsSaves.GeneralVolume = Inputs.inputs.GeneralVolume;
 
-        string json = JsonUtility.ToJson(settingsSaves);
-        File.WriteAllText(SettingsFileName, json);
+        return settingsSaves;
     }
 
     private void GetSetJsonData()

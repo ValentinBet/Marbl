@@ -16,6 +16,11 @@ public class PipeBlock : MonoBehaviour
     public float timeToTeleport;
     public float exitPower = 10;
     public List<GameObject> OrderedPipeEntryList = new List<GameObject>();
+
+    [SerializeField] AudioClip enterSound;
+    [SerializeField] AudioClip exitSound;
+    [SerializeField] AudioSource audioSource;
+
     private Vector3 ballEntryVelocity;
 
     public Dictionary<GameObject, PipeEntrySave> ignoredBall = new Dictionary<GameObject, PipeEntrySave>();
@@ -54,6 +59,10 @@ public class PipeBlock : MonoBehaviour
         BallSettings _Bs = ball.GetComponent<BallSettings>();
 
         // Collider touché >>
+        if (enterSound != null)
+        {
+            audioSource.PlayOneShot(enterSound);
+        }
         _Bs.isOnPipe = true;
         ballEntryVelocity = _Rb.velocity;
         ball.SetActive(false);
@@ -69,6 +78,12 @@ public class PipeBlock : MonoBehaviour
         ball.SetActive(true);
         _Bs.isOnPipe = false;
         _Rb.velocity = GetExitVelocity(ball);
+
+        if (exitSound != null)
+        {
+            audioSource.PlayOneShot(exitSound);
+        }
+
         ball = null;
     }
 
