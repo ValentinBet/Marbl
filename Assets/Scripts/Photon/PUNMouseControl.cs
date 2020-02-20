@@ -93,7 +93,7 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
             {
                 StopShoot();
                 actualSelectedBall = null;
-                ClickOnBall(hit.collider.transform.parent.gameObject);
+                ClickOnBall(hit.collider.transform.parent.gameObject); // cause we collide with "ClickBall" direct child of the marbl
                 UIManager.Instance.ResetButton();
             }
         }
@@ -113,18 +113,32 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
 
         OnBallClicked?.Invoke(target);
 
-        if (target.GetComponent<BallSettings>().myteam == PhotonNetwork.LocalPlayer.GetTeam())
+        if (target.CompareTag("Hologram"))
         {
-            if (target != null)
+            NewHologramSelected(target);
+            print("hlo");
+        }
+        else
+        {        
+            if (target.GetComponent<BallSettings>().myteam == PhotonNetwork.LocalPlayer.GetTeam())
             {
-                NewBallSelected(target);
-            }
-            else
-            {
-                lastSelected = null;
-                actualBallLineRenderer = null;
+                if (target != null)
+                {
+                    NewBallSelected(target);
+                }
+                else
+                {
+                    lastSelected = null;
+                    actualBallLineRenderer = null;
+                }
             }
         }
+    }
+
+    private void NewHologramSelected(GameObject holo)
+    {
+        UIManager.Instance.OnEndTurn();
+        UIManager.Instance.OnClickOnBall(holo);
     }
 
     public void NewBallSelected(GameObject ball)
@@ -133,6 +147,7 @@ public class PUNMouseControl : MonoBehaviourPunCallbacks
         UIManager.Instance.OnClickOnBall(ball);
         actualSelectedBall = ball;
         actualSelectedBallSettings = actualSelectedBall.GetComponent<BallSettings>();
+
         if (GetComponent<LineRenderer>() != null)
         {
             actualBallLineRenderer = GetComponent<LineRenderer>();
