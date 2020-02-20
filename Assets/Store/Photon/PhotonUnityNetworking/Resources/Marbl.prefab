@@ -58,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 93a360f95c3345c4ca870557c835de78, type: 2}
+  - {fileID: 2100000, guid: 956e6d780f800f846999d37c00c1f0d0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -193,6 +193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5381146218951952606}
   - component: {fileID: 1456950253986617140}
+  - component: {fileID: 6040705960600283587}
   m_Layer: 0
   m_Name: Shockwave
   m_TagString: Untagged
@@ -228,6 +229,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotation: {x: 0, y: 0, z: 0}
+--- !u!114 &6040705960600283587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3741190080008724992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a39a5df8782cfaa47b5a1e66620f4047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShockCircle: {fileID: 4438093083779666482}
+  ShockCircleAnimated: {fileID: 8536274061075127928}
+  red: {fileID: 2100000, guid: 93a360f95c3345c4ca870557c835de78, type: 2}
+  blue: {fileID: 2100000, guid: 7bf776f59bb735a4ab23da531ee93c1f, type: 2}
+  green: {fileID: 2100000, guid: 0fe2c45ef4c176142a182f194db6080d, type: 2}
+  yellow: {fileID: 2100000, guid: ae64515a4ddddcd43b18cc9f0e64e3a1, type: 2}
+  white: {fileID: 2100000, guid: 956e6d780f800f846999d37c00c1f0d0, type: 2}
 --- !u!1 &4288773230775089965
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +385,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 05aecb43aac532a4da47cec7972b4b31, type: 2}
+  - {fileID: 2100000, guid: 956e6d780f800f846999d37c00c1f0d0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -603,6 +623,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   radiusExplo: 1.7
   myPingElement: {fileID: 6219017500389194704}
+  shockWaveScript: {fileID: 6040705960600283587}
   shockwaveFx: {fileID: 1000012903210382, guid: 60fd7d0991b58c2419d9122afc6e03de,
     type: 3}
 --- !u!114 &4809954099735983968
@@ -994,12 +1015,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c, type: 3}
---- !u!1 &2521646396421785435 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1397402549733478, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2520404902258708285}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &2321817403421515699 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198868976632778894, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c,
@@ -1009,6 +1024,12 @@ ParticleSystem:
 --- !u!4 &2518825325736853539 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4200883865063198, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2520404902258708285}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2521646396421785435 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1397402549733478, guid: 1eb29fd5f7a8920409dcd8cec44ecb6c,
     type: 3}
   m_PrefabInstance: {fileID: 2520404902258708285}
   m_PrefabAsset: {fileID: 0}
