@@ -52,23 +52,27 @@ public class SkinManager : MonoBehaviour
 
     public void SetRed()
     {
-        marble.material.SetColor("_MarbleColor", new Color(1, 0, 0, 1));
+        marble.material.SetColor("_Color", new Color(1, 0, 0, 1));
         colorType = ColorType.Red;
+        Debug.Log("Red");
     }
     public void SetBlue()
     {
-        marble.material.SetColor("_MarbleColor", new  Color(0, 0.72f, 1, 1));
+        marble.material.SetColor("_Color", new  Color(0, 0.72f, 1, 1));
         colorType = ColorType.Blue;
+        Debug.Log("Blue");
     }
     public void SetGreen()
     {
-        marble.material.SetColor("_MarbleColor", new Color(0, 1, 0, 1));
+        marble.material.SetColor("_Color", new Color(0, 1, 0, 1));
         colorType = ColorType.Green;
+        Debug.Log("Green");
     }
     public void SetYellow()
     {
-        marble.material.SetColor("_MarbleColor", new Color(1, .88f, 0, 1));
+        marble.material.SetColor("_Color", new Color(1, .88f, 0, 1));
         colorType = ColorType.Yellow;
+        Debug.Log("Yellow");
     }
 
     public void SetNewMaterial()
