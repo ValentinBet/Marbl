@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SkinManager : MonoBehaviour
+public class SkinSetter : MonoBehaviour
 {
-    public static SkinManager instance;
+    public static SkinSetter instance;
 
     [Header("Preview")]
     [SerializeField] MeshRenderer marble;
@@ -13,9 +13,6 @@ public class SkinManager : MonoBehaviour
     Material oldMaterial;
     ColorType colorType;
 
-    [Header("PlayerInfo")]
-    [SerializeField] Sc_Skininfos playerSkinInfos;
-
     private void Awake()
     {
         if (instance == null)
@@ -23,8 +20,11 @@ public class SkinManager : MonoBehaviour
         else
             Destroy(this);
 
-        oldMaterial = playerSkinInfos.playerSkin;
-        marble.material = playerSkinInfos.playerSkin;
+        currentMaterial = Mb_SkinManager.Instance.playerSkinScriptable.allskins[Mb_SkinManager.Instance.playerSkinScriptable.skinIndex];
+   
+        oldMaterial = Mb_SkinManager.Instance.playerSkinScriptable.allskins[Mb_SkinManager.Instance.playerSkinScriptable.skinIndex];
+
+        UpdatePreview(oldMaterial);
         SetRed();
     }
 
@@ -54,38 +54,45 @@ public class SkinManager : MonoBehaviour
     {
         marble.material.SetColor("_Color", new Color(1, 0, 0, 1));
         colorType = ColorType.Red;
-        Debug.Log("Red");
     }
     public void SetBlue()
     {
         marble.material.SetColor("_Color", new  Color(0, 0.72f, 1, 1));
         colorType = ColorType.Blue;
-        Debug.Log("Blue");
     }
     public void SetGreen()
     {
         marble.material.SetColor("_Color", new Color(0, 1, 0, 1));
         colorType = ColorType.Green;
-        Debug.Log("Green");
     }
     public void SetYellow()
     {
         marble.material.SetColor("_Color", new Color(1, .88f, 0, 1));
         colorType = ColorType.Yellow;
-        Debug.Log("Yellow");
     }
 
     public void SetNewMaterial()
     {
         oldMaterial = currentMaterial;
-        playerSkinInfos.playerSkin = currentMaterial;
+        Mb_SkinManager.Instance.playerSkinScriptable.skinIndex = GetIndexOfTheSkin(currentMaterial);
     }
 
     public void Cancel()
     {
-        playerSkinInfos.playerSkin = oldMaterial;
+        Mb_SkinManager.Instance.playerSkinScriptable.skinIndex = GetIndexOfTheSkin(oldMaterial);
         UpdatePreview(oldMaterial);
         changeFeedback.Play();
+    }
+
+    int GetIndexOfTheSkin(Material skin)
+    {
+        for(int i = 0; i < Mb_SkinManager.Instance.playerSkinScriptable.allskins.Length; i++)
+        {
+            if (Mb_SkinManager.Instance.playerSkinScriptable.allskins[i] == skin)
+                return i;
+        }
+
+        return 0;
     }
 
     public enum ColorType
