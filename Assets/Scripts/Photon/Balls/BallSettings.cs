@@ -39,6 +39,8 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     public PingElement myPingElement;
     public ShockwaveCircle shockWaveScript;
 
+    public AudioClip shockwaveSound;
+
     private void Awake()
     {
         pv = this.GetComponent<PhotonView>();
@@ -223,6 +225,7 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {
         GameModeManager.Instance.localPlayerObj.GetComponent<CameraPlayer>().InitShakeScreen(50 * 0.5f, 0.2f);
         Instantiate(shockwaveFx, this.transform.position, this.transform.rotation);
+        AudioManager.Instance.PlaySoundAtPoint(shockwaveSound, transform.position);
     }
 
     private void OnDrawGizmos()

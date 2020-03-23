@@ -45,10 +45,8 @@ public class MineBlock : MonoBehaviour
     {
         isExploding = true;
 
-        if (explosion != null)
-        {
-            audioSource.PlayOneShot(explosion);
-        }
+        AudioManager.Instance.PlaySoundAtPoint(explosion, transform.position);
+
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, radius);
 
         foreach (Collider co in colliders)

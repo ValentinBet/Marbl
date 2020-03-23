@@ -17,6 +17,8 @@ public class HoloBall : MonoBehaviour
 
     public Team myTeam;
 
+    public AudioClip holoSound;
+
     private void Start()
     {
         myRenderer = GetComponent<Renderer>();
@@ -40,6 +42,7 @@ public class HoloBall : MonoBehaviour
 
         if (other.tag == "Ball")
         {
+            AudioManager.Instance.PlaySoundAtPoint(holoSound, transform.position);
             if (PhotonNetwork.IsMasterClient && !isDestroying)
             {
                 isDestroying = true;
