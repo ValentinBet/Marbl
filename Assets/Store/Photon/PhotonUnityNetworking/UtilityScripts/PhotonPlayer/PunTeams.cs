@@ -42,6 +42,7 @@ namespace Photon.Pun.UtilityScripts
 
         /// <summary>Defines the player custom property name to use for team affinity of "this" player.</summary>
         public const string TeamPlayerProp = "team";
+        public const string PlayerSkin = "skin";
 
         public const string PlayerReady = "Ready";
         public const string PlayerGift = "Gift";
@@ -147,6 +148,36 @@ namespace Photon.Pun.UtilityScripts
             if (currentTeam != team)
             {
                 player.SetCustomProperties(new Hashtable() { { PunTeams.TeamPlayerProp, (byte)team } });
+            }
+        }
+    }
+
+    /// <summary>Extension used for PunTeams and Player class. Wraps access to the player's custom property.</summary>
+    public static class SkinExtensions
+    {
+        /// <summary>Extension for Player class to wrap up access to the player's custom property.</summary>
+        /// <returns>PunTeam.Team.none if no team was found (yet).</returns>
+        public static int GetSkin(this Player player)
+        {
+            object teamId;
+            if (player.CustomProperties.TryGetValue(PunTeams.PlayerSkin, out teamId))
+            {
+                return (int)teamId;
+            }
+
+            return 0;
+        }
+
+        /// <summary>Switch that player's team to the one you assign.</summary>
+        /// <remarks>Internally checks if this player is in that team already or not. Only team switches are actually sent.</remarks>
+        /// <param name="player"></param>
+        /// <param name="skin"></param>
+        public static void SetSkin(this Player player, int skin)
+        {
+            int currentSkin = player.GetSkin();
+            if (currentSkin != skin)
+            {
+                player.SetCustomProperties(new Hashtable() { { PunTeams.PlayerSkin, (byte)skin } });
             }
         }
     }

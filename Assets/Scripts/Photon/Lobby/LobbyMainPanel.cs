@@ -114,6 +114,14 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         JoinLobbyButton.interactable = true;
         PhotonNetwork.LocalPlayer.SetTeam(MarblFactory.GetRandomTeam());
 
+        int skinIndex = 0;
+
+        if (PlayerPrefs.HasKey("Skin") == true)
+        {
+            skinIndex = PlayerPrefs.GetInt("Skin");
+        }
+
+        PhotonNetwork.LocalPlayer.SetSkin(skinIndex);
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)

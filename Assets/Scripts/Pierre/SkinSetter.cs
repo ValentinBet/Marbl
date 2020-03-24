@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using Photon.Pun.UtilityScripts;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SkinSetter : MonoBehaviour
 {
@@ -20,9 +23,16 @@ public class SkinSetter : MonoBehaviour
         else
             Destroy(this);
 
-        currentMaterial = Mb_SkinManager.Instance.playerSkinScriptable.allskins[Mb_SkinManager.Instance.playerSkinScriptable.skinIndex];
+        int skinIndex = 0;
+        
+        if (PlayerPrefs.HasKey("Skin") == true)
+        {
+            skinIndex = PlayerPrefs.GetInt("Skin");
+        }
+
+        currentMaterial = Mb_SkinManager.Instance.playerSkinScriptable.allskins[skinIndex];
    
-        oldMaterial = Mb_SkinManager.Instance.playerSkinScriptable.allskins[Mb_SkinManager.Instance.playerSkinScriptable.skinIndex];
+        oldMaterial = Mb_SkinManager.Instance.playerSkinScriptable.allskins[skinIndex];
 
         UpdatePreview(oldMaterial);
         SetRed();
@@ -48,6 +58,8 @@ public class SkinSetter : MonoBehaviour
                 break;
         }
         changeFeedback.Play();
+
+        PlayerPrefs.SetInt("Skin", GetIndexOfTheSkin(currentMaterial));
     }
 
     public void SetRed()
@@ -98,5 +110,10 @@ public class SkinSetter : MonoBehaviour
     public enum ColorType
     {
         Red, Yellow,Blue,Green
+    }
+
+    public void CloseMenu()
+    {
+        SceneManager.LoadScene("_MainMenu", LoadSceneMode.Single);
     }
 }

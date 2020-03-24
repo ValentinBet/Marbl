@@ -48,4 +48,9 @@ public class LobbyTopPanel : MonoBehaviourPunCallbacks
     public void QuitGame() {
         Application.Quit();
     }
+
+    public void OpenSkinMenu()
+    {
+        SceneManager.LoadScene("SkinMenu", LoadSceneMode.Single);
+    }
 }
