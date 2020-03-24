@@ -51,6 +51,7 @@ public class LobbyTopPanel : MonoBehaviourPunCallbacks
 
     public void OpenSkinMenu()
     {
+        PhotonNetwork.Disconnect();
         SceneManager.LoadScene("SkinMenu", LoadSceneMode.Single);
     }
 }
