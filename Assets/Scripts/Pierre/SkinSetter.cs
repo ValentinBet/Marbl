@@ -9,12 +9,15 @@ public class SkinSetter : MonoBehaviour
 {
     public static SkinSetter instance;
 
+    [SerializeField] AudioClip soundOnButton;
     [Header("Preview")]
     [SerializeField] MeshRenderer marble;
     [SerializeField] ParticleSystem changeFeedback;
     Material currentMaterial;
     Material oldMaterial;
     ColorType colorType;
+    Mb_SkinButton buttonSelectioned;
+    [SerializeField] Mb_SkinButton[] allButtons;
 
     private void Awake()
     {
@@ -34,12 +37,30 @@ public class SkinSetter : MonoBehaviour
    
         oldMaterial = Mb_SkinManager.Instance.playerSkinScriptable.allskins[skinIndex];
 
-        UpdatePreview(oldMaterial);
+        getBaseButton().UpdateFeedBack(Color.red);
+
+        buttonSelectioned = getBaseButton();
+        UpdatePreview(oldMaterial, buttonSelectioned);
+
         SetRed();
     }
 
-    public void UpdatePreview(Material newMaterial)
+    Mb_SkinButton getBaseButton()
     {
+        foreach(Mb_SkinButton buttonChecked in allButtons)
+        {
+            if (GetIndexOfTheSkin(buttonChecked.associatedMaterial) == Mb_SkinManager.Instance.playerSkinScriptable.skinIndex)
+            {
+                return buttonChecked;
+            }
+        }
+        return null;
+    }
+
+    public void UpdatePreview(Material newMaterial, Mb_SkinButton activeSkinButton)
+    {
+        buttonSelectioned.CleanOutline();
+        buttonSelectioned = activeSkinButton;
         currentMaterial = newMaterial;
         marble.material = newMaterial;
         switch (colorType)
@@ -58,42 +79,41 @@ public class SkinSetter : MonoBehaviour
                 break;
         }
         changeFeedback.Play();
-
+        AudioManager.Instance.PlayThisSound(soundOnButton, .4f);
         PlayerPrefs.SetInt("Skin", GetIndexOfTheSkin(currentMaterial));
+        oldMaterial = currentMaterial;
+        Mb_SkinManager.Instance.playerSkinScriptable.skinIndex = GetIndexOfTheSkin(currentMaterial);
     }
 
     public void SetRed()
     {
         marble.material.SetColor("_Color", new Color(1, 0, 0, 1));
         colorType = ColorType.Red;
+        buttonSelectioned.UpdateFeedBack(new Color(1, 0, 0, 1));
     }
+
     public void SetBlue()
     {
         marble.material.SetColor("_Color", new  Color(0, 0.72f, 1, 1));
         colorType = ColorType.Blue;
+        buttonSelectioned.UpdateFeedBack(new Color(0, 0.72f, 1, 1));
+
     }
+
     public void SetGreen()
     {
         marble.material.SetColor("_Color", new Color(0, 1, 0, 1));
         colorType = ColorType.Green;
+        buttonSelectioned.UpdateFeedBack(new Color(0, 1, 0, 1));
+
     }
+
     public void SetYellow()
     {
         marble.material.SetColor("_Color", new Color(1, .88f, 0, 1));
         colorType = ColorType.Yellow;
-    }
+        buttonSelectioned.UpdateFeedBack(new Color(1, .88f, 0, 1));
 
-    public void SetNewMaterial()
-    {
-        oldMaterial = currentMaterial;
-        Mb_SkinManager.Instance.playerSkinScriptable.skinIndex = GetIndexOfTheSkin(currentMaterial);
-    }
-
-    public void Cancel()
-    {
-        Mb_SkinManager.Instance.playerSkinScriptable.skinIndex = GetIndexOfTheSkin(oldMaterial);
-        UpdatePreview(oldMaterial);
-        changeFeedback.Play();
     }
 
     int GetIndexOfTheSkin(Material skin)
