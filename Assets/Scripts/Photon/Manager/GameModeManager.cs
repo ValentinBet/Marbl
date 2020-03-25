@@ -515,4 +515,20 @@ public class GameModeManager : MonoBehaviourPunCallbacks
 
         return players[Random.Range(0, players.Count)];
     }
+
+    public override void OnMasterClientSwitched(Player newMasterClient)
+    {
+        UIManager.Instance.QuitGame();
+    }
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            if(otherPlayer == playerplayed)
+            {
+                RemovePlayerTurn(otherPlayer);
+            }
+        }
+    }
 }

@@ -275,10 +275,8 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
 
     public override void OnMasterClientSwitched(Player newMasterClient)
     {
-        if (PhotonNetwork.LocalPlayer.ActorNumber == newMasterClient.ActorNumber)
-        {
-            StartGameButton.gameObject.SetActive(CheckPlayersReady());
-        }
+        OnLeaveGameButtonClicked();
+        PopupManager.Instance.DisplayPopup(popUpType.Exclamation, "Host disconnected");
     }
 
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, Hashtable changedProps)
@@ -549,5 +547,4 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
             clientPanel.SetActive(false);
         }
     }
-
 }
