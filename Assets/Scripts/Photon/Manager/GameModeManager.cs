@@ -500,4 +500,19 @@ public class GameModeManager : MonoBehaviourPunCallbacks
        Dictionary<Team, int> _temp = ScoreboardManager.Instance.GetTeamListSortedByPoints();
         return _temp.First().Key;
     }
+
+    public Player GetRandomPlayerOfTeam(Team _team)
+    {
+        List<Player> players = new List<Player>();
+
+        foreach(Player p in PhotonNetwork.PlayerList)
+        {
+            if(p.GetTeam() == _team)
+            {
+                players.Add(p);
+            }
+        }
+
+        return players[Random.Range(0, players.Count)];
+    }
 }
