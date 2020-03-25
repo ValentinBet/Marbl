@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 417762}
   - component: {fileID: 3369124}
   - component: {fileID: 2334216}
-  - component: {fileID: 6084714777381750715}
+  - component: {fileID: 2764210449876806555}
   m_Layer: 0
   m_Name: SF_Prop_Fence_Stone_01
   m_TagString: Untagged
@@ -78,17 +78,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &6084714777381750715
-MeshCollider:
+--- !u!65 &2764210449876806555
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 103974}
-  m_Material: {fileID: 13400000, guid: 6528cfd18b9efb747abbe25ad38bc1c2, type: 2}
+  m_Material: {fileID: 13400000, guid: 959a48488b2be3a4e86f1266e2844beb, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300000, guid: 549405692ce37974dad18df2fdb7e240, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 4.999998, y: 2.1019893, z: 1.1490173}
+  m_Center: {x: 2.499999, y: 1.0509946, z: -0.5011139}
