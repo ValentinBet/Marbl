@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Matrix
+  m_Name: LastSkin
   m_Shader: {fileID: 4800000, guid: 298557f8ffa8f8f4fa625586f7e3a3c3, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -20,11 +20,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 109cf42fa6abac4469fda36e8b472686, type: 3}
+        m_Texture: {fileID: 2800000, guid: f77f84c655d0e6c4b98868bb4d776406, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetaRough:
-        m_Texture: {fileID: 2800000, guid: 584dd838749e2cd4b9e495d7c40fdd94, type: 3}
+        m_Texture: {fileID: 2800000, guid: de6142f5264d5bc4f9391c9a97d8fade, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Metallic:
@@ -32,11 +32,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Motif:
-        m_Texture: {fileID: 2800000, guid: 0ff67828069570b478618eff8923f227, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0ce3c616f008a86449094bc4f14042b1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normal:
-        m_Texture: {fileID: 2800000, guid: c91e74dd49d551c41911856f86593c72, type: 3}
+        m_Texture: {fileID: 2800000, guid: de6142f5264d5bc4f9391c9a97d8fade, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -44,6 +44,6 @@ Material:
     - _TilingMultiplierMask: 1
     - _TilingOffset: 0
     m_Colors:
-    - _Color: {r: 1, g: 0, b: 0, a: 1}
+    - _Color: {r: 0, g: 0.8657887, b: 1, a: 1}
     - _DetailColor: {r: 1, g: 1, b: 1, a: 1}
     - _MarbleColor: {r: 1, g: 1, b: 1, a: 1}
