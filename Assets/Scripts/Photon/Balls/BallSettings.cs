@@ -120,15 +120,63 @@ public class BallSettings : MonoBehaviourPunCallbacks, IPunObservable
     {
         //color ball
         _mats = this.GetComponent<Renderer>().materials;
-        _mats[0] = GameModeManager.Instance.colorsMat[(int)myteam];
-        this.GetComponent<Renderer>().materials = _mats;
 
+        if(myteam == Team.neutral)
+        {
+            _mats[0] = GameModeManager.Instance.colorsMat[(int)myteam];
+            this.GetComponent<Renderer>().materials = _mats;
+        }
+        else
+        {
+            Material newMat = Mb_SkinManager.Instance.GetMaterialWithIndex(GameModeManager.Instance.GetRandomPlayerOfTeam(myteam).GetSkin());
+            _mats[0] = newMat;
+            this.GetComponent<Renderer>().materials = _mats;
+
+            switch (myteam)
+            {
+                case Team.blue:
+                    SetBlue();
+                    break;
+
+                case Team.red:
+                    SetRed();
+                    break;
+
+                case Team.green:
+                    SetGreen();
+                    break;
+
+                case Team.yellow:
+                    SetYellow();
+                    break;
+            }
+        }
 
         //color trail
         myTrail.startColor = MarblGame.GetColor((int)myteam);
 
 
         myPingElement.SetColor(MarblGame.GetColor((int)myteam));
+    }
+
+    public void SetRed()
+    {
+        GetComponent<Renderer>().material.SetColor("_Color", new Color(1, 0, 0, 1));
+    }
+
+    public void SetBlue( )
+    {
+        GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 0.72f, 1, 1));
+    }
+
+    public void SetGreen()
+    {
+        GetComponent<Renderer>().material.SetColor("_Color", new Color(0, 1, 0, 1));
+    }
+
+    public void SetYellow()
+    {
+        GetComponent<Renderer>().material.SetColor("_Color", new Color(1, .88f, 0, 1));
     }
 
     public void SpawnOverchargedFx()

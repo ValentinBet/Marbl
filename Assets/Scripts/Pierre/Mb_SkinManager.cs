@@ -21,7 +21,10 @@ public class Mb_SkinManager : MonoBehaviour
             _instance = this;
         }
         DontDestroyOnLoad(this.gameObject);
-}
+    }
 
-
+    public Material GetMaterialWithIndex(int index)
+    {
+        return playerSkinScriptable.allskins[index];
+    }
 }
