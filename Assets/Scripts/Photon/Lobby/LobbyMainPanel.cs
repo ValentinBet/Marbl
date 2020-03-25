@@ -61,6 +61,7 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
     private Dictionary<string, GameObject> roomListEntries;
     private Dictionary<Player, GameObject> playerListEntries;
 
+    public InputField myNickNameInputField;
 
     public void Awake()
     {
@@ -96,6 +97,19 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         }
     }
 
+    public void ChangeNickName()
+    {
+        if (string.IsNullOrEmpty(myNickNameInputField.text))
+        {
+            return;
+        }
+
+        PhotonNetwork.NickName = myNickNameInputField.text;
+        PopupManager.Instance.DisplayPopup(popUpType.Confirmation, "UserName changed !");
+
+        PlayerPrefs.SetString("UserName", myNickNameInputField.text);
+    }
+
     public override void OnDisconnected(DisconnectCause cause)
     {
         base.OnDisconnected(cause);
@@ -122,6 +136,21 @@ public class LobbyMainPanel : MonoBehaviourPunCallbacks
         }
 
         PhotonNetwork.LocalPlayer.SetSkin(skinIndex);
+
+
+        if (PlayerPrefs.HasKey("UserName") == true)
+        {
+            myNickNameInputField.text = PlayerPrefs.GetString("UserName");
+            PhotonNetwork.NickName = myNickNameInputField.text;
+        }
+        else
+        {
+            string playerName = "Player" + Random.Range(100, 999);
+            myNickNameInputField.text = playerName;
+            PhotonNetwork.NickName = myNickNameInputField.text;
+
+            PlayerPrefs.SetString("UserName", playerName);
+        }
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
