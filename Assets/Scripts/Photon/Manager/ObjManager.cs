@@ -5,6 +5,7 @@ using Photon.Realtime;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static Photon.Pun.UtilityScripts.PunTeams;
 
@@ -73,7 +74,7 @@ public class ObjManager : MonoBehaviourPunCallbacks
         parentButton.gameObject.SetActive(!forceCam);
 
 
-        if (IsPossing && !forceCam)
+        if (IsPossing && !forceCam && !EventSystem.current.IsPointerOverGameObject())
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
